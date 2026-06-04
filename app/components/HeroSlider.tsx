@@ -39,7 +39,7 @@ const HeroSlider = () => {
   const prevSlide = () => setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <div className="relative h-[85vh] min-h-[600px] w-full overflow-hidden bg-black mt-0">
+    <div className="relative h-[85vh] lg:h-[75vh] min-h-[600px] w-full overflow-hidden" style={{background: '#111'}}>
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -54,13 +54,13 @@ const HeroSlider = () => {
             src={slides[current].image}
             alt={slides[current].subtitle}
             fill
-            className="object-cover"
+            className="object-cover w-full h-full scale-105"
             priority
           />
         </motion.div>
       </AnimatePresence>
 
-      <div className="relative z-20 h-full flex items-center max-w-[1700px] mx-auto px-6 lg:px-12">
+      <div className="relative z-20 h-full flex items-center max-w-[1700px] mx-auto px-6 lg:px-12 pt-20 lg:pt-28">
         <div className="max-w-3xl">
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -71,7 +71,7 @@ const HeroSlider = () => {
             <h2 className="text-secondary font-bold tracking-[0.2em] uppercase text-xs md:text-sm mb-4 border-l-2 border-secondary pl-3">
               {slides[current].title}
             </h2>
-            <h1 className="text-white text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
+            <h1 className="text-white text-4xl md:text-4xl lg:text-5xl font-bold mb-6 leading-[1.1] tracking-tight">
               {slides[current].subtitle}
             </h1>
             <p className="text-gray-100 text-base md:text-lg mb-8 max-w-xl leading-relaxed opacity-90">
@@ -92,21 +92,20 @@ const HeroSlider = () => {
       {/* Navigation Controls */}
       <div className="absolute bottom-10 right-10 z-30 flex items-center gap-4">
         <div className="flex gap-2">
-            <button onClick={prevSlide} className="p-2.5 rounded-full border border-white/20 text-white hover:bg-white hover:text-black transition-all backdrop-blur-sm">
-                <ChevronLeft size={18} />
-            </button>
-            <button onClick={nextSlide} className="p-2.5 rounded-full border border-white/20 text-white hover:bg-white hover:text-black transition-all backdrop-blur-sm">
-                <ChevronRight size={18} />
-            </button>
+          <button onClick={prevSlide} className="p-2.5 rounded-full border border-white/20 text-white hover:bg-white hover:text-black transition-all backdrop-blur-sm">
+            <ChevronLeft size={18} />
+          </button>
+          <button onClick={nextSlide} className="p-2.5 rounded-full border border-white/20 text-white hover:bg-white hover:text-black transition-all backdrop-blur-sm">
+            <ChevronRight size={18} />
+          </button>
         </div>
         <div className="flex gap-2">
           {slides.map((_, idx) => (
             <button
               key={idx}
               onClick={() => setCurrent(idx)}
-              className={`h-1.5 rounded-full transition-all duration-300 ${
-                current === idx ? "w-8 bg-secondary" : "w-2 bg-white/40"
-              }`}
+              className={`h-1.5 rounded-full transition-all duration-300 ${current === idx ? "w-8 bg-secondary" : "w-2 bg-white/40"
+                }`}
             />
           ))}
         </div>
