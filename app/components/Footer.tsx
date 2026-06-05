@@ -15,18 +15,18 @@ const Footer = () => {
               <div className="relative h-14 w-14 bg-white p-2 rounded-lg shadow-xl">
                 <Image
                   src="/logo.webp"
-                  alt="Egypt Global Silicates"
+                  alt="Kiran Global Chems"
                   fill
                   className="object-contain p-1"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold leading-none uppercase tracking-tighter">EGYPT GLOBAL</span>
-                <span className="text-[10px] tracking-[0.3em] text-[#f9b115] uppercase font-bold">SILICATES</span>
+                <span className="text-xl font-bold leading-none uppercase tracking-tighter">KIRAN GLOBAL</span>
+                <span className="text-[10px] tracking-[0.3em] text-[#f9b115] uppercase font-bold">CHEMS PVT LTD</span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed opacity-90 font-medium">
-              Egypt Global Silicates is one of the world’s largest and most advanced producers of Sodium Silicate and Potassium Silicate, in both liquid and glass/lump forms. Our fully automated furnace-based production ensures consistent quality, high purity, and scalable output.
+              Kiran Global Chems Pvt Ltd is a premier manufacturer of industrial silicates, dedicated to delivering high-purity Sodium and Potassium silicates. Our state-of-the-art facilities and commitment to innovation ensure top-tier solutions for global industries.
             </p>
             <div className="flex space-x-3">
               {[
@@ -106,21 +106,21 @@ const Footer = () => {
                         <MapPin className="text-[#f9b115] group-hover:text-white" size={20} />
                     </div>
                     <div className="text-xs">
-                        <span className="block font-bold text-white mb-1 uppercase tracking-tight">Factory Address</span>
-                        <span className="text-gray-400 leading-relaxed block">Plot no.311-312, Attaka Industrial Area, SUEZ-43221, Egypt</span>
+                        <span className="block font-bold text-white mb-1 uppercase tracking-tight">Main Office</span>
+                        <span className="text-gray-400 leading-relaxed block">Chennai, Tamil Nadu, India</span>
                     </div>
                 </div>
                 <div className="flex items-center gap-4 group">
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
                         <Mail className="text-[#f9b115] group-hover:text-white" size={20} />
                     </div>
-                    <a href="mailto:samy@globalsilicates.com" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-widest">samy@globalsilicates.com</a>
+                    <a href="mailto:info@kiranglobal.com" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-widest">info@kiranglobal.com</a>
                 </div>
                 <div className="flex items-center gap-4 group">
                     <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
                         <Phone className="text-[#f9b115] group-hover:text-white" size={20} />
                     </div>
-                    <a href="tel:+201110015595" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-widest">+20 11100 15595</a>
+                    <a href="tel:+917358600595" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-widest">+91 73586 00595</a>
                 </div>
             </div>
           </div>
@@ -128,7 +128,7 @@ const Footer = () => {
 
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-[10px] uppercase font-bold tracking-[0.2em] text-center md:text-left">
-            ©2025 | Egypt Global Silicates | All rights Reserved | Designed by iStudio Technologies
+            ©2025 | Kiran Global Chems Pvt Ltd | All rights Reserved | Designed by iStudio Technologies
           </p>
           <div className="flex gap-10 text-[10px] text-gray-500 uppercase font-black tracking-widest">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>

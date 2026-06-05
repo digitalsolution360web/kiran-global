@@ -3,10 +3,15 @@ import Navbar from "./components/Navbar";
 import HeroSlider from "./components/HeroSlider";
 import AboutSection from "./components/AboutSection";
 import ProductsSection from "./components/ProductsSection";
+import WhyChooseUsSection from "./components/WhyChooseUsSection";
 import IndustriesSection from "./components/IndustriesSection";
+import VisionMissionSection from "./components/VisionMissionSection";
+import LeadershipSection from "./components/LeadershipSection";
+import SustainabilitySection from "./components/SustainabilitySection";
 import CertificationsSection from "./components/CertificationsSection";
 import TestimonialsSection from "./components/TestimonialsSection";
 import BlogsSection from "./components/BlogsSection";
+import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
 
 export default function Home() {
@@ -16,10 +21,15 @@ export default function Home() {
       <HeroSlider />
       <AboutSection />
       <ProductsSection />
+      <WhyChooseUsSection />
       <IndustriesSection />
+      <VisionMissionSection />
+      <LeadershipSection />
+      <SustainabilitySection />
       <CertificationsSection />
       <TestimonialsSection />
       <BlogsSection />
+      <FAQSection />
       <Footer />
     </main>
   );

@@ -70,18 +70,18 @@ const Navbar = () => {
               <div className="w-[1px] h-3 bg-white/10" />
               <div className="flex items-center gap-6">
                 <a
-                  href="tel:+201110015595"
+                  href="tel:+917358600595"
                   className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 uppercase tracking-widest"
                 >
                   <Phone size={12} className="text-secondary" />
-                  +20 11100 15595
+                  +91 73586 00595
                 </a>
                 <a
-                  href="mailto:samy@globalsilicates.com"
+                  href="mailto:info@kiranglobal.com"
                   className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 uppercase tracking-widest"
                 >
                   <Mail size={12} className="text-secondary" />
-                  samy@globalsilicates.com
+                  info@kiranglobal.com
                 </a>
               </div>
             </div>
@@ -125,7 +125,7 @@ const Navbar = () => {
                 >
                   <Image
                     src="/logo.webp"
-                    alt="Egypt Global Silicates"
+                    alt="Kiran Global Chems"
                     fill
                     className="object-contain p-1"
                     priority
@@ -136,13 +136,13 @@ const Navbar = () => {
                     className={`text-xl lg:text-xl font-black leading-none tracking-tighter uppercase transition-colors duration-300 ${scrolled ? "text-primary" : "text-white"
                       }`}
                   >
-                    EGYPT GLOBAL
+                    KIRAN GLOBAL
                   </span>
                   <span
                     className={`text-[9px] font-black tracking-[0.4em] uppercase mt-1 transition-colors duration-300 ${scrolled ? "text-gray-400" : "text-white/60"
                       }`}
                   >
-                    SILICATES
+                    CHEMS PVT LTD
                   </span>
                 </div>
               </Link>
@@ -241,8 +241,8 @@ const Navbar = () => {
                 <Image src="/logo.webp" alt="Logo" fill className="object-contain p-1" />
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-black text-white uppercase leading-none tracking-tighter">Egypt Global</span>
-                <span className="text-[9px] font-black text-secondary tracking-[0.2em] uppercase mt-1">Silicates</span>
+                <span className="text-base font-black text-white uppercase leading-none tracking-tighter">Kiran Global</span>
+                <span className="text-[9px] font-black text-secondary tracking-[0.2em] uppercase mt-1">Chems Pvt Ltd</span>
               </div>
             </Link>
 
@@ -313,11 +313,11 @@ const Navbar = () => {
             <div className="grid grid-cols-2 gap-2 mb-6">
               <div>
                 <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-2">Call us</p>
-                <a href="tel:+201110015595" className="text-white font-bold text-sm hover:text-secondary transition-colors">+20 11100 15595</a>
+                <a href="tel:+917358600595" className="text-white font-bold text-sm hover:text-secondary transition-colors">+91 73586 00595</a>
               </div>
               <div>
                 <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-2">Email</p>
-                <a href="mailto:samy@globalsilicates.com" className="text-white font-bold text-[11px] hover:text-secondary transition-colors break-all">samy@globalsilicates.com</a>
+                <a href="mailto:info@kiranglobal.com" className="text-white font-bold text-[11px] hover:text-secondary transition-colors break-all">info@kiranglobal.com</a>
               </div>
             </div>
             <Link
