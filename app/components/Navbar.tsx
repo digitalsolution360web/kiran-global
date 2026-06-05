@@ -58,12 +58,12 @@ const Navbar = () => {
         <div
           className={`border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden hidden xl:block ${scrolled
             ? "h-0 opacity-0 bg-dark/95"
-            : "h-11 opacity-100 bg-black/30 backdrop-blur-sm"
+            : "h-11 opacity-100 bg-black/40 backdrop-blur-md"
             }`}
         >
           <div className="max-w-[1700px] mx-auto px-12 h-full flex justify-between items-center">
             <div className="flex items-center gap-8">
-              <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400 uppercase tracking-widest">
+              <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400  tracking-widest">
                 <Clock size={12} className="text-secondary" />
                 <span>EST: Sat - Thu (08:00 - 17:00)</span>
               </div>
@@ -71,14 +71,14 @@ const Navbar = () => {
               <div className="flex items-center gap-6">
                 <a
                   href="tel:+917358600595"
-                  className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 uppercase tracking-widest"
+                  className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 tracking-widest [text-shadow:_0_1px_4px_rgb(0_0_0_/_50%)]"
                 >
                   <Phone size={12} className="text-secondary" />
                   +91 73586 00595
                 </a>
                 <a
                   href="mailto:info@kiranglobal.com"
-                  className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 uppercase tracking-widest"
+                  className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 tracking-widest [text-shadow:_0_1px_4px_rgb(0_0_0_/_50%)]"
                 >
                   <Mail size={12} className="text-secondary" />
                   info@kiranglobal.com
@@ -100,7 +100,7 @@ const Navbar = () => {
                   </svg>
                 </a>
               </div>
-              <button className="flex items-center gap-2 text-[10px] font-black text-white hover:text-secondary transition-all uppercase tracking-[0.2em]">
+              <button className="flex items-center gap-2 text-[10px] font-black text-white hover:text-secondary transition-all  tracking-[0.2em]">
                 <Globe size={12} className="text-secondary" />
                 English
               </button>
@@ -110,9 +110,9 @@ const Navbar = () => {
 
         {/* Main Nav */}
         <nav
-          className={`w-full transition-all duration-300 ${scrolled
+          className={`w-full transition-all duration-500 ${scrolled
             ? "bg-white/95 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] py-3 border-b border-gray-100"
-            : "bg-transparent py-5"
+            : "bg-black/20 backdrop-blur-sm py-5 shadow-lg"
             }`}
         >
           <div className="max-w-[1700px] mx-auto px-6 lg:px-12 flex justify-between items-center h-16">
@@ -133,13 +133,13 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className={`text-xl lg:text-xl font-black leading-none tracking-tighter uppercase transition-colors duration-300 ${scrolled ? "text-primary" : "text-white"
+                    className={`text-xl lg:text-xl font-black leading-none tracking-tighter transition-colors duration-300 ${scrolled ? "text-primary" : "text-white [text-shadow:_0_1px_10px_rgb(0_0_0_/_40%)]"
                       }`}
                   >
                     KIRAN GLOBAL
                   </span>
                   <span
-                    className={`text-[9px] font-black tracking-[0.4em] uppercase mt-1 transition-colors duration-300 ${scrolled ? "text-gray-400" : "text-white/60"
+                    className={`text-[9px] font-black tracking-[0.4em] mt-1 transition-colors duration-300 ${scrolled ? "text-gray-400" : "text-white/80 [text-shadow:_0_1px_5px_rgb(0_0_0_/_40%)]"
                       }`}
                   >
                     CHEMS PVT LTD
@@ -159,7 +159,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={link.href}
-                    className={`text-sm font-bold uppercase tracking-[0.05em] transition-all duration-300 flex items-center gap-1.5 ${scrolled ? "text-dark" : "text-white"
+                    className={`text-md font-bold tracking-[0.05em] transition-all duration-300 flex items-center gap-1.5 ${scrolled ? "text-dark" : "text-white [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]"
                       } hover:text-secondary`}
                   >
                     {link.name}
@@ -185,7 +185,7 @@ const Navbar = () => {
                 </div>
               ))}
               <div className="flex items-center gap-8 ml-6 pl-6 border-l border-gray-200/20">
-                <button className={`hover:text-secondary transition-colors duration-500 ${scrolled ? "text-dark" : "text-white"}`}>
+                <button className={`hover:text-secondary transition-colors duration-500 ${scrolled ? "text-dark" : "text-white [filter:drop-shadow(0_2px_8px_rgba(0,0,0,0.5))]"}`}>
                   <Search size={22} />
                 </button>
                 <Link
@@ -228,12 +228,10 @@ const Navbar = () => {
           : "opacity-0 pointer-events-none bg-black/0 backdrop-blur-none"
           }`}
       >
-        <div 
-          className={`flex flex-col h-full bg-gradient-to-b from-[#0f172a] to-slate-900 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            isOpen ? "translate-y-0 scale-100 opacity-100" : "-translate-y-12 scale-95 opacity-0"
-          }`}
+        <div
+          className={`flex flex-col h-full bg-gradient-to-b from-[#0f172a] to-slate-900 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "translate-y-0 scale-100 opacity-100" : "-translate-y-12 scale-95 opacity-0"
+            }`}
         >
-
           {/* Top Bar inside Menu */}
           <div className="flex justify-between items-center px-6 h-20 border-b border-white/5">
             <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
@@ -257,7 +255,7 @@ const Navbar = () => {
           <div className="flex-1 overflow-y-auto px-8 py-8 flex flex-col justify-start mt-6">
             {/* Nav Links */}
             <nav className="flex flex-col gap-6">
-              {navLinks.map((link, idx) => (
+              {navLinks.map((link) => (
                 <div key={link.name} className="flex flex-col">
                   <div className="flex items-center justify-between group">
                     <Link
@@ -265,7 +263,6 @@ const Navbar = () => {
                       onClick={() => setIsOpen(false)}
                       className="flex items-center flex-1 gap-4 py-1"
                     >
-                      <span className="text-[10px] text-secondary/50 font-mono font-bold tracking-widest"></span>
                       <span className="text-base font-bold uppercase text-white group-hover:text-secondary group-hover:translate-x-1 transition-all duration-300 tracking-wide">
                         {link.name}
                       </span>

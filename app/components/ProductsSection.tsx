@@ -16,12 +16,12 @@ const products = [
     description: "Specialized liquid silicate solutions designed for construction, detergents, paper, and water treatment industries."
   },
   {
-    image: "/new35.webp",
+    image: "/Sodium Silicate Lumps.webp",
     name: "Potassium Silicate Lumps",
     description: "High-purity potassium silicate offering exceptional stability and performance across industrial applications."
   },
   {
-    image: "/new36.webp",
+    image: "/potassium-silicate-liquid.webp",
     name: "Potassium Silicate Liquid",
     description: "Advanced liquid formulations engineered for agriculture, coatings, and specialty chemical manufacturing."
   },
@@ -47,12 +47,12 @@ const ProductsSection = () => {
             </h2>
           </div>
           <div>
-             <button className="group flex items-center gap-4 text-white hover:text-blue-400 font-bold text-sm uppercase tracking-widest transition-all">
-                <span>View All Products</span>
-                <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-blue-400 group-hover:bg-blue-400/10 transition-all">
-                   <ArrowRight size={18} />
-                </div>
-             </button>
+            <button className="group flex items-center gap-4 text-white hover:text-blue-400 font-bold text-sm uppercase tracking-widest transition-all">
+              <span>View All Products</span>
+              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-blue-400 group-hover:bg-blue-400/10 transition-all">
+                <ArrowRight size={18} />
+              </div>
+            </button>
           </div>
         </div>
 
@@ -66,27 +66,27 @@ const ProductsSection = () => {
               transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="group relative h-[120px] md:h-[180px] w-full rounded-[2rem] overflow-hidden flex items-center justify-between px-8 md:px-16 cursor-pointer border border-white/5 bg-white/5 hover:bg-white/10 transition-all duration-500"
             >
-                {/* Background Image Reveal */}
-                <div className="absolute inset-0 z-0 scale-100 opacity-0 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700 pointer-events-none">
-                    <Image src={product.image} alt={product.name} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
-                </div>
+              {/* Background Image Reveal */}
+              <div className="absolute inset-0 z-0 scale-100 opacity-0 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700 pointer-events-none">
+                <Image src={product.image} alt={product.name} fill className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+              </div>
 
-                <div className="relative z-10 flex items-center gap-8 md:gap-16 w-full">
-                    <span className="text-blue-500 font-bold text-2xl md:text-3xl opacity-50 font-mono tracking-tighter">0{idx + 1}</span>
-                    <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight group-hover:translate-x-4 transition-transform duration-500 w-1/3 min-w-[200px]">
-                        {product.name}
-                    </h3>
-                    <p className="text-gray-400 max-w-xl font-light hidden lg:block opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-500">
-                        {product.description}
-                    </p>
+              <div className="relative z-10 flex items-center gap-8 md:gap-16 w-full">
+                <span className="text-blue-500 font-bold text-2xl md:text-3xl opacity-50 font-mono tracking-tighter">0{idx + 1}</span>
+                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight group-hover:translate-x-4 transition-transform duration-500 w-1/3 min-w-[200px]">
+                  {product.name}
+                </h3>
+                <p className="text-gray-400 max-w-xl font-light hidden lg:block opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                  {product.description}
+                </p>
+              </div>
+
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-500 shadow-xl">
+                  <ArrowRight />
                 </div>
-                
-                <div className="relative z-10">
-                    <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-500 shadow-xl">
-                        <ArrowRight />
-                    </div>
-                </div>
+              </div>
             </motion.div>
           ))}
         </div>

@@ -21,8 +21,8 @@ const Footer = () => {
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold leading-none uppercase tracking-tighter">KIRAN GLOBAL</span>
-                <span className="text-[10px] tracking-[0.3em] text-[#f9b115] uppercase font-bold">CHEMS PVT LTD</span>
+                <span className="text-xl font-bold leading-none  tracking-tighter">KIRAN GLOBAL</span>
+                <span className="text-[10px] tracking-[0.3em] text-[#f9b115]  font-bold">CHEMS PVT LTD</span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed opacity-90 font-medium">
@@ -34,9 +34,9 @@ const Footer = () => {
                 { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>, href: "#" },
                 { icon: <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>, href: "#" }
               ].map((social, idx) => (
-                <a 
-                  key={idx} 
-                  href={social.href} 
+                <a
+                  key={idx}
+                  href={social.href}
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#0a4da2] hover:scale-110 transition-all duration-300 border border-white/5"
                 >
                   {social.icon}
@@ -47,7 +47,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="lg:pl-10">
-            <h4 className="text-sm font-bold mb-8 text-white uppercase tracking-widest relative inline-block">
+            <h4 className="text-sm font-bold mb-8 text-white  tracking-widest relative inline-block">
               Quick Links
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#f9b115]"></span>
             </h4>
@@ -62,7 +62,7 @@ const Footer = () => {
                 { name: "Contact Us", href: "/contact" },
               ].map((link) => (
                 <li key={link.name}>
-                  <Link href={link.href} className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-2 group">
+                  <Link href={link.href} className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold  tracking-wider flex items-center gap-2 group">
                     <span className="w-1.5 h-[1px] bg-gray-600 group-hover:w-3 group-hover:bg-[#f9b115] transition-all"></span>
                     {link.name}
                   </Link>
@@ -73,7 +73,7 @@ const Footer = () => {
 
           {/* Products Column */}
           <div>
-            <h4 className="text-sm font-bold mb-8 text-white uppercase tracking-widest relative inline-block">
+            <h4 className="text-sm font-bold mb-8 text-white  tracking-widest relative inline-block">
               Our Products
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#f9b115]"></span>
             </h4>
@@ -85,7 +85,7 @@ const Footer = () => {
                 "Potassium Silicate Liquid"
               ].map((item) => (
                 <li key={item}>
-                  <Link href="/products" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-wider flex items-center gap-2 group">
+                  <Link href="/products" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold  tracking-wider flex items-center gap-2 group">
                     <span className="w-1.5 h-[1px] bg-gray-600 group-hover:w-3 group-hover:bg-[#f9b115] transition-all"></span>
                     {item}
                   </Link>
@@ -96,41 +96,41 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-sm font-bold mb-8 text-white uppercase tracking-widest relative inline-block">
+            <h4 className="text-sm font-bold mb-8 text-white  tracking-widest relative inline-block">
               Reach Us
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#f9b115]"></span>
             </h4>
             <div className="space-y-6">
-                <div className="flex gap-4 group">
-                    <div className="bg-white/5 p-3 rounded-lg h-fit border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
-                        <MapPin className="text-[#f9b115] group-hover:text-white" size={20} />
-                    </div>
-                    <div className="text-xs">
-                        <span className="block font-bold text-white mb-1 uppercase tracking-tight">Main Office</span>
-                        <span className="text-gray-400 leading-relaxed block">Chennai, Tamil Nadu, India</span>
-                    </div>
+              <div className="flex gap-4 group">
+                <div className="bg-white/5 p-3 rounded-lg h-fit border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
+                  <MapPin className="text-[#f9b115] group-hover:text-white" size={20} />
                 </div>
-                <div className="flex items-center gap-4 group">
-                    <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
-                        <Mail className="text-[#f9b115] group-hover:text-white" size={20} />
-                    </div>
-                    <a href="mailto:info@kiranglobal.com" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-widest">info@kiranglobal.com</a>
+                <div className="text-xs">
+                  <span className="block font-bold text-white mb-1  tracking-tight">Main Office</span>
+                  <span className="text-gray-400 leading-relaxed block">Chennai, Tamil Nadu, India</span>
                 </div>
-                <div className="flex items-center gap-4 group">
-                    <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
-                        <Phone className="text-[#f9b115] group-hover:text-white" size={20} />
-                    </div>
-                    <a href="tel:+917358600595" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold uppercase tracking-widest">+91 73586 00595</a>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
+                  <Mail className="text-[#f9b115] group-hover:text-white" size={20} />
                 </div>
+                <a href="mailto:info@kiranglobal.com" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold  tracking-widest">info@kiranglobal.com</a>
+              </div>
+              <div className="flex items-center gap-4 group">
+                <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
+                  <Phone className="text-[#f9b115] group-hover:text-white" size={20} />
+                </div>
+                <a href="tel:+917358600595" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold tracking-widest">+91 73586 00595</a>
+              </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-[10px] uppercase font-bold tracking-[0.2em] text-center md:text-left">
+          <p className="text-gray-500 text-[10px]  font-bold tracking-[0.2em] text-center md:text-left">
             ©2025 | Kiran Global Chems Pvt Ltd | All rights Reserved | Designed by iStudio Technologies
           </p>
-          <div className="flex gap-10 text-[10px] text-gray-500 uppercase font-black tracking-widest">
+          <div className="flex gap-10 text-[10px] text-gray-500  font-black tracking-widest">
             <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>

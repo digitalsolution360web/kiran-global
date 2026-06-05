@@ -6,7 +6,7 @@ import { ChevronRight, ArrowUpRight } from "lucide-react";
 
 const slides = [
   {
-    image: "/new20.webp",
+    image: "/banner.webp",
     title: "India's Leading Sodium & Potassium Silicate Manufacturer",
     subtitle: "Trusted Since 1979 | 32+ Manufacturing Units | Global Presence",
     content: "Delivering innovative, sustainable, and high-performance chemical solutions for industries worldwide.",
@@ -55,7 +55,7 @@ const HeroSlider = () => {
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0 z-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/20 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/60 z-10" />
           <Image
             src={slides[current].image}
             alt={slides[current].subtitle}
@@ -80,7 +80,7 @@ const HeroSlider = () => {
                   exit={{ y: -40, opacity: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <h1 className="text-white text-2xl md:text-5xl lg:text-4xl font-black mb-6 leading-[1.05] tracking-tighter max-w-4xl uppercase">
+                  <h1 className="text-white text-2xl md:text-5xl lg:text-4xl font-black mb-6 leading-[1.05] tracking-tighter max-w-4xl ">
                     {slides[current].title}
                   </h1>
                   <div className="flex items-center gap-4 mb-8">
@@ -93,10 +93,10 @@ const HeroSlider = () => {
                     {slides[current].content}
                   </p>
                   <div className="flex flex-wrap gap-4">
-                    <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-10 py-5 font-black text-[11px] uppercase tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/20">
+                    <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-10 py-5 font-black text-[11px] tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/20">
                       Explore Solutions <ArrowUpRight size={18} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </button>
-                    <button className="bg-white/5 backdrop-blur-2xl border border-white/10 text-white hover:bg-white hover:text-black rounded-2xl px-10 py-5 font-black text-[11px] uppercase tracking-[0.2em] transition-all">
+                    <button className="bg-white/5 backdrop-blur-2xl border border-white/10 text-white hover:bg-white hover:text-black rounded-2xl px-10 py-5 font-bold text-[15px]  transition-all">
                       Consult Team
                     </button>
                   </div>
@@ -107,14 +107,14 @@ const HeroSlider = () => {
             {/* Glassmorphism Control Panel */}
             <div className="lg:col-span-4 bg-white/[0.03] backdrop-blur-3xl border border-white/10 rounded-[3rem] p-10 hidden md:flex flex-col justify-between min-h-[340px] shadow-2xl">
               <div>
-                <span className="text-white/30 text-[10px] font-black uppercase tracking-[0.2em] block mb-6">Industrial Precision</span>
+                <span className="text-white/30 text-[10px] font-black tracking-[0.2em] block mb-6">Industrial Precision</span>
                 <AnimatePresence mode="wait">
                   <motion.div
                     key={`high-${current}`}
                     initial={{ opacity: 0, x: 20 }}
                     animate={{ opacity: 1, x: 0 }}
                     exit={{ opacity: 0, x: -20 }}
-                    className="text-white text-2xl lg:text-3xl font-black tracking-tighter uppercase leading-tight"
+                    className="text-white text-2xl lg:text-3xl font-black tracking-tighter leading-tight"
                   >
                     {slides[current].highlight}
                   </motion.div>
