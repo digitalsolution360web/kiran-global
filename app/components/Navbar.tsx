@@ -57,8 +57,8 @@ const Navbar = () => {
         {/* Top Bar – desktop only */}
         <div
           className={`border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden hidden xl:block ${scrolled
-            ? "h-0 opacity-0 bg-dark/95"
-            : "h-11 opacity-100 bg-black/40 backdrop-blur-md"
+            ? "h-0 opacity-0"
+            : "h-11 opacity-100 bg-primary"
             }`}
         >
           <div className="max-w-[1700px] mx-auto px-12 h-full flex justify-between items-center">
@@ -71,14 +71,14 @@ const Navbar = () => {
               <div className="flex items-center gap-6">
                 <a
                   href="tel:+917358600595"
-                  className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 tracking-widest [text-shadow:_0_1px_4px_rgb(0_0_0_/_50%)]"
+                  className="text-[10px] font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-widest"
                 >
                   <Phone size={12} className="text-secondary" />
                   +91 73586 00595
                 </a>
                 <a
                   href="mailto:info@kiranglobal.com"
-                  className="text-[10px] font-bold text-white/80 hover:text-secondary transition-all flex items-center gap-2 tracking-widest [text-shadow:_0_1px_4px_rgb(0_0_0_/_50%)]"
+                  className="text-[10px] font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-widest"
                 >
                   <Mail size={12} className="text-secondary" />
                   info@kiranglobal.com
@@ -111,8 +111,8 @@ const Navbar = () => {
         {/* Main Nav */}
         <nav
           className={`w-full transition-all duration-500 ${scrolled
-            ? "bg-white/95 backdrop-blur-2xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] py-3 border-b border-gray-100"
-            : "bg-black/20 backdrop-blur-sm py-5 shadow-lg"
+            ? "bg-white/95 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] py-3 border-b border-gray-100"
+            : "bg-white py-4 shadow-xl border-b border-gray-200/50"
             }`}
         >
           <div className="max-w-[1700px] mx-auto px-6 lg:px-12 flex justify-between items-center h-16">
@@ -133,14 +133,12 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className={`text-xl lg:text-xl font-black leading-none tracking-tighter transition-colors duration-300 ${scrolled ? "text-primary" : "text-white [text-shadow:_0_1px_10px_rgb(0_0_0_/_40%)]"
-                      }`}
+                    className={`text-xl lg:text-xl font-black leading-none tracking-tighter transition-colors duration-300 text-primary`}
                   >
                     KIRAN GLOBAL
                   </span>
                   <span
-                    className={`text-[9px] font-black tracking-[0.4em] mt-1 transition-colors duration-300 ${scrolled ? "text-gray-400" : "text-white/80 [text-shadow:_0_1px_5px_rgb(0_0_0_/_40%)]"
-                      }`}
+                    className={`text-[9px] font-black tracking-[0.4em] mt-1 transition-colors duration-300 text-gray-500`}
                   >
                     CHEMS PVT LTD
                   </span>
@@ -159,8 +157,7 @@ const Navbar = () => {
                 >
                   <Link
                     href={link.href}
-                    className={`text-md font-bold tracking-[0.05em] transition-all duration-300 flex items-center gap-1.5 ${scrolled ? "text-dark" : "text-white [text-shadow:_0_2px_10px_rgb(0_0_0_/_50%)]"
-                      } hover:text-secondary`}
+                    className={`text-md font-bold tracking-[0.05em] transition-all duration-300 flex items-center gap-1.5 text-gray-800 hover:text-primary`}
                   >
                     {link.name}
                     {link.submenu && (
@@ -184,8 +181,8 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              <div className="flex items-center gap-8 ml-6 pl-6 border-l border-gray-200/20">
-                <button className={`hover:text-secondary transition-colors duration-500 ${scrolled ? "text-dark" : "text-white [filter:drop-shadow(0_2px_8px_rgba(0,0,0,0.5))]"}`}>
+              <div className="flex items-center gap-8 ml-6 pl-6 border-l border-gray-200/50">
+                <button className={`hover:text-primary transition-colors duration-500 text-gray-800`}>
                   <Search size={22} />
                 </button>
                 <Link
@@ -204,7 +201,7 @@ const Navbar = () => {
             {/* Mobile Hamburger Button */}
             <div className="xl:hidden flex items-center gap-3 relative z-[110]">
               <button
-                className={`p-2.5 rounded-xl transition-all duration-300 ${scrolled || isOpen ? "text-primary bg-primary/10" : "text-white bg-white/10"
+                className={`p-2.5 rounded-xl transition-all duration-300 ${isOpen ? "text-primary bg-primary/10" : "text-gray-800 bg-gray-100/50"
                   }`}
               >
                 <Search size={20} />
@@ -212,7 +209,7 @@ const Navbar = () => {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
-                className={`p-2.5 rounded-xl transition-all duration-300 active:scale-95 ${scrolled && !isOpen ? 'text-primary bg-primary/10' : 'text-white'}`}
+                className={`p-2.5 rounded-xl transition-all duration-300 active:scale-95 ${!isOpen ? 'text-gray-800' : 'text-primary'}`}
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </button>

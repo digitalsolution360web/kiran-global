@@ -30,6 +30,10 @@ const products = [
 const ProductsSection = () => {
   return (
     <section className="py-32 bg-[#0a0a0a] relative overflow-hidden" id="products">
+      {/* Background Decorative Elements */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] -translate-y-1/2 translate-x-1/2" />
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
+
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
           <div className="max-w-4xl">
@@ -42,21 +46,21 @@ const ProductsSection = () => {
               <Box size={14} className="text-white" />
               <span>Our Portfolio</span>
             </motion.div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white tracking-tight leading-[1.2]">
-              High-Performance Chemical Solutions
+            <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight leading-[1.1]">
+              High-Performance <span className="text-primary italic">Chemical</span> Solutions
             </h2>
           </div>
           <div>
-            <button className="group flex items-center gap-4 text-white hover:text-blue-400 font-bold text-sm uppercase tracking-widest transition-all">
+            <button className="group flex items-center gap-4 text-white hover:text-primary font-bold text-sm uppercase tracking-widest transition-all">
               <span>View All Products</span>
-              <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:border-blue-400 group-hover:bg-blue-400/10 transition-all">
-                <ArrowRight size={18} />
+              <div className="w-14 h-14 rounded-full border border-white/20 flex items-center justify-center group-hover:border-primary group-hover:bg-primary transition-all">
+                <ArrowRight size={20} />
               </div>
             </button>
           </div>
         </div>
 
-        <div className="flex flex-col space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, idx) => (
             <motion.div
               key={idx}
@@ -64,27 +68,47 @@ const ProductsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-              className="group relative h-[120px] md:h-[180px] w-full rounded-[2rem] overflow-hidden flex items-center justify-between px-8 md:px-16 cursor-pointer border border-white/5 bg-white/5 hover:bg-white/10 transition-all duration-500"
+              className="group flex flex-col bg-[#111] rounded-[2.5rem] overflow-hidden border border-white/5 hover:border-primary/30 transition-all duration-500 shadow-2xl hover:shadow-primary/5"
             >
-              {/* Background Image Reveal */}
-              <div className="absolute inset-0 z-0 scale-100 opacity-0 group-hover:scale-105 group-hover:opacity-60 transition-all duration-700 pointer-events-none">
-                <Image src={product.image} alt={product.name} fill className="object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-r from-black via-black/80 to-transparent" />
+              {/* Product Image */}
+              <div className="relative h-72 w-full overflow-hidden">
+                <Image 
+                  src={product.image} 
+                  alt={product.name} 
+                  fill 
+                  className="object-cover transition-transform duration-700 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#111] via-[#111]/20 to-transparent" />
+                
+                {/* Float Tag */}
+                <div className="absolute top-6 left-6 px-4 py-1.5 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-[10px] font-bold text-white uppercase tracking-widest">
+                  Industrial Grade
+                </div>
               </div>
 
-              <div className="relative z-10 flex items-center gap-8 md:gap-16 w-full">
-                <span className="text-blue-500 font-bold text-2xl md:text-3xl opacity-50 font-mono tracking-tighter">0{idx + 1}</span>
-                <h3 className="text-lg md:text-xl lg:text-2xl font-semibold text-white tracking-tight group-hover:translate-x-4 transition-transform duration-500 w-1/3 min-w-[200px]">
+              {/* Product Info */}
+              <div className="p-8 flex-1 flex flex-col">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="text-primary font-black text-2xl font-mono opacity-50">0{idx + 1}</span>
+                  <div className="h-[1px] flex-1 bg-white/10" />
+                </div>
+                
+                <h3 className="text-xl md:text-2xl font-bold text-white mb-4 group-hover:text-primary transition-colors leading-tight">
                   {product.name}
                 </h3>
-                <p className="text-gray-400 max-w-xl font-light hidden lg:block opacity-0 group-hover:opacity-100 transform -translate-x-4 group-hover:translate-x-0 transition-all duration-500">
+                
+                <p className="text-gray-400 text-sm leading-relaxed mb-8 opacity-80 group-hover:opacity-100 transition-opacity">
                   {product.description}
                 </p>
-              </div>
 
-              <div className="relative z-10">
-                <div className="w-16 h-16 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-500 shadow-xl">
-                  <ArrowRight />
+                <div className="mt-auto pt-4 flex items-center justify-between border-t border-white/5 group-hover:border-primary/20 transition-all">
+                  <div className="flex items-center gap-2 text-white/60 font-bold text-[10px] uppercase tracking-widest group-hover:text-white transition-colors">
+                    <span>Learn More</span>
+                    <ArrowRight size={14} className="text-primary translate-x-0 group-hover:translate-x-2 transition-transform" />
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white/20 group-hover:bg-primary group-hover:text-white transition-all">
+                    <ArrowRight size={18} />
+                  </div>
                 </div>
               </div>
             </motion.div>

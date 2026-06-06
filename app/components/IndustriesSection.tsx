@@ -60,16 +60,20 @@ const IndustriesSection = () => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/60 to-transparent opacity-90 transition-opacity group-hover:opacity-100" />
               
-              <div className="absolute bottom-0 left-0 w-full p-8">
-                <span className="block text-blue-400 font-bold text-sm mb-3 uppercase tracking-widest bg-blue-500/10 inline-block px-3 py-1 rounded-full backdrop-blur-sm border border-blue-500/20">
-                  Sector 0{idx + 1}
-                </span>
-                <h3 className="text-2xl font-bold text-white mb-3 tracking-tight group-hover:text-blue-300 transition-colors">
-                  {item.name}
-                </h3>
-                <p className="text-gray-300 text-base leading-relaxed opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
-                  {item.description}
-                </p>
+              <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
+                <div className="transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">
+                  <span className="text-blue-400 font-bold text-xs mb-3 uppercase tracking-widest bg-blue-500/10 inline-block px-3 py-1 rounded-full backdrop-blur-sm border border-blue-500/20 w-max">
+                    Sector 0{idx + 1}
+                  </span>
+                  <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-blue-300 transition-colors">
+                    {item.name}
+                  </h3>
+                  <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500 ease-in-out">
+                    <p className="text-gray-300 text-sm leading-relaxed opacity-0 group-hover:opacity-100 overflow-hidden pt-3">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}
