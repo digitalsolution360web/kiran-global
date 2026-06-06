@@ -75,18 +75,18 @@ const AboutSection = () => {
               </span>
             </h2>
 
-            <div className="space-y-5 text-gray-600 text-base md:text-lg leading-relaxed mb-10 max-w-xl">
+            <div className="space-y-5 text-gray-800 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-bold">
               <p>
                 Kiran Global Chems Limited is one of India's largest manufacturers of Sodium Silicate and Potassium Silicate solutions. Established in 1979, the company has grown from a single manufacturing unit into a globally recognized chemical enterprise serving customers across multiple continents.
               </p>
-              <div className="pl-5 border-l-4 border-blue-600">
-                <p className="text-gray-800 font-medium text-base italic">
+              <div className="pl-6 border-l-4 border-blue-600 bg-blue-50/50 p-4 rounded-r-2xl">
+                <p className="text-blue-900 font-black text-lg italic leading-relaxed">
                   "Our commitment to quality, innovation, and sustainability enables us to deliver reliable chemical solutions for diverse industrial applications."
                 </p>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10 mt-12">
               {[
                 "45+ Years of Industry Experience",
                 "Global Manufacturing Presence",
@@ -96,12 +96,12 @@ const AboutSection = () => {
                 <motion.div 
                   key={index} 
                   whileHover={{ x: 5 }}
-                  className="flex items-start gap-4 group cursor-default"
+                  className="flex items-start gap-5 group cursor-default"
                 >
-                  <div className="flex-shrink-0 w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
-                    <CheckCircle2 size={16} strokeWidth={3} />
+                  <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-blue-200">
+                    <CheckCircle2 size={20} strokeWidth={3} />
                   </div>
-                  <span className="font-bold text-gray-800 text-base leading-tight pt-1">{text}</span>
+                  <span className="font-extrabold text-gray-900 text-lg leading-tight pt-1.5">{text}</span>
                 </motion.div>
               ))}
             </div>

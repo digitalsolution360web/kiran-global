@@ -2,112 +2,192 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ShieldCheck, Zap, Cog, Globe, Leaf, Users } from "lucide-react";
+import { CheckCircle2, Heart, BadgeCheck, Star } from "lucide-react";
 
-const features = [
-  { title: "Industry Leadership", icon: ShieldCheck, desc: "One of India's largest manufacturers.", colSpan: "md:col-span-2", bg: "bg-blue-600", text: "text-white" },
-  { title: "Advanced Manufacturing", icon: Cog, desc: "State-of-the-art facilities.", colSpan: "md:col-span-1", bg: "bg-gray-100", text: "text-gray-900" },
-  { title: "Quality Assurance", icon: Zap, desc: "Strict quality control procedures.", colSpan: "md:col-span-1", bg: "bg-gray-900", text: "text-white" },
-  { title: "Global Supply Chain", icon: Globe, desc: "Efficient logistics network.", colSpan: "md:col-span-2", bg: "bg-blue-50", text: "text-gray-900" },
-  { title: "Sustainable Practices", icon: Leaf, desc: "Eco-friendly operations.", colSpan: "md:col-span-1", bg: "bg-emerald-500", text: "text-white" },
-  { title: "Technical Expertise", icon: Users, desc: "Dedicated chemical engineers.", colSpan: "md:col-span-2", bg: "bg-gray-100", text: "text-gray-900" }
+const products = [
+  "Sodium Silicate Liquid",
+  "Sodium Silicate Solid",
+  "Potassium Silicate Liquid",
+  "Potassium Silicate Solid",
+  "Sodium Meta Silicate",
+  "Colloidal Silica",
+  "Silica Gel",
+  "Alkaline Sodium Silicate",
 ];
 
-const stats = [
-  { value: "1979", label: "Year Est." },
-  { value: "32+", label: "Plants" },
-  { value: "7+", label: "Intl. Ports" },
-  { value: "1000+", label: "Employees" },
-  { value: "300K+", label: "Capacity" },
+const trustPoints = [
+  {
+    icon: Heart,
+    title: "Legacy of Trust",
+    desc: "With over 45 years of experience in the sodium & potassium silicate industry, we have built a strong foundation of trust and reliability across India and beyond.",
+    bg: "bg-white",
+    iconBg: "bg-blue-900",
+    textColor: "text-gray-700",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Certified",
+    desc: "Our operations are ISO-certified, ensuring consistent quality, safety, and performance in every product we manufacture.",
+    bg: "bg-white",
+    iconBg: "bg-blue-900",
+    textColor: "text-gray-700",
+  },
+  {
+    icon: Star,
+    title: "Commitment to Quality",
+    desc: "Every batch undergoes rigorous quality checks to ensure our customers receive only the best. Our dedication to quality drives long-term partnerships.",
+    bg: "bg-blue-950",
+    iconBg: "bg-white/10",
+    textColor: "text-gray-200",
+  },
 ];
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="py-24 bg-[#f4f7f9] relative overflow-hidden" id="why-choose-us">
-      <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
-        
-        <div className="text-center mb-20 max-w-3xl mx-auto">
+    <section className="py-0 bg-white relative overflow-hidden" id="why-choose-us">
+      <div className="max-w-[1700px] mx-auto relative">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
+
+          {/* ── LEFT PANEL ── */}
+          <div className="py-20 px-8 lg:px-16 flex flex-col justify-center">
+
+            {/* Label */}
             <motion.div
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 text-blue-700 font-bold text-xs mb-6 uppercase tracking-widest border border-blue-100"
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-4"
             >
-                <ShieldCheck size={14} />
-                <span>Why Choose Us</span>
+              <span className="text-xs font-bold uppercase tracking-[0.3em] text-blue-900">
+                WHY US
+              </span>
+              <span className="w-10 h-[2px] bg-blue-900 inline-block" />
             </motion.div>
-            <motion.h2 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight leading-[1.2]"
+
+            {/* Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight"
             >
-                Excellence Through Innovation
+              Why Choose Us
             </motion.h2>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            
-            {/* Bento Features Grid */}
-            <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-3 gap-6">
-               {features.map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <motion.div 
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: idx * 0.1, duration: 0.6 }}
-                        className={`${item.colSpan} ${item.bg} ${item.text} p-8 rounded-[2rem] flex flex-col justify-between hover:scale-[1.02] transition-transform duration-300 shadow-sm`}
-                    >
-                        <div className="mb-8">
-                            <Icon size={32} opacity={0.8} />
-                        </div>
-                        <div>
-                            <h4 className="text-xl font-bold mb-2 leading-tight">{item.title}</h4>
-                            <p className="opacity-80 text-sm font-medium">{item.desc}</p>
-                        </div>
-                    </motion.div>
-                  )
-               })}
-            </div>
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="text-gray-700 text-base md:text-lg leading-relaxed mb-10 max-w-lg font-bold opacity-100"
+            >
+              At Kiran Global Chems, we combine decades of industry expertise
+              with cutting-edge manufacturing technology to deliver superior
+              quality silicate solutions tailored to a wide range of industrial
+              applications. Here&apos;s why clients choose us.
+            </motion.p>
 
-            {/* Huge Image & Stats Bento Piece */}
-            <div className="lg:col-span-5 flex flex-col gap-6">
-                <motion.div 
-                    initial={{ opacity: 0, x: 50 }}
+            {/* Products Checklist */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="grid grid-cols-2 gap-x-6 gap-y-3 mb-10"
+            >
+              {products.map((p, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0">
+                    <CheckCircle2 size={14} className="text-cyan-600" />
+                  </div>
+                  <span className="text-sm font-bold text-gray-800">{p}</span>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* Trust Points */}
+            <div className="flex flex-col gap-4">
+              {trustPoints.map((tp, i) => {
+                const Icon = tp.icon;
+                return (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0, x: -20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="flex-1 rounded-[2rem] overflow-hidden relative group min-h-[400px]"
-                >
-                    <Image src="/new6.webp" alt="Why Choose Us" fill className="object-cover group-hover:scale-105 transition-transform duration-1000" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 to-transparent flex flex-col justify-end p-10">
-                        <h3 className="text-white text-3xl font-black leading-tight">Global Footprint, <br/><span className="text-blue-400">Local Precision.</span></h3>
+                    transition={{ delay: 0.25 + i * 0.1 }}
+                    className={`${tp.bg} flex items-center gap-5 p-5 rounded-2xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300`}
+                  >
+                    <div className={`${tp.iconBg} w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0`}>
+                      <Icon size={24} className={i === 2 ? "text-white" : "text-white"} />
                     </div>
-                </motion.div>
-
-                <motion.div 
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="bg-gray-900 rounded-[2rem] p-8"
-                >
-                    <div className="flex flex-wrap justify-between gap-6">
-                        {stats.map((stat, idx) => (
-                           <div key={idx} className="flex-1 min-w-[100px]">
-                              <span className="block text-3xl font-black text-white mb-1">{stat.value}</span>
-                              <span className="text-[10px] text-gray-400 uppercase font-bold tracking-widest block">
-                                {stat.label}
-                              </span>
-                           </div>
-                        ))}
+                    <div>
+                      <h4 className={`font-black text-sm mb-1 uppercase tracking-wider ${i === 2 ? "text-white" : "text-gray-900"}`}>
+                        {tp.title}
+                      </h4>
+                      <p className={`text-xs leading-relaxed font-medium ${tp.textColor}`}>
+                        {tp.desc}
+                      </p>
                     </div>
-                </motion.div>
+                  </motion.div>
+                );
+              })}
             </div>
+          </div>
+
+          {/* ── RIGHT PANEL ── */}
+          <div className="relative min-h-[500px] lg:min-h-full overflow-hidden flex">
+            {/* Main Image */}
+            <div className="relative flex-1">
+              <Image
+                src="/new6.webp"
+                alt="Kiran Global Chems Products"
+                fill
+                className="object-cover"
+              />
+              {/* Gradient overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-white/20 via-transparent to-transparent" />
+            </div>
+
+            {/* Vertical Branding Banner - Exact Match to Screenshot */}
+            <div className="w-16 bg-[#1e293b] flex flex-col items-center justify-center relative overflow-hidden backdrop-blur-md">
+              {/* Decorative accent */}
+              <div className="absolute top-0 left-0 w-1 h-24 bg-cyan-400" />
+              <div className="absolute bottom-0 right-0 w-1 h-24 bg-cyan-400" />
+              
+              <span
+                className="text-white font-bold text-[13px] tracking-[0.5em] uppercase whitespace-nowrap opacity-90"
+                style={{ 
+                  writingMode: "vertical-rl", 
+                  transform: "rotate(180deg)",
+                }}
+              >
+                KIRAN GLOBAL CHEMS PVT. LTD.
+              </span>
+            </div>
+
+            {/* Floating Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="absolute bottom-8 left-8 bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl px-6 py-4 border border-white/60"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-xl bg-blue-900 flex items-center justify-center">
+                  <BadgeCheck size={22} className="text-white" />
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">ISO Certified</p>
+                  <p className="text-lg font-black text-gray-900">45+ Years</p>
+                  <p className="text-xs text-gray-500">of Industry Excellence</p>
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
         </div>
       </div>

@@ -34,19 +34,17 @@ const GlobalNetwork = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="relative"
+          className="relative w-full"
         >
-          <div className="relative aspect-[21/9] w-full">
+          <div className="relative aspect-[21/9] w-full min-h-[300px]">
             <Image
               src="/global-netword.webp"
               alt="Kiran Global Network Map"
               fill
-              className="object-contain p-4 lg:p-12 hover:scale-[1.02] transition-transform duration-1000"
+              className="object-contain"
+              priority
             />
           </div>
-
-          {/* Subtle Decorative Elements */}
-          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-blue-500/5 to-transparent pointer-events-none" />
         </motion.div>
       </div>
     </section>

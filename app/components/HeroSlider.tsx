@@ -39,7 +39,7 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <div className="relative h-[calc(90vh-100px)] min-h-[700px] w-full overflow-hidden bg-black mt-[130px]">
+    <div className="relative h-[calc(90vh-100px)] min-h-[700px] w-full overflow-hidden bg-black mt-[100px]">
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
@@ -49,12 +49,12 @@ const HeroSlider = () => {
           transition={{ duration: 1.5, ease: "easeInOut" }}
           className="absolute inset-0 z-0"
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-black/50 z-10" />
           <Image
             src={slides[current].image}
             alt={slides[current].subtitle}
             fill
-            className="object-cover w-full h-full"
+            className="object-cover w-full h-full opacity-80"
             priority
           />
         </motion.div>
@@ -73,24 +73,24 @@ const HeroSlider = () => {
                   exit={{ y: -40, opacity: 0 }}
                   transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                 >
-                  <h1 className="text-white text-3xl md:text-5xl lg:text-[50px] font-black mb-8 leading-[1.05] tracking-tight [text-shadow:_0_4px_24px_rgba(0,0,0,0.8)]">
+                  <h1 className="text-white text-3xl md:text-5xl lg:text-[40px] font-bold mb-8 leading-[1.1] tracking-tight [text-shadow:_0_8px_30px_rgba(0,0,0,1)]">
                     {slides[current].title}
                   </h1>
                   <div className="flex items-center gap-4 mb-8">
-                    <div className="w-12 h-[2px] bg-secondary" />
-                    <p className="text-blue-400 font-black text-xs md:text-sm uppercase tracking-[0.4em] [text-shadow:_0_2px_10px_rgba(0,0,0,0.5)]">
+                    <div className="w-16 h-[3px] bg-blue-500" />
+                    <p className="text-blue-300 font-black text-sm md:text-base uppercase tracking-[0.5em] [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">
                       {slides[current].subtitle}
                     </p>
                   </div>
-                  <p className="text-gray-100 text-base md:text-xl max-w-2xl font-medium leading-relaxed mb-12 [text-shadow:_0_2px_15px_rgba(0,0,0,0.8)] opacity-90">
+                  <p className="text-white text-lg md:text-2xl max-w-2xl font-bold leading-relaxed mb-12 [text-shadow:_0_4px_20px_rgba(0,0,0,1)] opacity-100">
                     {slides[current].content}
                   </p>
                   <div className="flex flex-wrap gap-6">
                     <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-12 py-5 font-black text-[12px] tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/30">
-                      Explore Solutions <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      Explore Products <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </button>
                     <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black rounded-2xl px-12 py-5 font-bold text-[16px] transition-all shadow-xl">
-                      Consult Team
+                      Contact Us
                     </button>
                   </div>
                 </motion.div>
