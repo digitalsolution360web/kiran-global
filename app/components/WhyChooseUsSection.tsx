@@ -23,7 +23,7 @@ const stats = [
 
 const WhyChooseUsSection = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="why-choose-us">
+    <section className="py-24 bg-[#f4f7f9] relative overflow-hidden" id="why-choose-us">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
         
         <div className="text-center mb-20 max-w-3xl mx-auto">

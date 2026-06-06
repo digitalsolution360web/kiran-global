@@ -5,6 +5,8 @@ import AboutSection from "./components/AboutSection";
 import ProductsSection from "./components/ProductsSection";
 import WhyChooseUsSection from "./components/WhyChooseUsSection";
 import IndustriesSection from "./components/IndustriesSection";
+import InfrastructureGallery from "./components/InfrastructureGallery";
+import GlobalNetwork from "./components/GlobalNetwork";
 import VisionMissionSection from "./components/VisionMissionSection";
 import LeadershipSection from "./components/LeadershipSection";
 import SustainabilitySection from "./components/SustainabilitySection";
@@ -22,7 +24,9 @@ export default function Home() {
       <AboutSection />
       <ProductsSection />
       <WhyChooseUsSection />
+      <InfrastructureGallery />
       <IndustriesSection />
+      <GlobalNetwork />
       <VisionMissionSection />
       <LeadershipSection />
       <SustainabilitySection />
