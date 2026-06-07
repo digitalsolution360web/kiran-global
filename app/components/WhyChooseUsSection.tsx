@@ -81,7 +81,7 @@ const WhyChooseUsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.15 }}
-              className="text-gray-700 text-base md:text-lg leading-relaxed mb-10 max-w-lg font-bold opacity-100"
+              className="text-gray-700 text-base md:text-lg leading-relaxed mb-10 max-w-lg font-medium opacity-100"
             >
               At Kiran Global Chems, we combine decades of industry expertise
               with cutting-edge manufacturing technology to deliver superior
@@ -102,7 +102,7 @@ const WhyChooseUsSection = () => {
                   <div className="w-6 h-6 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 size={14} className="text-cyan-600" />
                   </div>
-                  <span className="text-sm font-bold text-gray-800">{p}</span>
+                  <span className="text-sm font-semibold text-gray-800">{p}</span>
                 </div>
               ))}
             </motion.div>
@@ -124,7 +124,7 @@ const WhyChooseUsSection = () => {
                       <Icon size={24} className={i === 2 ? "text-white" : "text-white"} />
                     </div>
                     <div>
-                      <h4 className={`font-black text-sm mb-1 uppercase tracking-wider ${i === 2 ? "text-white" : "text-gray-900"}`}>
+                      <h4 className={`font-bold text-sm mb-1 uppercase tracking-wider ${i === 2 ? "text-white" : "text-gray-900"}`}>
                         {tp.title}
                       </h4>
                       <p className={`text-xs leading-relaxed font-medium ${tp.textColor}`}>
@@ -182,7 +182,7 @@ const WhyChooseUsSection = () => {
                 </div>
                 <div>
                   <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">ISO Certified</p>
-                  <p className="text-lg font-black text-gray-900">45+ Years</p>
+                  <p className="text-lg font-bold text-gray-900">45+ Years</p>
                   <p className="text-xs text-gray-500">of Industry Excellence</p>
                 </div>
               </div>

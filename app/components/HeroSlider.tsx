@@ -78,15 +78,15 @@ const HeroSlider = () => {
                   </h1>
                   <div className="flex items-center gap-4 mb-8">
                     <div className="w-16 h-[3px] bg-blue-500" />
-                    <p className="text-blue-300 font-black text-sm md:text-base uppercase tracking-[0.5em] [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">
+                    <p className="text-blue-300 font-bold text-sm md:text-base uppercase tracking-[0.5em] [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">
                       {slides[current].subtitle}
                     </p>
                   </div>
-                  <p className="text-white text-lg md:text-2xl max-w-2xl font-bold leading-relaxed mb-12 [text-shadow:_0_4px_20px_rgba(0,0,0,1)] opacity-100">
+                  <p className="text-white text-lg md:text-2xl max-w-2xl font-medium leading-relaxed mb-12 [text-shadow:_0_4px_20px_rgba(0,0,0,1)] opacity-100">
                     {slides[current].content}
                   </p>
                   <div className="flex flex-wrap gap-6">
-                    <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-12 py-5 font-black text-[12px] tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/30">
+                    <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-12 py-5 font-bold text-[12px] tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/30">
                       Explore Products <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </button>
                     <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black rounded-2xl px-12 py-5 font-bold text-[16px] transition-all shadow-xl">

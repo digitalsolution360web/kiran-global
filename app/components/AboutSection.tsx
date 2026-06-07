@@ -49,7 +49,7 @@ const AboutSection = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 p-8 rounded-[2rem] shadow-2xl z-30 text-center w-48 h-48 flex flex-col items-center justify-center border-4 border-white"
             >
-                <span className="text-4xl font-black text-white leading-none mb-1">1979</span>
+                <span className="text-4xl font-bold text-white leading-none mb-1">1979</span>
                 <span className="block w-8 h-1 bg-white/30 my-2 rounded-full" />
                 <span className="text-white/90 font-bold uppercase tracking-widest text-xs">Est. Year</span>
             </motion.div>
@@ -75,12 +75,12 @@ const AboutSection = () => {
               </span>
             </h2>
 
-            <div className="space-y-5 text-gray-800 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-bold">
+            <div className="space-y-5 text-gray-700 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-medium">
               <p>
                 Kiran Global Chems Limited is one of India's largest manufacturers of Sodium Silicate and Potassium Silicate solutions. Established in 1979, the company has grown from a single manufacturing unit into a globally recognized chemical enterprise serving customers across multiple continents.
               </p>
               <div className="pl-6 border-l-4 border-blue-600 bg-blue-50/50 p-4 rounded-r-2xl">
-                <p className="text-blue-900 font-black text-lg italic leading-relaxed">
+                <p className="text-blue-900 font-bold text-lg italic leading-relaxed">
                   "Our commitment to quality, innovation, and sustainability enables us to deliver reliable chemical solutions for diverse industrial applications."
                 </p>
               </div>
@@ -101,7 +101,7 @@ const AboutSection = () => {
                   <div className="flex-shrink-0 w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 shadow-sm border border-blue-200">
                     <CheckCircle2 size={20} strokeWidth={3} />
                   </div>
-                  <span className="font-extrabold text-gray-900 text-lg leading-tight pt-1.5">{text}</span>
+                  <span className="font-bold text-gray-800 text-lg leading-tight pt-1.5">{text}</span>
                 </motion.div>
               ))}
             </div>

@@ -133,12 +133,12 @@ const Navbar = () => {
                 </div>
                 <div className="flex flex-col">
                   <span
-                    className={`text-xl lg:text-xl font-black leading-none tracking-tighter transition-colors duration-300 text-primary`}
+                    className={`text-xl lg:text-xl font-bold leading-none tracking-tighter transition-colors duration-300 text-primary`}
                   >
                     KIRAN GLOBAL
                   </span>
                   <span
-                    className={`text-[9px] font-black tracking-[0.4em] mt-1 transition-colors duration-300 text-gray-500`}
+                    className={`text-[9px] font-bold tracking-[0.4em] mt-1 transition-colors duration-300 text-gray-500`}
                   >
                     CHEMS PVT LTD
                   </span>
@@ -187,7 +187,7 @@ const Navbar = () => {
                 </button>
                 <Link
                   href="/contact"
-                  className="relative px-10 py-4 bg-primary text-white rounded-xl text-[11px] font-black uppercase tracking-[0.2em] overflow-hidden group/btn shadow-[0_15px_30px_rgba(10,77,162,0.3)] transition-all duration-500"
+                  className="relative px-10 py-4 bg-primary text-white rounded-xl text-[11px] font-bold uppercase tracking-[0.2em] overflow-hidden group/btn shadow-[0_15px_30px_rgba(10,77,162,0.3)] transition-all duration-500"
                 >
                   <div className="absolute inset-0 bg-secondary translate-x-[-101%] group-hover/btn:translate-x-0 transition-transform duration-700" />
                   <span className="relative z-10 flex items-center gap-2">
@@ -236,8 +236,8 @@ const Navbar = () => {
                 <Image src="/logo.webp" alt="Logo" fill className="object-contain p-1" />
               </div>
               <div className="flex flex-col">
-                <span className="text-base font-black text-white uppercase leading-none tracking-tighter">Kiran Global</span>
-                <span className="text-[9px] font-black text-secondary tracking-[0.2em] uppercase mt-1">Chems Pvt Ltd</span>
+                <span className="text-base font-bold text-white uppercase leading-none tracking-tighter">Kiran Global</span>
+                <span className="text-[9px] font-bold text-secondary tracking-[0.2em] uppercase mt-1">Chems Pvt Ltd</span>
               </div>
             </Link>
 
@@ -317,7 +317,7 @@ const Navbar = () => {
             <Link
               href="/contact"
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-blue-700 text-white py-4 rounded-xl font-black uppercase tracking-[0.2em] text-xs shadow-xl transition-all active:scale-95"
+              className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-blue-700 text-white py-4 rounded-xl font-bold uppercase tracking-[0.2em] text-xs shadow-xl transition-all active:scale-95"
             >
               <Mail size={16} />
               Inquiry Center

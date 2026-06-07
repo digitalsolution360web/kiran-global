@@ -53,7 +53,7 @@ const TestimonialsSection = () => {
 
   useEffect(() => {
     if (isPaused) return;
-    const interval = setInterval(next, 4000);
+    const interval = setInterval(next, 3000);
     return () => clearInterval(interval);
   }, [isPaused]);
 
@@ -85,14 +85,14 @@ const TestimonialsSection = () => {
               className="inline-flex items-center gap-1 mb-4  bg-white/5 px-4 py-2 rounded-full border border-white/10"
             >
               <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-              <span className="text-xs font-black uppercase tracking-[0.4em] text-cyan-400">Client Feedback</span>
+              <span className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-400">Client Feedback</span>
             </motion.div>
 
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl lg:text-5xl font-black text-white leading-[1.2] mb-4"
+              className="text-3xl lg:text-5xl font-bold text-white leading-[1.2] mb-4"
             >
               Our Clients' <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-cyan-400">Success Stories</span>
             </motion.h2>
@@ -122,7 +122,7 @@ const TestimonialsSection = () => {
               </button>
 
               <div className="ml-6 flex items-center gap-3">
-                <span className="text-2xl font-black text-white">{String(currentIndex + 1).padStart(2, '0')}</span>
+                <span className="text-2xl font-bold text-white">{String(currentIndex + 1).padStart(2, '0')}</span>
                 <div className="w-12 h-[2px] bg-white/10 relative">
                   <motion.div
                     className="absolute inset-0 bg-cyan-500"
@@ -161,7 +161,7 @@ const TestimonialsSection = () => {
                         {/* Rating */}
                         <div className="flex gap-1 mb-6">
                           {[...Array(5)].map((_, i) => (
-                            <Star key={i} size={16} className="text-cyan-500 fill-cyan-500" />
+                            <Star key={i} size={16} className="text-amber-400 fill-amber-400" />
                           ))}
                         </div>
 
@@ -172,12 +172,12 @@ const TestimonialsSection = () => {
 
                         {/* Author Info */}
                         <div className="flex items-center gap-5 border-t border-white/10 pt-8">
-                          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl font-black shadow-lg">
+                          <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl font-bold shadow-lg">
                             {t.name.charAt(0)}
                           </div>
                           <div>
-                            <h4 className="text-white text-lg font-black tracking-tight leading-none">{t.name}</h4>
-                            <p className="text-cyan-500 text-[10px] font-black uppercase tracking-[0.2em] mt-2">{t.company}</p>
+                            <h4 className="text-white text-lg font-bold tracking-tight leading-none">{t.name}</h4>
+                            <p className="text-cyan-500 text-[10px] font-bold uppercase tracking-[0.2em] mt-2">{t.company}</p>
                           </div>
                         </div>
                       </div>

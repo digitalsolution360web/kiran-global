@@ -83,7 +83,7 @@ const IndustriesSection = () => {
 
   return (
     <section
-      className="py-24 bg-blue-100 relative overflow-hidden"
+      className="py-24 bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] relative overflow-hidden"
       id="industries"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -97,12 +97,12 @@ const IndustriesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <p className="text-xs font-bold uppercase tracking-[0.3em] text-blue-700 mb-3 flex items-center gap-2">
-              <span className="w-8 h-[2px] bg-blue-700 inline-block" />
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700 mb-2 flex items-center gap-2">
+              <span className="w-8 h-[1px] bg-blue-700 inline-block" />
               Industries We Serve
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Our Core Industries
+              Our Industrial <span className="italic text-blue-800">Reach</span>
             </h2>
           </motion.div>
 
@@ -111,18 +111,16 @@ const IndustriesSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             href="#contact"
-            className="inline-flex items-center gap-2 bg-blue-900 hover:bg-blue-800 text-white font-semibold text-sm px-6 py-3.5 rounded-full transition-colors duration-200 group self-start sm:self-auto"
+            className="inline-flex items-center gap-2 bg-gray-900 hover:bg-[#A13133] text-white font-semibold text-sm px-7 py-3 rounded-full transition-all duration-300 group shadow-sm"
           >
-            All Industries
-            <span className="w-7 h-7 bg-white/20 rounded-full flex items-center justify-center group-hover:bg-white/30 transition-colors">
-              <ArrowUpRight size={14} />
-            </span>
+            Contact Experts
+            <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </motion.a>
         </div>
 
         {/* Cards Area */}
         <div className="relative overflow-hidden">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <AnimatePresence mode="popLayout" initial={false}>
               {visible.map((item, idx) => (
                 <motion.div
@@ -131,30 +129,29 @@ const IndustriesSection = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: direction * -80 }}
                   transition={{ duration: 0.4, delay: idx * 0.07 }}
-                  className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-md hover:shadow-xl transition-shadow duration-300 cursor-pointer flex flex-col"
+                  className="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col h-full"
                 >
                   {/* Image */}
-                  <div className="relative h-60 overflow-hidden">
+                  <div className="relative h-64 overflow-hidden">
                     <Image
                       src={item.image}
                       alt={item.name}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                      <span className="text-white font-medium text-sm">Explore Solutions →</span>
+                    </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 flex flex-col flex-1">
-                    <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-blue-700 transition-colors duration-200">
+                  <div className="p-8 flex flex-col flex-1 bg-white">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#A13133] transition-colors duration-300">
                       {item.name}
                     </h3>
-                    <p className="text-gray-700 text-sm leading-relaxed mb-4 flex-1 font-bold">
+                    <p className="text-gray-600 text-base leading-relaxed mb-4 flex-1">
                       {item.description}
                     </p>
-                    <button className="text-blue-700 text-sm font-semibold hover:text-blue-900 transition-colors flex items-center gap-1 w-max">
-                      Read More <span className="text-base">→</span>
-                    </button>
                   </div>
                 </motion.div>
               ))}
