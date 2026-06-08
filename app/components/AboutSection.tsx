@@ -14,47 +14,47 @@ const AboutSection = () => {
 
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col lg:flex-row gap-20 items-center">
-          
+
           {/* Left: Premium Image Collage */}
           <div className="lg:w-1/2 relative w-full h-[600px] lg:h-[800px] flex items-center">
-            
+
             {/* Background elements */}
             <div className="absolute -inset-4 bg-gradient-to-tr from-blue-50 to-transparent rounded-[3rem] -z-10 rotate-6" />
 
             <motion.div
-                initial={{ opacity: 0, x: -50, y: -20 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, ease: "easeOut" }}
-                className="absolute top-0 right-0 w-3/4 h-[60%] rounded-[3rem] overflow-hidden shadow-2xl border-[8px] border-white z-10"
+              initial={{ opacity: 0, x: -50, y: -20 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="absolute top-0 right-0 w-3/4 h-[60%] rounded-[3rem] overflow-hidden shadow-2xl border-[8px] border-white z-10"
             >
-                <Image src="/new30.webp" alt="Kiran Global Factory Facility" fill className="object-cover" />
-                <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
+              <Image src="/Potassium-Silicate-Lumps.webp" alt="Kiran Global Factory Facility" fill className="object-cover" />
+              <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
             </motion.div>
 
             <motion.div
-                initial={{ opacity: 0, x: -30, y: 50 }}
-                whileInView={{ opacity: 1, x: 0, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                className="absolute bottom-10 left-0 w-2/3 h-[50%] rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[8px] border-white z-20"
+              initial={{ opacity: 0, x: -30, y: 50 }}
+              whileInView={{ opacity: 1, x: 0, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+              className="absolute bottom-10 left-0 w-2/3 h-[50%] rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[8px] border-white z-20"
             >
-                <Image src="/new20.webp" alt="Production Pipeline" fill className="object-cover" />
+              <Image src="/image.webp" alt="Production Pipeline" fill className="object-cover" />
             </motion.div>
 
             {/* Floating Info card */}
-            <motion.div 
+            <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.6 }}
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-blue-600 p-8 rounded-[2rem] shadow-2xl z-30 text-center w-48 h-48 flex flex-col items-center justify-center border-4 border-white"
             >
-                <span className="text-4xl font-bold text-white leading-none mb-1">1979</span>
-                <span className="block w-8 h-1 bg-white/30 my-2 rounded-full" />
-                <span className="text-white/90 font-bold uppercase tracking-widest text-xs">Est. Year</span>
+              <span className="text-4xl font-bold text-white leading-none mb-1">1979</span>
+              <span className="block w-8 h-1 bg-white/30 my-2 rounded-full" />
+              <span className="text-white/90 font-bold uppercase tracking-widest text-xs">Est. Year</span>
             </motion.div>
           </div>
-          
+
           {/* Right: Content */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -67,7 +67,7 @@ const AboutSection = () => {
               <Factory size={16} className="text-blue-600" />
               <span>About Kiran Global</span>
             </div>
-            
+
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.15] tracking-tight">
               One of India's largest manufacturers of{" "}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">
@@ -93,8 +93,8 @@ const AboutSection = () => {
                 "Advanced Production Facilities",
                 "Customer-Centric Approach",
               ].map((text, index) => (
-                <motion.div 
-                  key={index} 
+                <motion.div
+                  key={index}
                   whileHover={{ x: 5 }}
                   className="flex items-start gap-5 group cursor-default"
                 >

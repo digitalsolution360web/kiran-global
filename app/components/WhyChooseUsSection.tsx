@@ -142,7 +142,7 @@ const WhyChooseUsSection = () => {
             {/* Main Image */}
             <div className="relative flex-1">
               <Image
-                src="/new6.webp"
+                src="/Why-Choose-Us.webp"
                 alt="Kiran Global Chems Products"
                 fill
                 className="object-cover"
@@ -156,11 +156,11 @@ const WhyChooseUsSection = () => {
               {/* Decorative accent */}
               <div className="absolute top-0 left-0 w-1 h-24 bg-cyan-400" />
               <div className="absolute bottom-0 right-0 w-1 h-24 bg-cyan-400" />
-              
+
               <span
                 className="text-white font-bold text-[13px] tracking-[0.5em] uppercase whitespace-nowrap opacity-90"
-                style={{ 
-                  writingMode: "vertical-rl", 
+                style={{
+                  writingMode: "vertical-rl",
                   transform: "rotate(180deg)",
                 }}
               >

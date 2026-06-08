@@ -8,47 +8,47 @@ const industries = [
   {
     name: "Soap & Detergents",
     description: "High-performance sodium silicate used as a builder and filler in soaps, detergents, and cleaning formulations.",
-    image: "/new11.webp",
+    image: "/Soap-Detergents.webp",
   },
   {
     name: "Water Treatment",
     description: "Advanced silicate compounds for corrosion inhibition and pH control in industrial and municipal water treatment plants.",
-    image: "/new13.webp",
+    image: "/Water-Treatment.webp",
   },
   {
     name: "Construction & Concrete",
     description: "Sodium silicate solutions used as concrete hardeners, waterproofing agents, and soil stabilizers in infrastructure projects.",
-    image: "/new14.webp",
+    image: "/APPLICATIONS.webp",
   },
   {
     name: "Agriculture",
     description: "Silicon-based solutions that enhance crop strength, drought resistance, and nutrient uptake for improved agricultural yields.",
-    image: "/new5.webp",
+    image: "/Agriculture.webp",
   },
   {
     name: "Ceramics & Refractories",
     description: "Silicate binders providing high-temperature resistance for ceramic tiles, refractory linings, and kiln furniture.",
-    image: "/new16.webp",
+    image: "/Ceramics-Refractories.webp",
   },
   {
     name: "Petroleum & Oil Drilling",
     description: "Specialized silicate fluids used as shale inhibitors and wellbore stabilizers in oil & gas drilling operations.",
-    image: "/new15.webp",
+    image: "/Petroleum-Oil-Drilling.webp",
   },
   {
     name: "Foundries",
     description: "Sodium silicate-based binders providing superior mold strength and dimensional accuracy in metal casting operations.",
-    image: "/new29.webp",
+    image: "/Foundries.webp",
   },
   {
     name: "Mining & Mineral Processing",
     description: "Chemical technologies supporting efficient mineral flotation, ore processing, and waste water management in mining.",
-    image: "/new28.webp",
+    image: "/Mining-Mineral-Processing.webp",
   },
   {
     name: "Adhesives & Coatings",
     description: "High-performance silicate adhesives and functional coatings providing bonding, sealing, and protective properties.",
-    image: "/new19.webp",
+    image: "/Adhesives-Coatings.webp",
   },
 ];
 

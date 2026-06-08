@@ -78,7 +78,7 @@ const HeroSlider = () => {
                   </h1>
                   <div className="flex items-center gap-4 mb-8">
                     <div className="w-16 h-[3px] bg-blue-500" />
-                    <p className="text-blue-300 font-bold text-sm md:text-base tracking-[0.5em] [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">
+                    <p className="text-blue-300 font-bold text-xs md:text-base uppercase tracking-[0.1em] md:tracking-[0.2em] [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">
                       {slides[current].subtitle}
                     </p>
                   </div>
@@ -86,7 +86,7 @@ const HeroSlider = () => {
                     {slides[current].content}
                   </p>
                   <div className="flex flex-wrap gap-6">
-                    <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-12 py-5 font-bold text-[12px] tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/30">
+                    <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-8 md:px-12 py-4 md:py-5 font-bold text-[11px] md:text-[12px] uppercase tracking-[0.1em] md:tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/30">
                       Explore Products <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </button>
                     <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black rounded-2xl px-12 py-5 font-bold text-[16px] transition-all shadow-xl">

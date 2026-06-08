@@ -8,7 +8,7 @@ const blogs = [
   {
     title: "Exporting Excellence: How Kiran Global Delivers Quality Worldwide",
     date: "August 23, 2025",
-    image: "/new31.webp",
+    image: "/Exporting-Excellence.webp",
     category: "EXPORTS",
     author: "Eng. Samy",
   },
@@ -47,18 +47,18 @@ const BlogsSection = () => {
               Latest Insights & <br className="hidden md:block" /> Industry Innovations
             </h2>
           </div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             className="flex items-center gap-6 pb-2"
           >
-             <div className="flex flex-col items-end">
-                <span className="text-xs font-black tracking-widest text-blue-600 uppercase">Knowledge Hub</span>
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Updated Weekly</span>
-             </div>
-             <button className="w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all group shadow-sm hover:shadow-lg">
-                <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-             </button>
+            <div className="flex flex-col items-end">
+              <span className="text-xs font-black tracking-widest text-blue-600 uppercase">Knowledge Hub</span>
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Updated Weekly</span>
+            </div>
+            <button className="w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all group shadow-sm hover:shadow-lg">
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </button>
           </motion.div>
         </div>
 
@@ -74,36 +74,36 @@ const BlogsSection = () => {
             >
               <div className="relative h-64 w-full overflow-hidden p-2">
                 <div className="relative h-full w-full rounded-[1.5rem] overflow-hidden">
-                    <Image
+                  <Image
                     src={blog.image}
                     alt="Kiran Global Chems"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </div>
                 <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-lg text-[10px] font-black text-gray-900 uppercase tracking-widest shadow-lg">
                   {blog.category}
                 </div>
               </div>
-              
+
               <div className="flex-1 flex flex-col p-8 pt-6">
                 <div className="flex items-center gap-6 mb-6">
-                    <div className="flex items-center gap-2 text-gray-500 text-[10px] font-black uppercase tracking-widest">
+                  <div className="flex items-center gap-2 text-gray-500 text-[10px] font-black uppercase tracking-widest">
                     <Calendar size={14} className="text-blue-500" />
                     {blog.date}
-                    </div>
-                    <div className="flex items-center gap-2 text-gray-500 text-[10px] font-black uppercase tracking-widest">
-                        <User size={14} className="text-blue-500" />
-                        {blog.author}
-                    </div>
+                  </div>
+                  <div className="flex items-center gap-2 text-gray-500 text-[10px] font-black uppercase tracking-widest">
+                    <User size={14} className="text-blue-500" />
+                    {blog.author}
+                  </div>
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors duration-300 tracking-tight mb-8">
                   {blog.title}
                 </h3>
                 <div className="mt-auto flex items-center gap-3 text-gray-900 font-bold text-xs uppercase tracking-widest group-hover:gap-5 transition-all">
-                    Read Full Article
-                    <ArrowRight size={16} className="text-blue-600" />
+                  Read Full Article
+                  <ArrowRight size={16} className="text-blue-600" />
                 </div>
               </div>
             </motion.div>

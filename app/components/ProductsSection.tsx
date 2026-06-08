@@ -22,7 +22,7 @@ const products = [
     name: "Sodium Silicate Liquid",
     fullName: "Sodium Silicate Liquid for Industrial Applications",
     description: "At Kiran Global Chem Ltd. we offer sodium silicate in liquid form for specific industrial application where the liquid property of the chemical is highly effective. We manufacture high quality silicates that are produced to match our customer's expectations.",
-    image: "/sodium-silicate-liquidd.webp",
+    image: "/Sodium-Silicate-Liquid.webp",
     features: [
       "Effective Liquid Properties",
       "Customized Industrial Grades",
@@ -34,7 +34,7 @@ const products = [
     name: "Potassium Silicate Lumps",
     fullName: "High Performance Potassium Silicate Lumps",
     description: "At Kiran Global Chem Ltd. we manufacture potassium silicate lumps of the highest quality. Our product is recognized industry-wide for its high performance and seamless integration into various industrial processes.",
-    image: "/potas-sili-solidd.webp",
+    image: "/Potassium-Silicate-Lumps.webp",
     features: [
       "Seamless Process Integration",
       "Industry-Wide Recognition",
@@ -46,7 +46,7 @@ const products = [
     name: "Potassium Silicate Liquid",
     fullName: "Premium Potassium Silicate Liquid",
     description: "Kiran Global Chems Ltd. is a leading brand name in India in the manufacture and supply of potassium silicate liquid. Our industry-grade potassium silicate liquid is available in a range of ratios and concentrations.",
-    image: "/potas-sili-liqq.webp",
+    image: "/Premium-Potassium-Silicate-Liquid.webp",
     features: [
       "Versatile Ratios & Concentrations",
       "Leading Indian Brand Quality",
