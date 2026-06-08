@@ -83,7 +83,7 @@ const IndustriesSection = () => {
 
   return (
     <section
-      className="py-24 bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] relative overflow-hidden"
+      className="py-14 bg-gradient-to-b from-[#f8fafc] to-[#f1f5f9] relative overflow-hidden"
       id="industries"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
@@ -111,7 +111,7 @@ const IndustriesSection = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             href="#contact"
-            className="inline-flex items-center gap-2 bg-gray-900 hover:bg-[#A13133] text-white font-semibold text-sm px-7 py-3 rounded-full transition-all duration-300 group shadow-sm"
+            className="inline-flex items-center gap-2 bg-gray-900 hover:bg-primary text-white font-semibold text-sm px-7 py-3 rounded-full transition-all duration-300 group shadow-sm"
           >
             Contact Experts
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -146,7 +146,7 @@ const IndustriesSection = () => {
 
                   {/* Content */}
                   <div className="p-8 flex flex-col flex-1 bg-white">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-[#A13133] transition-colors duration-300">
+                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
                       {item.name}
                     </h3>
                     <p className="text-gray-600 text-base leading-relaxed mb-4 flex-1">

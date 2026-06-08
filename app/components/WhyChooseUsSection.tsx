@@ -49,7 +49,7 @@ const WhyChooseUsSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[700px]">
 
           {/* ── LEFT PANEL ── */}
-          <div className="py-20 px-8 lg:px-16 flex flex-col justify-center">
+          <div className="py-12 px-8 lg:px-16 flex flex-col justify-center">
 
             {/* Label */}
             <motion.div

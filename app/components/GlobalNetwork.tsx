@@ -6,7 +6,7 @@ import { Globe } from "lucide-react";
 
 const GlobalNetwork = () => {
   return (
-    <section className="py-24 bg-[#f8fafc] relative overflow-hidden" id="global-network">
+    <section className="py-14 bg-[#f8fafc] relative overflow-hidden" id="global-network">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
 
         {/* Header */}

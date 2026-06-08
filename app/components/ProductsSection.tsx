@@ -60,7 +60,7 @@ const ProductsSection = () => {
 
   return (
     <section
-      className="py-24 bg-gray-100 relative overflow-hidden"
+      className="py-14 bg-gray-100 relative overflow-hidden"
       id="products"
     >
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
@@ -71,12 +71,12 @@ const ProductsSection = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 text-blue-700 font-bold text-xs mb-4 uppercase tracking-widest border border-blue-100"
+            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 text-primary font-bold text-xs mb-4 uppercase tracking-widest border border-blue-100"
           >
             Our Product Portfolio
           </motion.div>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight text-center">
-            Our <span className="text-red-800 italic">Products</span>
+            Our <span className="text-primary italic">Products</span>
           </h2>
         </div>
 
@@ -90,9 +90,9 @@ const ProductsSection = () => {
                 onClick={() => setActiveTab(product)}
                 className={`flex items-center justify-between px-6 py-6 border-b border-r border-l border-gray-100 first:border-t transition-all duration-300 text-left relative overflow-hidden
                   ${activeTab.id === product.id
-                    ? "bg-[#A13133] text-white border-[#A13133] z-10"
+                    ? "bg-primary text-white border-primary z-10"
                     : "bg-white text-gray-700 hover:bg-gray-50 bg-white"
-                  }`}
+                  } transition-all duration-300 shadow-[0_10px_20px_rgba(10,77,162,0.1)]`}
               >
                 <span className="text-[17px] font-bold leading-tight z-10">{product.name}</span>
                 {activeTab.id === product.id && (
@@ -136,15 +136,15 @@ const ProductsSection = () => {
                   <div className="flex flex-col gap-5 mb-10">
                     {activeTab.features.map((feature, i) => (
                       <div key={i} className="flex items-center gap-4">
-                        <div className="w-6 h-6 rounded-full border-2 border-[#A13133] flex items-center justify-center flex-shrink-0">
-                          <CheckCircle2 size={12} className="text-[#A13133] fill-[#A13133]/10" />
+                        <div className="w-6 h-6 rounded-full border-2 border-primary flex items-center justify-center flex-shrink-0">
+                          <CheckCircle2 size={12} className="text-primary fill-primary/10" />
                         </div>
                         <span className="text-gray-800 font-semibold text-base lg:text-lg">{feature}</span>
                       </div>
                     ))}
                   </div>
 
-                  <button className="flex items-center gap-2 text-[#222] font-bold hover:text-[#A13133] transition-colors group underline underline-offset-8">
+                  <button className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors group underline underline-offset-8">
                     <span className="text-lg">Read More</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>

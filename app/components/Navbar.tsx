@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Menu, X, Phone, Mail, ArrowRight, Clock, Globe, Search, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, ArrowRight, Clock, Globe, Search, ChevronDown, ChevronRight } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,7 +18,7 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Lock body scroll when mobile menu is open
+  // Lock body scroll when menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
@@ -54,54 +54,53 @@ const Navbar = () => {
     <>
       {/* ── HEADER ── */}
       <header className="fixed w-full z-[100] transition-all duration-300 ease-in-out">
-        {/* Top Bar – desktop only */}
+        {/* Top Bar – xl screens only */}
         <div
-          className={`border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden hidden xl:block ${scrolled
-            ? "h-0 opacity-0"
-            : "h-11 opacity-100 bg-primary"
-            }`}
+          className={`border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden hidden xl:block ${
+            scrolled ? "h-0 opacity-0" : "h-12 opacity-100 bg-primary"
+          }`}
         >
           <div className="max-w-[1700px] mx-auto px-12 h-full flex justify-between items-center">
             <div className="flex items-center gap-8">
-              <div className="flex items-center gap-2 text-[10px] font-bold text-gray-400  tracking-widest">
-                <Clock size={12} className="text-secondary" />
-                <span>EST: Sat - Thu (08:00 - 17:00)</span>
+              <div className="flex items-center gap-2 text-xs font-semibold text-white/80 tracking-widest">
+                <Clock size={14} className="text-secondary" />
+                <span>Sat - Thu (08:00 - 17:00)</span>
               </div>
-              <div className="w-[1px] h-3 bg-white/10" />
+              <div className="w-[1px] h-4 bg-white/20" />
               <div className="flex items-center gap-6">
                 <a
                   href="tel:+917358600595"
-                  className="text-[10px] font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-widest"
+                  className="text-xs font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-wider"
                 >
-                  <Phone size={12} className="text-secondary" />
+                  <Phone size={14} className="text-secondary" />
                   +91 73586 00595
                 </a>
                 <a
                   href="mailto:info@kiranglobal.com"
-                  className="text-[10px] font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-widest"
+                  className="text-xs font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-wider"
                 >
-                  <Mail size={12} className="text-secondary" />
+                  <Mail size={14} className="text-secondary" />
                   info@kiranglobal.com
                 </a>
               </div>
             </div>
             <div className="flex items-center gap-6">
-              <div className="flex items-center gap-4 border-r border-white/10 pr-6 text-white/40">
-                <a href="#" className="hover:text-white transition-colors">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              <div className="flex items-center gap-3 border-r border-white/20 pr-6 text-white">
+                <a href="#" className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-all duration-200">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                   </svg>
                 </a>
-                <a href="#" className="hover:text-white transition-colors">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <a href="#" className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 flex items-center justify-center transition-all duration-200">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                     <rect x="2" y="9" width="4" height="12" />
                     <circle cx="4" cy="4" r="2" />
                   </svg>
                 </a>
               </div>
-              <button className="flex items-center gap-2 text-[10px] font-black text-white hover:text-secondary transition-all  tracking-[0.2em]">
-                <Globe size={12} className="text-secondary" />
+              <button className="flex items-center gap-2 text-xs font-bold text-white hover:text-secondary transition-all tracking-[0.15em]">
+                <Globe size={14} className="text-secondary" />
                 English
               </button>
             </div>
@@ -110,18 +109,20 @@ const Navbar = () => {
 
         {/* Main Nav */}
         <nav
-          className={`w-full transition-all duration-500 ${scrolled
-            ? "bg-white/95 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] py-3 border-b border-gray-100"
-            : "bg-white py-4 shadow-xl border-b border-gray-200/50"
-            }`}
+          className={`w-full transition-all duration-500 ${
+            scrolled
+              ? "bg-white/95 backdrop-blur-2xl shadow-[0_15px_40px_rgba(0,0,0,0.1)] py-3 border-b border-gray-100"
+              : "bg-white py-4 shadow-xl border-b border-gray-200/50"
+          }`}
         >
-          <div className="max-w-[1700px] mx-auto px-6 lg:px-12 flex justify-between items-center h-16">
+          <div className="max-w-[1700px] mx-auto px-6 xl:px-12 flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link href="/" className="flex items-center gap-4 group">
+              <Link href="/" scroll={true} className="flex items-center gap-3 group">
                 <div
-                  className={`relative transition-all duration-300 ease-in-out bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 group-hover:rotate-[5deg] ${scrolled ? "h-14 w-14" : "h-16 w-16 lg:h-18 lg:w-18"
-                    }`}
+                  className={`relative transition-all duration-300 ease-in-out bg-white p-2 rounded-2xl shadow-2xl border border-gray-100 group-hover:rotate-[5deg] ${
+                    scrolled ? "h-12 w-12" : "h-14 w-14"
+                  }`}
                 >
                   <Image
                     src="/logo.webp"
@@ -132,36 +133,33 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span
-                    className={`text-xl lg:text-xl font-bold leading-none tracking-tighter transition-colors duration-300 text-primary`}
-                  >
+                  <span className="text-lg xl:text-xl font-bold leading-none tracking-tighter text-primary">
                     KIRAN GLOBAL
                   </span>
-                  <span
-                    className={`text-[9px] font-bold tracking-[0.4em] mt-1 transition-colors duration-300 text-gray-500`}
-                  >
+                  <span className="text-[8px] font-bold tracking-[0.4em] mt-1 text-gray-500">
                     CHEMS PVT LTD
                   </span>
                 </div>
               </Link>
             </div>
 
-            {/* Desktop Links */}
-            <div className="hidden xl:flex items-center space-x-2">
+            {/* Desktop Links – xl and above only */}
+            <div className="hidden xl:flex items-center space-x-1">
               {navLinks.map((link) => (
                 <div
                   key={link.name}
-                  className="relative px-5 py-2 group/nav"
+                  className="relative px-4 py-2 group/nav"
                   onMouseEnter={() => setActiveDropdown(link.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <Link
                     href={link.href}
-                    className={`text-md font-bold tracking-[0.05em] transition-all duration-300 flex items-center gap-1.5 text-gray-800 hover:text-primary`}
+                    scroll={true}
+                    className="text-sm font-bold tracking-[0.04em] transition-all duration-300 flex items-center gap-1.5 text-gray-800 hover:text-primary whitespace-nowrap"
                   >
                     {link.name}
                     {link.submenu && (
-                      <ChevronDown size={14} className="group-hover/nav:rotate-180 transition-transform duration-300" />
+                      <ChevronDown size={13} className="group-hover/nav:rotate-180 transition-transform duration-300" />
                     )}
                   </Link>
                   {link.submenu && (
@@ -181,147 +179,187 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              <div className="flex items-center gap-8 ml-6 pl-6 border-l border-gray-200/50">
-                <button className={`hover:text-primary transition-colors duration-500 text-gray-800`}>
-                  <Search size={22} />
+              <div className="flex items-center gap-6 ml-4 pl-4 border-l border-gray-200/50">
+                <button className="hover:text-primary transition-colors duration-500 text-gray-800">
+                  <Search size={20} />
                 </button>
                 <Link
                   href="/contact"
-                  className="relative px-10 py-4 bg-primary text-white rounded-xl text-[11px] font-bold uppercase tracking-[0.2em] overflow-hidden group/btn shadow-[0_15px_30px_rgba(10,77,162,0.3)] transition-all duration-500"
+                  className="relative px-8 py-3 bg-primary text-white rounded-xl text-[11px] font-bold uppercase tracking-[0.15em] overflow-hidden group/btn shadow-[0_10px_25px_rgba(10,77,162,0.3)] transition-all duration-500"
                 >
                   <div className="absolute inset-0 bg-secondary translate-x-[-101%] group-hover/btn:translate-x-0 transition-transform duration-700" />
                   <span className="relative z-10 flex items-center gap-2">
                     Get Estimate
-                    <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
+                    <ArrowRight size={14} className="group-hover/btn:translate-x-1 transition-transform" />
                   </span>
                 </Link>
               </div>
             </div>
 
-            {/* Mobile Hamburger Button */}
-            <div className="xl:hidden flex items-center gap-3 relative z-[110]">
-              <button
-                className={`p-2.5 rounded-xl transition-all duration-300 ${isOpen ? "text-primary bg-primary/10" : "text-gray-800 bg-gray-100/50"
-                  }`}
+            {/* Tablet / Mobile Hamburger Button – below xl */}
+            <div className="xl:hidden flex items-center gap-2 relative z-[110]">
+              {/* Quick Contact – tablet only */}
+              <a
+                href="tel:+917358600595"
+                className="hidden md:flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-xl text-primary text-sm font-bold hover:bg-primary hover:text-white transition-all duration-300"
               >
-                <Search size={20} />
-              </button>
+                <Phone size={16} />
+                <span className="hidden sm:inline">Call Us</span>
+              </a>
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close menu" : "Open menu"}
-                className={`p-2.5 rounded-xl transition-all duration-300 active:scale-95 ${!isOpen ? 'text-gray-800' : 'text-primary'}`}
+                className={`p-2.5 rounded-xl transition-all duration-300 active:scale-95 border-2 ${
+                  isOpen
+                    ? "bg-primary text-white border-primary"
+                    : "text-gray-800 bg-gray-50 border-gray-200 hover:border-primary hover:text-primary"
+                }`}
               >
-                {isOpen ? <X size={24} /> : <Menu size={24} />}
+                {isOpen ? <X size={22} /> : <Menu size={22} />}
               </button>
             </div>
           </div>
         </nav>
       </header>
 
-      {/* ── MOBILE FULLSCREEN OVERLAY (Professional UI) ── */}
+      {/* ── TABLET / MOBILE SLIDE-IN SIDEBAR MENU ── */}
+      {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-[120] xl:hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen
-          ? "opacity-100 pointer-events-auto bg-black/80 backdrop-blur-md"
-          : "opacity-0 pointer-events-none bg-black/0 backdrop-blur-none"
-          }`}
+        onClick={() => setIsOpen(false)}
+        className={`fixed inset-0 z-[115] xl:hidden transition-all duration-400 ${
+          isOpen
+            ? "opacity-100 pointer-events-auto bg-black/60 backdrop-blur-sm"
+            : "opacity-0 pointer-events-none"
+        }`}
+      />
+
+      {/* Sidebar Panel */}
+      <div
+        className={`fixed top-0 right-0 h-full z-[120] xl:hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col
+          w-full sm:w-[400px] md:w-[420px]
+          bg-gradient-to-b from-[#0a1628] via-[#0f1f3d] to-[#0a1628]
+          shadow-[-20px_0_60px_rgba(0,0,0,0.4)]
+          ${isOpen ? "translate-x-0" : "translate-x-full"}`}
       >
-        <div
-          className={`flex flex-col h-full bg-gradient-to-b from-[#0f172a] to-slate-900 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${isOpen ? "translate-y-0 scale-100 opacity-100" : "-translate-y-12 scale-95 opacity-0"
-            }`}
-        >
-          {/* Top Bar inside Menu */}
-          <div className="flex justify-between items-center px-6 h-20 border-b border-white/5">
-            <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
-              <div className="relative h-12 w-12 bg-white p-1.5 rounded-xl shadow-lg">
-                <Image src="/logo.webp" alt="Logo" fill className="object-contain p-1" />
-              </div>
-              <div className="flex flex-col">
-                <span className="text-base font-bold text-white uppercase leading-none tracking-tighter">Kiran Global</span>
-                <span className="text-[9px] font-bold text-secondary tracking-[0.2em] uppercase mt-1">Chems Pvt Ltd</span>
-              </div>
-            </Link>
+        {/* Sidebar Header */}
+        <div className="flex justify-between items-center px-6 h-[88px] border-b border-white/10 flex-shrink-0">
+          <Link href="/" className="flex items-center gap-3" onClick={() => setIsOpen(false)}>
+            <div className="relative h-11 w-11 bg-white p-1.5 rounded-xl shadow-lg flex-shrink-0">
+              <Image src="/logo.webp" alt="Logo" fill className="object-contain p-1" />
+            </div>
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-white uppercase leading-none tracking-tighter">Kiran Global</span>
+              <span className="text-[8px] font-bold text-secondary tracking-[0.25em] uppercase mt-1">Chems Pvt Ltd</span>
+            </div>
+          </Link>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2.5 rounded-xl bg-white/10 text-white hover:bg-white/20 transition-all border border-white/10 flex items-center justify-center active:scale-95"
+          >
+            <X size={20} />
+          </button>
+        </div>
 
-            <button
-              onClick={() => setIsOpen(false)}
-              className="p-3 rounded-full bg-white/10 text-white hover:bg-white/20 transition-all border border-white/5 flex items-center justify-center transform active:scale-95"
-            >
-              <X size={22} />
-            </button>
+        {/* Quick Info Bar */}
+        <div className="px-6 py-3 bg-primary/20 border-b border-white/5 flex items-center gap-4 flex-shrink-0">
+          <div className="flex items-center gap-2 text-white/70 text-xs">
+            <Clock size={12} className="text-secondary" />
+            <span>Sat–Thu 08:00–17:00</span>
           </div>
+          <div className="w-px h-4 bg-white/20" />
+          <a href="tel:+917358600595" className="flex items-center gap-2 text-white/70 text-xs hover:text-secondary transition-colors">
+            <Phone size={12} className="text-secondary" />
+            +91 73586 00595
+          </a>
+        </div>
 
-          <div className="flex-1 overflow-y-auto px-8 py-8 flex flex-col justify-start mt-6">
-            {/* Nav Links */}
-            <nav className="flex flex-col gap-6">
-              {navLinks.map((link) => (
-                <div key={link.name} className="flex flex-col">
-                  <div className="flex items-center justify-between group">
-                    <Link
-                      href={link.href}
-                      onClick={() => setIsOpen(false)}
-                      className="flex items-center flex-1 gap-4 py-1"
-                    >
-                      <span className="text-base font-bold uppercase text-white group-hover:text-secondary group-hover:translate-x-1 transition-all duration-300 tracking-wide">
-                        {link.name}
-                      </span>
-                    </Link>
-                    {link.submenu && (
-                      <button
-                        onClick={(e) => {
-                          e.preventDefault();
-                          setActiveDropdown(activeDropdown === link.name ? null : link.name);
-                        }}
-                        className="p-2 text-white/50 hover:text-white transition-colors cursor-pointer z-10"
-                      >
-                        <ChevronDown
-                          size={24}
-                          className={`transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180 text-secondary' : ''}`}
-                        />
-                      </button>
-                    )}
-                  </div>
+        {/* Nav Links */}
+        <div className="flex-1 overflow-y-auto py-6 px-6">
+          <nav className="flex flex-col gap-1">
+            {navLinks.map((link, index) => (
+              <div key={link.name} className="flex flex-col">
+                <div
+                  className="flex items-center justify-between rounded-xl group cursor-pointer"
+                  style={{ animationDelay: `${index * 60}ms` }}
+                >
+                  <Link
+                    href={link.href}
+                    onClick={() => !link.submenu && setIsOpen(false)}
+                    className="flex items-center flex-1 gap-3 px-4 py-3.5 rounded-xl hover:bg-white/5 transition-all duration-200 group"
+                  >
+                    <div className="w-1.5 h-1.5 rounded-full bg-secondary opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all" />
+                    <span className="text-sm font-bold uppercase text-white/90 group-hover:text-white group-hover:translate-x-1 transition-all duration-200 tracking-widest">
+                      {link.name}
+                    </span>
+                  </Link>
                   {link.submenu && (
-                    <div
-                      className={`overflow-hidden transition-all duration-300 ease-in-out ${activeDropdown === link.name ? 'max-h-[400px] opacity-100 mt-1 mb-1' : 'max-h-0 opacity-0 mt-0 mb-0'}`}
+                    <button
+                      onClick={() => setActiveDropdown(activeDropdown === link.name ? null : link.name)}
+                      className="p-3 text-white/40 hover:text-secondary transition-colors rounded-xl hover:bg-white/5 mr-1"
                     >
-                      <div className="ml-10 flex flex-col gap-3 border-l-2 border-white/10 pl-5 py-2">
-                        {link.submenu.map((sub) => (
-                          <Link
-                            key={sub.name}
-                            href={sub.href}
-                            onClick={() => setIsOpen(false)}
-                            className="text-white/50 hover:text-white text-xs font-semibold uppercase tracking-wider transition-colors block"
-                          >
-                            {sub.name}
-                          </Link>
-                        ))}
-                      </div>
-                    </div>
+                      <ChevronDown
+                        size={18}
+                        className={`transition-transform duration-300 ${activeDropdown === link.name ? "rotate-180 text-secondary" : ""}`}
+                      />
+                    </button>
                   )}
                 </div>
-              ))}
-            </nav>
-          </div>
+                {/* Submenu */}
+                {link.submenu && (
+                  <div
+                    className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                      activeDropdown === link.name ? "max-h-[300px] opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <div className="ml-8 flex flex-col gap-1 border-l-2 border-secondary/30 pl-4 py-2 mb-1">
+                      {link.submenu.map((sub) => (
+                        <Link
+                          key={sub.name}
+                          href={sub.href}
+                          onClick={() => setIsOpen(false)}
+                          className="flex items-center gap-2 px-3 py-2.5 text-white/50 hover:text-white text-xs font-semibold uppercase tracking-widest transition-all duration-200 rounded-lg hover:bg-white/5 group"
+                        >
+                          <ChevronRight size={12} className="text-secondary/50 group-hover:text-secondary group-hover:translate-x-0.5 transition-all" />
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
 
-          {/* Bottom Contact Info */}
-          <div className="p-8 border-t border-white/5 bg-white/[0.02]">
-            <div className="grid grid-cols-2 gap-2 mb-6">
-              <div>
-                <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-2">Call us</p>
-                <a href="tel:+917358600595" className="text-white font-bold text-sm hover:text-secondary transition-colors">+91 73586 00595</a>
-              </div>
-              <div>
-                <p className="text-gray-500 text-[10px] font-black uppercase tracking-widest mb-2">Email</p>
-                <a href="mailto:info@kiranglobal.com" className="text-white font-bold text-[11px] hover:text-secondary transition-colors break-all">info@kiranglobal.com</a>
-              </div>
+          {/* Divider */}
+          <div className="my-6 h-px bg-white/5" />
+
+          {/* CTA Button */}
+          <Link
+            href="/contact"
+            onClick={() => setIsOpen(false)}
+            className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-blue-700 text-white py-4 rounded-xl font-bold uppercase tracking-[0.2em] text-xs shadow-[0_8px_30px_rgba(10,77,162,0.4)] transition-all active:scale-95 group"
+          >
+            <Mail size={16} className="group-hover:scale-110 transition-transform" />
+            Get an Estimate
+            <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
+        {/* Bottom Contact Info */}
+        <div className="px-6 py-5 border-t border-white/5 bg-white/[0.02] flex-shrink-0">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <p className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1.5">Call Us</p>
+              <a href="tel:+917358600595" className="text-white font-bold text-sm hover:text-secondary transition-colors">
+                +91 73586 00595
+              </a>
             </div>
-            <Link
-              href="/contact"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-blue-700 text-white py-4 rounded-xl font-bold uppercase tracking-[0.2em] text-xs shadow-xl transition-all active:scale-95"
-            >
-              <Mail size={16} />
-              Inquiry Center
-            </Link>
+            <div>
+              <p className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1.5">Email</p>
+              <a href="mailto:info@kiranglobal.com" className="text-white font-bold text-[11px] hover:text-secondary transition-colors break-all">
+                info@kiranglobal.com
+              </a>
+            </div>
           </div>
         </div>
       </div>

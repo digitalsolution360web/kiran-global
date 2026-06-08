@@ -6,7 +6,7 @@ import { Leaf, Recycle, Wind } from "lucide-react";
 
 const SustainabilitySection = () => {
   return (
-    <section className="py-24 bg-[#05110a] relative overflow-hidden" id="sustainability">
+    <section className="py-14 bg-[#05110a] relative overflow-hidden" id="sustainability">
       <div className="absolute inset-0 bg-emerald-900/10" />
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10 flex flex-col lg:flex-row items-center gap-16">
         

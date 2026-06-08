@@ -30,7 +30,7 @@ const blogs = [
 
 const BlogsSection = () => {
   return (
-    <section className="py-24 bg-white relative overflow-hidden" id="blogs">
+    <section className="py-14 bg-white relative overflow-hidden" id="blogs">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
           <div className="max-w-4xl text-center md:text-left mx-auto md:mx-0">
