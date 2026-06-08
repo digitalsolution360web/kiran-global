@@ -78,7 +78,7 @@ const HeroSlider = () => {
                   </h1>
                   <div className="flex items-center gap-4 mb-8">
                     <div className="w-16 h-[3px] bg-blue-500" />
-                    <p className="text-blue-300 font-bold text-sm md:text-base uppercase tracking-[0.5em] [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">
+                    <p className="text-blue-300 font-bold text-sm md:text-base tracking-[0.5em] [text-shadow:_0_4px_12px_rgba(0,0,0,0.8)]">
                       {slides[current].subtitle}
                     </p>
                   </div>
