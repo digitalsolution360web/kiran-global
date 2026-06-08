@@ -72,18 +72,18 @@ const CertificationsSection = () => {
             className="relative"
           >
             <div className="relative h-[500px] w-full rounded-2xl overflow-hidden border border-gray-200 shadow-lg">
-              <Image src="/home16.png" alt="Standards" fill className="object-cover" />
+              <Image src="/Founder-Visionary.webp" alt="Standards" fill className="object-cover" />
               <div className="absolute inset-0 bg-dark/20 mix-blend-overlay" />
             </div>
             {/* Quality Badge */}
             <div className="absolute -bottom-6 -left-6 bg-primary p-6 rounded-xl shadow-xl hidden lg:block">
               <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-full border-2 border-white/30 flex items-center justify-center">
-                  <span className="text-2xl font-bold">100%</span>
+                <div className="w-16 h-16 rounded-full border-2 border-white flex items-center justify-center">
+                  <span className="text-2xl font-bold text-white">100%</span>
                 </div>
                 <div>
-                  <span className="block text-lg font-bold">Quality</span>
-                  <span className="text-[10px] uppercase tracking-widest opacity-70">Guaranteed</span>
+                  <span className="block text-lg text-white font-bold">Quality</span>
+                  <span className="text-[10px] text-lg uppercase text-white font-bold tracking-widest opacity-70">Guaranteed</span>
                 </div>
               </div>
             </div>
