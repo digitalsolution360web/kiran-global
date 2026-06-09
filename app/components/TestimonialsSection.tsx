@@ -1,42 +1,11 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Quote, ChevronLeft, ChevronRight, Star } from "lucide-react";
-
-const testimonials = [
-  {
-    name: "Rajesh Sharma",
-    company: "CEMENT CORP · RAJASTHAN, INDIA",
-    rating: 5,
-    text: "Just wanted to say thank you for the outstanding service that Kiran Global Chems provides. The trust we have in our supplier is crucial, especially when our customers' reputation is on the line. Top-notch quality and timely delivery every time!",
-  },
-  {
-    name: "Jayesh Vaghani",
-    company: "SINGLE EXPORT · WASHINGTON, USA",
-    rating: 5,
-    text: "Just wanted to say thank you for the service that Kiran Global Chems do for us. The trust that we have in our vendors is crucial for us especially when there is the chance of our customers name coming into play.",
-  },
-  {
-    name: "Vikram Patel",
-    company: "DETERGENT SOLUTIONS · GUJARAT, INDIA",
-    rating: 5,
-    text: "Kiran Global Chems exceeded expectations — top-notch quality, timely delivery, and truly outstanding customer service! Their sodium silicate products are consistently superior in quality. Highly recommended.",
-  },
-  {
-    name: "Ahmed Al-Rashid",
-    company: "PETROCHEMICAL GROUP · DUBAI, UAE",
-    rating: 5,
-    text: "We have been sourcing silicate products from Kiran for over 10 years. Their expertise and product consistency is unmatched. They truly understand the needs of industrial grade applications and always deliver excellence.",
-  },
-  {
-    name: "Priya Menon",
-    company: "WATER TECH PVT. LTD. · KERALA, INDIA",
-    rating: 5,
-    text: "Excellent product quality and very responsive technical support team. Kiran Global Chems understood our specific requirements for water treatment applications and provided perfectly customised solutions on time.",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const TestimonialsSection = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -48,8 +17,8 @@ const TestimonialsSection = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const next = () => setCurrentIndex((prev) => (prev + 1) % testimonials.length);
-  const prev = () => setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const next = () => setCurrentIndex((prev) => (prev + 1) % t.testimonials.items.length);
+  const prev = () => setCurrentIndex((prev) => (prev - 1 + t.testimonials.items.length) % t.testimonials.items.length);
 
   useEffect(() => {
     if (isPaused) return;
@@ -85,7 +54,7 @@ const TestimonialsSection = () => {
               className="inline-flex items-center gap-1 mb-4  bg-white/5 px-4 py-2 rounded-full border border-white/10"
             >
               <div className="w-2 h-2 rounded-full bg-cyan-500 animate-pulse" />
-              <span className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-400">Client Feedback</span>
+              <span className="text-xs font-bold uppercase tracking-[0.4em] text-cyan-400">{t.testimonials.label}</span>
             </motion.div>
 
             <motion.h2
@@ -94,7 +63,7 @@ const TestimonialsSection = () => {
               viewport={{ once: true }}
               className="text-3xl lg:text-5xl font-bold text-white leading-[1.2] mb-4"
             >
-              Our Clients' <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-cyan-400">Success Stories</span>
+              {t.testimonials.title}<span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 text-cyan-400">{t.testimonials.titleHighlight}</span>
             </motion.h2>
 
             <motion.p
@@ -103,7 +72,7 @@ const TestimonialsSection = () => {
               viewport={{ once: true }}
               className="text-gray-400 text-base leading-relaxed mb-5 max-w-md mx-auto lg:mx-0"
             >
-              Experience the uncompromising excellence that has made us a trusted partner in industrial chemistry for over 45 years.
+              {t.testimonials.description}
             </motion.p>
 
             {/* Navigation Buttons */}
@@ -127,10 +96,10 @@ const TestimonialsSection = () => {
                   <motion.div
                     className="absolute inset-0 bg-cyan-500"
                     initial={false}
-                    animate={{ width: `${((currentIndex + 1) / testimonials.length) * 100}%` }}
+                    animate={{ width: `${((currentIndex + 1) / t.testimonials.items.length) * 100}%` }}
                   />
                 </div>
-                <span className="text-sm font-bold text-gray-600">{String(testimonials.length).padStart(2, '0')}</span>
+                <span className="text-sm font-bold text-gray-600">{String(t.testimonials.items.length).padStart(2, '0')}</span>
               </div>
             </div>
           </div>
@@ -138,7 +107,7 @@ const TestimonialsSection = () => {
           {/* Right Side: Animated Testimonial Card */}
           <div className="w-full lg:w-2/3 relative h-[500px] lg:h-[600px] flex items-center justify-center">
             <AnimatePresence mode="wait">
-              {testimonials.map((t, i) => {
+              {t.testimonials.items.map((t_item, i) => {
                 const isSelected = i === currentIndex;
                 if (!isSelected && !isMobile) return null; // Logic for desktop slider
                 if (!isSelected && isMobile) return null;
@@ -167,17 +136,17 @@ const TestimonialsSection = () => {
 
                         {/* Text */}
                         <blockquote className="text-lg lg:text-xl font-medium text-white italic leading-relaxed mb-10">
-                          "{t.text}"
+                          "{t_item.text}"
                         </blockquote>
 
                         {/* Author Info */}
                         <div className="flex items-center gap-5 border-t border-white/10 pt-8">
                           <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white text-xl font-bold shadow-lg">
-                            {t.name.charAt(0)}
+                            {t_item.name.charAt(0)}
                           </div>
                           <div>
-                            <h4 className="text-white text-lg font-bold tracking-tight leading-none">{t.name}</h4>
-                            <p className="text-cyan-500 text-[10px] font-bold uppercase tracking-[0.2em] mt-2">{t.company}</p>
+                            <h4 className="text-white text-lg font-bold tracking-tight leading-none">{t_item.name}</h4>
+                            <p className="text-cyan-500 text-[10px] font-bold uppercase tracking-[0.2em] mt-2">{t_item.company}</p>
                           </div>
                         </div>
                       </div>
@@ -193,7 +162,7 @@ const TestimonialsSection = () => {
                 <ChevronLeft size={20} />
               </button>
               <div className="flex gap-2">
-                {testimonials.map((_, i) => (
+                {t.testimonials.items.map((_, i) => (
                   <div
                     key={i}
                     className={`h-1.5 rounded-full transition-all duration-500 ${i === currentIndex ? 'w-8 bg-cyan-500' : 'w-2 bg-white/10'}`}

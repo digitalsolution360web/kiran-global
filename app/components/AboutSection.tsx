@@ -4,7 +4,10 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle2, Factory } from "lucide-react";
 
+import { useLanguage } from "../context/LanguageContext";
+
 const AboutSection = () => {
+  const { t } = useLanguage();
   return (
     <section className="py-16 bg-[#f8fafc] relative overflow-hidden" id="about">
       {/* Background Decorative Text */}
@@ -51,7 +54,7 @@ const AboutSection = () => {
             >
               <span className="text-4xl font-bold text-white leading-none mb-1">1979</span>
               <span className="block w-8 h-1 bg-white/30 my-2 rounded-full" />
-              <span className="text-white/90 font-bold uppercase tracking-widest text-xs">Est. Year</span>
+              <span className="text-white/90 font-bold uppercase tracking-widest text-xs">{t.about.estYear}</span>
             </motion.div>
           </div>
 
@@ -65,34 +68,29 @@ const AboutSection = () => {
           >
             <div className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-blue-50/80 backdrop-blur-sm text-blue-700 font-bold text-xs mb-8 uppercase tracking-[0.2em] border border-blue-100 shadow-sm">
               <Factory size={16} className="text-blue-600" />
-              <span>About Kiran Global</span>
+              <span>{t.about.label}</span>
             </div>
 
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-8 leading-[1.15] tracking-tight">
-              One of India's largest manufacturers of{" "}
+              {t.about.titleStart}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-blue-400">
-                Sodium & Potassium Silicate
+                {t.about.titleHighlight}
               </span>
             </h2>
 
             <div className="space-y-5 text-gray-700 text-lg md:text-xl leading-relaxed mb-10 max-w-2xl font-medium">
               <p>
-                Kiran Global Chems Limited is one of India's largest manufacturers of Sodium Silicate and Potassium Silicate solutions. Established in 1979, the company has grown from a single manufacturing unit into a globally recognized chemical enterprise serving customers across multiple continents.
+                {t.about.description}
               </p>
               <div className="pl-6 border-l-4 border-blue-600 bg-blue-50/50 p-4 rounded-r-2xl">
                 <p className="text-blue-900 font-bold text-lg italic leading-relaxed">
-                  "Our commitment to quality, innovation, and sustainability enables us to deliver reliable chemical solutions for diverse industrial applications."
+                  "{t.about.quote}"
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10 mt-12">
-              {[
-                "45+ Years of Industry Experience",
-                "Global Manufacturing Presence",
-                "Advanced Production Facilities",
-                "Customer-Centric Approach",
-              ].map((text, index) => (
+              {t.about.points.map((text, index) => (
                 <motion.div
                   key={index}
                   whileHover={{ x: 5 }}

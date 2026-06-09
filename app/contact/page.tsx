@@ -31,22 +31,22 @@ const InstagramIcon = () => (
 const contactInfo = [
   {
     title: "Call Us",
-    value: "+91 73586 00595",
-    link: "tel:+917358600595",
+    value: "+39 3391192817",
+    link: "tel:+393391192817",
     icon: <Phone size={20} />,
     color: "bg-blue-50 text-blue-600"
   },
   {
     title: "Email Us",
-    value: "info@kiranglobal.com",
-    link: "mailto:info@kiranglobal.com",
+    value: "ettore@kiranitalia.it",
+    link: "mailto:ettore@kiranitalia.it",
     icon: <Mail size={20} />,
     color: "bg-amber-50 text-amber-600"
   },
   {
     title: "Our Location",
-    value: "Chennai, Tamil Nadu, India",
-    link: "https://maps.google.com/?q=Chennai,Tamil+Nadu,India",
+    value: "Motta Sant'Anastasia, Italia",
+    link: "https://maps.google.com/?q=Motta+Sant'Anastasia,Italia",
     icon: <MapPin size={20} />,
     color: "bg-emerald-50 text-emerald-600"
   }
@@ -229,7 +229,7 @@ export default function ContactPage() {
             <h2 className="text-2xl md:text-3xl font-black text-dark mb-4 tracking-tighter uppercase leading-none">
               Visit Our <span className="text-primary">Office</span>
             </h2>
-            <p className="text-gray-500 text-sm max-w-lg">Located in the heart of Chennai's industrial hub, our headquarters is where innovation hits the ground.</p>
+            <p className="text-gray-500 text-sm max-w-lg">Located in Motta Sant'Anastasia (CT), our Italian headquarters is where innovation hits the ground.</p>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -237,7 +237,7 @@ export default function ContactPage() {
             className="h-[500px] rounded-[3rem] overflow-hidden bg-white p-4 border border-gray-100 shadow-2xl relative"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115456.9142838421!2d80.14251268480373!3d13.061099195026857!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5265ea4f7d333f%3A0x6d3e7071ef252118!2sChennai%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1717512000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12662.66440232468!2d14.96068225!3d37.512684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313e2f073f7f4d3%3A0x40b2e3e57088160!2s95040%20Motta%20Sant'Anastasia%20CT%2C%20Italy!5e0!3m2!1sen!2sit!4v1717512000000!5m2!1sen!2sit"
               width="100%"
               height="100%"
               style={{ border: 0 }}

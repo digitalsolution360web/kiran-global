@@ -3,8 +3,10 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Leaf, Recycle, Wind } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 const SustainabilitySection = () => {
+    const { t } = useLanguage();
     return (
         <section className="py-14 bg-[#05110a] relative overflow-hidden" id="sustainability">
             <div className="absolute inset-0 bg-emerald-900/10" />
@@ -19,7 +21,7 @@ const SustainabilitySection = () => {
                         className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-emerald-900/40 text-emerald-400 font-bold text-xs mb-6 uppercase tracking-widest border border-emerald-500/20"
                     >
                         <Leaf size={14} />
-                        <span>Sustainability & Responsibility</span>
+                        <span>{t.sustainability.label}</span>
                     </motion.div>
 
                     <motion.h2
@@ -28,7 +30,7 @@ const SustainabilitySection = () => {
                         viewport={{ once: true }}
                         className="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-[1.15] mb-6"
                     >
-                        Building a Sustainable Future — <span className="text-emerald-400">Our Commitment</span>
+                        {t.sustainability.title}<span className="text-emerald-400">{t.sustainability.titleHighlight}</span>
                     </motion.h2>
 
                     <motion.div
@@ -39,20 +41,20 @@ const SustainabilitySection = () => {
                         className="space-y-4 text-gray-300 text-base leading-relaxed max-w-xl"
                     >
                         <p>
-                            We are committed to environmentally responsible manufacturing practices that reduce environmental impact while maximizing efficiency. Our focus on sustainable innovation helps industries achieve better performance with lower environmental costs.
+                            {t.sustainability.description}
                         </p>
                     </motion.div>
 
                     <div className="grid grid-cols-2 gap-6 mt-12">
                         <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-md">
                             <Recycle className="text-emerald-400 mb-4" size={32} />
-                            <h4 className="text-white font-bold text-lg mb-2">Resource Efficiency</h4>
-                            <span className="text-gray-400 text-sm">Optimized operations</span>
+                            <h4 className="text-white font-bold text-lg mb-2">{t.sustainability.card1Title}</h4>
+                            <span className="text-gray-400 text-sm">{t.sustainability.card1Desc}</span>
                         </div>
                         <div className="bg-white/5 border border-white/10 p-6 rounded-2xl backdrop-blur-md">
                             <Wind className="text-emerald-400 mb-4" size={32} />
-                            <h4 className="text-white font-bold text-lg mb-2">Lower Emissions</h4>
-                            <span className="text-gray-400 text-sm">Clean manufacturing</span>
+                            <h4 className="text-white font-bold text-lg mb-2">{t.sustainability.card2Title}</h4>
+                            <span className="text-gray-400 text-sm">{t.sustainability.card2Desc}</span>
                         </div>
                     </div>
                 </div>

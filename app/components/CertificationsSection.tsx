@@ -3,8 +3,11 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, Leaf, ShieldAlert } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 const CertificationsSection = () => {
+  const { t } = useLanguage();
+  const icons = [<Award className="text-primary" size={24} />, <Leaf className="text-primary" size={24} />, <ShieldAlert className="text-primary" size={24} />];
   return (
     <section className="py-12 bg-green-50 text-gray-900 overflow-hidden" id="quality">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
@@ -16,34 +19,18 @@ const CertificationsSection = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-block px-3 py-1 rounded bg-green-100 text-green-800 font-bold text-[10px] mb-4 uppercase tracking-widest border border-green-200">
-              Certifications & Quality
+              {t.certifications.label}
             </div>
             <h2 className="text-3xl md:text-4xl font-bold text-black mb-6 leading-tight tracking-tight">
-              Built on Standards.<br />
-              <span className="text-primary italic">Driven by Trust.</span>
+              {t.certifications.title}<br />
+              <span className="text-primary italic">{t.certifications.titleHighlight}</span>
             </h2>
             <p className="text-black text-base font-bold mb-8 leading-relaxed max-w-xl opacity-80">
-              We follow rigorous inspection and environmental protocols to ensure every batch meets the highest global standards for purity and performance.
+              {t.certifications.description}
             </p>
 
             <div className="space-y-4">
-              {[
-                {
-                  icon: <Award className="text-primary" size={24} />,
-                  title: "ISO-compliant production",
-                  desc: "Strict adherence to international manufacturing standards."
-                },
-                {
-                  icon: <Leaf className="text-primary" size={24} />,
-                  title: "Eco-friendly processes",
-                  desc: "Committed to sustainable manufacturing and minimal waste."
-                },
-                {
-                  icon: <ShieldAlert className="text-primary" size={24} />,
-                  title: "Global supply safety",
-                  desc: "Safe handling and timely delivery across all continents."
-                },
-              ].map((item, idx) => (
+              {t.certifications.items.map((item, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, y: 10 }}
@@ -53,7 +40,7 @@ const CertificationsSection = () => {
                   className="flex gap-4 p-4 rounded-lg bg-white border border-gray-200 hover:border-primary/30 hover:shadow-md transition-all group"
                 >
                   <div className="bg-blue-50 p-3 rounded-lg h-fit">
-                    {item.icon}
+                    {icons[idx]}
                   </div>
                   <div>
                     <h4 className="text-base font-bold text-gray-900 mb-1 tracking-tight">{item.title}</h4>
@@ -82,8 +69,8 @@ const CertificationsSection = () => {
                   <span className="text-2xl font-bold text-white">100%</span>
                 </div>
                 <div>
-                  <span className="block text-lg text-white font-bold">Quality</span>
-                  <span className="text-[10px] text-lg uppercase text-white font-bold tracking-widest opacity-70">Guaranteed</span>
+                   <span className="block text-lg text-white font-bold">100%</span>
+                  <span className="text-[10px] text-lg uppercase text-white font-bold tracking-widest opacity-70">{t.certifications.guaranteed}</span>
                 </div>
               </div>
             </div>

@@ -4,39 +4,42 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 
-const slides = [
-  {
-    image: "/banner.webp",
-    title: "India's Leading Sodium & Potassium Silicate Manufacturer",
-    subtitle: "Trusted Since 1979 | 32+ Manufacturing Units | Global Presence",
-    content: "Delivering innovative, sustainable, and high-performance chemical solutions for industries worldwide.",
-    highlight: "Explore Products",
-  },
-  {
-    image: "/new24.webp",
-    title: "India's Leading Sodium & Potassium Silicate Manufacturer",
-    subtitle: "Trusted Since 1979 | 32+ Manufacturing Units | Global Presence",
-    content: "Delivering innovative, sustainable, and high-performance chemical solutions for industries worldwide.",
-    highlight: "Explore Products",
-  },
-  {
-    image: "/new25.webp",
-    title: "India's Leading Sodium & Potassium Silicate Manufacturer",
-    subtitle: "Trusted Since 1979 | 32+ Manufacturing Units | Global Presence",
-    content: "Delivering innovative, sustainable, and high-performance chemical solutions for industries worldwide.",
-    highlight: "Explore Products",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const HeroSlider = () => {
+  const { t } = useLanguage();
   const [current, setCurrent] = useState(0);
+
+  const slides = [
+    {
+      image: "/banner.webp",
+      title: t.hero.title,
+      subtitle: t.hero.subtitle,
+      content: t.hero.content,
+      highlight: t.hero.explore,
+    },
+    {
+      image: "/new24.webp",
+      title: t.hero.title,
+      subtitle: t.hero.subtitle,
+      content: t.hero.content,
+      highlight: t.hero.explore,
+    },
+    {
+      image: "/new25.webp",
+      title: t.hero.title,
+      subtitle: t.hero.subtitle,
+      content: t.hero.content,
+      highlight: t.hero.explore,
+    },
+  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
     }, 6000);
     return () => clearInterval(timer);
-  }, []);
+  }, [slides.length]);
 
   return (
     <div className="relative h-[calc(90vh-100px)] min-h-[700px] w-full overflow-hidden bg-black mt-[100px]">
@@ -87,10 +90,10 @@ const HeroSlider = () => {
                   </p>
                   <div className="flex flex-wrap gap-6">
                     <button className="bg-primary hover:bg-blue-700 text-white rounded-2xl px-8 md:px-12 py-4 md:py-5 font-bold text-[11px] md:text-[12px] uppercase tracking-[0.1em] md:tracking-[0.2em] transition-all flex items-center gap-3 group shadow-2xl shadow-primary/30">
-                      Explore Products <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
+                      {t.hero.explore} <ArrowUpRight size={20} className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform duration-300" />
                     </button>
                     <button className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white hover:text-black rounded-2xl px-12 py-5 font-bold text-[16px] transition-all shadow-xl">
-                      Contact Us
+                      {t.hero.contact}
                     </button>
                   </div>
                 </motion.div>

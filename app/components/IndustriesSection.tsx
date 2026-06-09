@@ -4,61 +4,63 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 
-const industries = [
-  {
-    name: "Soap & Detergents",
-    description: "High-performance sodium silicate used as a builder and filler in soaps, detergents, and cleaning formulations.",
-    image: "/Soap-Detergents.webp",
-  },
-  {
-    name: "Water Treatment",
-    description: "Advanced silicate compounds for corrosion inhibition and pH control in industrial and municipal water treatment plants.",
-    image: "/Water-Treatment.webp",
-  },
-  {
-    name: "Construction & Concrete",
-    description: "Sodium silicate solutions used as concrete hardeners, waterproofing agents, and soil stabilizers in infrastructure projects.",
-    image: "/APPLICATIONS.webp",
-  },
-  {
-    name: "Agriculture",
-    description: "Silicon-based solutions that enhance crop strength, drought resistance, and nutrient uptake for improved agricultural yields.",
-    image: "/Agriculture.webp",
-  },
-  {
-    name: "Ceramics & Refractories",
-    description: "Silicate binders providing high-temperature resistance for ceramic tiles, refractory linings, and kiln furniture.",
-    image: "/Ceramics-Refractories.webp",
-  },
-  {
-    name: "Petroleum & Oil Drilling",
-    description: "Specialized silicate fluids used as shale inhibitors and wellbore stabilizers in oil & gas drilling operations.",
-    image: "/Petroleum-Oil-Drilling.webp",
-  },
-  {
-    name: "Foundries",
-    description: "Sodium silicate-based binders providing superior mold strength and dimensional accuracy in metal casting operations.",
-    image: "/Foundries.webp",
-  },
-  {
-    name: "Mining & Mineral Processing",
-    description: "Chemical technologies supporting efficient mineral flotation, ore processing, and waste water management in mining.",
-    image: "/Mining-Mineral-Processing.webp",
-  },
-  {
-    name: "Adhesives & Coatings",
-    description: "High-performance silicate adhesives and functional coatings providing bonding, sealing, and protective properties.",
-    image: "/Adhesives-Coatings.webp",
-  },
-];
-
-const CARDS_PER_VIEW = 3;
+import { useLanguage } from "../context/LanguageContext";
 
 const IndustriesSection = () => {
+  const { t } = useLanguage();
+  const industries = [
+    {
+      name: t.industries.items.soap.name,
+      description: t.industries.items.soap.desc,
+      image: "/Soap-Detergents.webp",
+    },
+    {
+      name: t.industries.items.water.name,
+      description: t.industries.items.water.desc,
+      image: "/Water-Treatment.webp",
+    },
+    {
+      name: t.industries.items.construction.name,
+      description: t.industries.items.construction.desc,
+      image: "/APPLICATIONS.webp",
+    },
+    {
+      name: t.industries.items.agriculture.name,
+      description: t.industries.items.agriculture.desc,
+      image: "/Agriculture.webp",
+    },
+    {
+      name: t.industries.items.ceramics.name,
+      description: t.industries.items.ceramics.desc,
+      image: "/Ceramics-Refractories.webp",
+    },
+    {
+      name: t.industries.items.petroleum.name,
+      description: t.industries.items.petroleum.desc,
+      image: "/Petroleum-Oil-Drilling.webp",
+    },
+    {
+      name: t.industries.items.foundries.name,
+      description: t.industries.items.foundries.desc,
+      image: "/Foundries.webp",
+    },
+    {
+      name: t.industries.items.mining.name,
+      description: t.industries.items.mining.desc,
+      image: "/Mining-Mineral-Processing.webp",
+    },
+    {
+      name: t.industries.items.adhesives.name,
+      description: t.industries.items.adhesives.desc,
+      image: "/Adhesives-Coatings.webp",
+    },
+  ];
+
   const [currentIndex, setCurrentIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
 
+  const CARDS_PER_VIEW = 3;
   const maxIndex = industries.length - CARDS_PER_VIEW;
 
   const prev = () => {
@@ -99,10 +101,10 @@ const IndustriesSection = () => {
           >
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-blue-700 mb-2 flex items-center gap-2">
               <span className="w-8 h-[1px] bg-blue-700 inline-block" />
-              Industries We Serve
+              {t.industries.label}
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              Our Industrial <span className="italic text-blue-800">Reach</span>
+              {t.industries.title.split(' Reach')[0]} <span className="italic text-blue-800">Reach</span>
             </h2>
           </motion.div>
 
@@ -113,7 +115,7 @@ const IndustriesSection = () => {
             href="#contact"
             className="inline-flex items-center gap-2 bg-gray-900 hover:bg-primary text-white font-semibold text-sm px-7 py-3 rounded-full transition-all duration-300 group shadow-sm"
           >
-            Contact Experts
+            {t.industries.contactExperts}
             <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </motion.a>
         </div>
@@ -140,7 +142,7 @@ const IndustriesSection = () => {
                       className="object-cover transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <span className="text-white font-medium text-sm">Explore Solutions →</span>
+                      <span className="text-white font-medium text-sm">{t.industries.exploreSolutions} →</span>
                     </div>
                   </div>
 

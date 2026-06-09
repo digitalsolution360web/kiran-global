@@ -2,31 +2,10 @@
 import React, { useState } from "react";
 import { Plus, Minus, HelpCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
-const faqs = [
-  {
-    question: "What is Kiran Global's primary area of expertise?",
-    answer: "Kiran Global specializes in the manufacturing and distribution of high-quality industrial silicates, including Sodium and Potassium Silicates, catering to various industries such as detergents, construction, and water treatment."
-  },
-  {
-    question: "How do I request a custom formulation?",
-    answer: "You can request a custom formulation by contacting our technical team through the 'Request a Quote' form on our contact page or by emailing us directly with your specific requirements."
-  },
-  {
-    question: "Are your products eco-friendly and sustainable?",
-    answer: "Yes, sustainability is at our core. We implement advanced manufacturing processes that minimize environmental impact and focus on developing eco-friendly silicate solutions."
-  },
-  {
-    question: "What is the typical lead time for large industrial orders?",
-    answer: "Lead times vary based on the order volume and customization requirements, but typically range from 2 to 4 weeks. Our logistics team works closely with clients to ensure timely delivery."
-  },
-  {
-    question: "Do you provide technical support for product application?",
-    answer: "Absolutely. Our expert technical support team is available to assist you with product selection, application methods, and troubleshooting to ensure optimal results."
-  }
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const FAQSection = () => {
+  const { t } = useLanguage();
   const [activeIndex, setActiveIndex] = useState<number | null>(0);
 
   return (
@@ -48,14 +27,14 @@ const FAQSection = () => {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-[1px] bg-secondary" />
-                <span className="text-secondary font-bold  tracking-[0.2em] text-xs">Knowledge Base</span>
+                <span className="text-secondary font-bold  tracking-[0.2em] text-xs">{t.faq.label}</span>
               </div>
               <h2 className="text-2xl lg:text-5xl font-black text-dark leading-[0.9] mb-8 tracking-tighter uppercase">
-                Got <span className="text-primary italic">Questions?</span><br />
-                We Have Answers.
+                {t.faq.titleStart}<span className="text-primary italic">{t.faq.titleHighlight}</span><br />
+                {t.faq.titleEnd}
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-10 opacity-80">
-                Everything you need to know about our high-performance silicate solutions and industrial manufacturing processes.
+                {t.faq.description}
               </p>
 
               <div className="p-8 bg-white rounded-[2.5rem] border border-blue-50 shadow-2xl shadow-blue-900/5 flex items-start gap-6 relative overflow-hidden group">
@@ -64,10 +43,10 @@ const FAQSection = () => {
                   <HelpCircle size={28} />
                 </div>
                 <div className="relative z-10">
-                  <h4 className="font-bold text-dark text-xl mb-2">Technical Support</h4>
-                  <p className="text-gray-500 text-sm mb-6 leading-relaxed">Dedicated expert assistance for all your complex chemical formulation needs.</p>
+                  <h4 className="font-bold text-dark text-xl mb-2">{t.faq.supportTitle}</h4>
+                  <p className="text-gray-500 text-sm mb-6 leading-relaxed">{t.faq.supportDesc}</p>
                   <a href="/contact" className="inline-flex items-center gap-3 px-6 py-3 bg-dark text-white rounded-xl font-bold text-sm hover:bg-primary transition-all duration-300">
-                    Get Expert Help
+                    {t.faq.supportBtn}
                     <Plus size={16} className="rotate-45" />
                   </a>
                 </div>
@@ -78,7 +57,7 @@ const FAQSection = () => {
           {/* Right Column: FAQ Accordion */}
           <div className="lg:w-2/3">
             <div className="space-y-2">
-              {faqs.map((faq, index) => (
+              {t.faq.items.map((faq, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, y: 30 }}

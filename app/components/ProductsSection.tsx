@@ -1,62 +1,56 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
-const products = [
-  {
-    id: "sodium-lumps",
-    name: "Sodium Silicate Lumps",
-    fullName: "Sodium Silicate Lumps - Industrial Grade",
-    description: "At Kiran Global Chems Ltd. we produce sodium silicate lumps that are manufactured using top grade raw materials and have superior properties, both physical and chemical. We are the market leader in India and our brand is recognized globally for its high performance.",
-    image: "/sodium-silicate-solidd.webp",
-    features: [
-      "High Purity Raw Materials",
-      "Superior Chemical Properties",
-      "Global Market Recognition"
-    ]
-  },
-  {
-    id: "sodium-liquid",
-    name: "Sodium Silicate Liquid",
-    fullName: "Sodium Silicate Liquid for Industrial Applications",
-    description: "At Kiran Global Chem Ltd. we offer sodium silicate in liquid form for specific industrial application where the liquid property of the chemical is highly effective. We manufacture high quality silicates that are produced to match our customer's expectations.",
-    image: "/Sodium-Silicate-Liquid.webp",
-    features: [
-      "Effective Liquid Properties",
-      "Customized Industrial Grades",
-      "High Quality Manufacturing"
-    ]
-  },
-  {
-    id: "potassium-lumps",
-    name: "Potassium Silicate Lumps",
-    fullName: "High Performance Potassium Silicate Lumps",
-    description: "At Kiran Global Chem Ltd. we manufacture potassium silicate lumps of the highest quality. Our product is recognized industry-wide for its high performance and seamless integration into various industrial processes.",
-    image: "/Potassium-Silicate-Lumps.webp",
-    features: [
-      "Seamless Process Integration",
-      "Industry-Wide Recognition",
-      "High Batch Consistency"
-    ]
-  },
-  {
-    id: "potassium-liquid",
-    name: "Potassium Silicate Liquid",
-    fullName: "Premium Potassium Silicate Liquid",
-    description: "Kiran Global Chems Ltd. is a leading brand name in India in the manufacture and supply of potassium silicate liquid. Our industry-grade potassium silicate liquid is available in a range of ratios and concentrations.",
-    image: "/Premium-Potassium-Silicate-Liquid.webp",
-    features: [
-      "Versatile Ratios & Concentrations",
-      "Leading Indian Brand Quality",
-      "Optimized Chemical Solutions"
-    ]
-  }
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const ProductsSection = () => {
+  const { t } = useLanguage();
+  // ... existing products logic ...
+
+  const products = [
+    {
+      id: "sodium-lumps",
+      name: t.products.items.sodiumLumps.name,
+      fullName: t.products.items.sodiumLumps.fullName,
+      description: t.products.items.sodiumLumps.desc,
+      image: "/sodium-silicate-solidd.webp",
+      features: t.products.items.sodiumLumps.features,
+    },
+    {
+      id: "sodium-liquid",
+      name: t.products.items.sodiumLiquid.name,
+      fullName: t.products.items.sodiumLiquid.fullName,
+      description: t.products.items.sodiumLiquid.desc,
+      image: "/Sodium-Silicate-Liquid.webp",
+      features: t.products.items.sodiumLiquid.features,
+    },
+    {
+      id: "potassium-lumps",
+      name: t.products.items.potassiumLumps.name,
+      fullName: t.products.items.potassiumLumps.fullName,
+      description: t.products.items.potassiumLumps.desc,
+      image: "/Potassium-Silicate-Lumps.webp",
+      features: t.products.items.potassiumLumps.features,
+    },
+    {
+      id: "potassium-liquid",
+      name: t.products.items.potassiumLiquid.name,
+      fullName: t.products.items.potassiumLiquid.fullName,
+      description: t.products.items.potassiumLiquid.desc,
+      image: "/Premium-Potassium-Silicate-Liquid.webp",
+      features: t.products.items.potassiumLiquid.features,
+    }
+  ];
+
   const [activeTab, setActiveTab] = useState(products[0]);
+
+  // Update active tab when language changes so name updates
+  useEffect(() => {
+    setActiveTab(prev => products.find(p => p.id === prev.id) || products[0]);
+  }, [t]);
 
   return (
     <section
@@ -73,10 +67,10 @@ const ProductsSection = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-blue-50 text-primary font-bold text-xs mb-4 uppercase tracking-widest border border-blue-100"
           >
-            Our Product Portfolio
+            {t.products.label}
           </motion.div>
           <h2 className="text-3xl md:text-5xl font-bold text-gray-900 tracking-tight text-center">
-            Our <span className="text-primary italic">Products</span>
+            {t.products.title.split(' ')[0]} <span className="text-primary italic">{t.products.title.split(' ')[1]}</span>
           </h2>
         </div>
 
@@ -145,7 +139,7 @@ const ProductsSection = () => {
                   </div>
 
                   <button className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors group underline underline-offset-8">
-                    <span className="text-lg">Read More</span>
+                    <span className="text-lg">{t.common.readMore}</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

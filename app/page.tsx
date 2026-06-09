@@ -4,7 +4,9 @@ import HeroSlider from "./components/HeroSlider";
 import AboutSection from "./components/AboutSection";
 import ProductsSection from "./components/ProductsSection";
 import WhyChooseUsSection from "./components/WhyChooseUsSection";
+import SolidLiquidSection from "./components/SolidLiquidSection";
 import IndustriesSection from "./components/IndustriesSection";
+import AdvancedChemicalsSection from "./components/AdvancedChemicalsSection";
 // import InfrastructureGallery from "./components/InfrastructureGallery";
 import GlobalNetwork from "./components/GlobalNetwork";
 import VisionMissionSection from "./components/VisionMissionSection";
@@ -24,8 +26,10 @@ export default function Home() {
       <AboutSection />
       <ProductsSection />
       <WhyChooseUsSection />
-      {/* <InfrastructureGallery /> */}
+      <SolidLiquidSection />
       <IndustriesSection />
+      <AdvancedChemicalsSection />
+      {/* <InfrastructureGallery /> */}
       <GlobalNetwork />
       <VisionMissionSection />
       <LeadershipSection />

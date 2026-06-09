@@ -3,32 +3,11 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Calendar, ArrowRight, User, Newspaper } from "lucide-react";
-
-const blogs = [
-  {
-    title: "Exporting Excellence: How Kiran Global Delivers Quality Worldwide",
-    date: "August 23, 2025",
-    image: "/Exporting-Excellence.webp",
-    category: "EXPORTS",
-    author: "Eng. Samy",
-  },
-  {
-    title: "Eco-Friendly Engineering: The Role of Silicates in Sustainable Manufacturing",
-    date: "November 5, 2025",
-    image: "/new32.webp",
-    category: "SUSTAINABILITY",
-    author: "Global Team",
-  },
-  {
-    title: "Sodium Silicate in Action: How One Compound Powers Multiple Industries",
-    date: "September 5, 2025",
-    image: "/new34.webp",
-    category: "APPLICATIONS",
-    author: "Research Dept",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const BlogsSection = () => {
+  const { t } = useLanguage();
+  const blogsImages = ["/Exporting-Excellence.webp", "/new32.webp", "/new34.webp"];
   return (
     <section className="py-14 bg-white relative overflow-hidden" id="blogs">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
@@ -41,10 +20,10 @@ const BlogsSection = () => {
               className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-900 text-white font-bold text-xs mb-6 uppercase tracking-widest"
             >
               <Newspaper size={14} className="text-blue-400" />
-              <span>Media Center</span>
+              <span>{t.blogs.label}</span>
             </motion.div>
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight leading-[1.2]">
-              Latest Insights & <br className="hidden md:block" /> Industry Innovations
+              {t.blogs.title}
             </h2>
           </div>
           <motion.div
@@ -53,8 +32,8 @@ const BlogsSection = () => {
             className="flex items-center gap-6 pb-2"
           >
             <div className="flex flex-col items-end">
-              <span className="text-xs font-black tracking-widest text-blue-600 uppercase">Knowledge Hub</span>
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Updated Weekly</span>
+              <span className="text-xs font-black tracking-widest text-blue-600 uppercase">{t.blogs.knowledgeHub}</span>
+              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t.blogs.updatedWeekly}</span>
             </div>
             <button className="w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all group shadow-sm hover:shadow-lg">
               <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
@@ -63,7 +42,7 @@ const BlogsSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {blogs.map((blog, idx) => (
+          {t.blogs.items.map((blog, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
@@ -75,7 +54,7 @@ const BlogsSection = () => {
               <div className="relative h-64 w-full overflow-hidden p-2">
                 <div className="relative h-full w-full rounded-[1.5rem] overflow-hidden">
                   <Image
-                    src={blog.image}
+                    src={blogsImages[idx]}
                     alt="Kiran Global Chems"
                     fill
                     className="object-cover group-hover:scale-110 transition-transform duration-700"
@@ -102,7 +81,7 @@ const BlogsSection = () => {
                   {blog.title}
                 </h3>
                 <div className="mt-auto flex items-center gap-3 text-gray-900 font-bold text-xs uppercase tracking-widest group-hover:gap-5 transition-all">
-                  Read Full Article
+                  {t.blogs.readFullArticle}
                   <ArrowRight size={16} className="text-blue-600" />
                 </div>
               </div>

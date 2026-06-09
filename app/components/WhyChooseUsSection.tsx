@@ -4,45 +4,38 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { CheckCircle2, Heart, BadgeCheck, Star } from "lucide-react";
 
-const products = [
-  "Sodium Silicate Liquid",
-  "Sodium Silicate Solid",
-  "Potassium Silicate Liquid",
-  "Potassium Silicate Solid",
-  "Sodium Meta Silicate",
-  "Colloidal Silica",
-  "Silica Gel",
-  "Alkaline Sodium Silicate",
-];
-
-const trustPoints = [
-  {
-    icon: Heart,
-    title: "Legacy of Trust",
-    desc: "With over 45 years of experience in the sodium & potassium silicate industry, we have built a strong foundation of trust and reliability across India and beyond.",
-    bg: "bg-white",
-    iconBg: "bg-blue-900",
-    textColor: "text-gray-700",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Certified",
-    desc: "Our operations are ISO-certified, ensuring consistent quality, safety, and performance in every product we manufacture.",
-    bg: "bg-white",
-    iconBg: "bg-blue-900",
-    textColor: "text-gray-700",
-  },
-  {
-    icon: Star,
-    title: "Commitment to Quality",
-    desc: "Every batch undergoes rigorous quality checks to ensure our customers receive only the best. Our dedication to quality drives long-term partnerships.",
-    bg: "bg-blue-950",
-    iconBg: "bg-white/10",
-    textColor: "text-gray-200",
-  },
-];
+import { useLanguage } from "../context/LanguageContext";
 
 const WhyChooseUsSection = () => {
+  const { t } = useLanguage();
+
+  const trustPoints = [
+    {
+      icon: Heart,
+      title: t.whyChooseUs.trustPoints.legacy.title,
+      desc: t.whyChooseUs.trustPoints.legacy.desc,
+      bg: "bg-white",
+      iconBg: "bg-blue-900",
+      textColor: "text-gray-700",
+    },
+    {
+      icon: BadgeCheck,
+      title: t.whyChooseUs.trustPoints.certified.title,
+      desc: t.whyChooseUs.trustPoints.certified.desc,
+      bg: "bg-white",
+      iconBg: "bg-blue-900",
+      textColor: "text-gray-700",
+    },
+    {
+      icon: Star,
+      title: t.whyChooseUs.trustPoints.quality.title,
+      desc: t.whyChooseUs.trustPoints.quality.desc,
+      bg: "bg-blue-950",
+      iconBg: "bg-white/10",
+      textColor: "text-gray-200",
+    },
+  ];
+
   return (
     <section className="py-0 bg-white relative overflow-hidden" id="why-choose-us">
       <div className="max-w-[1700px] mx-auto relative">
@@ -59,7 +52,7 @@ const WhyChooseUsSection = () => {
               className="flex items-center gap-3 mb-4"
             >
               <span className="text-xs font-bold uppercase tracking-[0.3em] text-blue-900">
-                WHY US
+                {t.whyChooseUs.label}
               </span>
               <span className="w-10 h-[2px] bg-blue-900 inline-block" />
             </motion.div>
@@ -72,7 +65,7 @@ const WhyChooseUsSection = () => {
               transition={{ delay: 0.1 }}
               className="text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight"
             >
-              Why Choose Us
+              {t.whyChooseUs.title}
             </motion.h2>
 
             {/* Description */}
@@ -83,10 +76,7 @@ const WhyChooseUsSection = () => {
               transition={{ delay: 0.15 }}
               className="text-gray-700 text-base md:text-lg leading-relaxed mb-10 max-w-lg font-medium opacity-100"
             >
-              At Kiran Global Chems, we combine decades of industry expertise
-              with cutting-edge manufacturing technology to deliver superior
-              quality silicate solutions tailored to a wide range of industrial
-              applications. Here&apos;s why clients choose us.
+              {t.whyChooseUs.description}
             </motion.p>
 
             {/* Products Checklist */}
@@ -97,7 +87,7 @@ const WhyChooseUsSection = () => {
               transition={{ delay: 0.2 }}
               className="grid grid-cols-2 gap-x-6 gap-y-3 mb-10"
             >
-              {products.map((p, i) => (
+              {t.whyChooseUs.products.map((p, i) => (
                 <div key={i} className="flex items-center gap-3">
                   <div className="w-6 h-6 rounded-full bg-cyan-100 flex items-center justify-center flex-shrink-0">
                     <CheckCircle2 size={14} className="text-cyan-600" />
@@ -143,7 +133,7 @@ const WhyChooseUsSection = () => {
             <div className="relative flex-1">
               <Image
                 src="/Why-Choose-Us.webp"
-                alt="Kiran Global Chems Products"
+                alt="Kiran Italia Chemicals Products"
                 fill
                 className="object-cover"
               />
@@ -164,7 +154,7 @@ const WhyChooseUsSection = () => {
                   transform: "rotate(180deg)",
                 }}
               >
-                KIRAN GLOBAL CHEMS PVT. LTD.
+                Kiran Italia Chemicals S.r.l.
               </span>
             </div>
 
@@ -181,9 +171,9 @@ const WhyChooseUsSection = () => {
                   <BadgeCheck size={22} className="text-white" />
                 </div>
                 <div>
-                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">ISO Certified</p>
-                  <p className="text-lg font-bold text-gray-900">45+ Years</p>
-                  <p className="text-xs text-gray-500">of Industry Excellence</p>
+                  <p className="text-xs text-gray-500 font-medium uppercase tracking-wider">{t.whyChooseUs.isoLabel}</p>
+                  <p className="text-lg font-bold text-gray-900">{t.whyChooseUs.yearsLabel}</p>
+                  <p className="text-xs text-gray-500">{t.whyChooseUs.excellenceLabel}</p>
                 </div>
               </div>
             </motion.div>

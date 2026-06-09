@@ -3,8 +3,10 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   return (
     <footer className="bg-[#0a0a0a] text-white pt-16 pb-10 border-t border-white/5">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
@@ -15,18 +17,18 @@ const Footer = () => {
               <div className="relative h-14 w-14 bg-white p-2 rounded-lg shadow-xl">
                 <Image
                   src="/logo.webp"
-                  alt="Kiran Global Chems"
+                  alt="Kiran Italia Chemicals"
                   fill
                   className="object-contain p-1"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="text-xl font-bold leading-none  tracking-tighter">KIRAN GLOBAL</span>
-                <span className="text-[10px] tracking-[0.3em] text-[#f9b115]  font-bold">CHEMS PVT LTD</span>
+                <span className="text-xl font-bold leading-none tracking-tighter uppercase">Kiran Italia</span>
+                <span className="text-[10px] tracking-[0.3em] text-[#f9b115] font-bold uppercase">Chemicals S.r.l.</span>
               </div>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed opacity-90 font-medium">
-              Kiran Global Chems Pvt Ltd is a premier manufacturer of industrial silicates, dedicated to delivering high-purity Sodium and Potassium silicates. Our state-of-the-art facilities and commitment to innovation ensure top-tier solutions for global industries.
+              {t.footer.companyDesc}
             </p>
             <div className="flex space-x-3">
               {[
@@ -48,19 +50,11 @@ const Footer = () => {
           {/* Quick Links */}
           <div className="lg:pl-10">
             <h4 className="text-sm font-bold mb-8 text-white  tracking-widest relative inline-block">
-              Quick Links
+              {t.footer.quickLinksTitle}
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#f9b115]"></span>
             </h4>
             <ul className="space-y-4">
-              {[
-                { name: "Home", href: "/" },
-                { name: "About Us", href: "/about" },
-                { name: "Products", href: "/products" },
-                { name: "Brochure", href: "/brochure" },
-                { name: "Quality\u00A0\u00A0&\u00A0\u00A0Safety", href: "/quality" },
-                { name: "Careers", href: "/careers" },
-                { name: "Contact Us", href: "/contact" },
-              ].map((link) => (
+              {t.footer.quickLinks.map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold  tracking-wider flex items-center gap-2 group">
                     <span className="w-1.5 h-[1px] bg-gray-600 group-hover:w-3 group-hover:bg-[#f9b115] transition-all"></span>
@@ -73,20 +67,15 @@ const Footer = () => {
 
           {/* Products Column */}
           <div>
-            <h4 className="text-sm font-bold mb-8 text-white  tracking-widest relative inline-block">
-              Our Products
+            <h4 className="text-sm font-bold  mb-8 text-white  tracking-widest relative inline-block">
+              {t.footer.productsTitle}
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#f9b115]"></span>
             </h4>
             <ul className="space-y-4">
-              {[
-                "Sodium Silicate Lumps",
-                "Potassium Silicate Lumps",
-                "Sodium Silicate Liquid",
-                "Potassium Silicate Liquid"
-              ].map((item) => (
+              {t.footer.products.map((item) => (
                 <li key={item}>
-                  <Link href="/products" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold  tracking-wider flex items-center gap-2 group">
-                    <span className="w-1.5 h-[1px] bg-gray-600 group-hover:w-3 group-hover:bg-[#f9b115] transition-all"></span>
+                  <Link href="/products" className="text-gray-400  hover:text-[#f9b115] transition-colors text-xs font-bold  tracking-wider flex items-center gap-2 group">
+                    <span className="w-1.5 h-[1px] block bg-gray-600 group-hover:w-3 group-hover:bg-[#f9b115] transition-all"></span>
                     {item}
                   </Link>
                 </li>
@@ -96,43 +85,63 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-sm font-bold mb-8 text-white  tracking-widest relative inline-block">
-              Reach Us
+            <h4 className="text-sm font-bold mb-8 text-white tracking-widest relative inline-block uppercase">
+              {t.footer.reachUsTitle}
               <span className="absolute -bottom-2 left-0 w-8 h-0.5 bg-[#f9b115]"></span>
             </h4>
-            <div className="space-y-6">
-              <div className="flex gap-4 group">
-                <div className="bg-white/5 p-3 rounded-lg h-fit border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
-                  <MapPin className="text-[#f9b115] group-hover:text-white" size={20} />
-                </div>
+            <div className="space-y-3">
+              <div className="space-y-6">
                 <div className="text-xs">
-                  <span className="block font-bold text-white mb-1  tracking-tight">Main Office</span>
-                  <span className="text-gray-400 leading-relaxed block">Chennai, Tamil Nadu, India</span>
+                  <span className="block font-bold text-white mb-2 tracking-tight text-sm">Kiran Italia Chemicals S.r.l.</span>
+                  <div className="flex items-start gap-1 text-gray-400 group">
+                    <MapPin size={14} className="text-[#f9b115] mt-0.5 -ml-0.5 flex-shrink-0" />
+                    <span className="leading-relaxed block text-[11px]">Motta Sant'Anastasia (CT) - Italia</span>
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center gap-4 group">
-                <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
-                  <Mail className="text-[#f9b115] group-hover:text-white" size={20} />
+
+              <div className="space-y-4">
+                <div className="text-[11px]">
+                  <span className="block font-bold text-white mb-1">Ettore Schillirò Rubino</span>
+                  <div className="flex flex-col gap-1">
+                    <a href="tel:+393391192817" className="text-gray-400 hover:text-[#f9b115] transition-colors flex items-center gap-2">
+                      <Phone size={12} className="text-[#f9b115]" /> +39 3391192817
+                    </a>
+                    <a href="mailto:ettore@kiranitalia.it" className="text-gray-400 hover:text-[#f9b115] transition-colors flex items-center gap-2">
+                      <Mail size={12} className="text-[#f9b115]" /> ettore@kiranitalia.it
+                    </a>
+                  </div>
                 </div>
-                <a href="mailto:info@kiranglobal.com" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold  tracking-widest">info@kiranglobal.com</a>
+
+                <div className="text-[11px]">
+                  <span className="block font-bold text-white mb-1">Edoardo Maria Crimaldi</span>
+                  <div className="flex flex-col gap-1">
+                    <a href="tel:+393792420293" className="text-gray-400 hover:text-[#f9b115] transition-colors flex items-center gap-2">
+                      <Phone size={12} className="text-[#f9b115]" /> +39 3792420293
+                    </a>
+                    <a href="mailto:edoardo@kiranitalia.it" className="text-gray-400 hover:text-[#f9b115] transition-colors flex items-center gap-2">
+                      <Mail size={12} className="text-[#f9b115]" /> edoardo@kiranitalia.it
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="flex items-center gap-4 group">
-                <div className="bg-white/5 p-3 rounded-lg border border-white/5 group-hover:bg-[#0a4da2] group-hover:border-[#0a4da2] transition-all duration-300">
-                  <Phone className="text-[#f9b115] group-hover:text-white" size={20} />
-                </div>
-                <a href="tel:+917358600595" className="text-gray-400 hover:text-[#f9b115] transition-colors text-xs font-bold tracking-widest">+91 73586 00595</a>
+
+              <div className="pt-2">
+                <a href="https://www.kiranitalia.it" target="_blank" rel="noopener noreferrer" className="text-[#0a4da2] hover:text-[#f9b115] text-xs font-bold underline transition-colors">
+                  www.kiranitalia.it
+                </a>
               </div>
             </div>
           </div>
         </div>
 
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-[10px]  font-bold tracking-[0.2em] text-center md:text-left">
-            ©2025 | Kiran Global Chems Pvt Ltd | All rights Reserved | Designed by iStudio Technologies
+          <p className="text-gray-500 text-[10px] font-bold tracking-[0.2em] text-center md:text-left uppercase">
+            {t.footer.copyright} | {t.footer.rights} | {t.footer.designedBy}
           </p>
           <div className="flex gap-10 text-[10px] text-gray-500  font-black tracking-widest">
-            <Link href="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-            <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">{t.footer.privacyPolicy}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">{t.footer.termsOfService}</Link>
           </div>
         </div>
       </div>
