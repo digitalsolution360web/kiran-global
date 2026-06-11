@@ -12,7 +12,7 @@ const LeadershipSection = () => {
     <section className="py-14 bg-white relative overflow-hidden" id="leadership">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="text-center md:text-left mb-16 max-w-2xl">
-          <h2 className="text-blue-700 font-bold uppercase tracking-[0.2em] text-sm mb-4">
+          <h2 className="text-blue-700 font-bold tracking-[0.2em] text-sm mb-4">
             {t.leadership.label}
           </h2>
           <h3 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight">
