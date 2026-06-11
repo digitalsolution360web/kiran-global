@@ -13,7 +13,7 @@ import VisionMissionSection from "./components/VisionMissionSection";
 import LeadershipSection from "./components/LeadershipSection";
 import SustainabilitySection from "./components/SustainabilitySection";
 import CertificationsSection from "./components/CertificationsSection";
-import TestimonialsSection from "./components/TestimonialsSection";
+import ClientTestimonials from "./components/ClientTestimonials";
 import BlogsSection from "./components/BlogsSection";
 import FAQSection from "./components/FAQSection";
 import Footer from "./components/Footer";
@@ -35,7 +35,7 @@ export default function Home() {
       <LeadershipSection />
       <SustainabilitySection />
       <CertificationsSection />
-      <TestimonialsSection />
+      <ClientTestimonials />
       <BlogsSection />
       <FAQSection />
       <Footer />

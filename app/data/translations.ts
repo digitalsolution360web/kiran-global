@@ -4,9 +4,9 @@ export interface TranslationData {
     custom: string; quality: string; careers: string; contact: string; getEstimate: string;
     callUs: string; email: string; workingHours: string; language: string;
   };
-  hero: { title: string; subtitle: string; content: string; explore: string; contact: string };
+  hero: { title: string; subtitle?: string; content: string; explore: string; contact: string };
   about: {
-    label: string; titleStart: string; titleHighlight: string; description: string;
+    label: string; titleStart: string; titleHighlight?: string; description: string;
     quote: string; points: string[]; estYear: string;
   };
   common: { exploreMore: string; viewDetails: string; learnMore: string; readMore: string; readFullArticle: string };
@@ -61,8 +61,8 @@ export interface TranslationData {
     leaders: { name: string; role: string; description: string }[];
   };
   testimonials: {
-    label: string; title: string; titleHighlight: string; description: string;
-    items: { name: string; company: string; text: string }[];
+    label: string; title: string; titleHighlight?: string; description: string;
+    items: { name: string; company: string; text: string; image: string }[];
   };
   blogs: {
     label: string; title: string; knowledgeHub: string; updatedWeekly: string; readFullArticle: string;
@@ -79,6 +79,7 @@ export interface TranslationData {
     productsTitle: string; products: string[]; reachUsTitle: string;
     copyright: string; privacyPolicy: string; termsOfService: string;
     rights: string; designedBy: string;
+    address: string;
   };
   certifications: {
     label: string; title: string; titleHighlight: string; description: string;
@@ -97,18 +98,16 @@ export const translations: Record<string, TranslationData> = {
       workingHours: "Sat - Thu (08:00 - 17:00)", language: "Language",
     },
     hero: {
-      title: "India's Leading Sodium & Potassium Silicate Manufacturer",
-      subtitle: "Trusted Since 1979 | 32+ Manufacturing Units | Global Presence",
-      content: "Delivering innovative, sustainable, and high-performance chemical solutions for industries worldwide.",
+      title: "Global Excellence in Silicates",
+      content: "Strategic Presence in Italy. From Global Industry to Local Markets.",
       explore: "Explore Products", contact: "Contact Us",
     },
     about: {
       label: "About Us",
-      titleStart: "One of India's largest manufacturers of ",
-      titleHighlight: "Sodium & Potassium Silicate",
-      description: "Kiran Italia Chemicals S.r.l. is one of the premier manufacturers of Sodium Silicate and Potassium Silicate solutions. The company has grown into a globally recognized chemical enterprise serving customers across multiple continents.",
+      titleStart: "Industrial Leadership ",
+      description: "For more than 40 years, Kiran Global has is a leading manufacturer of sodium silicate and potassium silicate solutions. The company has grown into a globally recognized chemical company serving customers on multiple continents.",
       quote: "Our commitment to quality, innovation, and sustainability enables us to deliver reliable chemical solutions for diverse industrial applications.",
-      points: ["45+ Years of Industry Experience", "Global Manufacturing Presence", "Advanced Production Facilities", "Customer-Centric Approach"],
+      points: ["India’s leading silicate manufacturer ", "Among the Top 5 globally ", "32 manufacturing facilities ", "300K+ tons annual capacity", "Presence across 45+ countries"],
       estYear: "Est. Year",
     },
     common: {
@@ -205,14 +204,12 @@ export const translations: Record<string, TranslationData> = {
       ],
     },
     testimonials: {
-      label: "Client Feedback", title: "Our Clients' ", titleHighlight: "Success Stories",
+      label: "Client Feedback", title: "Our Testimonial ",
       description: "Experience the uncompromising excellence that has made us a trusted partner in industrial chemistry for over 45 years.",
       items: [
-        { name: "Rajesh Sharma", company: "CEMENT CORP · RAJASTHAN, INDIA", text: "Just wanted to say thank you for the outstanding service that Kiran Global Chems provides. The trust we have in our supplier is crucial, especially when our customers' reputation is on the line. Top-notch quality and timely delivery every time!" },
-        { name: "Jayesh Vaghani", company: "SINGLE EXPORT · WASHINGTON, USA", text: "Just wanted to say thank you for the service that Kiran Global Chems do for us. The trust that we have in our vendors is crucial for us especially when there is the chance of our customers name coming into play." },
-        { name: "Vikram Patel", company: "DETERGENT SOLUTIONS · GUJARAT, INDIA", text: "Kiran Global Chems exceeded expectations — top-notch quality, timely delivery, and truly outstanding customer service! Their sodium silicate products are consistently superior in quality. Highly recommended." },
-        { name: "Ahmed Al-Rashid", company: "PETROCHEMICAL GROUP · DUBAI, UAE", text: "We have been sourcing silicate products from Kiran for over 10 years. Their expertise and product consistency is unmatched. They truly understand the needs of industrial grade applications and always deliver excellence." },
-        { name: "Priya Menon", company: "WATER TECH PVT. LTD. · KERALA, INDIA", text: "Excellent product quality and very responsive technical support team. Kiran Global Chems understood our specific requirements for water treatment applications and provided perfectly customised solutions on time." },
+        { name: "Kirshnaraj", company: "Pallvi Powertech", text: "Just wanted to say thank you for the service that Kiran global do for us. The trust that we have in our vendors is crucial for us especially when there is the chance of our customers name coming into play.”", image: "/Krishnaraj1.webp" },
+        { name: "Moosa", company: "METL", text: "We have been doing business with Kiran Global since 2011. During this time, Kiran Global has provided us with excellent customer service, timely and reliable information and quality products.”", image: "/Moosa1.webp" },
+        { name: "Keyur", company: "TTSPL", text: "Kiran Global provides outstanding quality, customer service and is an extremely reliable supplier.I just wanted to take this time to say thanks for the continued great service ”", image: "/keyur.webp" },
       ],
     },
     blogs: {
@@ -250,6 +247,7 @@ export const translations: Record<string, TranslationData> = {
       copyright: "©2025 | Kiran Italia Chemicals S.r.l.",
       rights: "All rights Reserved", designedBy: "Designed by iStudio Technologies",
       privacyPolicy: "Privacy Policy", termsOfService: "Terms of Service",
+      address: "Motta Sant'Anastasia (CT) - Italia",
     },
     certifications: {
       label: "Certifications & Quality",
@@ -385,11 +383,9 @@ export const translations: Record<string, TranslationData> = {
       label: "Feedback dei Clienti", title: "Le ", titleHighlight: "Storie di Successo dei Nostri Clienti",
       description: "Scopri l'eccellenza senza compromessi che ci ha resi un partner di fiducia nella chimica industriale per oltre 45 anni.",
       items: [
-        { name: "Rajesh Sharma", company: "CEMENT CORP · RAJASTHAN, INDIA", text: "Volevo solo ringraziarvi per il servizio eccezionale che Kiran Global Chems fornisce. La fiducia che abbiamo nel nostro fornitore è fondamentale, soprattutto quando è in gioco la reputazione dei nostri clienti. Qualità eccellente e consegna puntuale ogni volta!" },
-        { name: "Jayesh Vaghani", company: "SINGLE EXPORT · WASHINGTON, USA", text: "Volevo solo ringraziarvi per il servizio che Kiran Global Chems ci offre. La fiducia che abbiamo nei nostri fornitori è fondamentale, soprattutto quando c'è la possibilità che il nome dei nostri clienti entri in gioco." },
-        { name: "Vikram Patel", company: "DETERGENT SOLUTIONS · GUJARAT, INDIA", text: "Kiran Global Chems ha superato le aspettative — qualità eccellente, consegna puntuale e un servizio clienti davvero straordinario! I loro prodotti di silicato di sodio sono costantemente superiori in qualità. Altamente raccomandato." },
-        { name: "Ahmed Al-Rashid", company: "PETROCHEMICAL GROUP · DUBAI, UAE", text: "Acquisiamo prodotti a base di silicati da Kiran da oltre 10 anni. La loro competenza e la coerenza del prodotto sono ineguagliabili. Comprendono davvero le esigenze delle applicazioni di grado industriale e forniscono sempre eccellenza." },
-        { name: "Priya Menon", company: "WATER TECH PVT. LTD. · KERALA, INDIA", text: "Eccellente qualità del prodotto e team di supporto tecnico molto reattivo. Kiran Global Chems ha capito le nostre esigenze specifiche per le applicazioni di trattamento delle acque e ha fornito soluzioni perfettamente personalizzate nei tempi previsti." },
+        { name: "Kirshnaraj", company: "Pallvi Powertech", text: "Volevo solo ringraziarvi per il servizio che Kiran global ci offre. La fiducia che abbiamo nei nostri fornitori è fondamentale per noi, specialmente quando c'è la possibilità che il nome dei nostri clienti entri in gioco.”", image: "/Krishnaraj1.webp" },
+        { name: "Moosa", company: "METL", text: "Collaboriamo con Kiran Global dal 2011. Durante questo periodo, Kiran Global ci ha fornito un eccellente servizio clienti, informazioni tempestive e affidabili e prodotti di qualità.”", image: "/Moosa1.webp" },
+        { name: "Keyur", company: "TTSPL", text: "Kiran Global offre una qualità eccezionale, un servizio clienti ed è un fornitore estremamente affidabile. Volevo solo prendermi questo tempo per ringraziarvi per il continuo ottimo servizio.”", image: "/keyur.webp" },
       ],
     },
     blogs: {
@@ -427,6 +423,7 @@ export const translations: Record<string, TranslationData> = {
       copyright: "©2025 | Kiran Italia Chemicals S.r.l.",
       rights: "Tutti i diritti riservati", designedBy: "Progettato da iStudio Technologies",
       privacyPolicy: "Informativa sulla privacy", termsOfService: "Termini di servizio",
+      address: "Motta Sant'Anastasia (CT) - Italia",
     },
     certifications: {
       label: "Certificazioni e Qualità",

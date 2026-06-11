@@ -92,10 +92,10 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="space-y-6">
                 <div className="text-xs">
-                  <span className="block font-bold text-white mb-2 tracking-tight text-sm">Kiran Italia Chemicals S.r.l.</span>
+                  <span className="block font-bold text-white mb-2 tracking-tight text-sm uppercase">Kiran Italia Chemicals S.r.l.</span>
                   <div className="flex items-start gap-1 text-gray-400 group">
                     <MapPin size={14} className="text-[#f9b115] mt-0.5 -ml-0.5 flex-shrink-0" />
-                    <span className="leading-relaxed block text-[11px]">Motta Sant'Anastasia (CT) - Italia</span>
+                    <span className="leading-relaxed block text-[11px]">{t.footer.address}</span>
                   </div>
                 </div>
               </div>
@@ -137,7 +137,7 @@ const Footer = () => {
 
         <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-gray-500 text-[10px] font-bold tracking-[0.2em] text-center md:text-left uppercase">
-            {t.footer.copyright} | {t.footer.rights} | {t.footer.designedBy}
+            {t.footer.copyright} | {t.footer.rights}
           </p>
           <div className="flex gap-10 text-[10px] text-gray-500  font-black tracking-widest">
             <Link href="/privacy" className="hover:text-white transition-colors">{t.footer.privacyPolicy}</Link>

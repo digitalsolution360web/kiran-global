@@ -44,9 +44,9 @@ const contactInfo = [
     color: "bg-amber-50 text-amber-600"
   },
   {
-    title: "Our Location",
-    value: "Motta Sant'Anastasia, Italia",
-    link: "https://maps.google.com/?q=Motta+Sant'Anastasia,Italia",
+    title: "Head Office",
+    value: "No.104, Phlox Apartments, 1st Floor, F-2, Q-Block, 3rd Avenue, Anna Nagar, Chennai-600040, Tamilnadu, India.",
+    link: "https://maps.google.com/?q=No.104,Phlox+Apartments,Anna+Nagar,Chennai",
     icon: <MapPin size={20} />,
     color: "bg-emerald-50 text-emerald-600"
   }
@@ -229,7 +229,7 @@ export default function ContactPage() {
             <h2 className="text-2xl md:text-3xl font-black text-dark mb-4 tracking-tighter uppercase leading-none">
               Visit Our <span className="text-primary">Office</span>
             </h2>
-            <p className="text-gray-500 text-sm max-w-lg">Located in Motta Sant'Anastasia (CT), our Italian headquarters is where innovation hits the ground.</p>
+            <p className="text-gray-500 text-sm max-w-lg">Located in Anna Nagar, Chennai, our Head Office is the heart of our global operations.</p>
           </div>
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -237,13 +237,13 @@ export default function ContactPage() {
             className="h-[500px] rounded-[3rem] overflow-hidden bg-white p-4 border border-gray-100 shadow-2xl relative"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12662.66440232468!2d14.96068225!3d37.512684!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1313e2f073f7f4d3%3A0x40b2e3e57088160!2s95040%20Motta%20Sant'Anastasia%20CT%2C%20Italy!5e0!3m2!1sen!2sit!4v1717512000000!5m2!1sen!2sit"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.2668!2d80.208!3d13.082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52640000000000%3A0x0!2sNo.104%2C+3rd+Avenue%2C+Anna+Nagar%2C+Chennai!5e0!3m2!1sen!2sin!4v1717512000000"
               width="100%"
               height="100%"
               style={{ border: 0 }}
               allowFullScreen={true}
               loading="lazy"
-              className="rounded-[2.5rem] grayscale"
+              className="rounded-[2.5rem]"
             ></iframe>
           </motion.div>
         </div>
