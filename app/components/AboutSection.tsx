@@ -31,7 +31,7 @@ const AboutSection = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               className="absolute top-0 right-0 w-3/4 h-[60%] rounded-[3rem] overflow-hidden shadow-2xl border-[8px] border-white z-10"
             >
-              <Image src="/Potassium-Silicate-Lumps.webp" alt="Kiran Global Factory Facility" fill className="object-cover" />
+              <Image src="/home-ab2.webp" alt="Kiran Global Factory Facility" fill className="object-cover" />
               <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
             </motion.div>
 
@@ -42,7 +42,7 @@ const AboutSection = () => {
               transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
               className="absolute bottom-10 left-0 w-2/3 h-[50%] rounded-[3rem] overflow-hidden shadow-[0_20px_50px_rgba(0,0,0,0.2)] border-[8px] border-white z-20"
             >
-              <Image src="/image.webp" alt="Production Pipeline" fill className="object-cover" />
+              <Image src="/home-head1.webp" alt="Production Pipeline" fill className="object-cover" />
             </motion.div>
 
             {/* Floating Info card */}

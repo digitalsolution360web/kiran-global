@@ -12,26 +12,20 @@ const HeroSlider = () => {
 
   const slides = [
     {
-      image: "/banner.webp",
+      image: "/slider.webp",
       title: t.hero.title,
       subtitle: t.hero.subtitle,
       content: t.hero.content,
       highlight: t.hero.explore,
     },
     {
-      image: "/new24.webp",
+      image: "/slider22.webp",
       title: t.hero.title,
       subtitle: t.hero.subtitle,
       content: t.hero.content,
       highlight: t.hero.explore,
     },
-    {
-      image: "/new25.webp",
-      title: t.hero.title,
-      subtitle: t.hero.subtitle,
-      content: t.hero.content,
-      highlight: t.hero.explore,
-    },
+
   ];
 
   useEffect(() => {
