@@ -8,7 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 const SolidLiquidSection = () => {
   const { t } = useLanguage();
   return (
-    <section className="py-20 bg-white overflow-hidden" id="solid-liquid">
+    <section className="py-20 bg-[#f0f6ff] overflow-hidden" id="solid-liquid">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
         {/* Title with Green Bar */}
         <motion.div

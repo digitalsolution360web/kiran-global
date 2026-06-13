@@ -146,7 +146,7 @@ const Navbar = () => {
                     }`}
                 >
                   <Image
-                    src="/logo.webp"
+                    src="/KGCL-Logo.webp"
                     alt="Kiran Italia Chemicals"
                     fill
                     className="object-contain p-1"
@@ -184,7 +184,7 @@ const Navbar = () => {
                     )}
                   </Link>
                   {link.submenu && (
-                    <div className="absolute top-full left-0 pt-6 opacity-0 translate-y-4 invisible group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:visible transition-all duration-300 min-w-[240px]">
+                    <div className="absolute top-full left-0 pt-6 opacity-0 translate-y-4 invisible group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:visible transition-all duration-300 min-w-[240px] z-[150]">
                       <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-3">
                         {link.submenu.map((sub) => (
                           <Link
@@ -255,7 +255,7 @@ const Navbar = () => {
                             className={`flex items-center cursor-pointer gap-2 px-2.5 py-3 rounded-lg text-[15px] font-bold  transition-all group/lang ${language === "en" ? "bg-primary text-white" : "text-gray-600 hover:bg-gray-50 hover:text-primary"
                               }`}
                           >
-                            <span className="text-xs">🇺🇸</span>
+                            {/* <span className="text-xs">🇺🇸</span> */}
                             <span className="flex-grow">English</span>
                             {language === "en" && <div className="w-1 h-1 rounded-full bg-white" />}
                           </button>
@@ -265,7 +265,7 @@ const Navbar = () => {
                             className={`flex items-center gap-2 px-2.5 py-3 rounded-lg text-[15px] font-bold transition-all group/lang ${language === "it" ? "bg-primary text-white" : "text-gray-600 hover:bg-gray-50 hover:text-primary"
                               }`}
                           >
-                            <span className="text-xs">🇮🇹</span>
+                            {/* <span className="text-xs">🇮🇹</span> */}
                             <span className="flex-grow">Italian</span>
                             {language === "it" && <div className="w-1 h-1 rounded-full bg-white" />}
                           </button>

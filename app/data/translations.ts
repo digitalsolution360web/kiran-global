@@ -52,7 +52,7 @@ export interface TranslationData {
   };
   visionMission: {
     label: string;
-    visionTitle: string; visionText: string;
+    visionTitle: string; visionText: string; visionHighlight: string;
     missionTitle: string; missions: string[];
     strengthTitle: string; strengthText1: string; strengthText2: string;
   };
@@ -240,6 +240,7 @@ export const translations: Record<string, TranslationData> = {
     visionMission: {
       label: "VISION & MISSION",
       visionTitle: "Our Vision",
+      visionHighlight: "The company’s united vision",
       visionText: "The company’s united vision is to become a globally-renowned organisation that delivers skilfully crafted products and services, earning highest returns for our stakeholders and delivering the best customer service.",
       missionTitle: "Our Mission",
       missions: [
@@ -565,6 +566,7 @@ export const translations: Record<string, TranslationData> = {
     visionMission: {
       label: "VISIONE E MISSIONE",
       visionTitle: "La Nostra Visione",
+      visionHighlight: "La visione unitaria dell'azienda",
       visionText: "La visione unitaria dell'azienda è quella di diventare un'organizzazione di fama mondiale che offra prodotti e servizi sapientemente realizzati, ottenendo i massimi rendimenti per i nostri stakeholder e fornendo il miglior servizio clienti.",
       missionTitle: "La Nostra Missione",
       missions: [

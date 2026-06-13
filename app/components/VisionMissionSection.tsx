@@ -11,7 +11,7 @@ const VisionMissionSection = () => {
   const missions = t.visionMission.missions;
 
   return (
-    <section className="py-14 bg-gray-50 relative overflow-hidden">
+    <section className="py-14 bg-[#f0f6ff] relative overflow-hidden" id="vision-mission">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             
@@ -29,7 +29,7 @@ const VisionMissionSection = () => {
                 </div>
                 <h2 className="text-4xl font-bold text-gray-900 mb-6 tracking-tight">{t.visionMission.visionTitle}</h2>
                 <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-xl">
-                    <span className="text-gray-900 font-semibold">{t.visionMission.visionHighlight}</span> {t.visionMission.visionText.split(t.visionMission.visionHighlight)[1]}
+                    <span className="text-gray-900 font-semibold">{t.visionMission.visionHighlight}</span> {t.visionMission.visionText.split(t.visionMission.visionHighlight || "")[1]}
                 </p>
             </motion.div>
 

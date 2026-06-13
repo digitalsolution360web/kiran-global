@@ -26,7 +26,7 @@ const AdvancedChemicalsSection = () => {
   ];
 
   return (
-    <section className="py-20 bg-[#f8fafc] relative overflow-hidden" id="advanced-solutions">
+    <section className="py-20 bg-white relative overflow-hidden" id="advanced-solutions">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
         {/* Title with Green Bar */}
         <motion.div

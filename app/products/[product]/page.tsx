@@ -215,8 +215,8 @@ export default function ProductPage() {
             <h2 className="text-4xl font-bold text-gray-900 tracking-tight">Specifications & <span className="text-secondary italic">Properties</span></h2>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden self-start">
+          <div className="flex flex-col gap-12 w-full">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden self-stretch">
               <div className="bg-primary text-white px-8 py-5 flex items-center gap-4">
                 <Factory size={22} className="text-secondary" />
                 <h3 className="text-lg font-bold">{productData.propertiesTitle}</h3>
@@ -225,15 +225,15 @@ export default function ProductPage() {
                 <tbody className="divide-y divide-gray-50">
                   {productData.properties.map((prop, index) => (
                     <tr key={index} className="hover:bg-gray-50/30 transition-colors">
-                      <td className="py-4 px-8 font-bold text-gray-400 text-[10px] uppercase tracking-widest w-1/3">{prop.label}</td>
-                      <td className="py-4 px-8 font-semibold text-gray-800 text-sm whitespace-pre-wrap">{prop.value}</td>
+                      <td className="py-5 px-8 font-extrabold text-gray-500 text-xs uppercase tracking-[0.15em] w-1/4">{prop.label}</td>
+                      <td className="py-5 px-8 font-bold text-gray-900 text-base whitespace-pre-wrap">{prop.value}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
 
-            <div className="bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden self-start">
+            <div className="bg-white rounded-2xl border border-gray-100 shadow-xl overflow-hidden self-stretch">
               <div className="bg-primary text-white px-8 py-5 flex items-center gap-4">
                 <TableIcon size={22} className="text-secondary" />
                 <h3 className="text-lg font-bold">{productData.salesSpecTitle}</h3>
@@ -243,7 +243,7 @@ export default function ProductPage() {
                   <thead className="bg-[#f8fafc] border-b border-gray-100">
                     <tr>
                       {productData.salesSpecHeaders.map((header, index) => (
-                        <th key={index} className="py-4 px-6 font-bold uppercase text-[10px] tracking-widest text-gray-400">
+                        <th key={index} className="py-5 px-6 font-extrabold uppercase text-xs tracking-[0.15em] text-gray-500">
                           {header}
                         </th>
                       ))}
@@ -253,7 +253,7 @@ export default function ProductPage() {
                     {productData.salesSpecRows.map((row, rowIndex) => (
                       <tr key={rowIndex} className="hover:bg-gray-50/30 transition-colors">
                         {row.map((cell, cellIndex) => (
-                          <td key={cellIndex} className="py-4 px-6 text-[11px] font-bold text-gray-800">
+                          <td key={cellIndex} className="py-5 px-6 text-[15px] font-black text-gray-900">
                             {cell}
                           </td>
                         ))}
@@ -270,9 +270,9 @@ export default function ProductPage() {
       {/* ── PACKAGING & QUALITY ── */}
       <section className="py-20 bg-white">
         <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-12 gap-12 items-start">
-            <div className="lg:col-span-7 flex flex-col space-y-10">
-              <div className="space-y-4">
+          <div className="flex flex-col gap-12 w-full">
+            <div className="flex flex-col">
+              <div className="space-y-4 mb-10">
                 <div className="flex items-center gap-2 text-secondary font-bold uppercase tracking-widest text-[10px]">
                   <Package size={14} />
                   Logistics & Packaging
@@ -285,7 +285,7 @@ export default function ProductPage() {
                 </p>
               </div>
 
-              <div className="grid sm:grid-cols-2 gap-4">
+              <div className="grid sm:grid-cols-2 gap-4 flex-1">
                 {Array.isArray(productData.packaging) ? (
                   productData.packaging.map((item, index) => (
                     <div key={index} className="p-6 rounded-2xl bg-gray-50 border border-gray-100 flex items-center justify-between hover:bg-white hover:shadow-lg transition-all duration-300">
@@ -294,10 +294,10 @@ export default function ProductPage() {
                     </div>
                   ))
                 ) : (
-                  <div className="col-span-full p-10 rounded-3xl bg-[#06101f] text-white shadow-2xl relative overflow-hidden group border border-white/10">
+                  <div className="col-span-full p-10 rounded-3xl bg-[#06101f] text-white shadow-2xl relative overflow-hidden group border border-white/10 flex flex-col justify-center">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-[80px]" />
-                    <div className="flex items-start gap-6 relative z-10">
-                       <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform">
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 relative z-10">
+                       <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform shrink-0">
                           <Truck size={32} />
                        </div>
                        <div className="flex-1 space-y-4">
@@ -313,7 +313,7 @@ export default function ProductPage() {
               </div>
 
               {'precautionsTitle' in productData && (
-                <div className="p-8 rounded-2xl bg-red-50 border-l-4 border-l-red-600 border-y border-r border-red-100 flex gap-5">
+                <div className="mt-10 p-8 rounded-2xl bg-red-50 border-l-4 border-l-red-600 border-y border-r border-red-100 flex gap-5">
                   <AlertCircle size={24} className="text-red-600 flex-shrink-0" />
                   <div className="space-y-2">
                     <h4 className="font-bold text-red-900 text-sm">{productData.precautionsTitle}</h4>
@@ -325,7 +325,7 @@ export default function ProductPage() {
               )}
             </div>
 
-            <div className="lg:col-span-5 bg-[#06101f] rounded-3xl p-10 lg:p-12 text-white shadow-2xl relative overflow-hidden">
+            <div className="bg-[#06101f] rounded-3xl p-10 lg:p-12 text-white shadow-2xl relative overflow-hidden flex flex-col">
                <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-[80px]" />
                
                <div className="relative z-10 space-y-10">
