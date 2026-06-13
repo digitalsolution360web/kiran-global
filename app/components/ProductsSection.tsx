@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 
@@ -138,10 +139,13 @@ const ProductsSection = () => {
                     ))}
                   </div>
 
-                  <button className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors group underline underline-offset-8">
+                  <Link 
+                    href={`/products/${activeTab.id}`}
+                    className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors group underline underline-offset-8"
+                  >
                     <span className="text-lg">{t.common.readMore}</span>
                     <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </Link>
                 </div>
               </motion.div>
             </AnimatePresence>

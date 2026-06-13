@@ -52,14 +52,25 @@ const Navbar = () => {
 
   const navLinks = [
     { name: t.navbar.home, href: "/" },
-    { name: t.navbar.about, href: "/about" },
+    {
+      name: t.navbar.about,
+      href: "/about",
+      submenu: [
+        { name: t.navbar.history, href: "/about/history" },
+        { name: t.navbar.vision, href: "/about/vision-mission" },
+        { name: t.navbar.chairmans, href: "/about/chairman-message" },
+        { name: t.navbar.management, href: "/about/management" },
+        { name: t.navbar.award, href: "/about/award" },
+      ],
+    },
     {
       name: t.navbar.products,
       href: "/products",
       submenu: [
-        { name: t.navbar.sodium, href: "/products#sodium" },
-        { name: t.navbar.potassium, href: "/products#potassium" },
-        { name: t.navbar.custom, href: "/products#custom" },
+        { name: t.navbar.sodiumLumps, href: "/products/sodium-lumps" },
+        { name: t.navbar.sodiumLiquid, href: "/products/sodium-liquid" },
+        { name: t.navbar.potassiumLumps, href: "/products/potassium-lumps" },
+        { name: t.navbar.potassiumLiquid, href: "/products/potassium-liquid" },
       ],
     },
     { name: t.navbar.quality, href: "/quality" },
@@ -70,13 +81,13 @@ const Navbar = () => {
   return (
     <>
       {/* ── HEADER ── */}
-      <header className="fixed w-full z-[100] transition-all duration-300 ease-in-out">
-        {/* Top Bar – xl screens only */}
+      <header className="fixed top-0 left-0 w-full z-[100] transition-all duration-300 ease-in-out">
+        {/* Top Bar – lg screens only */}
         <div
-          className={`border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden hidden xl:block ${scrolled ? "h-0 opacity-0" : "h-12 opacity-100 bg-primary"
+          className={`border-b border-white/10 transition-all duration-300 ease-in-out overflow-hidden hidden lg:block ${scrolled ? "h-0 opacity-0" : "h-12 opacity-100 bg-primary"
             }`}
         >
-          <div className="max-w-[1700px] mx-auto px-12 h-full flex justify-between items-center">
+          <div className="max-w-[1700px] mx-auto px-6 lg:px-10 xl:px-12 h-full flex justify-between items-center">
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2 text-xs font-semibold text-white/80 tracking-widest">
                 <Clock size={14} className="text-secondary" />
@@ -126,7 +137,7 @@ const Navbar = () => {
             : "bg-white py-4 shadow-xl border-b border-gray-200/50"
             }`}
         >
-          <div className="max-w-[1700px] mx-auto px-6 xl:px-12 flex justify-between items-center h-16">
+          <div className="max-w-[1700px] mx-auto px-6 lg:px-8 xl:px-12 flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/" scroll={true} className="flex items-center gap-3 group">
@@ -143,7 +154,7 @@ const Navbar = () => {
                   />
                 </div>
                 <div className="flex flex-col">
-                  <span className="text-lg xl:text-xl font-bold leading-none tracking-tighter text-primary uppercase">
+                  <span className="text-base lg:text-lg xl:text-xl font-bold leading-none tracking-tighter text-primary uppercase">
                     Kiran Italia
                   </span>
                   <span className="text-[8px] font-bold tracking-[0.4em] mt-1 text-gray-500 uppercase">
@@ -153,12 +164,12 @@ const Navbar = () => {
               </Link>
             </div>
 
-            {/* Desktop Links – xl and above only */}
-            <div className="hidden xl:flex items-center space-x-1">
+            {/* Desktop Links – lg and above only */}
+            <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
               {navLinks.map((link) => (
                 <div
                   key={link.name}
-                  className="relative px-4 py-2 group/nav"
+                  className="relative px-2 xl:px-4 py-2 group/nav"
                   onMouseEnter={() => setActiveDropdown(link.name)}
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
@@ -190,23 +201,23 @@ const Navbar = () => {
                 </div>
               ))}
               <div className="flex items-center gap-3 ml-4 pl-4 border-l border-gray-200/50">
-                <button className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-gray-50 text-gray-800 hover:text-primary transition-all duration-300">
+                {/* <button className="w-10 h-10 flex items-center justify-center rounded-xl hover:bg-gray-50 text-gray-800 hover:text-primary transition-all duration-300">
                   <Search size={20} />
-                </button>
+                </button> */}
 
                 <Link
                   href="/contact"
-                  className="relative px-7 py-3 bg-primary text-white rounded-xl text-[11px] font-bold uppercase tracking-[0.15em] overflow-hidden group/btn shadow-[0_10px_25px_rgba(10,77,162,0.2)] transition-all duration-500"
+                  className="relative px-4 xl:px-7 py-3 bg-primary text-white rounded-xl text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.15em] overflow-hidden group/btn shadow-[0_10px_25px_rgba(10,77,162,0.2)] transition-all duration-500"
                 >
                   <div className="absolute inset-0 bg-secondary translate-x-[-101%] group-hover/btn:translate-x-0 transition-transform duration-700" />
                   <span className="relative z-10 flex items-center gap-2">
                     {t.navbar.getEstimate}
-                    <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
+                    {/* <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" /> */}
                   </span>
                 </Link>
 
                 {/* Professional Compact Flag-Only Switcher */}
-                <div className="relative ml-4" ref={langDropdownRef}>
+                <div className="relative ml-2 xl:ml-4" ref={langDropdownRef}>
                   <button
                     onClick={() => setLangDropdown(!langDropdown)}
                     className={`group flex items-center gap-1.5 p-1.5  duration-500 cursor-pointer pr-3 rounded-full border transition-all duration-300 ${langDropdown
@@ -267,8 +278,8 @@ const Navbar = () => {
               </div>
             </div>
 
-            {/* Tablet / Mobile Hamburger Button – below xl */}
-            <div className="xl:hidden flex items-center gap-2 relative z-[110]">
+            {/* Tablet / Mobile Hamburger Button – below lg */}
+            <div className="lg:hidden flex items-center gap-2 relative z-[110]">
               {/* Quick Contact – tablet only */}
               <a
                 href="tel:+393391192817"
@@ -296,7 +307,7 @@ const Navbar = () => {
       {/* Backdrop */}
       <div
         onClick={() => setIsOpen(false)}
-        className={`fixed inset-0 z-[115] xl:hidden transition-all duration-400 ${isOpen
+        className={`fixed inset-0 z-[115] lg:hidden transition-all duration-400 ${isOpen
           ? "opacity-100 pointer-events-auto bg-black/60 backdrop-blur-sm"
           : "opacity-0 pointer-events-none"
           }`}
@@ -304,8 +315,8 @@ const Navbar = () => {
 
       {/* Sidebar Panel */}
       <div
-        className={`fixed top-0 right-0 h-full z-[120] xl:hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col
-          w-full sm:w-[400px] md:w-[420px]
+        className={`fixed top-0 right-0 h-full z-[120] lg:hidden transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] flex flex-col
+          // w-full sm:w-[400px] md:w-[420px]
           bg-gradient-to-b from-[#0a1628] via-[#0f1f3d] to-[#0a1628]
           shadow-[-20px_0_60px_rgba(0,0,0,0.4)]
           ${isOpen ? "translate-x-0" : "translate-x-full"}`}

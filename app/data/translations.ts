@@ -3,6 +3,18 @@ export interface TranslationData {
     home: string; about: string; products: string; sodium: string; potassium: string;
     custom: string; quality: string; careers: string; contact: string; getEstimate: string;
     callUs: string; email: string; workingHours: string; language: string;
+    history: string; award: string; vision: string; chairmans: string; management: string;
+    sodiumLumps: string; sodiumLiquid: string; potassiumLumps: string; potassiumLiquid: string;
+  };
+  chairmansMessage: {
+    label: string;
+    title: string;
+    quote1: string;
+    text1: string;
+    gitaQuote: string;
+    gitaVerse: string;
+    name: string;
+    role: string;
   };
   hero: { title: string; subtitle?: string; content: string; explore: string; contact: string };
   about: {
@@ -39,8 +51,10 @@ export interface TranslationData {
     };
   };
   visionMission: {
-    visionTitle: string; visionText: string; visionHighlight: string;
+    label: string;
+    visionTitle: string; visionText: string;
     missionTitle: string; missions: string[];
+    strengthTitle: string; strengthText1: string; strengthText2: string;
   };
   globalNetwork: { label: string; title: string; description: string };
   solidLiquid: {
@@ -86,6 +100,47 @@ export interface TranslationData {
     items: { title: string; desc: string }[];
     guaranteed: string;
   };
+  productDetails: {
+    sodiumLumps: {
+      title: string; desc: string; industryTitle: string; industries: string[];
+      propertiesTitle: string; properties: { label: string; value: string }[];
+      salesSpecTitle: string; salesSpecHeaders: string[];
+      salesSpecRows: string[][];
+      appsTitle: string; apps: string[];
+      packagingTitle: string; packaging: string[];
+      certs: { un: string; cas: string; reach: string; reachIssuer: string; iso: string };
+    };
+    sodiumLiquid: {
+      title: string; desc1: string; desc2: string; propertiesTitle: string;
+      properties: { label: string; value: string }[];
+      salesSpecTitle: string; salesSpecHeaders: string[];
+      salesSpecRows: string[][];
+      appsTitle: string; apps: string[];
+      packagingTitle: string; packaging: string[];
+      certs: { un: string; cas: string; reach: string; reachIssuer: string; iso: string };
+    };
+    potassiumLumps: {
+      title: string; desc: string; appsTitle: string; apps: string[];
+      propertiesTitle: string; properties: { label: string; value: string }[];
+      salesSpecTitle: string; salesSpecHeaders: string[];
+      salesSpecRows: string[][];
+      appsTitle2: string; apps2: string[];
+      packagingTitle: string; packaging: string;
+      certs: { un: string; cas: string };
+      precautionsTitle: string; precautionsText: string;
+      molarRatioLabel: string;
+    };
+    potassiumLiquid: {
+      title: string; desc: string; propertiesTitle: string;
+      properties: { label: string; value: string }[];
+      salesSpecTitle: string; salesSpecHeaders: string[];
+      salesSpecRows: string[][];
+      appsTitle: string; apps: string[];
+      packagingTitle: string; packaging: string;
+      certs: { un: string; cas: string; reach: string; reachIssuer: string; iso: string };
+      molarRatioLabel: string;
+    };
+  };
 }
 
 export const translations: Record<string, TranslationData> = {
@@ -96,6 +151,23 @@ export const translations: Record<string, TranslationData> = {
       quality: "Quality & Safety", careers: "Careers", contact: "Contact",
       getEstimate: "Get Estimate", callUs: "Call Us", email: "Email",
       workingHours: "Sat - Thu (08:00 - 17:00)", language: "Language",
+      history: "History", award: "Awards", vision: "Vision & Mission",
+      chairmans: "Chairman's Message",
+      sodiumLumps: "SODIUM SILICATE LUMPS",
+      sodiumLiquid: "SODIUM SILICATE LIQUID",
+      potassiumLumps: "POTASSIUM SILICATE LUMPS",
+      potassiumLiquid: "POTASSIUM SILICATE LIQUID",
+      management: "Management",
+    },
+    chairmansMessage: {
+      label: "CHAIRMAN'S MESSAGE",
+      title: "Vision from the Leadership",
+      quote1: "My ambition is to establish Kiran Global Chems Ltd. as a market leader in the global chemical industry and to achieve this goal through innovative technologies, industry best practices and economic soundness. My greatest joy lies in enabling people achieve their ambitions and moulding fresh talent into successful individuals. Every opportunity I get to guide an individual in attaining their goals I embrace as an opportunity to learn something new and grow personally.",
+      text1: "In my view, a good organisation is one that does not deviate from its growth curve in spite of temporary setbacks. I am proud of our company’s achievement in attaining the number one position in India and confident that we shall continue to hold this spot for a long time.",
+      gitaQuote: "They, who perform their work offering all results to me, Who hold their hearts and mind steadfast in me in whatever they do, who worship their work, to them I offer the platform. Doubt it not that they will inexorably reach the top.",
+      gitaVerse: "BHAGWAT GITA 12.6/12.8",
+      name: "M S Jain",
+      role: "Chairman",
     },
     hero: {
       title: "Global Excellence in Silicates",
@@ -166,11 +238,21 @@ export const translations: Record<string, TranslationData> = {
       },
     },
     visionMission: {
+      label: "VISION & MISSION",
       visionTitle: "Our Vision",
-      visionText: "To become a globally recognized organization delivering innovative products, exceptional customer service, and sustainable value for all stakeholders.",
-      visionHighlight: "To become a globally recognized organization",
+      visionText: "The company’s united vision is to become a globally-renowned organisation that delivers skilfully crafted products and services, earning highest returns for our stakeholders and delivering the best customer service.",
       missionTitle: "Our Mission",
-      missions: ["Deliver consistent quality and reliability", "Create value-driven solutions for customers", "Invest in employee growth and development", "Build modern infrastructure and logistics networks", "Embrace innovation and continuous improvement", "Maintain ethical and transparent business practices"],
+      missions: [
+        "Nurture commitment to quality and consistency as the key to sustainability",
+        "To give highest value for money to all our customers",
+        "To facilitate our employees with opportunities to achieve their highest potential",
+        "To create modern infrastructure and seamless logistics to address our customer demands on time",
+        "To innovate and adopt latest methods for highest ROI",
+        "To be a Fair Trade Partner in business"
+      ],
+      strengthTitle: "Our Strength",
+      strengthText1: "Our company’s strength lies in the established practices that are updated with the changing needs of the industry and our enduring product and service quality. With our vision for global growth we have established ourselves worldwide.",
+      strengthText2: "We have consistently introduced new products to our range of offerings and multiplied the capacity to meet the increasing demand for our products. We are committed to maintain our leadership position in the industry and are working hard to penetrate unexplored regions worldwide, while maintaining our existing high service standards."
     },
     globalNetwork: {
       label: "Global Presence", title: "Our Global Network",
@@ -237,7 +319,9 @@ export const translations: Record<string, TranslationData> = {
       companyDesc: "Kiran Italia Chemicals S.r.l. is a premier manufacturer of industrial silicates, dedicated to delivering high-purity Sodium and Potassium silicates. Our state-of-the-art facilities and commitment to innovation ensure top-tier solutions for global industries.",
       quickLinksTitle: "Quick Links",
       quickLinks: [
-        { name: "Home", href: "/" }, { name: "About Us", href: "/about" }, { name: "Products", href: "/products" },
+        { name: "Home", href: "/" }, { name: "About Us", href: "/about" },
+        { name: "History", href: "/about/history" }, { name: "Awards", href: "/about/award" },
+        { name: "Products", href: "/products" },
         { name: "Brochure", href: "/brochure" }, { name: "Quality & Safety", href: "/quality" },
         { name: "Careers", href: "/careers" }, { name: "Contact Us", href: "/contact" },
       ],
@@ -261,6 +345,126 @@ export const translations: Record<string, TranslationData> = {
       ],
       guaranteed: "Quality Guaranteed",
     },
+    productDetails: {
+      sodiumLumps: {
+        title: "Sodium Silicate Lumps",
+        desc: "At Kiran Global Chems Ltd. we produce sodium silicate lumps that are manufactured using top grade raw materials and have superior properties, both physical and chemical. We are the market leader in India and our brand is recognized globally for its high performance. Our prominent clients belong to the following industries:",
+        industryTitle: "Prominent Client Industries",
+        industries: ["Soil Grouting", "Silica & Allied Chemicals", "Catalysts", "Soaps and Detergents manufacturing", "Textile Processing", "Paper & Pulp", "Foundries", "Adhesives in Paper & Board industries", "Pigment manufacture", "Waterproofing", "Cement"],
+        propertiesTitle: "Sodium Silicate Lump Physical & Chemical Properties",
+        properties: [
+          { label: "Chemical Formulae", value: "Na2O x SiO2" },
+          { label: "Appearance", value: "Solid Lumps" },
+          { label: "Colour", value: "Colourless to Light Blue Colour" },
+          { label: "Molecular Weight", value: "184 – 254" }
+        ],
+        salesSpecTitle: "Sales Specification",
+        salesSpecHeaders: ["Particular", "Na2O", "SiO2", "Total Solids", "Weight Ratio"],
+        salesSpecRows: [
+          ["1:2.00", "32.50 – 33.00%", "66.50 – 67.00%", "> 99.0%", "1:2.00 +/- 0.1"],
+          ["1:2.20", "30.50 – 31.50%", "67.50 – 68.00%", "> 99.0%", "1:2.20 +/- 0.1"],
+          ["1:3.20", "23.50 – 24.50%", "75.50 – 76.50%", "> 99.0%", "1:3.20 +/- 0.1"],
+          ["1:3.40", "22.50 -23.0%", "76.50 – 77.0%", "> 99.0%", "1:3.40 +/- 0.1"]
+        ],
+        appsTitle: "Sodium Silicate lumps are used by our clients for following applications",
+        apps: ["Detergent / Cleaning Compounds", "Paper Board", "Building Products / Construction", "Ceramics", "Petroleum Processing", "Metals"],
+        packagingTitle: "We transport the product in following packaging options",
+        packaging: ["285-300 Kg MS Drums", "Full Tanker Load", "Flexi Bags", "IBC Tanks", "Bulk Shipping"],
+        certs: {
+          un: "UN NO. 3253", cas: "CAS NO. 1344-09-8",
+          reach: "REACH PRE REGISTRATION NO. 17-2119388445-28-0000",
+          reachIssuer: "(Issued by ELC Group, Czech Republic)",
+          iso: "ISO CERTIFICATION NO. IN-Q08506"
+        }
+      },
+      sodiumLiquid: {
+        title: "Sodium Silicate Liquid",
+        desc1: "At Kiran Global Chem Ltd. we offer sodium silicate in liquid form for specific industrial application where the liquid property of the chemical is highly effective. We manufacture high quality silicates that are produced to match our customer's expectations. For special requirements, we customize the liquid so that it can be integrated with highest efficacy with the products of our clients.",
+        desc2: "We manufacture liquid sodium silicates in different molar ratios, thus adjusting the alkaline level in the silicates. Our research team advises customers on selecting the most appropriate combination for their industrial application.",
+        propertiesTitle: "Liquid sodium silicate physical and commercial properties.",
+        properties: [
+          { label: "Chemical Formulae", value: "Na2O x SiO2" },
+          { label: "Appearance", value: "Liquid" },
+          { label: "Colour", value: "Light Yellow liquid" },
+          { label: "Molecular Weight", value: "184 – 254" }
+        ],
+        salesSpecTitle: "Sales Specification",
+        salesSpecHeaders: ["Particular", "Specific Gravity", "Baume", "Na2O", "SiO2", "Weight Ratio"],
+        salesSpecRows: [
+          ["1:2.00", "1.56 – 1.66", "51 – 55", "15.50 – 16.50%", "31.0 – 33.50%", "2.0+ /-0.0.5"],
+          ["1:2.60", "1.52 – 1.55", "47 – 49", "11.50 – 12.50%", "31.0 – 33.50%", "2.60+ /-0.5"],
+          ["1:3.20", "1.38 – 1.41", "39 – 41", "8.50.95.0%", "28.0 – 30.0%", "3.20+ /-0.5"]
+        ],
+        appsTitle: "Our clients use the sodium silicate liquid for manufacturing following products",
+        apps: ["Detergent / Cleaning Compounds", "Pulp and Paper", "Paper Board", "Building Products / Construction", "Textiles", "Ceramics", "Petroleum Processing", "Metals"],
+        packagingTitle: "We offer the product for transportation in following packages",
+        packaging: ["285-300 Kgs MS Drums", "Full Tanker Load, Flexi Bags", "IBC Tanks", "Bulk Shipping"],
+        certs: {
+          un: "UN NO. 3253", cas: "CAS NO. 1344-09-8",
+          reach: "REACH PRE REGISTRATION NO. 17-2119388445-28-0000",
+          reachIssuer: "(Issued by ELC Group, Czech Republic)",
+          iso: "ISO CERTIFICATION NO. IN-Q08506"
+        }
+      },
+      potassiumLumps: {
+        title: "Potassium Silicate Lumps",
+        desc: "At Kiran Global Chem Ltd. we manufacture potassium silicate lumps of the highest quality. Our product is recognised industry-wide for its high performance and seamless integration.",
+        appsTitle: "The application of Potassium silicate lump manufactured by our company is largely used in:",
+        apps: ["As a flux binder in welding electrode", "Acid proof lining", "Detergents and soaps", "Phosphor binder in T.V. tubes"],
+        propertiesTitle: "The physical and chemical properties of potassium silicate lumps manufacture in our company are:",
+        properties: [
+          { label: "Chemical Formulae", value: "K2O x SiO2" },
+          { label: "Appearance", value: "Transparent if it has not absorbed moisture\nTranslucent after absorption of moisture" },
+          { label: "Colour", value: "Colourless" },
+          { label: "Molecular Weight", value: "215 – 226" }
+        ],
+        salesSpecTitle: "Sales Specification",
+        salesSpecHeaders: ["Property", "Value"],
+        salesSpecRows: [
+          ["SiO2 %", "67.30% to 68.30%"],
+          ["K2O %", "31.00% to 32.00%"],
+          ["Total Solids", "> 99%"],
+          ["Weight Ratio", "2.05 to 2.20"],
+          ["Molar Ratio", "3.20-3.45"]
+        ],
+        appsTitle2: "Application",
+        apps2: ["As a flux binder in welding electrode", "Acid proof lining", "Detergents and soaps", "Phosphor binder in T.V. tubes"],
+        packagingTitle: "We offer potassium silicate lumps in following packaging options",
+        packaging: "Packing : In HDPE bogs and 1000 Kgs Jumbo bags",
+        certs: { un: "UN NO. 3266", cas: "CAS NO. 1312-76-1" },
+        precautionsTitle: "Precautions",
+        precautionsText: "It irritates the skin and eye depending upon the concentration. Usage of rubber gloves, face shield, nose masks while handling is recommended.",
+        molarRatioLabel: "*X = 2.05 – 2.20"
+      },
+      potassiumLiquid: {
+        title: "Potassium Silicate Liquid",
+        desc: "Kiran Global Chems Ltd. is a leading brand name in India in the manufacture and supply of potassium silicate liquid. Our industry-grade potassium silicate liquid is available in a range of ratios and concentrations based on the specific business requirements of our clients.",
+        propertiesTitle: "The physical and chemical properties of Kiran Potassium silicate liquid are:",
+        properties: [
+          { label: "Chemical Formulae", value: "K2O x SiO2" },
+          { label: "Appearance", value: "Liquid" },
+          { label: "Colour", value: "Light Yellow Liquid" },
+          { label: "Molecular Weight", value: "215 – 226" }
+        ],
+        salesSpecTitle: "Sales Specification",
+        salesSpecHeaders: ["Particular", "Specific Gravity", "Baume", "K2O", "SiO2", "Weight Ratio"],
+        salesSpecRows: [
+          ["K66", "1.32 – 1.34", "35 – 37", "10.5 – 12 %", "23 – 26 %", "1:2.1 ± 0.1"],
+          ["K76", "1.36 – 1.40", "38 – 42", "12 – 14 %", "26 – 28.5 %", "1:2.1 ± 0.1"]
+        ],
+        appsTitle: "Our product has industry-wide application in the following areas:",
+        apps: ["As a flux binder in welding electrode", "Acid proof lining", "Detergents and soaps", "Phosphor binder in T.V. tubes", "Refractory binders and speciality coating", "Welding rods manufacture"],
+        packagingTitle: "We transport the product in following packaging options:",
+        packaging: "Packing : Available in 265 – 300 Kgs MS Dums, Full Tanker Load, Flexi Bags, IBC Tanks and also in Bulk Shipping.",
+        certs: {
+          un: "UN NO. 3266", cas: "CAS NO. 1312-76-1",
+          reach: "Reach per registration No. 05-2118043714-45-0000",
+          reachIssuer: "(Issued by ELC Group, Czech Republic)",
+          iso: "ISO CERTIFICATION No. IN – Q08506"
+        },
+        molarRatioLabel: "*X = 2.00 – 2.20"
+      }
+    }
   },
 
   it: {
@@ -270,6 +474,23 @@ export const translations: Record<string, TranslationData> = {
       quality: "Qualità e Sicurezza", careers: "Carriera", contact: "Contatti",
       getEstimate: "Ottieni Preventivo", callUs: "Chiamaci", email: "E-mail",
       workingHours: "Sab - Gio (08:00 - 17:00)", language: "Lingua",
+      history: "Storia", award: "Premi", vision: "Visione e Missione",
+      chairmans: "",
+      sodiumLumps: "LUMPS DI SILICATO DI SODIO",
+      sodiumLiquid: "SILICATO DI SODIO LIQUIDO",
+      potassiumLumps: "LUMPS DI SILICATO DI POTASSIO",
+      potassiumLiquid: "SILICATO DI POTASSIO LIQUIDO",
+      management: "Management",
+    },
+    chairmansMessage: {
+      label: "MESSAGGIO DEL PRESIDENTE",
+      title: "Visione della Leadership",
+      quote1: "La mia ambizione è stabilire Kiran Global Chems Ltd. come leader di mercato nell'industria chimica globale e raggiungere questo obiettivo attraverso tecnologie innovative, migliori pratiche del settore e solidità economica. La mia gioia più grande risiede nel permettere alle persone di realizzare le proprie ambizioni e nel plasmare nuovi talenti in individui di successo. Ogni opportunità che ho di guidare un individuo nel raggiungere i propri obiettivi la abbraccio come un'opportunità per imparare qualcosa di nuovo e crescere personalmente.",
+      text1: "A mio avviso, una buona organizzazione è quella che non devia dalla sua curva di crescita nonostante le battute d'arresto temporanee. Sono orgoglioso dei risultati della nostra azienda nel raggiungimento della posizione numero uno in India e fiducioso che continueremo a mantenere questo posto per molto tempo.",
+      gitaQuote: "Coloro che compiono il loro lavoro offrendo a me tutti i risultati, che mantengono i loro cuori e le loro menti costanti in me in qualunque cosa facciano, che adorano il loro lavoro, a loro offro la piattaforma. Non dubitare che raggiungeranno inesorabilmente la vetta.",
+      gitaVerse: "BHAGWAT GITA 12.6/12.8",
+      name: "M S Jain",
+      role: "Presidente",
     },
     hero: {
       title: "Produttore Leader di Silicato di Sodio e Potassio in India",
@@ -342,11 +563,21 @@ export const translations: Record<string, TranslationData> = {
       },
     },
     visionMission: {
+      label: "VISIONE E MISSIONE",
       visionTitle: "La Nostra Visione",
-      visionText: "Diventare un'organizzazione riconosciuta a livello globale che fornisce prodotti innovativi, un servizio clienti eccezionale e un valore sostenibile per tutti gli stakeholder.",
-      visionHighlight: "Diventare un'organizzazione riconosciuta a livello globale",
+      visionText: "La visione unitaria dell'azienda è quella di diventare un'organizzazione di fama mondiale che offra prodotti e servizi sapientemente realizzati, ottenendo i massimi rendimenti per i nostri stakeholder e fornendo il miglior servizio clienti.",
       missionTitle: "La Nostra Missione",
-      missions: ["Fornire qualità e affidabilità costanti", "Creare soluzioni orientate al valore per i clienti", "Investire nella crescita e nello sviluppo dei dipendenti", "Costruire infrastrutture moderne e reti logistiche", "Abbracciare l'innovazione e il miglioramento continuo", "Mantenere pratiche commerciali etiche e trasparenti"],
+      missions: [
+        "Nutrire l'impegno per la qualità e la coerenza come chiave per la sostenibilità",
+        "Dare il massimo valore per il denaro a tutti i nostri clienti",
+        "Facilitare i nostri dipendenti con opportunità per raggiungere il loro massimo potenziale",
+        "Creare infrastrutture moderne e logistica senza soluzione di continuità per soddisfare le richieste dei nostri clienti in tempo",
+        "Innovare e adottare i metodi più recenti per il massimo ROI",
+        "Essere un partner commerciale per il commercio equo e solidale"
+      ],
+      strengthTitle: "La Nostra Forza",
+      strengthText1: "La forza della nostra azienda risiede nelle pratiche consolidate che vengono aggiornate con le mutevoli esigenze del settore e la nostra duratura qualità dei prodotti e dei servizi. Con la nostra visione di crescita globale, ci siamo affermati in tutto il mondo.",
+      strengthText2: "Abbiamo costantemente introdotto nuovi prodotti nella nostra gamma di offerte e moltiplicato la capacità per soddisfare la crescente domanda dei nostri prodotti. Siamo impegnati a mantenere la nostra posizione di leadership nel settore e stiamo lavorando duramente per penetrare regioni inesplorate in tutto il mondo, mantenendo i nostri elevati standard di servizio esistenti."
     },
     globalNetwork: {
       label: "Presenza Globale", title: "La Nostra Rete Globale",
@@ -413,7 +644,9 @@ export const translations: Record<string, TranslationData> = {
       companyDesc: "Kiran Italia Chemicals S.r.l. è un produttore leader di silicati industriali, dedicato alla fornitura di silicati di Sodio e Potassio ad alta purezza. I nostri impianti all'avanguardia e l'impegno per l'innovazione garantiscono soluzioni di prim'ordine per le industrie globali.",
       quickLinksTitle: "Link Rapidi",
       quickLinks: [
-        { name: "Home", href: "/" }, { name: "Chi Siamo", href: "/about" }, { name: "Prodotti", href: "/products" },
+        { name: "Home", href: "/" }, { name: "Chi Siamo", href: "/about" },
+        { name: "Storia", href: "/about/history" }, { name: "Premi", href: "/about/award" },
+        { name: "Prodotti", href: "/products" },
         { name: "Brochure", href: "/brochure" }, { name: "Qualità e Sicurezza", href: "/quality" },
         { name: "Carriera", href: "/careers" }, { name: "Contattaci", href: "/contact" },
       ],
@@ -437,5 +670,125 @@ export const translations: Record<string, TranslationData> = {
       ],
       guaranteed: "Qualità Garantita",
     },
+    productDetails: {
+      sodiumLumps: {
+        title: "Silicato di Sodio in Lumps",
+        desc: "Presso Kiran Global Chems Ltd. produciamo lumps di silicato di sodio realizzati con materie prime di prima qualità e con proprietà superiori, sia fisiche che chimiche. Siamo leader di mercato in India e il nostro marchio è riconosciuto a livello globale per le sue elevate prestazioni. I nostri clienti principali appartengono ai seguenti settori:",
+        industryTitle: "Settori Industriali dei Clienti",
+        industries: ["Soil Grouting", "Silice e prodotti chimici affini", "Catalizzatori", "Produzione di saponi e detersivi", "Lavorazione tessile", "Carta e pasta di legno", "Fonderie", "Adesivi per l'industria della carta e del cartone", "Produzione di pigmenti", "Impermeabilizzazione", "Cemento"],
+        propertiesTitle: "Proprietà Fisiche e Chimiche del Silicato di Sodio in Lumps",
+        properties: [
+          { label: "Formula Chimica", value: "Na2O x SiO2" },
+          { label: "Aspetto", value: "Solido Lumps" },
+          { label: "Colore", value: "Da incolore a azzurro chiaro" },
+          { label: "Peso Molecolare", value: "184 – 254" }
+        ],
+        salesSpecTitle: "Specifiche di Vendita",
+        salesSpecHeaders: ["Particolare", "Na2O", "SiO2", "Solidi Totali", "Rapporto Peso"],
+        salesSpecRows: [
+          ["1:2.00", "32.50 – 33.00%", "66.50 – 67.00%", "> 99.0%", "1:2.00 +/- 0.1"],
+          ["1:2.20", "30.50 – 31.50%", "67.50 – 68.00%", "> 99.0%", "1:2.20 +/- 0.1"],
+          ["1:3.20", "23.50 – 24.50%", "75.50 – 76.50%", "> 99.0%", "1:3.20 +/- 0.1"],
+          ["1:3.40", "22.50 -23.0%", "76.50 – 77.0%", "> 99.0%", "1:3.40 +/- 0.1"]
+        ],
+        appsTitle: "I lumps di silicato di sodio sono utilizzati dai nostri clienti per le seguenti applicazioni",
+        apps: ["Detersivi / Composti per la pulizia", "Cartone", "Prodotti per l'edilizia / Costruzione", "Ceramica", "Lavorazione del petrolio", "Metalli"],
+        packagingTitle: "Trasportiamo il prodotto nelle seguenti opzioni di imballaggio",
+        packaging: ["Fusti MS da 285-300 Kg", "Carico completo di autocisterna", "Flexi Bags", "Serbatoi IBC", "Spedizione sfusa"],
+        certs: {
+          un: "UN NO. 3253", cas: "CAS NO. 1344-09-8",
+          reach: "REACH PRE-REGISTRATION NO. 17-2119388445-28-0000",
+          reachIssuer: "(Rilasciato da ELC Group, Repubblica Ceca)",
+          iso: "ISO CERTIFICATION NO. IN-Q08506"
+        }
+      },
+      sodiumLiquid: {
+        title: "Silicato di Sodio Liquido",
+        desc1: "Presso Kiran Global Chem Ltd. offriamo silicato di sodio in forma liquida per specifiche applicazioni industriali in cui la proprietà liquida del prodotto chimico è altamente efficace. Produciamo silicati di alta qualità realizzati per soddisfare le aspettative dei nostri clienti. Per esigenze speciali, personalizziamo il liquido in modo che possa essere integrato con la massima efficacia con i prodotti dei nostri clienti.",
+        desc2: "Produciamo silicati di sodio liquidi in diversi rapporti molari, regolando così il livello alcalino nei silicati. Il nostro team di ricerca consiglia i clienti sulla scelta della combinazione più appropriata per la loro applicazione industriale.",
+        propertiesTitle: "Proprietà fisiche e commerciali del silicato di sodio liquido.",
+        properties: [
+          { label: "Formula Chimica", value: "Na2O x SiO2" },
+          { label: "Aspetto", value: "Liquido" },
+          { label: "Colore", value: "Liquido giallo chiaro" },
+          { label: "Peso Molecolare", value: "184 – 254" }
+        ],
+        salesSpecTitle: "Specifiche di Vendita",
+        salesSpecHeaders: ["Particolare", "Peso Specifico", "Baume", "Na2O", "SiO2", "Rapporto Peso"],
+        salesSpecRows: [
+          ["1:2.00", "1.56 – 1.66", "51 – 55", "15.50 – 16.50%", "31.0 – 33.50%", "2.0+ /-0.0.5"],
+          ["1:2.60", "1.52 – 1.55", "47 – 49", "11.50 – 12.50%", "31.0 – 33.50%", "2.60+ /-0.5"],
+          ["1:3.20", "1.38 – 1.41", "39 – 41", "8.50.95.0%", "28.0 – 30.0%", "3.20+ /-0.5"]
+        ],
+        appsTitle: "I nostri clienti utilizzano il silicato di sodio liquido per la produzione dei seguenti prodotti",
+        apps: ["Detersivi / Composti per la pulizia", "Pasta di legno e carta", "Cartone", "Prodotti per l'edilizia / Costruzione", "Tessile", "Ceramica", "Lavorazione del petrolio", "Metalli"],
+        packagingTitle: "Offriamo il prodotto per il trasporto nei seguenti imballaggi",
+        packaging: ["Fusti MS da 285-300 Kg", "Carico completo di autocisterna, Flexi Bags", "Serbatoi IBC", "Spedizione sfusa"],
+        certs: {
+          un: "UN NO. 3253", cas: "CAS NO. 1344-09-8",
+          reach: "REACH PRE-REGISTRATION NO. 17-2119388445-28-0000",
+          reachIssuer: "(Rilasciato da ELC Group, Repubblica Ceca)",
+          iso: "ISO CERTIFICATION NO. IN-Q08506"
+        }
+      },
+      potassiumLumps: {
+        title: "Silicato di Potassio in Lumps",
+        desc: "Presso Kiran Global Chem Ltd. produciamo lumps di silicato di potassio della massima qualità. Il nostro prodotto è riconosciuto in tutto il settore per le sue elevate prestazioni e la perfetta integrazione.",
+        appsTitle: "L'applicazione del silicato di potassio in lumps prodotto dalla nostra azienda è ampiamente utilizzata in:",
+        apps: ["Come legante per flussi negli elettrodi di saldatura", "Rivestimento antiacido", "Detersivi e saponi", "Legante di fosfori nei tubi TV"],
+        propertiesTitle: "Le proprietà fisiche e chimiche dei lumps di silicato di potassio prodotti nella nostra azienda sono:",
+        properties: [
+          { label: "Formula Chimica", value: "K2O x SiO2" },
+          { label: "Aspetto", value: "Trasparente se non ha assorbito umidità\nTraslucido dopo l'assorbimento di umidità" },
+          { label: "Colore", value: "Incolore" },
+          { label: "Peso Molecolare", value: "215 – 226" }
+        ],
+        salesSpecTitle: "Specifiche di Vendita",
+        salesSpecHeaders: ["Proprietà", "Valore"],
+        salesSpecRows: [
+          ["SiO2 %", "67.30% to 68.30%"],
+          ["K2O %", "31.00% to 32.00%"],
+          ["Solidi Totali", "> 99%"],
+          ["Rapporto Peso", "2.05 to 2.20"],
+          ["Rapporto Molare", "3.20-3.45"]
+        ],
+        appsTitle2: "Applicazione",
+        apps2: ["Come legante per flussi negli elettrodi di saldatura", "Rivestimento antiacido", "Detersivi e saponi", "Legante di fosfori nei tubi TV"],
+        packagingTitle: "Offriamo sacchi di silicato di potassio nelle seguenti opzioni di imballaggio",
+        packaging: "Imballaggio: In sacchi di HDPE e sacchi Jumbo da 1000 Kg",
+        certs: { un: "UN NO. 3266", cas: "CAS NO. 1312-76-1" },
+        precautionsTitle: "Precauzioni",
+        precautionsText: "Irrita la pelle e gli occhi a seconda della concentrazione. Si raccomanda l'uso di guanti di gomma, visiera protettiva e maschere nasali durante la manipolazione.",
+        molarRatioLabel: "*X = 2.05 – 2.20"
+      },
+      potassiumLiquid: {
+        title: "Silicato di Potassio Liquido",
+        desc: "Kiran Global Chems Ltd. è un marchio leader in India nella produzione e fornitura di silicato di potassio liquido. Il nostro silicato di potassio di grado industriale è disponibile in una gamma di rapporti e concentrazioni basati sulle specifiche esigenze aziendali dei nostri clienti.",
+        propertiesTitle: "Le proprietà fisiche e chimiche del silicato di potassio liquido Kiran sono:",
+        properties: [
+          { label: "Formula Chimica", value: "K2O x SiO2" },
+          { label: "Aspetto", value: "Liquido" },
+          { label: "Colore", value: "Liquido giallo chiaro" },
+          { label: "Peso Molecolare", value: "215 – 226" }
+        ],
+        salesSpecTitle: "Specifiche di Vendita",
+        salesSpecHeaders: ["Particolare", "Peso Specifico", "Baume", "K2O", "SiO2", "Rapporto Peso"],
+        salesSpecRows: [
+          ["K66", "1.32 – 1.34", "35 – 37", "10.5 – 12 %", "23 – 26 %", "1:2.1 ± 0.1"],
+          ["K76", "1.36 – 1.40", "38 – 42", "12 – 14 %", "26 – 28.5 %", "1:2.1 ± 0.1"]
+        ],
+        appsTitle: "Il nostro prodotto trova applicazione a livello industriale nelle seguenti aree:",
+        apps: ["Come legante per flussi negli elettrodi di saldatura", "Rivestimento antiacido", "Detersivi e saponi", "Legante di fosfori nei tubi TV", "Leganti refrattari e rivestimenti speciali", "Produzione di bacchette per saldatura"],
+        packagingTitle: "Trasportiamo il prodotto nelle seguenti opzioni di imballaggio:",
+        packaging: "Imballaggio: disponibile in fusti MS da 265 – 300 Kg, carico completo di autocisterna, Flexi Bags, serbatoi IBC e anche in spedizione sfusa.",
+        certs: {
+          un: "UN NO. 3266", cas: "CAS NO. 1312-76-1",
+          reach: "Reach pre per registration No. 05-2118043714-45-0000",
+          reachIssuer: "(Rilasciato da ELC Group, Repubblica Ceca)",
+          iso: "ISO CERTIFICATION No. IN – Q08506"
+        },
+        molarRatioLabel: "*X = 2.00 – 2.20"
+      }
+    }
   },
 };
