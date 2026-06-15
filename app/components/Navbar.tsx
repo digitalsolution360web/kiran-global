@@ -184,13 +184,13 @@ const Navbar = () => {
                     )}
                   </Link>
                   {link.submenu && (
-                    <div className="absolute top-full left-0 pt-6 opacity-0 translate-y-4 invisible group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:visible transition-all duration-300 min-w-[240px] z-[150]">
+                    <div className="absolute top-full left-0 pt-6 opacity-0 translate-y-4 invisible group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:visible transition-all duration-300 min-w-max z-[150]">
                       <div className="bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden p-3">
                         {link.submenu.map((sub) => (
                           <Link
                             key={sub.name}
                             href={sub.href}
-                            className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:text-primary hover:bg-gray-50 rounded-xl transition-all tracking-wide border-b border-gray-50 last:border-0"
+                            className="block px-4 py-3 text-sm font-semibold text-gray-700 hover:text-primary hover:bg-gray-50 rounded-xl transition-all tracking-wide border-b border-gray-50 last:border-0 whitespace-nowrap"
                           >
                             {sub.name}
                           </Link>
@@ -227,7 +227,7 @@ const Navbar = () => {
                   >
                     <div className="w-7 h-7 flex items-center justify-center rounded-full overflow-hidden shadow-sm bg-primary border-gray-100 group-hover:scale-110 transition-transform duration-300">
                       <span className="text-lg text-white">
-                        {language === "en" ? "🇺🇸" : "🇮🇹"}
+                        {language === "en" ? "EN" : "🇮🇹"}
                       </span>
                     </div>
                     <ChevronDown

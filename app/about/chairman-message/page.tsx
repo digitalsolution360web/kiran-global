@@ -30,7 +30,7 @@ const ChairmanMessagePage = () => {
                     </svg>
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#06101f]/50 to-[#06101f]" />
-                
+
                 <div className="relative z-10 text-center px-6">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -41,7 +41,7 @@ const ChairmanMessagePage = () => {
                         <span className="inline-block px-5 py-2 bg-secondary/10 border border-secondary/20 text-secondary rounded-full text-xs font-black tracking-[0.4em] uppercase">
                             {c.label}
                         </span>
-                        <h1 className="text-4xl md:text-7xl font-bold text-white tracking-tighter leading-tight">
+                        <h1 className="text-2xl md:text-5xl font-bold text-white tracking-tighter leading-tight">
                             A Legacy of <span className="text-secondary italic">Excellence</span>
                         </h1>
                         <div className="w-20 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto" />
@@ -53,7 +53,7 @@ const ChairmanMessagePage = () => {
             <section className="py-24 bg-white relative">
                 <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
                     <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-                        
+
                         {/* Chairman's Image Sidebar */}
                         <motion.div
                             initial={{ opacity: 0, x: -50 }}
@@ -64,8 +64,8 @@ const ChairmanMessagePage = () => {
                             <div className="relative group">
                                 {/* Decorative Background Frame */}
                                 <div className="absolute -inset-4 bg-gradient-to-tr from-primary to-secondary rounded-[3rem] opacity-20 blur-2xl group-hover:opacity-30 transition-opacity" />
-                                
-                                <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden border-8 border-white shadow-2xl z-10">
+
+                                <div className="relative aspect-[4/5] rounded-[1rem] overflow-hidden border-2 border-white shadow-2xl z-10">
                                     <Image
                                         src="/chairman-pic.webp"
                                         alt="M S Jain - Chairman"
@@ -73,7 +73,7 @@ const ChairmanMessagePage = () => {
                                         className="object-cover group-hover:scale-105 transition-transform duration-1000"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80" />
-                                    
+
                                     <div className="absolute bottom-8 left-8 right-8 text-white">
                                         <p className="text-3xl font-black tracking-tighter mb-1">{c.name}</p>
                                         <p className="text-secondary font-bold tracking-[0.2em] text-xs uppercase">{c.role}</p>
@@ -108,7 +108,7 @@ const ChairmanMessagePage = () => {
                                     <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-semibold italic border-l-4 border-secondary pl-8 py-2">
                                         "{c.quote1}"
                                     </p>
-                                    
+
                                     <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                                         {c.text1}
                                     </p>
@@ -120,18 +120,18 @@ const ChairmanMessagePage = () => {
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                className="p-10 md:p-14 bg-primary/5 rounded-[3rem] border border-primary/10 relative overflow-hidden"
+                                className="p-10 md:p-14 bg-primary/5 rounded-[1rem] border border-primary/10 relative overflow-hidden"
                             >
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl" />
                                 <div className="relative z-10 text-center space-y-8">
                                     <div className="flex justify-center gap-2 text-primary/40">
-                                        {[...Array(3)].map((_, i) => <Heart key={i} size={16} fill="currentColor" />)}
+                                        {/* {[...Array(3)].map((_, i) => <Heart key={i} size={16} fill="currentColor" />)} */}
                                     </div>
-                                    
+
                                     <p className="text-lg md:text-xl font-bold text-primary leading-relaxed italic tracking-tight">
                                         "{c.gitaQuote}"
                                     </p>
-                                    
+
                                     <div className="flex flex-col items-center gap-3">
                                         <div className="h-px w-20 bg-primary/20" />
                                         <p className="text-sm font-black text-secondary tracking-[0.4em] uppercase">
@@ -146,7 +146,7 @@ const ChairmanMessagePage = () => {
                                 <div className="space-y-1">
                                     <div className="relative inline-block">
                                         <p className="text-2xl font-black text-gray-900 tracking-tighter">{c.name}</p>
-                                        <motion.div 
+                                        <motion.div
                                             initial={{ width: 0 }}
                                             whileInView={{ width: "100%" }}
                                             viewport={{ once: true }}
