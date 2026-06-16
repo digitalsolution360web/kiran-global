@@ -46,37 +46,37 @@ export default function ProductPage() {
   return (
     <main className="bg-white min-h-screen">
       <Navbar />
-      
+
       {/* ── CLEAN HERO SECTION ── */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-20">
         <Image
-          src="/about-us-1.webp" 
+          src="/about-us-1.webp"
           alt="Product Banner"
           fill
           className="object-cover"
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
-        
+
         <div className="max-w-[1700px] mx-auto px-6 lg:px-12 w-full relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               className="lg:col-span-8 space-y-6"
             >
-              <div className="inline-block px-4 py-1.5 bg-secondary/20 text-secondary rounded-full text-[10px] font-black tracking-[0.3em] uppercase">
+              <div className="inline-block px-4 py-1.5 bg-secondary/20 text-secondary rounded-full text-[10px] font-black tracking-[0.3em] mt-15">
                 {productData.title.split(' ')[0]} SOLUTIONS
               </div>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white tracking-tight leading-none">
-                {productData.title.split(' ').slice(0, -1).join(' ')} <span className="text-secondary italic">{productData.title.split(' ').pop()}</span>
+              <h1 className="text-2xl md:text-5xl lg:text-5xl font-bold text-white tracking-tight leading-none">
+                {productData.title.split(' ').slice(0, -1).join(' ')} <span className="text-secondary ">{productData.title.split(' ').pop()}</span>
               </h1>
-              
+
               <p className="text-lg text-white/70 leading-relaxed max-w-2xl font-medium">
                 {'desc' in productData ? productData.desc : productData.desc1}
               </p>
-              
+
               <div className="flex flex-wrap gap-4 pt-4">
                 <div className="flex items-center gap-3 px-5 py-2.5 rounded-xl bg-white/5 border border-white/10 text-white shadow-sm backdrop-blur-sm">
                   <ShieldCheck className="text-secondary" size={18} />
@@ -107,8 +107,8 @@ export default function ProductPage() {
                   Premium Grade <span className="text-secondary">{productData.title}</span>
                 </h2>
                 <p className="text-gray-600 text-lg font-medium leading-relaxed max-w-3xl">
-                  Our products are characterized by their exceptional purity and consistent quality. 
-                  Below you will find the comprehensive technical data and industrial applications 
+                  Our products are characterized by their exceptional purity and consistent quality.
+                  Below you will find the comprehensive technical data and industrial applications
                   for this specific grade.
                 </p>
                 <div className="flex gap-12 pt-4">
@@ -125,7 +125,7 @@ export default function ProductPage() {
               </div>
               <div className="lg:col-span-4">
                 <div className="relative aspect-square rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
-                  <Image 
+                  <Image
                     src={productImage}
                     alt={productData.title}
                     fill
@@ -187,10 +187,10 @@ export default function ProductPage() {
                   </div>
                 ))}
               </div>
-              
+
               {'appsTitle2' in productData && productData.appsTitle2 && (
                 <div className="pt-6 border-t border-gray-50 mt-6 space-y-6">
-                   <h3 className="text-xl font-bold text-primary tracking-tight">
+                  <h3 className="text-xl font-bold text-primary tracking-tight">
                     {productData.appsTitle2}
                   </h3>
                   <div className="grid sm:grid-cols-2 gap-4">
@@ -297,16 +297,16 @@ export default function ProductPage() {
                   <div className="col-span-full p-10 rounded-3xl bg-[#06101f] text-white shadow-2xl relative overflow-hidden group border border-white/10 flex flex-col justify-center">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/20 rounded-full -translate-y-1/2 translate-x-1/2 blur-[80px]" />
                     <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 relative z-10">
-                       <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform shrink-0">
-                          <Truck size={32} />
-                       </div>
-                       <div className="flex-1 space-y-4">
-                          <p className="text-xl font-bold leading-relaxed">{productData.packaging}</p>
-                          <div className="flex items-center gap-3">
-                            <div className="w-10 h-[2px] bg-secondary" />
-                            <span className="text-secondary text-[10px] font-black uppercase tracking-widest">Verified Logistics</span>
-                          </div>
-                       </div>
+                      <div className="w-16 h-16 rounded-2xl bg-primary flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform shrink-0">
+                        <Truck size={32} />
+                      </div>
+                      <div className="flex-1 space-y-4">
+                        <p className="text-xl font-bold leading-relaxed">{productData.packaging}</p>
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-[2px] bg-secondary" />
+                          <span className="text-secondary text-[10px] font-black uppercase tracking-widest">Verified Logistics</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 )}
@@ -326,20 +326,20 @@ export default function ProductPage() {
             </div>
 
             <div className="bg-[#06101f] rounded-3xl p-10 lg:p-12 text-white shadow-2xl relative overflow-hidden flex flex-col">
-               <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-[80px]" />
-               
-               <div className="relative z-10 space-y-10">
+              <div className="absolute top-0 right-0 w-48 h-48 bg-primary/20 rounded-full blur-[80px]" />
+
+              <div className="relative z-10 space-y-10">
                 <div className="space-y-2">
                   <div className="w-12 h-1 bg-secondary" />
                   <h3 className="text-2xl font-bold uppercase tracking-tight">Quality <span className="text-secondary">Certifications</span></h3>
                 </div>
-                
+
                 <div className="space-y-6">
                   <div className="p-5 rounded-xl bg-white/5 border border-white/10 flex flex-col gap-1">
                     <span className="text-secondary text-[10px] font-bold uppercase tracking-widest opacity-60">UN Classification</span>
                     <span className="text-xl font-bold">{productData.certs.un}</span>
                   </div>
-                  
+
                   <div className="p-5 rounded-xl bg-white/5 border border-white/10 flex flex-col gap-1">
                     <span className="text-secondary text-[10px] font-bold uppercase tracking-widest opacity-60">CAS Registry</span>
                     <span className="text-xl font-bold">{productData.certs.cas}</span>
@@ -364,9 +364,9 @@ export default function ProductPage() {
                 </div>
 
                 <div className="pt-6 border-t border-white/5 flex flex-col items-center gap-4 text-center">
-                   <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center shadow-[0_0_20px_rgba(242,193,46,0.3)]">
-                     <CheckCircle2 size={24} className="text-primary" />
-                   </div>
+                  <div className="w-14 h-14 rounded-full bg-secondary flex items-center justify-center shadow-[0_0_20px_rgba(242,193,46,0.3)]">
+                    <CheckCircle2 size={24} className="text-primary" />
+                  </div>
                 </div>
               </div>
             </div>

@@ -2,14 +2,27 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Quote, Award, Target, Heart, Rocket, Users } from "lucide-react";
+import { Quote, Award, Target, Rocket, Users } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
+const valueIcons = [
+  <Target size={32} />,
+  <Rocket size={32} />,
+  <Users size={32} />,
+];
+
 const ChairmanMessagePage = () => {
     const { t } = useLanguage();
     const c = t.chairmansMessage;
+    const cp = t.chairmanPage;
+
+    const values = [
+      { title: cp.value1Title, desc: cp.value1Desc },
+      { title: cp.value2Title, desc: cp.value2Desc },
+      { title: cp.value3Title, desc: cp.value3Desc },
+    ];
 
     return (
         <main className="min-h-screen bg-white">
@@ -42,7 +55,7 @@ const ChairmanMessagePage = () => {
                             {c.label}
                         </span>
                         <h1 className="text-2xl md:text-5xl font-bold text-white tracking-tighter leading-tight">
-                            A Legacy of <span className="text-secondary italic">Excellence</span>
+                            {cp.heroSubtitle.split(" ").slice(0, -1).join(" ")} <span className="text-secondary italic">{cp.heroSubtitle.split(" ").slice(-1)}</span>
                         </h1>
                         <div className="w-20 h-1 bg-gradient-to-r from-transparent via-secondary to-transparent mx-auto" />
                     </motion.div>
@@ -87,8 +100,8 @@ const ChairmanMessagePage = () => {
                                             <Award size={24} />
                                         </div>
                                         <div>
-                                            <p className="text-sm font-black text-gray-900 leading-none">Market Leader</p>
-                                            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">India #1 Spot</p>
+                                            <p className="text-sm font-black text-gray-900 leading-none">{cp.marketLeaderBadge}</p>
+                                            <p className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">{cp.marketLeaderSub}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -106,7 +119,7 @@ const ChairmanMessagePage = () => {
                                 <Quote className="absolute -top-10 -left-10 text-primary/5" size={120} />
                                 <div className="relative z-10 space-y-8">
                                     <p className="text-xl md:text-2xl text-gray-800 leading-relaxed font-semibold italic border-l-4 border-secondary pl-8 py-2">
-                                        "{c.quote1}"
+                                        &quot;{c.quote1}&quot;
                                     </p>
 
                                     <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
@@ -124,14 +137,9 @@ const ChairmanMessagePage = () => {
                             >
                                 <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl" />
                                 <div className="relative z-10 text-center space-y-8">
-                                    <div className="flex justify-center gap-2 text-primary/40">
-                                        {/* {[...Array(3)].map((_, i) => <Heart key={i} size={16} fill="currentColor" />)} */}
-                                    </div>
-
                                     <p className="text-lg md:text-xl font-bold text-primary leading-relaxed italic tracking-tight">
-                                        "{c.gitaQuote}"
+                                        &quot;{c.gitaQuote}&quot;
                                     </p>
-
                                     <div className="flex flex-col items-center gap-3">
                                         <div className="h-px w-20 bg-primary/20" />
                                         <p className="text-sm font-black text-secondary tracking-[0.4em] uppercase">
@@ -157,13 +165,7 @@ const ChairmanMessagePage = () => {
                                     <p className="text-sm font-bold text-primary uppercase tracking-[0.2em]">{c.role}</p>
                                 </div>
                                 <div className="hidden sm:block">
-                                    <Image
-                                        src="/logo.webp"
-                                        alt="Kiran Global"
-                                        width={80}
-                                        height={80}
-                                        className="opacity-40 grayscale hover:grayscale-0 transition-all cursor-crosshair"
-                                    />
+                                    <Image src="/logo.webp" alt="Kiran Global" width={80} height={80} className="opacity-40 grayscale hover:grayscale-0 transition-all cursor-crosshair" />
                                 </div>
                             </div>
                         </motion.div>
@@ -175,27 +177,15 @@ const ChairmanMessagePage = () => {
             <section className="py-20 bg-[#0a1628] relative overflow-hidden">
                 <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                        <div className="space-y-4">
-                            <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto text-secondary">
-                                <Target size={32} />
+                        {values.map((val, i) => (
+                            <div key={i} className="space-y-4">
+                                <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto text-secondary">
+                                    {valueIcons[i]}
+                                </div>
+                                <h4 className="text-white text-xl font-bold">{val.title}</h4>
+                                <p className="text-white/50">{val.desc}</p>
                             </div>
-                            <h4 className="text-white text-xl font-bold">Innovation</h4>
-                            <p className="text-white/50">Cutting-edge technologies and methods.</p>
-                        </div>
-                        <div className="space-y-4">
-                            <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto text-secondary">
-                                <Rocket size={32} />
-                            </div>
-                            <h4 className="text-white text-xl font-bold">Market Leader</h4>
-                            <p className="text-white/50">Number one position in India.</p>
-                        </div>
-                        <div className="space-y-4">
-                            <div className="w-16 h-16 bg-white/5 rounded-2xl flex items-center justify-center mx-auto text-secondary">
-                                <Users size={32} />
-                            </div>
-                            <h4 className="text-white text-xl font-bold">People-Centric</h4>
-                            <p className="text-white/50">Nurturing fresh talent and personal growth.</p>
-                        </div>
+                        ))}
                     </div>
                 </div>
             </section>

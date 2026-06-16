@@ -73,7 +73,7 @@ const Navbar = () => {
         { name: t.navbar.potassiumLiquid, href: "/products/potassium-liquid" },
       ],
     },
-    { name: t.navbar.quality, href: "/quality" },
+    // { name: t.navbar.quality, href: "/quality" },
     { name: t.navbar.careers, href: "/careers" },
     { name: t.navbar.contact, href: "/contact" },
   ];
@@ -344,7 +344,7 @@ const Navbar = () => {
         <div className="px-6 py-3 bg-primary/20 border-b border-white/5 flex items-center gap-4 flex-shrink-0">
           <div className="flex items-center gap-2 text-white/70 text-xs">
             <Clock size={12} className="text-secondary" />
-            <span>Sat–Thu 08:00–17:00</span>
+            <span>{t.navbar.workingHours}</span>
           </div>
           <div className="w-px h-4 bg-white/20" />
           <a href="tel:+393391192817" className="flex items-center gap-2 text-white/70 text-xs hover:text-secondary transition-colors">
@@ -416,7 +416,7 @@ const Navbar = () => {
           <div className="mb-5">
             <p className="text-white/30 text-[9px] font-black uppercase tracking-[0.25em] mb-3 flex items-center gap-2">
               <Globe size={10} className="text-secondary" />
-              Language
+              {t.navbar.language}
             </p>
             <div className="flex gap-3">
               <button
@@ -449,7 +449,7 @@ const Navbar = () => {
             className="flex items-center justify-center gap-2 w-full bg-primary hover:bg-blue-700 text-white py-4 rounded-xl font-bold uppercase tracking-[0.2em] text-xs shadow-[0_8px_30px_rgba(10,77,162,0.4)] transition-all active:scale-95 group"
           >
             <Mail size={16} className="group-hover:scale-110 transition-transform" />
-            Get an Estimate
+            {t.navbar.getEstimate}
             <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
@@ -458,13 +458,13 @@ const Navbar = () => {
         <div className="px-6 py-5 border-t border-white/5 bg-white/[0.02] flex-shrink-0">
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <p className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1.5">Call Us</p>
+              <p className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1.5">{t.navbar.callUs}</p>
               <a href="tel:+393391192817" className="text-white font-bold text-sm hover:text-secondary transition-colors">
                 +39 3391192817
               </a>
             </div>
             <div>
-              <p className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1.5">Email</p>
+              <p className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1.5">{t.navbar.email}</p>
               <a href="mailto:ettore@kiranitalia.it" className="text-white font-bold text-[11px] hover:text-secondary transition-colors break-all text-xs">
                 ettore@kiranitalia.it
               </a>

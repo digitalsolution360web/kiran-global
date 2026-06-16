@@ -1,7 +1,7 @@
 export interface TranslationData {
   navbar: {
     home: string; about: string; products: string; sodium: string; potassium: string;
-    custom: string; quality: string; careers: string; contact: string; getEstimate: string;
+    custom: string; careers: string; contact: string; getEstimate: string;
     callUs: string; email: string; workingHours: string; language: string;
     history: string; award: string; vision: string; chairmans: string; management: string;
     sodiumLumps: string; sodiumLiquid: string; potassiumLumps: string; potassiumLiquid: string;
@@ -141,6 +141,71 @@ export interface TranslationData {
       molarRatioLabel: string;
     };
   };
+  aboutPage: {
+    heroTitle: string; heroSubtitle: string;
+    journeyLabel: string; journeyTitle: string; journeyText1: string; journeyText2: string;
+    founderName: string; founderRole: string;
+    stat1Label: string; stat1Value: string; stat1Unit: string;
+    stat2Label: string; stat2Value: string; stat2Unit: string;
+    stat3Label: string; stat3Value: string; stat3Unit: string;
+    stat4Label: string; stat4Value: string; stat4Unit: string;
+    supplyTitle: string; supplyQuote: string;
+    productRangeTitle: string; productRangeDesc: string;
+    productCategories: string[];
+    techTitle: string; techDesc: string;
+    workforceTitle: string; workforceDesc: string;
+    workforceQuote: string; rdLabel: string; rdSubLabel: string;
+    coreValuesTitle: string;
+    coreValues: string[];
+  };
+  historyPage: {
+    heroLabel: string; heroTitle: string; heroQuote: string;
+    beginningLabel: string; foundingTitle: string; foundingText: string;
+    growthText: string;
+    companyTitle: string; companyText1: string; companyText2: string;
+    sustainLabel: string; sustainTitle: string;
+    stat1: string; stat2: string;
+  };
+  awardPage: {
+    heroTitle: string; heroSubtitle: string;
+    milestoneLabel: string; projectTitle: string; projectHeadline: string;
+    projectDesc: string; techExcTitle: string; techExcDesc: string;
+    standardsTitle: string;
+    awards: { title: string; desc: string }[];
+    qualityTitle: string; qualityGuarantee: string; qualityInspected: string;
+  };
+  managementPage: {
+    heroLabel: string; heroTitle: string; heroDesc: string;
+    leadershipLabel: string; managementTitle: string; executiveLabel: string;
+    leaders: { name: string; role: string; badge: string; bio: string; stat1Label: string; stat1Value: string; stat2Label: string; stat2Value: string }[];
+    values: { title: string; desc: string }[];
+  };
+  careersPage: {
+    heroLabel: string; heroTitle1: string; heroTitle2: string; heroDesc: string;
+    exploreBtn: string; satisfactionRate: string; satisfactionLabel: string;
+    cultureTitle1: string; cultureTitle2: string; cultureDesc: string;
+    ctaTitle: string; ctaDesc: string; ctaBtn: string;
+    benefits: { title: string; desc: string }[];
+  };
+  contactPage: {
+    heroLabel: string; heroTitle1: string; heroTitle2: string; heroDesc: string;
+    callTitle: string; emailTitle: string; officeTitle: string; officeAddress: string;
+    availabilityLabel: string; monFri: string; saturday: string;
+    formTitle1: string; formTitle2: string; formRequired: string;
+    fieldName: string; fieldEmail: string; fieldPhone: string; fieldInquiry: string; fieldMessage: string;
+    inquiryOptions: string[];
+    submitBtn: string; namePlaceholder: string; emailPlaceholder: string;
+    phonePlaceholder: string; messagePlaceholder: string;
+    mapTitle1: string; mapTitle2: string; mapDesc: string;
+    visitOfficeLabel: string;
+  };
+  chairmanPage: {
+    heroSubtitle: string;
+    value1Title: string; value1Desc: string;
+    value2Title: string; value2Desc: string;
+    value3Title: string; value3Desc: string;
+    marketLeaderBadge: string; marketLeaderSub: string;
+  };
 }
 
 export const translations: Record<string, TranslationData> = {
@@ -148,7 +213,7 @@ export const translations: Record<string, TranslationData> = {
     navbar: {
       home: "Home", about: "About Us", products: "Products",
       sodium: "Sodium Silicates", potassium: "Potassium Silicates", custom: "Custom Formulas",
-      quality: "Quality & Safety", careers: "Careers", contact: "Contact",
+      careers: "Careers", contact: "Contact",
       getEstimate: "Get Estimate", callUs: "Call Us", email: "Email",
       workingHours: "Sat - Thu (08:00 - 17:00)", language: "Language",
       history: "History", award: "Awards", vision: "Vision & Mission",
@@ -323,7 +388,7 @@ export const translations: Record<string, TranslationData> = {
         { name: "Home", href: "/" }, { name: "About Us", href: "/about" },
         { name: "History", href: "/about/history" }, { name: "Awards", href: "/about/award" },
         { name: "Products", href: "/products" },
-        { name: "Brochure", href: "/brochure" }, { name: "Quality & Safety", href: "/quality" },
+        // { name: "Brochure", href: "/brochure" }, { name: "Quality & Safety", href: "/quality" },
         { name: "Careers", href: "/careers" }, { name: "Contact Us", href: "/contact" },
       ],
       productsTitle: "Our Products",
@@ -465,14 +530,120 @@ export const translations: Record<string, TranslationData> = {
         },
         molarRatioLabel: "*X = 2.00 – 2.20"
       }
-    }
+    },
+    aboutPage: {
+      heroTitle: "About Us", heroSubtitle: "Kiran Global Chem Limited India's leading and world largest manufacturer and supplier of sodium silicate & Potassium Silicate",
+      journeyLabel: "Our Journey", journeyTitle: "Legacy of Visionary Innovation",
+      journeyText1: "MS Jain Group started its journey in the chemical manufacturers industry as a small scale manufacturing unit with the vision to leave its mark as a visionary innovator.",
+      journeyText2: "From 1979 to this date, the company has grown under the able leadership of founder and Chairman Mr. MS Jain as a leading conglomerate with international presence. We have manufacturing units in more than five countries and our chemicals import-export business spans the five continents.",
+      founderName: "Mr. MS Jain", founderRole: "Founder & Chairman",
+      stat1Label: "Annual Turnover", stat1Value: "3,00,000", stat1Unit: "Tonnes",
+      stat2Label: "Manufacturing Units", stat2Value: "5+", stat2Unit: "Countries",
+      stat3Label: "Direct Employees", stat3Value: "600+", stat3Unit: "Global",
+      stat4Label: "Journey Started", stat4Value: "1979", stat4Unit: "India",
+      supplyTitle: "Supply Chain Excellence",
+      supplyQuote: "We are renowned for our seamless supply chain and quick and efficient response to customers. We are the largest manufacturers of sodium silicate in India with annual turnover of 3,00,000 tonnes. Our manufacturing units are largely setup in South India with Offices in the North India.",
+      productRangeTitle: "Product Range & Applications",
+      productRangeDesc: "Our product range includes chemical intermediaries that have versatile application across several industries including construction, ceramics, textiles, paper, foundries, ceramics, and candles among others.",
+      productCategories: ["Construction", "Ceramics", "Textiles", "Paper", "Foundries", "Candles"],
+      techTitle: "LATEST TECHNOLOGIES",
+      techDesc: "Fully equipped to meet large scale customer demands with plants and machineries of latest technologies and highly qualified engineers, trained personnel and domain experts.",
+      workforceTitle: "Global Workforce & Innovation Hub",
+      workforceDesc: "The organization operates with over 600 direct employees and 300 indirect employees globally. Our state of the art laboratories often work in collaboration with leading research institutes to develop innovative solutions.",
+      workforceQuote: "The companies aim is to deliver market-driven products that enhance process at minimum environment cost.",
+      rdLabel: "R&D Collaboration", rdSubLabel: "State-of-the-Art Labs",
+      coreValuesTitle: "We Followed The Core Values",
+      coreValues: ["Safety and Health Inspection", "Environmental Engineering", "Environmental Consulting", "Reliability and Safety Assessment", "Leadership with Integrity", "Innovative Engineering", "Focus On Our Clients", "High Quality Professionals"],
+    },
+    historyPage: {
+      heroLabel: "Est. 1979", heroTitle: "M S Jain Group",
+      heroQuote: "A legacy of visionary innovation and industrial excellence.",
+      beginningLabel: "The Beginning", foundingTitle: "Our Founding Story",
+      foundingText: "Kiran Global Chems Limited was started in the year 1979 with a single small scale manufacturing unit for preparing sodium silicate to detergent manufacturers. It was established by Mr. MS Jain who had a long standing vision of expanding his company to attain global acclaim as a market leader and trend setter.",
+      growthText: "Over the years, the company has steadily expanded its product range and today we supply chemical raw materials to companies across various industries, worldwide. Our multi-product, large scale commercial operation functions with 32 manufacturing units, contributing to over 50% of the group's turnover.",
+      companyTitle: "Kiran Global Chems Limited",
+      companyText1: "Today we are the largest manufacturers in the country of Sodium and potassium silicate and have surpassed 300,000 tonnes per annum production mark. We also have installed capacities of 15,000 tonnes of LABSA and 25,000 tonnes of Potassium Silicate.",
+      companyText2: "With the vision of global expansion through import and export, our facilities were established largely in the coastal towns with easy access to ports. Our facilities are fully equipped with modern warehousing facilities, quality assurance laboratories and are fully functional to meet large scale demands at all times. Our persistence and insistence on service quality has earned us a \"Sigma 4\" rating for operational efficiencies.",
+      sustainLabel: "Sustainability Focus",
+      sustainTitle: "Continue to grow from strength to strength, innovating new methods for producing chemicals that are both economic and environment friendly without compromising on quality.",
+      stat1: "Mfg Units", stat2: "Tonnes / Year",
+    },
+    awardPage: {
+      heroTitle: "Awards & Achievements", heroSubtitle: "Recognizing our milestones in technical excellence and global industrial contributions.",
+      milestoneLabel: "Major Project Milestone", projectTitle: "LUCKNOW METRO RAIL PROJECT",
+      projectHeadline: "KIRAN GLOBAL CHEM LIMITED HAS COMMENCED SUPPLIES OF KIRANSIL-SODIUM SILICATE BASED GROUTING SOLUTIONS TO LUCKNOW METRO RAIL PROJECT",
+      projectDesc: "Providing specialized chemical solutions for India's infrastructure development. Our technical expertise in silicate-based grouting solutions ensures structural integrity and safety for high-stakes urban transportation projects.",
+      techExcTitle: "Technical Excellence", techExcDesc: "Supplying advanced KIRANSIL-SODIUM SILICATE solutions.",
+      standardsTitle: "Our Standards of Recognition",
+      awards: [
+        { title: "ISO 9001:2015", desc: "For excellence in quality management systems." },
+        { title: "Sigma 4 Rating", desc: "High honor for operational efficiency & service quality." },
+        { title: "Industry Leader", desc: "India's largest manufacturer of Sodium & Potassium Silicate." },
+        { title: "Eco Innovator", desc: "Recognition for environment-friendly chemical production." },
+      ],
+      qualityTitle: "Delivering market-driven products with certified quality standards to our global partners.",
+      qualityGuarantee: "100% Quality Guaranteed", qualityInspected: "Inspected & Verified Batches",
+    },
+    managementPage: {
+      heroLabel: "ABOUT US", heroTitle: "Executive Leadership",
+      heroDesc: "The visionary team steering Kiran Global Chems Ltd. towards global excellence.",
+      leadershipLabel: "LEADERSHIP TEAM", managementTitle: "Management", executiveLabel: "EXECUTIVE LEADERSHIP",
+      leaders: [
+        { name: "M S Jain", role: "Chairman", badge: "FOUNDER & CHAIRMAN", bio: "Founder and visionary leader of Kiran Global Chems Ltd. With decades of expertise in the chemical industry, he has guided the company to become the #1 sodium silicate manufacturer in India with a strong global presence.", stat1Label: "Experience", stat1Value: "45+ Yrs", stat2Label: "Position", stat2Value: "#1 India" },
+        { name: "Atul Jain", role: "Vice Chairman", badge: "VICE CHAIRMAN", bio: "Leading strategic growth initiatives and business expansion for Kiran Global. His leadership drives the company's global outreach, innovation pipeline, and long-term vision for sustainable industrial excellence.", stat1Label: "Focus", stat1Value: "Strategy", stat2Label: "Reach", stat2Value: "45+ Nations" },
+        { name: "N C Rufus", role: "CEO", badge: "CHIEF EXECUTIVE OFFICER", bio: "Overseeing day-to-day operations, customer success, and technology innovation across all 32 manufacturing facilities. Committed to maintaining the highest standards of quality and operational efficiency.", stat1Label: "Facilities", stat1Value: "32 Units", stat2Label: "Capacity", stat2Value: "300K+ Tons" },
+      ],
+      values: [
+        { title: "Vision-Driven", desc: "Every strategic decision is anchored in the company's long-term vision of global chemical leadership and sustainable manufacturing." },
+        { title: "People First", desc: "Our leadership believes that a company's greatest asset is its people — fostering talent, dedication, and innovation at every level." },
+        { title: "Quality Obsessed", desc: "From raw material sourcing to final dispatch, the management ensures uncompromising adherence to global quality and safety standards." },
+      ],
+    },
+    careersPage: {
+      heroLabel: "Join Our Mission", heroTitle1: "Build Your Future", heroTitle2: "At Kiran Global",
+      heroDesc: "Our people are our greatest strength. We foster a culture of innovation, transparency, collaboration, and continuous learning.",
+      exploreBtn: "Explore Open Roles", satisfactionRate: "95%", satisfactionLabel: "Employee Satisfaction Rate",
+      cultureTitle1: "Why Work", cultureTitle2: "With Us?",
+      cultureDesc: "At Kiran Global, we believe in empowering our employees to take ownership and lead with innovation. We offer a collaborative environment where every voice is heard and every contribution counts towards our global goal.",
+      ctaTitle: "Ready to Join Our Team?", ctaDesc: "Discover your next career move and help us shape the future of industrial silicates worldwide.",
+      ctaBtn: "Apply Now",
+      benefits: [
+        { title: "Professional Growth Opportunities", desc: "We provide clear career paths and opportunities to climb the leadership ladder." },
+        { title: "Innovative Work Environment", desc: "Work with cutting-edge technology and processes in the industrial silicate industry." },
+        { title: "Industry-Leading Projects", desc: "Technical challenges that push boundaries and define industry benchmarks." },
+        { title: "Employee Development", desc: "Continuous learning programs, workshops, and skill-upgrading sessions." },
+        { title: "Competitive Benefits", desc: "Comprehensive health, wellness, and financial benefits for you and your family." },
+      ],
+    },
+    contactPage: {
+      heroLabel: "Get In Touch", heroTitle1: "How Can We", heroTitle2: "Help You?",
+      heroDesc: "We're here to assist you with product inquiries, technical support, or partnership opportunities. Let's build something great together.",
+      callTitle: "Call Us", emailTitle: "Email Us", officeTitle: "Head Office",
+      officeAddress: "No.104, Phlox Apartments, 1st Floor, F-2, Q-Block, 3rd Avenue, Anna Nagar, Chennai-600040, Tamilnadu, India.",
+      availabilityLabel: "Availability", monFri: "Mon - Fri", saturday: "Saturday",
+      formTitle1: "Send Us a", formTitle2: "Message", formRequired: "Required fields are marked with *",
+      fieldName: "Full Name*", fieldEmail: "Email Address*", fieldPhone: "Phone Number",
+      fieldInquiry: "Inquiry Type", fieldMessage: "Message*",
+      inquiryOptions: ["General Inquiry", "Product Quote", "Technical Support", "Partnership"],
+      submitBtn: "Submit Request", namePlaceholder: "John Doe", emailPlaceholder: "john@company.com",
+      phonePlaceholder: "+39 000 000 0000", messagePlaceholder: "Tell us about your requirements...",
+      mapTitle1: "Visit Our", mapTitle2: "Office", mapDesc: "Located in Anna Nagar, Chennai, our Head Office is the heart of our global operations.",
+      visitOfficeLabel: "Visit Our Office",
+    },
+    chairmanPage: {
+      heroSubtitle: "A Legacy of Excellence",
+      value1Title: "Innovation", value1Desc: "Cutting-edge technologies and methods.",
+      value2Title: "Market Leader", value2Desc: "Number one position in India.",
+      value3Title: "People-Centric", value3Desc: "Nurturing fresh talent and personal growth.",
+      marketLeaderBadge: "Market Leader", marketLeaderSub: "India #1 Spot",
+    },
   },
 
   it: {
     navbar: {
       home: "Pagina Iniziale", about: "Chi Siamo", products: "Prodotti",
       sodium: "Silicati di Sodio", potassium: "Silicati di Potassio", custom: "Formule Personalizzate",
-      quality: "Qualità e Sicurezza", careers: "Carriera", contact: "Contatti",
+      careers: "Carriera", contact: "Contatti",
       getEstimate: "Ottieni Preventivo", callUs: "Chiamaci", email: "E-mail",
       workingHours: "Sab - Gio (08:00 - 17:00)", language: "Lingua",
       history: "Storia", award: "Premi", vision: "Visione e Missione",
@@ -647,7 +818,7 @@ export const translations: Record<string, TranslationData> = {
         { name: "Home", href: "/" }, { name: "Chi Siamo", href: "/about" },
         { name: "Storia", href: "/about/history" }, { name: "Premi", href: "/about/award" },
         { name: "Prodotti", href: "/products" },
-        { name: "Brochure", href: "/brochure" }, { name: "Qualità e Sicurezza", href: "/quality" },
+        // { name: "Brochure", href: "/brochure" }, { name: "Qualità e Sicurezza", href: "/quality" },
         { name: "Carriera", href: "/careers" }, { name: "Contattaci", href: "/contact" },
       ],
       productsTitle: "I Nostri Prodotti",
@@ -789,6 +960,113 @@ export const translations: Record<string, TranslationData> = {
         },
         molarRatioLabel: "*X = 2.00 – 2.20"
       }
-    }
+    },
+    aboutPage: {
+      heroTitle: "Chi Siamo", heroSubtitle: "Kiran Global Chem Limited — il principale produttore e fornitore mondiale di silicato di sodio e silicato di potassio, con sede in India.",
+      journeyLabel: "Il Nostro Percorso", journeyTitle: "L'Eredità di un'Innovazione Visionaria",
+      journeyText1: "Il Gruppo MS Jain ha iniziato il suo percorso nel settore della produzione chimica come una piccola unità produttiva con la visione di lasciare il segno come innovatore visionario.",
+      journeyText2: "Dal 1979 ad oggi, l'azienda è cresciuta sotto la guida del fondatore e Presidente Mr. MS Jain, diventando un conglomerato leader con presenza internazionale. Abbiamo unità produttive in più di cinque paesi e il nostro business di import-export chimico abbraccia i cinque continenti.",
+      founderName: "Mr. MS Jain", founderRole: "Fondatore e Presidente",
+      stat1Label: "Fatturato Annuo", stat1Value: "3,00,000", stat1Unit: "Tonnellate",
+      stat2Label: "Unità Produttive", stat2Value: "5+", stat2Unit: "Paesi",
+      stat3Label: "Dipendenti Diretti", stat3Value: "600+", stat3Unit: "Globale",
+      stat4Label: "Inizio del Percorso", stat4Value: "1979", stat4Unit: "India",
+      supplyTitle: "Eccellenza della Catena di Fornitura",
+      supplyQuote: "Siamo rinomati per la nostra catena di fornitura senza soluzione di continuità e per la risposta rapida ed efficiente ai clienti. Siamo i più grandi produttori di silicato di sodio in India con un fatturato annuo di 3.00.000 tonnellate. Le nostre unità produttive sono prevalentemente situate nell'India meridionale con uffici nell'India settentrionale.",
+      productRangeTitle: "Gamma di Prodotti e Applicazioni",
+      productRangeDesc: "La nostra gamma di prodotti comprende intermediari chimici con applicazioni versatili in diversi settori tra cui edilizia, ceramica, tessile, carta, fonderie, ceramica e candele tra gli altri.",
+      productCategories: ["Edilizia", "Ceramica", "Tessile", "Carta", "Fonderie", "Candele"],
+      techTitle: "TECNOLOGIE ALL'AVANGUARDIA",
+      techDesc: "Completamente attrezzati per soddisfare le richieste dei clienti su larga scala con impianti e macchinari delle ultime tecnologie, ingegneri altamente qualificati, personale formato ed esperti di settore.",
+      workforceTitle: "Forza Lavoro Globale e Hub dell'Innovazione",
+      workforceDesc: "L'organizzazione opera con oltre 600 dipendenti diretti e 300 dipendenti indiretti a livello globale. I nostri laboratori all'avanguardia spesso collaborano con i principali istituti di ricerca per sviluppare soluzioni innovative.",
+      workforceQuote: "L'obiettivo dell'azienda è fornire prodotti orientati al mercato che migliorino i processi al minimo costo ambientale.",
+      rdLabel: "Collaborazione R&S", rdSubLabel: "Laboratori all'avanguardia",
+      coreValuesTitle: "Abbiamo Seguito i Valori Fondamentali",
+      coreValues: ["Ispezione di Sicurezza e Salute", "Ingegneria Ambientale", "Consulenza Ambientale", "Valutazione di Affidabilità e Sicurezza", "Leadership con Integrità", "Ingegneria Innovativa", "Attenzione ai Nostri Clienti", "Professionisti di Alta Qualità"],
+    },
+    historyPage: {
+      heroLabel: "Fondata nel 1979", heroTitle: "Gruppo M S Jain",
+      heroQuote: "Un'eredità di innovazione visionaria ed eccellenza industriale.",
+      beginningLabel: "L'Inizio", foundingTitle: "La Nostra Storia Fondativa",
+      foundingText: "Kiran Global Chems Limited è stata fondata nel 1979 con una singola piccola unità produttiva per la preparazione di silicato di sodio per i produttori di detersivi. È stata fondata da Mr. MS Jain che aveva una visione a lungo termine di espandere la sua azienda per ottenere riconoscimento globale come leader di mercato e trend setter.",
+      growthText: "Nel corso degli anni, l'azienda ha costantemente ampliato la sua gamma di prodotti e oggi forniamo materie prime chimiche ad aziende di vari settori in tutto il mondo. La nostra operazione commerciale multi-prodotto su larga scala funziona con 32 unità produttive, contribuendo a oltre il 50% del fatturato del gruppo.",
+      companyTitle: "Kiran Global Chems Limited",
+      companyText1: "Oggi siamo i più grandi produttori del paese di silicati di sodio e potassio e abbiamo superato il traguardo delle 300.000 tonnellate per anno di produzione. Abbiamo anche capacità installate di 15.000 tonnellate di LABSA e 25.000 tonnellate di Silicato di Potassio.",
+      companyText2: "Con la visione di espansione globale attraverso l'import-export, i nostri impianti sono stati stabiliti prevalentemente nelle città costiere con facile accesso ai porti. I nostri impianti sono completamente attrezzati con moderne strutture di magazzinaggio, laboratori di garanzia della qualità e sono pienamente funzionali per soddisfare le richieste su larga scala in qualsiasi momento. La nostra perseveranza e insistenza sulla qualità del servizio ci ha guadagnato una valutazione \"Sigma 4\" per le efficienze operative.",
+      sustainLabel: "Attenzione alla Sostenibilità",
+      sustainTitle: "Continuare a crescere di forza in forza, innovando nuovi metodi per produrre prodotti chimici che siano sia economici che rispettosi dell'ambiente senza compromettere la qualità.",
+      stat1: "Unità Produttive", stat2: "Tonnellate / Anno",
+    },
+    awardPage: {
+      heroTitle: "Premi e Riconoscimenti", heroSubtitle: "Riconoscendo i nostri traguardi nell'eccellenza tecnica e nei contributi industriali globali.",
+      milestoneLabel: "Traguardo Progetto Principale", projectTitle: "PROGETTO METRO RAIL DI LUCKNOW",
+      projectHeadline: "KIRAN GLOBAL CHEM LIMITED HA INIZIATO LE FORNITURE DI SOLUZIONI DI INIEZIONE A BASE DI SILICATO DI SODIO KIRANSIL AL PROGETTO METRO RAIL DI LUCKNOW",
+      projectDesc: "Fornitura di soluzioni chimiche specializzate per lo sviluppo infrastrutturale dell'India. La nostra competenza tecnica nelle soluzioni di iniezione a base di silicato garantisce l'integrità strutturale e la sicurezza per i progetti di trasporto urbano ad alta posta in gioco.",
+      techExcTitle: "Eccellenza Tecnica", techExcDesc: "Fornitura di soluzioni avanzate di SILICATO DI SODIO KIRANSIL.",
+      standardsTitle: "I Nostri Standard di Riconoscimento",
+      awards: [
+        { title: "ISO 9001:2015", desc: "Per l'eccellenza nei sistemi di gestione della qualità." },
+        { title: "Valutazione Sigma 4", desc: "Alta distinzione per l'efficienza operativa e la qualità del servizio." },
+        { title: "Leader del Settore", desc: "Il più grande produttore indiano di Silicato di Sodio e Potassio." },
+        { title: "Innovatore Eco", desc: "Riconoscimento per la produzione chimica rispettosa dell'ambiente." },
+      ],
+      qualityTitle: "Fornire prodotti orientati al mercato con standard di qualità certificati ai nostri partner globali.",
+      qualityGuarantee: "Qualità 100% Garantita", qualityInspected: "Lotti Ispezionati e Verificati",
+    },
+    managementPage: {
+      heroLabel: "CHI SIAMO", heroTitle: "Leadership Esecutiva",
+      heroDesc: "Il team visionario che guida Kiran Global Chems Ltd. verso l'eccellenza globale.",
+      leadershipLabel: "TEAM DI LEADERSHIP", managementTitle: "Management", executiveLabel: "LEADERSHIP ESECUTIVA",
+      leaders: [
+        { name: "M S Jain", role: "Presidente", badge: "FONDATORE E PRESIDENTE", bio: "Fondatore e leader visionario di Kiran Global Chems Ltd. Con decenni di esperienza nel settore chimico, ha guidato l'azienda a diventare il produttore numero 1 di silicato di sodio in India con una forte presenza globale.", stat1Label: "Esperienza", stat1Value: "45+ Anni", stat2Label: "Posizione", stat2Value: "#1 India" },
+        { name: "Atul Jain", role: "Vice Presidente", badge: "VICE PRESIDENTE", bio: "Guidando iniziative di crescita strategica ed espansione aziendale per Kiran Global. La sua leadership guida la portata globale dell'azienda, la pipeline di innovazione e la visione a lungo termine per l'eccellenza industriale sostenibile.", stat1Label: "Focus", stat1Value: "Strategia", stat2Label: "Portata", stat2Value: "45+ Nazioni" },
+        { name: "N C Rufus", role: "Amministratore Delegato", badge: "AMMINISTRATORE DELEGATO", bio: "Supervisiona le operazioni quotidiane, il successo dei clienti e l'innovazione tecnologica in tutte le 32 strutture produttive. Impegnato nel mantenimento dei più alti standard di qualità ed efficienza operativa.", stat1Label: "Impianti", stat1Value: "32 Unità", stat2Label: "Capacità", stat2Value: "300K+ Tonn" },
+      ],
+      values: [
+        { title: "Guidati dalla Visione", desc: "Ogni decisione strategica è ancorata alla visione a lungo termine dell'azienda di leadership chimica globale e produzione sostenibile." },
+        { title: "Prima Le Persone", desc: "La nostra leadership crede che il più grande asset di un'azienda siano le sue persone — coltivando talento, dedizione e innovazione a tutti i livelli." },
+        { title: "Ossessionati dalla Qualità", desc: "Dall'approvvigionamento delle materie prime alla spedizione finale, il management garantisce il rispetto intransigente degli standard globali di qualità e sicurezza." },
+      ],
+    },
+    careersPage: {
+      heroLabel: "Unisciti alla Nostra Missione", heroTitle1: "Costruisci il Tuo Futuro", heroTitle2: "Con Kiran Global",
+      heroDesc: "Le nostre persone sono la nostra forza più grande. Promuoviamo una cultura di innovazione, trasparenza, collaborazione e apprendimento continuo.",
+      exploreBtn: "Esplora le Posizioni Aperte", satisfactionRate: "95%", satisfactionLabel: "Tasso di Soddisfazione dei Dipendenti",
+      cultureTitle1: "Perché Lavorare", cultureTitle2: "Con Noi?",
+      cultureDesc: "In Kiran Global, crediamo nell'empowerment dei nostri dipendenti a prendere la titolarità e guidare con l'innovazione. Offriamo un ambiente collaborativo dove ogni voce viene ascoltata e ogni contributo conta verso il nostro obiettivo globale.",
+      ctaTitle: "Pronto ad Unirti al Nostro Team?", ctaDesc: "Scopri la tua prossima mossa di carriera e aiutaci a plasmare il futuro dei silicati industriali in tutto il mondo.",
+      ctaBtn: "Candidati Ora",
+      benefits: [
+        { title: "Opportunità di Crescita Professionale", desc: "Forniamo percorsi di carriera chiari e opportunità per scalare la scala della leadership." },
+        { title: "Ambiente di Lavoro Innovativo", desc: "Lavorare con tecnologia e processi all'avanguardia nel settore dei silicati industriali." },
+        { title: "Progetti Leader del Settore", desc: "Sfide tecniche che spingono i confini e definiscono i benchmark del settore." },
+        { title: "Sviluppo dei Dipendenti", desc: "Programmi di apprendimento continuo, workshop e sessioni di aggiornamento delle competenze." },
+        { title: "Benefit Competitivi", desc: "Benefici sanitari, di benessere e finanziari completi per te e la tua famiglia." },
+      ],
+    },
+    contactPage: {
+      heroLabel: "Mettiti in Contatto", heroTitle1: "Come Possiamo", heroTitle2: "Aiutarti?",
+      heroDesc: "Siamo qui per assisterti con richieste di prodotti, supporto tecnico o opportunità di partnership. Costruiamo qualcosa di grande insieme.",
+      callTitle: "Chiamaci", emailTitle: "Scrivici", officeTitle: "Sede Principale",
+      officeAddress: "No.104, Appartamenti Phlox, 1° Piano, F-2, Blocco Q, 3° Viale, Anna Nagar, Chennai-600040, Tamil Nadu, India.",
+      availabilityLabel: "Disponibilità", monFri: "Lun - Ven", saturday: "Sabato",
+      formTitle1: "Inviaci un", formTitle2: "Messaggio", formRequired: "I campi obbligatori sono contrassegnati con *",
+      fieldName: "Nome Completo*", fieldEmail: "Indirizzo Email*", fieldPhone: "Numero di Telefono",
+      fieldInquiry: "Tipo di Richiesta", fieldMessage: "Messaggio*",
+      inquiryOptions: ["Richiesta Generale", "Preventivo Prodotto", "Supporto Tecnico", "Partnership"],
+      submitBtn: "Invia Richiesta", namePlaceholder: "Mario Rossi", emailPlaceholder: "mario@azienda.it",
+      phonePlaceholder: "+39 000 000 0000", messagePlaceholder: "Raccontaci le tue esigenze...",
+      mapTitle1: "Visita il Nostro", mapTitle2: "Ufficio", mapDesc: "Situato ad Anna Nagar, Chennai, la nostra Sede Principale è il cuore delle nostre operazioni globali.",
+      visitOfficeLabel: "Visita il Nostro Ufficio",
+    },
+    chairmanPage: {
+      heroSubtitle: "Un'Eredità di Eccellenza",
+      value1Title: "Innovazione", value1Desc: "Tecnologie e metodi all'avanguardia.",
+      value2Title: "Leader di Mercato", value2Desc: "Prima posizione in India.",
+      value3Title: "Orientato alle Persone", value3Desc: "Coltivare nuovi talenti e crescita personale.",
+      marketLeaderBadge: "Leader di Mercato", marketLeaderSub: "Posizione #1 in India",
+    },
   },
 };
+

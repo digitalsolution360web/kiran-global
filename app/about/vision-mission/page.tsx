@@ -3,16 +3,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
-    Target,
-    Rocket,
-    Zap,
-    ShieldCheck,
-    Users,
-    Truck,
-    TrendingUp,
-    Handshake,
-    CheckCircle2,
-    Award
+    Target, Rocket, Zap, ShieldCheck, Users, Truck, TrendingUp, Handshake, CheckCircle2, Award
 } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
@@ -37,13 +28,7 @@ const VisionMissionPage = () => {
 
             {/* Hero Section */}
             <section className="relative h-[65vh] flex items-center justify-center overflow-hidden pt-20">
-                <Image
-                    src="/about-us-1.webp"
-                    alt="Vision & Mission"
-                    fill
-                    className="object-cover"
-                    priority
-                />
+                <Image src="/about-us-1.webp" alt="Vision & Mission" fill className="object-cover" priority />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
                 <div className="relative z-10 max-w-[1700px] mx-auto px-6 lg:px-12 w-full">
                     <motion.div
@@ -56,11 +41,11 @@ const VisionMissionPage = () => {
                             {v.label}
                         </span>
                         <h1 className="text-2xl md:text-5xl font-bold text-white mb-6 tracking-tighter leading-none">
-                            Our <span className="text-secondary">Vision</span> &  Values
+                            {v.visionTitle} <span className="text-secondary">&amp;</span> {v.missionTitle.replace("Our ", "").replace("La Nostra ", "")}
                         </h1>
                         <div className="w-32 h-2 bg-secondary mb-8" />
                         <p className="text-xl md:text-2xl text-white/80 font-medium leading-relaxed max-w-2xl">
-                            Driving global industrial excellence through innovation, quality, and unwavering commitment.
+                            {v.strengthText1.split(".")[0]}.
                         </p>
                     </motion.div>
                 </div>
@@ -88,15 +73,9 @@ const VisionMissionPage = () => {
                             className="relative"
                         >
                             <div className="relative h-[500px] w-full rounded-[4rem] overflow-hidden shadow-2xl z-10 border-4 border-white">
-                                <Image
-                                    src="/home-ab2.webp"
-                                    alt="Vision"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/home-ab2.webp" alt="Vision" fill className="object-cover" />
                                 <div className="absolute inset-0 bg-primary/20 mix-blend-overlay" />
                             </div>
-                            {/* Decorative elements */}
                             <div className="absolute -top-10 -left-10 w-40 h-40 bg-secondary/10 rounded-full blur-3xl" />
                             <div className="absolute -bottom-10 -right-10 w-60 h-60 bg-primary/5 rounded-full blur-3xl" />
                         </motion.div>
@@ -112,19 +91,19 @@ const VisionMissionPage = () => {
                                 {v.visionTitle}
                             </div>
                             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 leading-tight tracking-tight">
-                                To become a <span className="text-primary italic">Globally-Renowned</span> Organisation
+                                {v.visionHighlight.split(" ").slice(0, 3).join(" ")} <span className="text-primary italic">{v.visionHighlight.split(" ").slice(3).join(" ")}</span>
                             </h2>
                             <p className="text-xl md:text-2xl text-gray-600 leading-relaxed font-medium italic border-l-4 border-secondary pl-8 py-4 bg-gray-50 rounded-r-3xl">
-                                "{v.visionText}"
+                                &quot;{v.visionText}&quot;
                             </p>
                             <div className="grid grid-cols-2 gap-8 pt-6">
                                 <div className="space-y-2">
-                                    <h4 className="text-primary font-bold text-lg">Skilfully Crafted</h4>
-                                    <p className="text-gray-500 text-sm">Products and services designed for excellence.</p>
+                                    <h4 className="text-primary font-bold text-lg">{v.visionHighlight.split(" ").slice(0, 2).join(" ")}</h4>
+                                    <p className="text-gray-500 text-sm">{v.strengthText1.split(".")[0]}.</p>
                                 </div>
                                 <div className="space-y-2">
-                                    <h4 className="text-primary font-bold text-lg">Stakeholder Value</h4>
-                                    <p className="text-gray-500 text-sm">Earning highest returns for our partners.</p>
+                                    <h4 className="text-primary font-bold text-lg">{v.strengthTitle}</h4>
+                                    <p className="text-gray-500 text-sm">{v.strengthText2.split(",")[0]}.</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -134,7 +113,6 @@ const VisionMissionPage = () => {
 
             {/* Mission Section */}
             <section className="py-24 bg-primary relative overflow-hidden">
-                {/* Background Pattern */}
                 <div className="absolute inset-0 opacity-[0.03] pointer-events-none">
                     <svg width="100%" height="100%">
                         <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
@@ -146,20 +124,12 @@ const VisionMissionPage = () => {
 
                 <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
                     <div className="text-center max-w-3xl mx-auto mb-20">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                        >
+                        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                             <span className="inline-block px-4 py-2 bg-white/10 text-secondary rounded-full text-xs font-black tracking-[0.3em] uppercase mb-6">
-                                OUR PATHWAY
+                                {v.label}
                             </span>
-                            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter">
-                                {v.missionTitle}
-                            </h2>
-                            <p className="text-white/60 text-lg font-medium">
-                                How we execute our vision through daily excellence and strategic focus.
-                            </p>
+                            <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 tracking-tighter">{v.missionTitle}</h2>
+                            <p className="text-white/60 text-lg font-medium">{v.strengthText2.split(",")[0]}.</p>
                         </motion.div>
                     </div>
 
@@ -202,7 +172,7 @@ const VisionMissionPage = () => {
                                     {v.strengthTitle}
                                 </div>
                                 <h2 className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tighter">
-                                    Built on <span className="text-primary italic">Enduring Quality</span>
+                                    {v.strengthTitle.split(" ").slice(0, 2).join(" ")} <span className="text-primary italic">{v.strengthTitle.split(" ").slice(2).join(" ")}</span>
                                 </h2>
                             </div>
 
@@ -211,18 +181,14 @@ const VisionMissionPage = () => {
                                     <div className="flex-shrink-0 w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center">
                                         <CheckCircle2 className="text-primary" size={24} />
                                     </div>
-                                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                                        {v.strengthText1}
-                                    </p>
+                                    <p className="text-lg text-gray-600 leading-relaxed font-medium">{v.strengthText1}</p>
                                 </div>
 
                                 <div className="flex gap-6 p-8 bg-white rounded-3xl shadow-xl shadow-gray-200/50 border border-gray-100 hover:border-primary/20 transition-colors">
                                     <div className="flex-shrink-0 w-12 h-12 bg-primary/5 rounded-full flex items-center justify-center">
                                         <CheckCircle2 className="text-primary" size={24} />
                                     </div>
-                                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
-                                        {v.strengthText2}
-                                    </p>
+                                    <p className="text-lg text-gray-600 leading-relaxed font-medium">{v.strengthText2}</p>
                                 </div>
                             </div>
                         </motion.div>
@@ -235,12 +201,7 @@ const VisionMissionPage = () => {
                         >
                             <div className="absolute inset-x-0 bottom-0 h-4/5 bg-primary rounded-[4rem] -rotate-3" />
                             <div className="absolute inset-0 rounded-[4rem] overflow-hidden shadow-2xl border-8 border-white transform rotate-3 hover:rotate-0 transition-transform duration-700">
-                                <Image
-                                    src="/Why-Choose-Us.webp"
-                                    alt="Strengths"
-                                    fill
-                                    className="object-cover"
-                                />
+                                <Image src="/Why-Choose-Us.webp" alt="Strengths" fill className="object-cover" />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                 <div className="absolute bottom-12 left-12 right-12">
                                     <div className="flex items-center gap-4 text-white">
@@ -248,8 +209,8 @@ const VisionMissionPage = () => {
                                             <TrendingUp size={40} className="text-white" />
                                         </div>
                                         <div>
-                                            <p className="text-4xl font-black">Global</p>
-                                            <p className="text-secondary font-bold tracking-[.3em] uppercase text-sm">Growth & Innovation</p>
+                                            <p className="text-4xl font-black">{v.visionTitle}</p>
+                                            <p className="text-secondary font-bold tracking-[.3em] uppercase text-sm">{v.strengthTitle}</p>
                                         </div>
                                     </div>
                                 </div>
