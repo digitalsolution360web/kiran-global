@@ -3,8 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Award, ShieldCheck, Trophy, Train, CheckCircle2, Star, Zap } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
 const awardIcons = [
@@ -20,7 +18,6 @@ const AwardPage = () => {
 
     return (
         <main className="min-h-screen bg-white">
-            <Navbar />
 
             {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden pt-20">
@@ -126,7 +123,6 @@ const AwardPage = () => {
                 </div>
             </section>
 
-            <Footer />
         </main>
     );
 };

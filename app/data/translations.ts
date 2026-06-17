@@ -1,10 +1,15 @@
 export interface TranslationData {
   navbar: {
-    home: string; about: string; products: string; sodium: string; potassium: string;
-    custom: string; careers: string; contact: string; getEstimate: string;
+    home: string; about: string; industries: string; products: string; sodium: string; potassium: string;
+    custom: string; careers: string; contact: string; blog: string; getEstimate: string;
     callUs: string; email: string; workingHours: string; language: string;
     history: string; award: string; vision: string; chairmans: string; management: string;
     sodiumLumps: string; sodiumLiquid: string; potassiumLumps: string; potassiumLiquid: string;
+    indDropdown: {
+      soap: string; cosmetics: string; agriculture: string; timber: string; adhesives: string;
+      auto: string; food: string; water: string; foundries: string; petroleum: string;
+      concrete: string; chemical: string; metals: string; ceramics: string; mining: string;
+    }
   };
   chairmansMessage: {
     label: string;
@@ -80,7 +85,25 @@ export interface TranslationData {
   };
   blogs: {
     label: string; title: string; knowledgeHub: string; updatedWeekly: string; readFullArticle: string;
-    items: { title: string; date: string; category: string; author: string }[];
+    items: {
+      title: string;
+      date: string;
+      category: string;
+      author: string;
+      image: string;
+      summary: string;
+      slug: string;
+      content?: {
+        type: 'text' | 'image' | 'list' | 'quote' | 'link';
+        title?: string;
+        text?: string;
+        src?: string;
+        alt?: string;
+        items?: string[];
+        url?: string;
+      }[];
+      tags?: string[];
+    }[];
   };
   faq: {
     label: string; titleStart: string; titleHighlight: string; titleEnd: string; description: string;
@@ -211,13 +234,30 @@ export interface TranslationData {
 export const translations: Record<string, TranslationData> = {
   en: {
     navbar: {
-      home: "Home", about: "About Us", products: "Products",
+      home: "Home", about: "About Us", industries: "Industries We Serve", products: "Products",
       sodium: "Sodium Silicates", potassium: "Potassium Silicates", custom: "Custom Formulas",
-      careers: "Careers", contact: "Contact",
+      careers: "Careers", contact: "Contact", blog: "Blog",
       getEstimate: "Get Estimate", callUs: "Call Us", email: "Email",
       workingHours: "Sat - Thu (08:00 - 17:00)", language: "Language",
       history: "History", award: "Awards", vision: "Vision & Mission",
       chairmans: "Chairman's Message",
+      indDropdown: {
+        soap: "Soap & Detergents",
+        cosmetics: "Cosmetics",
+        agriculture: "Agriculture",
+        timber: "Timber Treatment",
+        adhesives: "Adhesives",
+        auto: "Automotive Repair",
+        food: "Food Industry",
+        water: "Water Treatment",
+        foundries: "Foundries",
+        petroleum: "Petroleum & Oil Drilling",
+        concrete: "Concrete and General",
+        chemical: "Chemical Injection",
+        metals: "Metals",
+        ceramics: "Ceramics & Refractory",
+        mining: "Mining and Mineral Processing"
+      },
       sodiumLumps: "SODIUM SILICATE LUMPS",
       sodiumLiquid: "SODIUM SILICATE LIQUID",
       potassiumLumps: "POTASSIUM SILICATE LUMPS",
@@ -364,9 +404,122 @@ export const translations: Record<string, TranslationData> = {
       label: "Media Center", title: "Latest Insights & Industry Innovations",
       knowledgeHub: "Knowledge Hub", updatedWeekly: "Updated Weekly", readFullArticle: "Read Full Article",
       items: [
-        { title: "Exporting Excellence: How Kiran Global Delivers Quality Worldwide", date: "August 23, 2025", category: "EXPORTS", author: "Eng. Samy" },
-        { title: "Eco-Friendly Engineering: The Role of Silicates in Sustainable Manufacturing", date: "November 5, 2025", category: "SUSTAINABILITY", author: "Global Team" },
-        { title: "Sodium Silicate in Action: How One Compound Powers Multiple Industries", date: "September 5, 2025", category: "APPLICATIONS", author: "Research Dept" },
+        {
+          title: "Global Sodium Silicate Industry 2016 Market Research Report",
+          date: "May 15, 2016",
+          category: "RESEARCH",
+          author: "admin",
+          image: "/Industrial-pic.webp",
+          summary: "Summary: The Global Sodium Silicate Industry 2016 Market Research Report is a professional and in-depth study on the current state of the Sodium Silicate Industry. Firstly, the report provides a basic overview of the industry including",
+          slug: "global-sodium-silicate-industry-2016",
+          content: [
+            {
+              type: "text",
+              title: "Summary",
+              text: "The Global Sodium Silicate Industry 2016 Market Research Report is a professional and in-depth study on the current state of the Sodium Silicate Industry. Firstly, the report provides a basic overview of the industry including definitions, classifications, applications and industry chain structure. The Sodium Silicate Industry market analysis is provided for the international market including development history, competitive landscape analysis, and major regions development status. Secondly, development policies and plans are discussed as well as manufacturing processes and cost structures."
+            },
+            {
+              type: "text",
+              text: "This report also states import/export, supply and Industry figures as well as cost, price, revenue and gross margin by regions (United States, EU, China and Japan), and other regions can be added. Then, the report focuses on global major leading industry players with information such as company profiles, product picture and specification, capacity, production, price, cost, revenue and contact information. Upstream raw materials, equipment and downstream consumers analysis is also carried out."
+            },
+            {
+              type: "image",
+              src: "/1-first.webp",
+              alt: "Sodium Silicate Industry Analysis"
+            },
+            {
+              type: "text",
+              text: "What’s more, the Sodium Silicate Industry development trends and marketing channels are analyzed. Finally, the feasibility of new investment projects is assessed, and overall research conclusions are offered. In a word, the report provides major statistics on the state of the industry and is a valuable source of guidance and direction for companies and individuals interested in the market.sodium_silicate_kiran_global_chems"
+            },
+            {
+              type: "link",
+              title: "Request Sample Report",
+              url: "http://www.reportbazzar.com/request-sample/?pid=476546&ptitle=Global+Sodium+Silicate+Industry+2016+Market+Research+Report&req=Sample"
+            }
+          ]
+        },
+        {
+          title: "Sodium Silicate Market for Detergents Industry from 2015 to 2023",
+          date: "August 12, 2015",
+          category: "MARKET ANALYSIS",
+          author: "admin",
+          image: "/second.webp",
+          summary: "Sodium Silicate Market for Detergents, Catalysts, Pulp & Paper, Elastomers, Food & Healthcare and Other Applications – Global Industry Analysis, Size, Share, Growth, Trends and Forecast 2015 – 2023",
+          slug: "sodium-silicate-market-detergents",
+          content: [
+            {
+              type: "text",
+              text: "This report gives a detailed description of the sodium silicate market in terms of volume share (kilo tons) and revenue (US$ Mn) from 2015 to 2023. The report highlights factors contributing towards growth of the market and restraints affecting the market. Detailed forecast of the sodium silicate market has been provided from 2015 to 2023 for better understanding of the individual market scenario. The sodium silicate market is described with respect to its various segments along with expected opportunities in the next eight years."
+            },
+
+          ]
+        },
+        {
+          title: "Ultimate Green Geopolymer Concrete – Geocement",
+          date: "January 20, 2024",
+          category: "INNOVATION",
+          author: "admin",
+          image: "/third.webp",
+          summary: "Geocement is a promise to reduce global warming by reducing carbon dioxide emission using a proprietory liquid Geobinder with various industrial bye products viz. Flyash, Blast furnace slag etc.",
+          slug: "ultimate-green-geopolymer-concrete",
+          content: [
+            {
+              type: "text",
+              title: "ABOUT GEOCEMENT",
+              text: "Geocement is a promise to reduce global warming by reducing carbon dioxide emission using a proprietory liquid Geobinder with various industrial bye products viz. Flyash, Blast furnace slag etc. Geopowder, thus making it an environment friendly Green Product. The environment must be protected by preventing dumping of waste by-product materials in uncontrolled manners and by stopping Carbon dioxide (CO2) emission."
+            },
+            {
+              type: "text",
+              text: "KIRAN GREEN Geobinder, Geocement and Geocrete are developed in-house through continuous Research and development for over 3 years. The R & D centre is a recognized by the Department of Science and Technology, Government of India as an approved in-house facility."
+            },
+            {
+              type: "text",
+              text: "GEOCEMENT comes in a 2 part packing 35 Kg + 15 Kg (Geocement powder & Geobinder liquid) which can be mixed at site like normal cement with aggregates."
+            },
+            {
+              type: "text",
+              text: "Prof. J. Davidovits, an eminent scientist invented this technology in which Silicon (Si) and aluminum (Al)ions in the by-product materials is made to react and the chemical reaction that takes place in this case is a polymerization process and hence product is called Geocement. Kiran Global has entered into an exclusive agreement with Geopolymer institute, France for developing a range of new-age Geocement for advance applications."
+            },
+            {
+              type: "image",
+              src: "/1458203895logo.webp",
+              alt: "Geocement Logo"
+            }
+          ],
+          tags: ["GEOCEMENT", "GEOPOLYMER", "GREEN CONCRETE"]
+        },
+        {
+          title: "Global Services",
+          date: "February 10, 2024",
+          category: "SERVICES",
+          author: "admin",
+          image: "/fourth.webp",
+          summary: "MS Jain Group started its journey in the chemical manufacturers industry as a small scale manufacturing unit with the vision to leave its mark as a visionary innovator.",
+          slug: "global-services",
+          content: [
+            {
+              type: "image",
+              src: "/fourth.webp",
+              alt: "Global Services"
+            },
+            {
+              type: "text",
+              text: "MS Jain Group started its journey in the chemical manufacturers industry as a small scale manufacturing unit with the vision to leave its mark as a visionary innovator. From 1979 to this date, the company has grown under the able leadership of founder and Chariman Mr. MS Jain as a leading conglomerate with international presence. We have over 30 manufacturing units in India and more than five units across the world."
+            },
+            {
+              type: "text",
+              text: "We are renowned for our seamless supply chain and quick and efficient response to customers. We are the largest manufacturers of sodium silicate in India with annual turnover of 3, 00,000 tonnes. Our manufacturing units are largely setup all over India"
+            },
+            {
+              type: "text",
+              text: "Our product range includes chemical intermediaries that have versatile application across several industries including construction, ceramics, textiles, paper, foundries, ceramics, and candles among others. We are fully equipped to meet large scale customer demands with plants and machineries of latest technologies and highly qualified engineers, trained personnel ad domain experts. The organization operates with over 600 direct employees and 300 indirect employees globally. Our state of the art laboratories often work in collaboration with leading research institutes to develop innovative solutions."
+            },
+            {
+              type: "text",
+              text: "The companies aim is to deliver market-driven products that enhance process at minimum environment cost"
+            }
+          ]
+        }
       ],
     },
     faq: {
@@ -389,7 +542,7 @@ export const translations: Record<string, TranslationData> = {
         { name: "History", href: "/about/history" }, { name: "Awards", href: "/about/award" },
         { name: "Products", href: "/products" },
         // { name: "Brochure", href: "/brochure" }, { name: "Quality & Safety", href: "/quality" },
-        { name: "Careers", href: "/careers" }, { name: "Contact Us", href: "/contact" },
+        { name: "Careers", href: "/careers" }, { name: "Blog", href: "/blog" }, { name: "Contact Us", href: "/contact" },
       ],
       productsTitle: "Our Products",
       products: ["Sodium Silicate Lumps", "Potassium Silicate Lumps", "Sodium Silicate Liquid", "Potassium Silicate Liquid"],
@@ -641,13 +794,30 @@ export const translations: Record<string, TranslationData> = {
 
   it: {
     navbar: {
-      home: "Pagina Iniziale", about: "Chi Siamo", products: "Prodotti",
+      home: "Pagina Iniziale", about: "Chi Siamo", industries: "Industrie Servite", products: "Prodotti",
       sodium: "Silicati di Sodio", potassium: "Silicati di Potassio", custom: "Formule Personalizzate",
-      careers: "Carriera", contact: "Contatti",
+      careers: "Carriera", contact: "Contatti", blog: "Blog",
       getEstimate: "Ottieni Preventivo", callUs: "Chiamaci", email: "E-mail",
       workingHours: "Sab - Gio (08:00 - 17:00)", language: "Lingua",
       history: "Storia", award: "Premi", vision: "Visione e Missione",
       chairmans: "Messaggio del Presidente",
+      indDropdown: {
+        soap: "Sapone e Detergenti",
+        cosmetics: "Cosmetici",
+        agriculture: "Agricoltura",
+        timber: "Trattamento del Legname",
+        adhesives: "Adesivi",
+        auto: "Riparazione Automobilistica",
+        food: "Industria Alimentare",
+        water: "Trattamento dell'Acqua",
+        foundries: "Fonderie",
+        petroleum: "Perforazione Petrolifera e di Gas",
+        concrete: "Calcestruzzo e Generale",
+        chemical: "Iniezione Chimica",
+        metals: "Metalli",
+        ceramics: "Ceramica e Refrattari",
+        mining: "Estrazione e Lavorazione Minerale"
+      },
       sodiumLumps: "LUMPS DI SILICATO DI SODIO",
       sodiumLiquid: "SILICATO DI SODIO LIQUIDO",
       potassiumLumps: "LUMPS DI SILICATO DI POTASSIO",
@@ -794,9 +964,126 @@ export const translations: Record<string, TranslationData> = {
       label: "Centro Media", title: "Ultime Novità e Innovazioni del Settore",
       knowledgeHub: "Centro di Conoscenza", updatedWeekly: "Aggiornato Settimanalmente", readFullArticle: "Leggi l'articolo completo",
       items: [
-        { title: "Esportare l'Eccellenza: Come Kiran Global Consegna Qualità in Tutto il Mondo", date: "23 Agosto 2025", category: "ESPORTAZIONI", author: "Ing. Samy" },
-        { title: "Ingegneria Eco-Friendly: Il Ruolo dei Silicati nella Produzione Sostenibile", date: "5 Novembre 2025", category: "SOSTENIBILITÀ", author: "Team Globale" },
-        { title: "Il Silicato di Sodio in Azione: Come un Composto Alimenta Più Industrie", date: "5 Settembre 2025", category: "APPLICAZIONI", author: "Dip. Ricerca" },
+        {
+          title: "Rapporto di Ricerca di Mercato dell'Industria Globale del Silicato di Sodio 2016",
+          date: "15 Maggio 2016",
+          category: "RICERCA",
+          author: "admin",
+          image: "/Industrial-pic.webp",
+          summary: "Sommario: Il Rapporto di Ricerca di Mercato dell'Industria Globale del Silicato di Sodio 2016 è uno studio professionale e approfondito sullo stato attuale dell'industria del silicato di sodio. In primo luogo, il rapporto fornisce una panoramica di base del settore, inclusi",
+          slug: "global-sodium-silicate-industry-2016",
+          content: [
+            {
+              type: "text",
+              title: "Sommario",
+              text: "Il Rapporto di Ricerca di Mercato dell'Industria Globale del Silicato di Sodio 2016 è uno studio professionale e approfondito sullo stato attuale dell'industria del silicato di sodio. In primo luogo, il rapporto fornisce una panoramica di base del settore, tra cui definizioni, classificazioni, applicazioni e struttura della catena industriale. L'analisi di mercato del settore del silicato di sodio è fornita per il mercato internazionale, inclusa la storia dello sviluppo, l'analisi del panorama competitivo e lo stato di sviluppo delle principali regioni. In secondo luogo, vengono discusse le politiche e i piani di sviluppo, nonché i processi di produzione e le strutture dei costi."
+            },
+            {
+              type: "text",
+              text: "Questo rapporto indica anche cifre relative a importazione/esportazione, fornitura e industria, nonché costi, prezzi, ricavi e margini lordi per regioni (Stati Uniti, UE, Cina e Giappone), e possono essere aggiunte altre regioni. Quindi, il rapporto si concentra sui principali operatori del settore a livello globale con informazioni quali profili aziendali, immagini e specifiche del prodotto, capacità, produzione, prezzo, costo, ricavi e informazioni di contatto. Viene inoltre effettuata l'analisi delle materie prime a monte, delle attrezzature e dei consumatori a valle."
+            },
+            {
+              type: "image",
+              src: "/1-first.webp",
+              alt: "Analisi dell'industria del silicato di sodio"
+            },
+            {
+              type: "text",
+              text: "Inoltre, vengono analizzate le tendenze di sviluppo del settore del silicato di sodio e i canali di marketing. Infine, viene valutata la fattibilità di nuovi progetti di investimento e vengono offerte conclusioni generali della ricerca. In una parola, il rapporto fornisce statistiche principali sullo stato del settore ed è una preziosa fonte di guida e direzione per le aziende e gli individui interessati al mercato.sodium_silicate_kiran_global_chems"
+            },
+            {
+              type: "link",
+              title: "Richiedi un rapporto di esempio",
+              url: "http://www.reportbazzar.com/request-sample/?pid=476546&ptitle=Global+Sodium+Silicate+Industry+2016+Market+Research+Report&req=Sample"
+            }
+          ]
+        },
+        {
+          title: "Mercato del silicato di sodio per l'industria dei detergenti dal 2015 al 2023",
+          date: "12 Agosto 2015",
+          category: "ANALISI DI MERCATO",
+          author: "admin",
+          image: "/second.webp",
+          summary: "Mercato del silicato di sodio per detergenti, catalizzatori, pasta di legno e carta, elastomeri, alimenti e sanità e altre applicazioni – Analisi dell'industria globale, dimensioni, quota, crescita, tendenze e previsioni 2015 – 2023",
+          slug: "sodium-silicate-market-detergents",
+          content: [
+            {
+              type: "text",
+              text: "Questo rapporto fornisce una descrizione dettagliata del mercato del silicato di sodio in termini di quota di volume (chilo tonnellate) e ricavi (milioni di dollari USA) dal 2015 al 2023. Il rapporto evidenzia i fattori che contribuiscono alla crescita del mercato e i vincoli che influenzano il mercato. Sono state fornite previsioni dettagliate del mercato del silicato di sodio dal 2015 al 2023 per una migliore comprensione del singolo scenario di mercato. Il mercato del silicato di sodio è descritto rispetto ai suoi vari segmenti insieme alle opportunità previste nei prossimi otto anni."
+            },
+            {
+              type: "image",
+              src: "/second.webp",
+              alt: "Mercato del silicato di sodio per detergenti"
+            }
+          ]
+        },
+        {
+          title: "Calcestruzzo Geopolimerico Green - Geocement",
+          date: "20 Gennaio 2024",
+          category: "INNOVAZIONE",
+          author: "admin",
+          image: "/third.webp",
+          summary: "Geocement è una promessa per ridurre il riscaldamento globale riducendo le emissioni di anidride carbonica utilizzando un Geobinder liquido proprietario con vari sottoprodotti industriali.",
+          slug: "ultimate-green-geopolymer-concrete",
+          content: [
+            {
+              type: "text",
+              title: "INFORMAZIONI SU GEOCEMENT",
+              text: "Geocement è una promessa per ridurre il riscaldamento globale riducendo le emissioni di anidride carbonica utilizzando un Geobinder liquido proprietario con vari sottoprodotti industriali come ceneri volanti, scorie di altoforno ecc. Geopowder, rendendolo così un prodotto ecologico. L'ambiente deve essere protetto impedendo lo scarico di materiali di scarto in modo incontrollato e arrestando le emissioni di anidride carbonica (CO2)."
+            },
+            {
+              type: "text",
+              text: "KIRAN GREEN Geobinder, Geocement e Geocrete sono sviluppati internamente attraverso una ricerca e uno sviluppo continui per oltre 3 anni. Il centro di ricerca e sviluppo è riconosciuto dal Dipartimento di Scienza e Tecnologia del Governo dell'India come una struttura interna approvata."
+            },
+            {
+              type: "text",
+              text: "GEOCEMENT è disponibile in una confezione da 2 parti 35 Kg + 15 Kg (Geocement in polvere e Geobinder liquido) che può essere miscelata in cantiere come il normale cemento con gli aggregati."
+            },
+            {
+              type: "text",
+              text: "Il Prof. J. Davidovits, un eminente scienziato, ha inventato questa tecnologia in cui gli ioni di silicio (Si) e alluminio (Al) nei materiali di scarto vengono fatti reagire e la reazione chimica che avviene in questo caso è un processo di polimerizzazione e quindi il prodotto viene chiamato Geocement. Kiran Global ha stipulato un accordo esclusivo con l'istituto Geopolymer, Francia, per lo sviluppo di una gamma di Geocement di nuova generazione per applicazioni avanzate."
+            },
+            {
+              type: "image",
+              src: "/1458203895logo.webp",
+              alt: "Geocement Logo"
+            }
+          ],
+          tags: ["GEOCEMENT", "GEOPOLYMER", "GREEN CONCRETE"]
+        },
+        {
+          title: "Servizi Globali",
+          date: "10 Febbraio 2024",
+          category: "SERVIZI",
+          author: "admin",
+          image: "/fourth.webp",
+          summary: "Il Gruppo MS Jain ha iniziato il suo percorso nell'industria dei produttori chimici come una piccola unità produttiva con la visione di lasciare il segno come innovatore visionario.",
+          slug: "global-services",
+          content: [
+            {
+              type: "image",
+              src: "/fourth.webp",
+              alt: "Servizi Globali"
+            },
+            {
+              type: "text",
+              text: "Il Gruppo MS Jain ha iniziato il suo percorso nell'industria dei produttori chimici come una piccola unità produttiva con la visione di lasciare il segno come innovatore visionario. Dal 1979 ad oggi, l'azienda è cresciuta sotto la sapiente guida del fondatore e presidente Mr. MS Jain come un conglomerato leader con presenza internazionale. Abbiamo oltre 30 unità produttive in India e più di cinque unità in tutto il mondo."
+            },
+            {
+              type: "text",
+              text: "Siamo rinomati per la nostra catena di fornitura senza soluzione di continuità e per la risposta rapida ed efficiente ai clienti. Siamo i più grandi produttori di silicato di sodio in India con un fatturato annuo di 3.00.000 tonnellate. Le nostre unità produttive sono in gran parte stabilite in tutta l'India."
+            },
+            {
+              type: "text",
+              text: "La nostra gamma di prodotti comprende intermedi chimici che hanno applicazioni versatili in diversi settori, tra cui edilizia, ceramica, tessile, carta, fonderie e candele, tra gli altri. Siamo completamente attrezzati per soddisfare le richieste dei clienti su larga scala con impianti e macchinari di ultima generazione e ingegneri altamente qualificati, personale esperto e specialisti del settore. L'organizzazione opera con oltre 600 dipendenti diretti e 300 dipendenti indiretti a livello globale. I nostri laboratori innovativi lavorano spesso in collaborazione con i principali istituti di ricerca per sviluppare soluzioni all'avanguardia."
+            },
+            {
+              type: "text",
+              text: "L'obiettivo dell'azienda è fornire prodotti orientati al mercato che migliorino i processi con il minimo costo ambientale."
+            }
+          ]
+        }
       ],
     },
     faq: {
@@ -819,7 +1106,7 @@ export const translations: Record<string, TranslationData> = {
         { name: "Storia", href: "/about/history" }, { name: "Premi", href: "/about/award" },
         { name: "Prodotti", href: "/products" },
         // { name: "Brochure", href: "/brochure" }, { name: "Qualità e Sicurezza", href: "/quality" },
-        { name: "Carriera", href: "/careers" }, { name: "Contattaci", href: "/contact" },
+        { name: "Carriera", href: "/careers" }, { name: "Blog", href: "/blog" }, { name: "Contattaci", href: "/contact" },
       ],
       productsTitle: "I Nostri Prodotti",
       products: ["Silicato di Sodio in Lumps", "Silicato di Potassio in Lumps", "Silicato di Sodio Liquido", "Silicato di Potassio Liquido"],

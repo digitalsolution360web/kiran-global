@@ -3,8 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Users, Award, Target } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
 const leaderImages = ["/chairman-pic.webp", "/atul.webp", "/rufus.webp"];
@@ -16,7 +14,6 @@ export default function ManagementPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
 
       {/* ── HERO BANNER ── */}
       <section className="relative h-[50vh] min-h-[420px] flex items-center justify-center overflow-hidden pt-20">
@@ -131,7 +128,6 @@ export default function ManagementPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

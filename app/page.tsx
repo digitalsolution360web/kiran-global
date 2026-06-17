@@ -1,5 +1,4 @@
 "use client";
-import Navbar from "./components/Navbar";
 import HeroSlider from "./components/HeroSlider";
 import AboutSection from "./components/AboutSection";
 import ProductsSection from "./components/ProductsSection";
@@ -16,12 +15,10 @@ import CertificationsSection from "./components/CertificationsSection";
 import ClientTestimonials from "./components/ClientTestimonials";
 import BlogsSection from "./components/BlogsSection";
 import FAQSection from "./components/FAQSection";
-import Footer from "./components/Footer";
 
 export default function Home() {
   return (
     <main className="min-h-screen">
-      <Navbar />
       <HeroSlider />
       <AboutSection />
       <ProductsSection />
@@ -38,7 +35,6 @@ export default function Home() {
       <ClientTestimonials />
       <BlogsSection />
       <FAQSection />
-      <Footer />
     </main>
   );
 }

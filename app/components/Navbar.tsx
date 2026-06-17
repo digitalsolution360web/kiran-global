@@ -73,8 +73,29 @@ const Navbar = () => {
         { name: t.navbar.potassiumLiquid, href: "/products/potassium-liquid" },
       ],
     },
-    // { name: t.navbar.quality, href: "/quality" },
+    {
+      name: t.navbar.industries,
+      href: "/industries-we-serve",
+      submenu: [
+        { name: t.navbar.indDropdown.soap, href: "/industries/soap-detergents" },
+        { name: t.navbar.indDropdown.cosmetics, href: "/industries/cosmetics" },
+        { name: t.navbar.indDropdown.agriculture, href: "/industries/agriculture" },
+        { name: t.navbar.indDropdown.timber, href: "/industries/timber-treatment" },
+        { name: t.navbar.indDropdown.adhesives, href: "/industries/adhesives" },
+        { name: t.navbar.indDropdown.auto, href: "/industries/automotive-repair" },
+        { name: t.navbar.indDropdown.food, href: "/industries/food-industry" },
+        { name: t.navbar.indDropdown.water, href: "/industries/water-treatment" },
+        { name: t.navbar.indDropdown.foundries, href: "/industries/foundries" },
+        { name: t.navbar.indDropdown.petroleum, href: "/industries/petroleum-oil-drilling" },
+        { name: t.navbar.indDropdown.concrete, href: "/industries/concrete-general" },
+        { name: t.navbar.indDropdown.chemical, href: "/industries/chemical-injection" },
+        { name: t.navbar.indDropdown.metals, href: "/industries/metals" },
+        { name: t.navbar.indDropdown.ceramics, href: "/industries/ceramics-refractory" },
+        { name: t.navbar.indDropdown.mining, href: "/industries/mining-mineral-processing" },
+      ]
+    },
     { name: t.navbar.careers, href: "/careers" },
+    { name: t.navbar.blog, href: "/blog" },
     { name: t.navbar.contact, href: "/contact" },
   ];
 
@@ -165,7 +186,7 @@ const Navbar = () => {
             </div>
 
             {/* Desktop Links – lg and above only */}
-            <div className="hidden lg:flex items-center space-x-0.5 xl:space-x-1">
+            <div className="hidden lg:flex items-center space-x-1 xl:space-x-4">
               {navLinks.map((link) => (
                 <div
                   key={link.name}

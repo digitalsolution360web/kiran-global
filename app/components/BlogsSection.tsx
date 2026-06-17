@@ -2,89 +2,121 @@
 import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Calendar, ArrowRight, User, Newspaper } from "lucide-react";
+import { ArrowRight, Newspaper, Clock, ChevronRight } from "lucide-react";
+import Link from "next/link";
 import { useLanguage } from "../context/LanguageContext";
 
 const BlogsSection = () => {
   const { t } = useLanguage();
-  const blogsImages = ["/Exporting-Excellence.webp", "/new32.webp", "/new34.webp"];
+
   return (
-    <section className="py-14 bg-white relative overflow-hidden" id="blogs">
+    <section className="py-24 bg-white relative overflow-hidden" id="blogs">
+      {/* Decorative background element */}
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-gray-50/50 -skew-x-12 transform origin-top pointer-events-none" />
+
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
+        {/* Section Header */}
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
-          <div className="max-w-4xl text-center md:text-left mx-auto md:mx-0">
+          <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gray-900 text-white font-bold text-xs mb-6 uppercase tracking-widest"
+              className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-primary/5 text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-6"
             >
-              <Newspaper size={14} className="text-blue-400" />
+              <Newspaper size={14} className="text-secondary" />
               <span>{t.blogs.label}</span>
             </motion.div>
-            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 tracking-tight leading-[1.2]">
-              {t.blogs.title}
+            <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#06101f] tracking-tighter leading-tight">
+              Latest <span className="text-primary italic">Insights</span> & <br className="hidden lg:block" /> Industry News
             </h2>
           </div>
+
           <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="flex items-center gap-6 pb-2"
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-8"
           >
-            <div className="flex flex-col items-end">
-              <span className="text-xs font-black tracking-widest text-blue-600 uppercase">{t.blogs.knowledgeHub}</span>
-              <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">{t.blogs.updatedWeekly}</span>
+            <div className="hidden sm:flex flex-col items-end">
+              <span className="text-[11px] font-black tracking-[0.2em] text-primary uppercase">{t.blogs.knowledgeHub}</span>
+              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest leading-none mt-1">{t.blogs.updatedWeekly}</span>
             </div>
-            <button className="w-16 h-16 rounded-full border border-gray-200 flex items-center justify-center hover:bg-blue-600 hover:border-blue-600 hover:text-white transition-all group shadow-sm hover:shadow-lg">
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            <Link href="/blog" className="px-8 py-4 bg-[#06101f] text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-primary transition-all shadow-xl shadow-gray-200 flex items-center gap-3 group">
+              View All Posts
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform text-secondary" />
+            </Link>
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-          {t.blogs.items.map((blog, idx) => (
+        {/* Blog Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 xl:gap-14">
+          {t.blogs.items.slice(0, 3).map((blog, idx) => (
             <motion.div
               key={idx}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.15, duration: 0.8, ease: "easeOut" }}
-              className="group cursor-pointer flex flex-col h-full bg-white rounded-[2rem] border border-gray-100 overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500"
+              transition={{ delay: idx * 0.1, duration: 0.6 }}
             >
-              <div className="relative h-64 w-full overflow-hidden p-2">
-                <div className="relative h-full w-full rounded-[1.5rem] overflow-hidden">
+              <Link href={`/blog/${blog.slug}`} className="group flex flex-col h-full bg-white rounded-[2.5rem] border border-gray-100 shadow-[0_15px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.06)] transition-all duration-700 overflow-hidden">
+                {/* Image Section */}
+                <div className="relative h-72 overflow-hidden">
                   <Image
-                    src={blogsImages[idx]}
-                    alt="Kiran Global Chems"
+                    src={blog.image}
+                    alt={blog.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="object-cover group-hover:scale-110 transition-transform duration-1000 ease-out"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-gray-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-6 left-6 z-10">
+                    <div className="px-4 py-1.5 rounded-full bg-white/95 backdrop-blur-md shadow-sm text-[9px] font-black text-primary uppercase tracking-[0.2em] border border-gray-100">
+                      {blog.category}
+                    </div>
+                  </div>
+                  <div className="absolute bottom-6 right-6 z-10">
+                    <div className="px-4 py-2 rounded-2xl bg-[#06101f]/80 backdrop-blur-md text-white text-[10px] font-bold tracking-widest border border-white/10">
+                      {blog.date}
+                    </div>
+                  </div>
                 </div>
-                <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-md px-4 py-1.5 rounded-lg text-[10px] font-black text-gray-900 uppercase tracking-widest shadow-lg">
-                  {blog.category}
-                </div>
-              </div>
 
-              <div className="flex-1 flex flex-col p-8 pt-6">
-                <div className="flex items-center gap-6 mb-6">
-                  <div className="flex items-center gap-2 text-gray-500 text-[10px] font-black uppercase tracking-widest">
-                    <Calendar size={14} className="text-blue-500" />
-                    {blog.date}
+                {/* Content Section */}
+                <div className="p-10 flex flex-col flex-1">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="flex items-center gap-2 text-[#06101f] text-[9px] font-black uppercase tracking-widest">
+                      <Clock size={12} className="text-secondary" />
+                      5 Min Read
+                    </div>
+                    <div className="w-1 h-1 rounded-full bg-gray-200" />
+                    <div className="text-gray-400 text-[9px] font-bold uppercase tracking-widest">
+                      {blog.author}
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-500 text-[10px] font-black uppercase tracking-widest">
-                    <User size={14} className="text-blue-500" />
-                    {blog.author}
+
+                  <h3 className="text-2xl font-bold text-gray-900 leading-tight mb-4 group-hover:text-primary transition-colors duration-300">
+                    {blog.title}
+                  </h3>
+
+                  <div className="flex items-center gap-2 mb-6">
+                    <span className="text-[9px] font-black text-secondary uppercase tracking-[0.2em]">By {blog.author}</span>
+                    <span className="w-1 h-1 rounded-full bg-gray-100" />
+                    <span className="text-[9px] font-bold text-gray-400 uppercase tracking-widest">Knowledge Hub</span>
+                  </div>
+
+                  <p className="text-gray-500 text-sm leading-relaxed mb-10 line-clamp-3 font-medium">
+                    {blog.summary}
+                  </p>
+
+                  <div className="mt-auto pt-8 border-t border-gray-50 flex items-center justify-between group/btn">
+                    <div className="flex items-center gap-2 text-primary font-black text-[10px] uppercase tracking-[0.2em]">
+                      Explore Article
+                      <div className="w-8 h-8 rounded-full bg-primary/5 flex items-center justify-center group-hover/btn:bg-primary group-hover/btn:text-white transition-all duration-500 shadow-sm">
+                        <ChevronRight size={16} className="group-hover/btn:translate-x-0.5 transition-transform" />
+                      </div>
+                    </div>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 leading-snug group-hover:text-blue-600 transition-colors duration-300 tracking-tight mb-8">
-                  {blog.title}
-                </h3>
-                <div className="mt-auto flex items-center gap-3 text-gray-900 font-bold text-xs uppercase tracking-widest group-hover:gap-5 transition-all">
-                  {t.blogs.readFullArticle}
-                  <ArrowRight size={16} className="text-blue-600" />
-                </div>
-              </div>
+              </Link>
             </motion.div>
           ))}
         </div>

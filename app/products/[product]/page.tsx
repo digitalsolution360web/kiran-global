@@ -6,8 +6,6 @@ import { translations } from '../../data/translations';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { CheckCircle2, ChevronRight, Package, ShieldCheck, Factory, Beaker, Globe, ScrollText, Table as TableIcon, AlertCircle, Truck } from 'lucide-react';
-import Navbar from '../../components/Navbar';
-import Footer from '../../components/Footer';
 
 export default function ProductPage() {
   const { product } = useParams();
@@ -45,7 +43,6 @@ export default function ProductPage() {
 
   return (
     <main className="bg-white min-h-screen">
-      <Navbar />
 
       {/* ── CLEAN HERO SECTION ── */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-20">
@@ -374,7 +371,6 @@ export default function ProductPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

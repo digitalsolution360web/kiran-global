@@ -11,8 +11,6 @@ export default function ProductsPage() {
 
   return (
     <main className="bg-white min-h-screen">
-      <Navbar />
-
       {/* Hero Section */}
       <section className="relative pt-32 lg:pt-40 pb-20 bg-primary overflow-hidden">
         <div className="absolute inset-0 opacity-10">
@@ -40,8 +38,6 @@ export default function ProductsPage() {
       <div className="py-10">
         <ProductsSection />
       </div>
-
-      <Footer />
     </main>
   );
 }

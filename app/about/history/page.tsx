@@ -3,8 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { History, TrendingUp, Globe, Factory, Award, ShieldCheck, Leaf } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
 const HistoryPage = () => {
@@ -13,7 +11,6 @@ const HistoryPage = () => {
 
     return (
         <main className="min-h-screen bg-white">
-            <Navbar />
 
             {/* Hero Section */}
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
@@ -116,7 +113,6 @@ const HistoryPage = () => {
                 </div>
             </section>
 
-            <Footer />
         </main>
     );
 };

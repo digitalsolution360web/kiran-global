@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { ArrowRight, TrendingUp, Lightbulb, Zap, Users, ShieldCheck } from "lucide-react";
 import Image from "next/image";
@@ -21,7 +19,6 @@ export default function CareersPage() {
 
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="relative min-h-[60vh] py-20 flex items-center overflow-hidden bg-dark">
@@ -136,7 +133,6 @@ export default function CareersPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

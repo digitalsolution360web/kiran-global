@@ -18,8 +18,6 @@ import {
     FlaskConical,
     HeartHandshake
 } from "lucide-react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { useLanguage } from "../context/LanguageContext";
 
 const AboutPage = () => {
@@ -46,7 +44,6 @@ const AboutPage = () => {
 
     return (
         <main className="min-h-screen bg-white">
-            <Navbar />
 
             {/* Hero Section */}
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
@@ -284,7 +281,6 @@ const AboutPage = () => {
                 <LeadershipSection />
             </motion.div>
 
-            <Footer />
         </main>
     );
 };

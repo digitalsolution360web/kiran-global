@@ -1,7 +1,5 @@
 "use client";
 import React from "react";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Send, Clock, ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -38,7 +36,6 @@ export default function ContactPage() {
 
   return (
     <main className="min-h-screen bg-white selection:bg-primary/10">
-      <Navbar />
 
       {/* Hero Section */}
       <section className="pt-38 pb-16 bg-blue-100 relative overflow-hidden flex items-center">
@@ -190,7 +187,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }

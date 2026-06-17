@@ -3,8 +3,6 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Quote, Award, Target, Rocket, Users } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
 const valueIcons = [
@@ -26,7 +24,6 @@ const ChairmanMessagePage = () => {
 
     return (
         <main className="min-h-screen bg-white">
-            <Navbar />
 
             {/* Hero Header */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden pt-20">
@@ -190,7 +187,6 @@ const ChairmanMessagePage = () => {
                 </div>
             </section>
 
-            <Footer />
         </main>
     );
 };

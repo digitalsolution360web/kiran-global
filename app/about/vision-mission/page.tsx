@@ -5,8 +5,6 @@ import { motion } from "framer-motion";
 import {
     Target, Rocket, Zap, ShieldCheck, Users, Truck, TrendingUp, Handshake, CheckCircle2, Award
 } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import Footer from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
 const VisionMissionPage = () => {
@@ -24,7 +22,6 @@ const VisionMissionPage = () => {
 
     return (
         <main className="min-h-screen bg-white">
-            <Navbar />
 
             {/* Hero Section */}
             <section className="relative h-[65vh] flex items-center justify-center overflow-hidden pt-20">
@@ -220,7 +217,6 @@ const VisionMissionPage = () => {
                 </div>
             </section>
 
-            <Footer />
         </main>
     );
 };

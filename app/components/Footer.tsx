@@ -135,8 +135,8 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-[10px] font-bold tracking-[0.2em] text-center md:text-left uppercase">
+        <div className="border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-500 text-[12px] font-bold text-center md:text-left">
             {t.footer.copyright} | {t.footer.rights}
           </p>
           <div className="flex gap-10 text-[10px] text-gray-500  font-black tracking-widest">
