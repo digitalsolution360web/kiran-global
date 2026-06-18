@@ -94,7 +94,7 @@ const Navbar = () => {
         { name: t.navbar.indDropdown.mining, href: "/industries/mining-mineral-processing" },
       ]
     },
-    { name: t.navbar.careers, href: "/careers" },
+    // { name: t.navbar.careers, href: "/careers" },
     { name: t.navbar.blog, href: "/blog" },
     { name: t.navbar.contact, href: "/contact" },
   ];
@@ -228,7 +228,7 @@ const Navbar = () => {
 
                 <Link
                   href="/contact"
-                  className="relative px-4 xl:px-7 py-3 bg-primary text-white rounded-xl text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.15em] overflow-hidden group/btn shadow-[0_10px_25px_rgba(10,77,162,0.2)] transition-all duration-500"
+                  className="relative px-4 xl:px-7 py-3 bg-primary text-white rounded-xl text-[10px] xl:text-[11px] font-bold uppercase tracking-[0.1em] xl:tracking-[0.15em] overflow-hidden group/btn shadow-[0_10px_25px_rgba(10,77,162,0.2)] transition-all duration-500 whitespace-nowrap"
                 >
                   <div className="absolute inset-0 bg-secondary translate-x-[-101%] group-hover/btn:translate-x-0 transition-transform duration-700" />
                   <span className="relative z-10 flex items-center gap-2">

@@ -267,7 +267,7 @@ export const translations: Record<string, TranslationData> = {
     chairmansMessage: {
       label: "CHAIRMAN'S MESSAGE",
       title: "Vision from the Leadership",
-      quote1: "My ambition is to establish Kiran Global Chems Ltd. as a market leader in the global chemical industry and to achieve this goal through innovative technologies, industry best practices and economic soundness. My greatest joy lies in enabling people achieve their ambitions and moulding fresh talent into successful individuals. Every opportunity I get to guide an individual in attaining their goals I embrace as an opportunity to learn something new and grow personally.",
+      quote1: "My ambition is to establish Kiran Italia Chemicals S.r.l as a market leader in the global chemical industry and to achieve this goal through innovative technologies, industry best practices and economic soundness. My greatest joy lies in enabling people achieve their ambitions and moulding fresh talent into successful individuals. Every opportunity I get to guide an individual in attaining their goals I embrace as an opportunity to learn something new and grow personally.",
       text1: "In my view, a good organisation is one that does not deviate from its growth curve in spite of temporary setbacks. I am proud of our company’s achievement in attaining the number one position in India and confident that we shall continue to hold this spot for a long time.",
       gitaQuote: "They, who perform their work offering all results to me, Who hold their hearts and mind steadfast in me in whatever they do, who worship their work, to them I offer the platform. Doubt it not that they will inexorably reach the top.",
       gitaVerse: "BHAGWAT GITA 12.6/12.8",
@@ -282,7 +282,7 @@ export const translations: Record<string, TranslationData> = {
     about: {
       label: "About Us",
       titleStart: "Industrial Leadership ",
-      description: "For more than 40 years, Kiran Global has is a leading manufacturer of sodium silicate and potassium silicate solutions. The company has grown into a globally recognized chemical company serving customers on multiple continents.",
+      description: "For more than 40 years, Kiran Italia Chemicals has been a leading manufacturer of sodium silicate and potassium silicate solutions. The company has grown into a globally recognized chemical company serving customers on multiple continents.",
       quote: "Our commitment to quality, innovation, and sustainability enables us to deliver reliable chemical solutions for diverse industrial applications.",
       points: ["India’s leading silicate manufacturer ", "Among the Top 5 globally ", "32 manufacturing facilities ", "300K+ tons annual capacity", "Presence across 45+ countries"],
       estYear: "Est. Year",
@@ -395,9 +395,9 @@ export const translations: Record<string, TranslationData> = {
       label: "Client Feedback", title: "Our Testimonial ",
       description: "Experience the uncompromising excellence that has made us a trusted partner in industrial chemistry for over 45 years.",
       items: [
-        { name: "Kirshnaraj", company: "Pallvi Powertech", text: "Just wanted to say thank you for the service that Kiran global do for us. The trust that we have in our vendors is crucial for us especially when there is the chance of our customers name coming into play.”", image: "/Krishnaraj1.webp" },
-        { name: "Moosa", company: "METL", text: "We have been doing business with Kiran Global since 2011. During this time, Kiran Global has provided us with excellent customer service, timely and reliable information and quality products.”", image: "/Moosa1.webp" },
-        { name: "Keyur", company: "TTSPL", text: "Kiran Global provides outstanding quality, customer service and is an extremely reliable supplier.I just wanted to take this time to say thanks for the continued great service ”", image: "/keyur.webp" },
+        { name: "Kirshnaraj", company: "Pallvi Powertech", text: "Just wanted to say thank you for the service that Kiran Italia Chemicals do for us. The trust that we have in our vendors is crucial for us especially when there is the chance of our customers name coming into play.”", image: "/Krishnaraj1.webp" },
+        { name: "Moosa", company: "METL", text: "We have been doing business with Kiran Italia Chemicals since 2011. During this time, Kiran Italia Chemicals has provided us with excellent customer service, timely and reliable information and quality products.”", image: "/Moosa1.webp" },
+        { name: "Keyur", company: "TTSPL", text: "Kiran Italia Chemicals provides outstanding quality, customer service and is an extremely reliable supplier.I just wanted to take this time to say thanks for the continued great service ”", image: "/keyur.webp" },
       ],
     },
     blogs: {
@@ -429,7 +429,7 @@ export const translations: Record<string, TranslationData> = {
             },
             {
               type: "text",
-              text: "What’s more, the Sodium Silicate Industry development trends and marketing channels are analyzed. Finally, the feasibility of new investment projects is assessed, and overall research conclusions are offered. In a word, the report provides major statistics on the state of the industry and is a valuable source of guidance and direction for companies and individuals interested in the market.sodium_silicate_kiran_global_chems"
+              text: "What’s more, the Sodium Silicate Industry development trends and marketing channels are analyzed. Finally, the feasibility of new investment projects is assessed, and overall research conclusions are offered. In a word, the report provides major statistics on the state of the industry and is a valuable source of guidance and direction for companies and individuals interested in the market.sodium_silicate_kiran_italia_chemicals"
             },
             {
               type: "link",
@@ -478,7 +478,7 @@ export const translations: Record<string, TranslationData> = {
             },
             {
               type: "text",
-              text: "Prof. J. Davidovits, an eminent scientist invented this technology in which Silicon (Si) and aluminum (Al)ions in the by-product materials is made to react and the chemical reaction that takes place in this case is a polymerization process and hence product is called Geocement. Kiran Global has entered into an exclusive agreement with Geopolymer institute, France for developing a range of new-age Geocement for advance applications."
+              text: "Prof. J. Davidovits, an eminent scientist invented this technology in which Silicon (Si) and aluminum (Al)ions in the by-product materials is made to react and the chemical reaction that takes place in this case is a polymerization process and hence product is called Geocement. Kiran Italia Chemicals has entered into an exclusive agreement with Geopolymer institute, France for developing a range of new-age Geocement for advance applications."
             },
             {
               type: "image",
@@ -527,7 +527,7 @@ export const translations: Record<string, TranslationData> = {
       description: "Everything you need to know about our high-performance silicate solutions and industrial manufacturing processes.",
       supportTitle: "Technical Support", supportDesc: "Dedicated expert assistance for all your complex chemical formulation needs.", supportBtn: "Get Expert Help",
       items: [
-        { question: "What is Kiran Global's primary area of expertise?", answer: "Kiran Global specializes in the manufacturing and distribution of high-quality industrial silicates, including Sodium and Potassium Silicates, catering to various industries such as detergents, construction, and water treatment." },
+        { question: "What is Kiran Italia Chemicals' primary area of expertise?", answer: "Kiran Italia Chemicals specializes in the manufacturing and distribution of high-quality industrial silicates, including Sodium and Potassium Silicates, catering to various industries such as detergents, construction, and water treatment." },
         { question: "How do I request a custom formulation?", answer: "You can request a custom formulation by contacting our technical team through the 'Request a Quote' form on our contact page or by emailing us directly with your specific requirements." },
         { question: "Are your products eco-friendly and sustainable?", answer: "Yes, sustainability is at our core. We implement advanced manufacturing processes that minimize environmental impact and focus on developing eco-friendly silicate solutions." },
         { question: "What is the typical lead time for large industrial orders?", answer: "Lead times vary based on the order volume and customization requirements, but typically range from 2 to 4 weeks. Our logistics team works closely with clients to ensure timely delivery." },
@@ -567,7 +567,7 @@ export const translations: Record<string, TranslationData> = {
     productDetails: {
       sodiumLumps: {
         title: "Sodium Silicate Lumps",
-        desc: "At Kiran Global Chems Ltd. we produce sodium silicate lumps that are manufactured using top grade raw materials and have superior properties, both physical and chemical. We are the market leader in India and our brand is recognized globally for its high performance. Our prominent clients belong to the following industries:",
+        desc: "At Kiran Italia Chemicals S.r.l we produce sodium silicate lumps that are manufactured using top grade raw materials and have superior properties, both physical and chemical. We are the market leader in India and our brand is recognized globally for its high performance. Our prominent clients belong to the following industries:",
         industryTitle: "Prominent Client Industries",
         industries: ["Soil Grouting", "Silica & Allied Chemicals", "Catalysts", "Soaps and Detergents manufacturing", "Textile Processing", "Paper & Pulp", "Foundries", "Adhesives in Paper & Board industries", "Pigment manufacture", "Waterproofing", "Cement"],
         propertiesTitle: "Sodium Silicate Lump Physical & Chemical Properties",
@@ -598,7 +598,7 @@ export const translations: Record<string, TranslationData> = {
       },
       sodiumLiquid: {
         title: "Sodium Silicate Liquid",
-        desc1: "At Kiran Global Chem Ltd. we offer sodium silicate in liquid form for specific industrial application where the liquid property of the chemical is highly effective. We manufacture high quality silicates that are produced to match our customer's expectations. For special requirements, we customize the liquid so that it can be integrated with highest efficacy with the products of our clients.",
+        desc1: "At Kiran Italia Chemicals S.r.l we offer sodium silicate in liquid form for specific industrial application where the liquid property of the chemical is highly effective. We manufacture high quality silicates that are produced to match our customer's expectations. For special requirements, we customize the liquid so that it can be integrated with highest efficacy with the products of our clients.",
         desc2: "We manufacture liquid sodium silicates in different molar ratios, thus adjusting the alkaline level in the silicates. Our research team advises customers on selecting the most appropriate combination for their industrial application.",
         propertiesTitle: "Liquid sodium silicate physical and commercial properties.",
         properties: [
@@ -627,7 +627,7 @@ export const translations: Record<string, TranslationData> = {
       },
       potassiumLumps: {
         title: "Potassium Silicate Lumps",
-        desc: "At Kiran Global Chem Ltd. we manufacture potassium silicate lumps of the highest quality. Our product is recognised industry-wide for its high performance and seamless integration.",
+        desc: "At Kiran Italia Chemicals S.r.l we manufacture potassium silicate lumps of the highest quality. Our product is recognised industry-wide for its high performance and seamless integration.",
         appsTitle: "The application of Potassium silicate lump manufactured by our company is largely used in:",
         apps: ["As a flux binder in welding electrode", "Acid proof lining", "Detergents and soaps", "Phosphor binder in T.V. tubes"],
         propertiesTitle: "The physical and chemical properties of potassium silicate lumps manufacture in our company are:",
@@ -657,8 +657,8 @@ export const translations: Record<string, TranslationData> = {
       },
       potassiumLiquid: {
         title: "Potassium Silicate Liquid",
-        desc: "Kiran Global Chems Ltd. is a leading brand name in India in the manufacture and supply of potassium silicate liquid. Our industry-grade potassium silicate liquid is available in a range of ratios and concentrations based on the specific business requirements of our clients.",
-        propertiesTitle: "The physical and chemical properties of Kiran Potassium silicate liquid are:",
+        desc: "Kiran Italia Chemicals S.r.l is a leading brand name in India in the manufacture and supply of potassium silicate liquid. Our industry-grade potassium silicate liquid is available in a range of ratios and concentrations based on the specific business requirements of our clients.",
+        propertiesTitle: "The physical and chemical properties of Kiran Italia Potassium silicate liquid are:",
         properties: [
           { label: "Chemical Formulae", value: "K2O x SiO2" },
           { label: "Appearance", value: "Liquid" },
@@ -685,7 +685,7 @@ export const translations: Record<string, TranslationData> = {
       }
     },
     aboutPage: {
-      heroTitle: "About Us", heroSubtitle: "Kiran Global Chem Limited India's leading and world largest manufacturer and supplier of sodium silicate & Potassium Silicate",
+      heroTitle: "About Us", heroSubtitle: "Kiran Italia Chemicals S.r.l India's leading and world largest manufacturer and supplier of sodium silicate & Potassium Silicate",
       journeyLabel: "Our Journey", journeyTitle: "Legacy of Visionary Innovation",
       journeyText1: "MS Jain Group started its journey in the chemical manufacturers industry as a small scale manufacturing unit with the vision to leave its mark as a visionary innovator.",
       journeyText2: "From 1979 to this date, the company has grown under the able leadership of founder and Chairman Mr. MS Jain as a leading conglomerate with international presence. We have manufacturing units in more than five countries and our chemicals import-export business spans the five continents.",
@@ -712,9 +712,9 @@ export const translations: Record<string, TranslationData> = {
       heroLabel: "Est. 1979", heroTitle: "M S Jain Group",
       heroQuote: "A legacy of visionary innovation and industrial excellence.",
       beginningLabel: "The Beginning", foundingTitle: "Our Founding Story",
-      foundingText: "Kiran Global Chems Limited was started in the year 1979 with a single small scale manufacturing unit for preparing sodium silicate to detergent manufacturers. It was established by Mr. MS Jain who had a long standing vision of expanding his company to attain global acclaim as a market leader and trend setter.",
+      foundingText: "Kiran Italia Chemicals S.r.l was started in the year 1979 with a single small scale manufacturing unit for preparing sodium silicate to detergent manufacturers. It was established by Mr. MS Jain who had a long standing vision of expanding his company to attain global acclaim as a market leader and trend setter.",
       growthText: "Over the years, the company has steadily expanded its product range and today we supply chemical raw materials to companies across various industries, worldwide. Our multi-product, large scale commercial operation functions with 32 manufacturing units, contributing to over 50% of the group's turnover.",
-      companyTitle: "Kiran Global Chems Limited",
+      companyTitle: "Kiran Italia Chemicals S.r.l",
       companyText1: "Today we are the largest manufacturers in the country of Sodium and potassium silicate and have surpassed 300,000 tonnes per annum production mark. We also have installed capacities of 15,000 tonnes of LABSA and 25,000 tonnes of Potassium Silicate.",
       companyText2: "With the vision of global expansion through import and export, our facilities were established largely in the coastal towns with easy access to ports. Our facilities are fully equipped with modern warehousing facilities, quality assurance laboratories and are fully functional to meet large scale demands at all times. Our persistence and insistence on service quality has earned us a \"Sigma 4\" rating for operational efficiencies.",
       sustainLabel: "Sustainability Focus",
@@ -724,7 +724,7 @@ export const translations: Record<string, TranslationData> = {
     awardPage: {
       heroTitle: "Awards & Achievements", heroSubtitle: "Recognizing our milestones in technical excellence and global industrial contributions.",
       milestoneLabel: "Major Project Milestone", projectTitle: "LUCKNOW METRO RAIL PROJECT",
-      projectHeadline: "KIRAN GLOBAL CHEM LIMITED HAS COMMENCED SUPPLIES OF KIRANSIL-SODIUM SILICATE BASED GROUTING SOLUTIONS TO LUCKNOW METRO RAIL PROJECT",
+      projectHeadline: "KIRAN ITALIA CHEMICALS S.r.l HAS COMMENCED SUPPLIES OF KIRANSIL-SODIUM SILICATE BASED GROUTING SOLUTIONS TO LUCKNOW METRO RAIL PROJECT",
       projectDesc: "Providing specialized chemical solutions for India's infrastructure development. Our technical expertise in silicate-based grouting solutions ensures structural integrity and safety for high-stakes urban transportation projects.",
       techExcTitle: "Technical Excellence", techExcDesc: "Supplying advanced KIRANSIL-SODIUM SILICATE solutions.",
       standardsTitle: "Our Standards of Recognition",
@@ -739,11 +739,11 @@ export const translations: Record<string, TranslationData> = {
     },
     managementPage: {
       heroLabel: "ABOUT US", heroTitle: "Executive Leadership",
-      heroDesc: "The visionary team steering Kiran Global Chems Ltd. towards global excellence.",
+      heroDesc: "The visionary team steering Kiran Italia Chemicals S.r.l towards global excellence.",
       leadershipLabel: "LEADERSHIP TEAM", managementTitle: "Management", executiveLabel: "EXECUTIVE LEADERSHIP",
       leaders: [
-        { name: "M S Jain", role: "Chairman", badge: "FOUNDER & CHAIRMAN", bio: "Founder and visionary leader of Kiran Global Chems Ltd. With decades of expertise in the chemical industry, he has guided the company to become the #1 sodium silicate manufacturer in India with a strong global presence.", stat1Label: "Experience", stat1Value: "45+ Yrs", stat2Label: "Position", stat2Value: "#1 India" },
-        { name: "Atul Jain", role: "Vice Chairman", badge: "VICE CHAIRMAN", bio: "Leading strategic growth initiatives and business expansion for Kiran Global. His leadership drives the company's global outreach, innovation pipeline, and long-term vision for sustainable industrial excellence.", stat1Label: "Focus", stat1Value: "Strategy", stat2Label: "Reach", stat2Value: "45+ Nations" },
+        { name: "M S Jain", role: "Chairman", badge: "FOUNDER & CHAIRMAN", bio: "Founder and visionary leader of Kiran Italia Chemicals S.r.l. With decades of expertise in the chemical industry, he has guided the company to become the #1 sodium silicate manufacturer in India with a strong global presence.", stat1Label: "Experience", stat1Value: "45+ Yrs", stat2Label: "Position", stat2Value: "#1 India" },
+        { name: "Atul Jain", role: "Vice Chairman", badge: "VICE CHAIRMAN", bio: "Leading strategic growth initiatives and business expansion for Kiran Italia Chemicals. His leadership drives the company's global outreach, innovation pipeline, and long-term vision for sustainable industrial excellence.", stat1Label: "Focus", stat1Value: "Strategy", stat2Label: "Reach", stat2Value: "45+ Nations" },
         { name: "N C Rufus", role: "CEO", badge: "CHIEF EXECUTIVE OFFICER", bio: "Overseeing day-to-day operations, customer success, and technology innovation across all 32 manufacturing facilities. Committed to maintaining the highest standards of quality and operational efficiency.", stat1Label: "Facilities", stat1Value: "32 Units", stat2Label: "Capacity", stat2Value: "300K+ Tons" },
       ],
       values: [
@@ -753,11 +753,11 @@ export const translations: Record<string, TranslationData> = {
       ],
     },
     careersPage: {
-      heroLabel: "Join Our Mission", heroTitle1: "Build Your Future", heroTitle2: "At Kiran Global",
+      heroLabel: "Join Our Mission", heroTitle1: "Build Your Future", heroTitle2: "At Kiran Italia Chemicals",
       heroDesc: "Our people are our greatest strength. We foster a culture of innovation, transparency, collaboration, and continuous learning.",
       exploreBtn: "Explore Open Roles", satisfactionRate: "95%", satisfactionLabel: "Employee Satisfaction Rate",
       cultureTitle1: "Why Work", cultureTitle2: "With Us?",
-      cultureDesc: "At Kiran Global, we believe in empowering our employees to take ownership and lead with innovation. We offer a collaborative environment where every voice is heard and every contribution counts towards our global goal.",
+      cultureDesc: "At Kiran Italia Chemicals, we believe in empowering our employees to take ownership and lead with innovation. We offer a collaborative environment where every voice is heard and every contribution counts towards our global goal.",
       ctaTitle: "Ready to Join Our Team?", ctaDesc: "Discover your next career move and help us shape the future of industrial silicates worldwide.",
       ctaBtn: "Apply Now",
       benefits: [
@@ -827,7 +827,7 @@ export const translations: Record<string, TranslationData> = {
     chairmansMessage: {
       label: "MESSAGGIO DEL PRESIDENTE",
       title: "Visione della Leadership",
-      quote1: "La mia ambizione è stabilire Kiran Global Chems Ltd. come leader di mercato nell'industria chimica globale e raggiungere questo obiettivo attraverso tecnologie innovative, migliori pratiche del settore e solidità economica. La mia gioia più grande risiede nel permettere alle persone di realizzare le proprie ambizioni e nel plasmare nuovi talenti in individui di successo. Ogni opportunità che ho di guidare un individuo nel raggiungere i propri obiettivi la abbraccio come un'opportunità per imparare qualcosa di nuovo e crescere personalmente.",
+      quote1: "La mia ambizione è stabilire Kiran Italia Chemicals S.r.l come leader di mercato nell'industria chimica globale e raggiungere questo obiettivo attraverso tecnologie innovative, migliori pratiche del settore e solidità economica. La mia gioia più grande risiede nel permettere alle persone di realizzare le proprie ambizioni e nel plasmare nuovi talenti in individui di successo. Ogni opportunità che ho di guidare un individuo nel raggiungere i propri obiettivi la abbraccio come un'opportunità per imparare qualcosa di nuovo e crescere personalmente.",
       text1: "A mio avviso, una buona organizzazione è quella che non devia dalla sua curva di crescita nonostante le battute d'arresto temporanee. Sono orgoglioso dei risultati della nostra azienda nel raggiungimento della posizione numero uno in India e fiducioso che continueremo a mantenere questo posto per molto tempo.",
       gitaQuote: "Coloro che compiono il loro lavoro offrendo a me tutti i risultati, che mantengono i loro cuori e le loro menti costanti in me in qualunque cosa facciano, che adorano il loro lavoro, a loro offro la piattaforma. Non dubitare che raggiungeranno inesorabilmente la vetta.",
       gitaVerse: "BHAGWAT GITA 12.6/12.8",
@@ -842,7 +842,7 @@ export const translations: Record<string, TranslationData> = {
     about: {
       label: "Chi Siamo",
       titleStart: "Leadership Industriale ",
-      description: "Da oltre 40 anni, Kiran Global è un produttore leader di soluzioni di silicato di sodio e silicato di potassio. L'azienda è cresciuta fino a diventare un'azienda chimica riconosciuta a livello globale che serve clienti in più continenti.",
+      description: "Da oltre 40 anni, Kiran Italia Chemicals è un produttore leader di soluzioni di silicato di sodio e silicato di potassio. L'azienda è cresciuta fino a diventare un'azienda chimica riconosciuta a livello globale che serve clienti in più continenti.",
       quote: "Il nostro impegno per la qualità, l'innovazione e la sostenibilità ci consente di fornire soluzioni chimiche affidabili per diverse applicazioni industriali.",
       points: ["Produttore leader di silicati in India ", "Tra i primi 5 a livello globale ", "32 impianti di produzione ", "Capacità annua di oltre 300.000 tonnellate", "Presenza in oltre 45 paesi"],
       estYear: "Anno di fondazione",
@@ -955,9 +955,9 @@ export const translations: Record<string, TranslationData> = {
       label: "Feedback dei Clienti", title: "Le ", titleHighlight: "Storie di Successo dei Nostri Clienti",
       description: "Scopri l'eccellenza senza compromessi che ci ha resi un partner di fiducia nella chimica industriale per oltre 45 anni.",
       items: [
-        { name: "Kirshnaraj", company: "Pallvi Powertech", text: "Volevo solo ringraziarvi per il servizio che Kiran global ci offre. La fiducia che abbiamo nei nostri fornitori è fondamentale per noi, specialmente quando c'è la possibilità che il nome dei nostri clienti entri in gioco.”", image: "/Krishnaraj1.webp" },
-        { name: "Moosa", company: "METL", text: "Collaboriamo con Kiran Global dal 2011. Durante questo periodo, Kiran Global ci ha fornito un eccellente servizio clienti, informazioni tempestive e affidabili e prodotti di qualità.”", image: "/Moosa1.webp" },
-        { name: "Keyur", company: "TTSPL", text: "Kiran Global offre una qualità eccezionale, un servizio clienti ed è un fornitore estremamente affidabile. Volevo solo prendermi questo tempo per ringraziarvi per il continuo ottimo servizio.”", image: "/keyur.webp" },
+        { name: "Kirshnaraj", company: "Pallvi Powertech", text: "Volevo solo ringraziarvi per il servizio che Kiran Italia Chemicals ci offre. La fiducia che abbiamo nei nostri fornitori è fondamentale per noi, specialmente quando c'è la possibilità che il nome dei nostri clienti entri in gioco.”", image: "/Krishnaraj1.webp" },
+        { name: "Moosa", company: "METL", text: "Collaboriamo con Kiran Italia Chemicals dal 2011. Durante questo periodo, Kiran Italia Chemicals ci ha fornito un eccellente servizio clienti, informazioni tempestive e affidabili e prodotti di qualità.”", image: "/Moosa1.webp" },
+        { name: "Keyur", company: "TTSPL", text: "Kiran Italia Chemicals offre una qualità eccezionale, un servizio clienti ed è un fornitore estremamente affidabile. Volevo solo prendermi questo tempo per ringraziarvi per il continuo ottimo servizio.”", image: "/keyur.webp" },
       ],
     },
     blogs: {
@@ -1042,7 +1042,7 @@ export const translations: Record<string, TranslationData> = {
             },
             {
               type: "text",
-              text: "Il Prof. J. Davidovits, un eminente scienziato, ha inventato questa tecnologia in cui gli ioni di silicio (Si) e alluminio (Al) nei materiali di scarto vengono fatti reagire e la reazione chimica che avviene in questo caso è un processo di polimerizzazione e quindi il prodotto viene chiamato Geocement. Kiran Global ha stipulato un accordo esclusivo con l'istituto Geopolymer, Francia, per lo sviluppo di una gamma di Geocement di nuova generazione per applicazioni avanzate."
+              text: "Il Prof. J. Davidovits, un eminente scienziato, ha inventato questa tecnologia in cui gli ioni di silicio (Si) e alluminio (Al) nei materiali di scarto vengono fatti reagire e la reazione chimica che avviene in questo caso è un processo di polimerizzazione e quindi il prodotto viene chiamato Geocement. Kiran Italia Chemicals ha stipulato un accordo esclusivo con l'istituto Geopolymer, Francia, per lo sviluppo di una gamma di Geocement di nuova generazione per applicazioni avanzate."
             },
             {
               type: "image",
@@ -1091,7 +1091,7 @@ export const translations: Record<string, TranslationData> = {
       description: "Tutto ciò che devi sapere sulle nostre soluzioni di silicato ad alte prestazioni e sui processi di produzione industriale.",
       supportTitle: "Supporto Tecnico", supportDesc: "Assistenza esperta dedicata per tutte le tue esigenze di formulazione chimica complessa.", supportBtn: "Ottieni Aiuto Esperto",
       items: [
-        { question: "Qual è la principale area di competenza di Kiran Global?", answer: "Kiran Global è specializzata nella produzione e distribuzione di silicati industriali di alta qualità, inclusi Silicati di Sodio e di Potassio, per settori come detergenti, costruzioni e trattamento delle acque." },
+        { question: "Qual è la principale area di competenza di Kiran Italia Chemicals?", answer: "Kiran Italia Chemicals è specializzata nella produzione e distribuzione di silicati industriali di alta qualità, inclusi Silicati di Sodio e di Potassio, per settori come detergenti, costruzioni e trattamento delle acque." },
         { question: "Come posso richiedere una formulazione personalizzata?", answer: "Puoi richiedere una formulazione personalizzata contattando il nostro team tecnico tramite il modulo 'Richiedi un Preventivo' sulla nostra pagina dei contatti o inviandoci un'email con i tuoi requisiti specifici." },
         { question: "I vostri prodotti sono eco-compatibili e sostenibili?", answer: "Sì, la sostenibilità è al centro della nostra attività. Implementiamo processi produttivi avanzati che minimizzano l'impatto ambientale e ci concentriamo sullo sviluppo di soluzioni di silicato eco-compatibili." },
         { question: "Qual è il tempo di consegna tipico per grandi ordini industriali?", answer: "I tempi di consegna variano in base al volume dell'ordine e ai requisiti di personalizzazione, ma in genere vanno da 2 a 4 settimane. Il nostro team logistico collabora con i clienti per garantire la consegna puntuale." },
@@ -1131,7 +1131,7 @@ export const translations: Record<string, TranslationData> = {
     productDetails: {
       sodiumLumps: {
         title: "Silicato di Sodio in Lumps",
-        desc: "Presso Kiran Global Chems Ltd. produciamo lumps di silicato di sodio realizzati con materie prime di prima qualità e con proprietà superiori, sia fisiche che chimiche. Siamo leader di mercato in India e il nostro marchio è riconosciuto a livello globale per le sue elevate prestazioni. I nostri clienti principali appartengono ai seguenti settori:",
+        desc: "Presso Kiran Italia Chemicals S.r.l produciamo lumps di silicato di sodio realizzati con materie prime di prima qualità e con proprietà superiori, sia fisiche che chimiche. Siamo leader di mercato in India e il nostro marchio è riconosciuto a livello globale per le sue elevate prestazioni. I nostri clienti principali appartengono ai seguenti settori:",
         industryTitle: "Settori Industriali dei Clienti",
         industries: ["Soil Grouting", "Silice e prodotti chimici affini", "Catalizzatori", "Produzione di saponi e detersivi", "Lavorazione tessile", "Carta e pasta di legno", "Fonderie", "Adesivi per l'industria della carta e del cartone", "Produzione di pigmenti", "Impermeabilizzazione", "Cemento"],
         propertiesTitle: "Proprietà Fisiche e Chimiche del Silicato di Sodio in Lumps",
@@ -1162,7 +1162,7 @@ export const translations: Record<string, TranslationData> = {
       },
       sodiumLiquid: {
         title: "Silicato di Sodio Liquido",
-        desc1: "Presso Kiran Global Chem Ltd. offriamo silicato di sodio in forma liquida per specifiche applicazioni industriali in cui la proprietà liquida del prodotto chimico è altamente efficace. Produciamo silicati di alta qualità realizzati per soddisfare le aspettative dei nostri clienti. Per esigenze speciali, personalizziamo il liquido in modo che possa essere integrato con la massima efficacia con i prodotti dei nostri clienti.",
+        desc1: "Presso Kiran Italia Chemicals S.r.l offriamo silicato di sodio in forma liquida per specifiche applicazioni industriali in cui la proprietà liquida del prodotto chimico è altamente efficace. Produciamo silicati di alta qualità realizzati per soddisfare le aspettative dei nostri clienti. Per esigenze speciali, personalizziamo il liquido in modo che possa essere integrato con la massima efficacia con i prodotti dei nostri clienti.",
         desc2: "Produciamo silicati di sodio liquidi in diversi rapporti molari, regolando così il livello alcalino nei silicati. Il nostro team di ricerca consiglia i clienti sulla scelta della combinazione più appropriata per la loro applicazione industriale.",
         propertiesTitle: "Proprietà fisiche e commerciali del silicato di sodio liquido.",
         properties: [
@@ -1191,7 +1191,7 @@ export const translations: Record<string, TranslationData> = {
       },
       potassiumLumps: {
         title: "Silicato di Potassio in Lumps",
-        desc: "Presso Kiran Global Chem Ltd. produciamo lumps di silicato di potassio della massima qualità. Il nostro prodotto è riconosciuto in tutto il settore per le sue elevate prestazioni e la perfetta integrazione.",
+        desc: "Presso Kiran Italia Chemicals S.r.l produciamo lumps di silicato di potassio della massima qualità. Il nostro prodotto è riconosciuto in tutto il settore per le sue elevate prestazioni e la perfetta integrazione.",
         appsTitle: "L'applicazione del silicato di potassio in lumps prodotto dalla nostra azienda è ampiamente utilizzata in:",
         apps: ["Come legante per flussi negli elettrodi di saldatura", "Rivestimento antiacido", "Detersivi e saponi", "Legante di fosfori nei tubi TV"],
         propertiesTitle: "Le proprietà fisiche e chimiche dei lumps di silicato di potassio prodotti nella nostra azienda sono:",
@@ -1221,8 +1221,8 @@ export const translations: Record<string, TranslationData> = {
       },
       potassiumLiquid: {
         title: "Silicato di Potassio Liquido",
-        desc: "Kiran Global Chems Ltd. è un marchio leader in India nella produzione e fornitura di silicato di potassio liquido. Il nostro silicato di potassio di grado industriale è disponibile in una gamma di rapporti e concentrazioni basati sulle specifiche esigenze aziendali dei nostri clienti.",
-        propertiesTitle: "Le proprietà fisiche e chimiche del silicato di potassio liquido Kiran sono:",
+        desc: "Kiran Italia Chemicals S.r.l è un marchio leader in India nella produzione e fornitura di silicato di potassio liquido. Il nostro silicato di potassio di grado industriale è disponibile in una gamma di rapporti e concentrazioni basati sulle specifiche esigenze aziendali dei nostri clienti.",
+        propertiesTitle: "Le proprietà fisiche e chimiche del silicato di potassio liquido Kiran Italia sono:",
         properties: [
           { label: "Formula Chimica", value: "K2O x SiO2" },
           { label: "Aspetto", value: "Liquido" },
@@ -1249,7 +1249,7 @@ export const translations: Record<string, TranslationData> = {
       }
     },
     aboutPage: {
-      heroTitle: "Chi Siamo", heroSubtitle: "Kiran Global Chem Limited — il principale produttore e fornitore mondiale di silicato di sodio e silicato di potassio, con sede in India.",
+      heroTitle: "Chi Siamo", heroSubtitle: "Kiran Italia Chemicals S.r.l — il principale produttore e fornitore mondiale di silicato di sodio e silicato di potassio, con sede in India.",
       journeyLabel: "Il Nostro Percorso", journeyTitle: "L'Eredità di un'Innovazione Visionaria",
       journeyText1: "Il Gruppo MS Jain ha iniziato il suo percorso nel settore della produzione chimica come una piccola unità produttiva con la visione di lasciare il segno come innovatore visionario.",
       journeyText2: "Dal 1979 ad oggi, l'azienda è cresciuta sotto la guida del fondatore e Presidente Mr. MS Jain, diventando un conglomerato leader con presenza internazionale. Abbiamo unità produttive in più di cinque paesi e il nostro business di import-export chimico abbraccia i cinque continenti.",
@@ -1276,9 +1276,9 @@ export const translations: Record<string, TranslationData> = {
       heroLabel: "Fondata nel 1979", heroTitle: "Gruppo M S Jain",
       heroQuote: "Un'eredità di innovazione visionaria ed eccellenza industriale.",
       beginningLabel: "L'Inizio", foundingTitle: "La Nostra Storia Fondativa",
-      foundingText: "Kiran Global Chems Limited è stata fondata nel 1979 con una singola piccola unità produttiva per la preparazione di silicato di sodio per i produttori di detersivi. È stata fondata da Mr. MS Jain che aveva una visione a lungo termine di espandere la sua azienda per ottenere riconoscimento globale come leader di mercato e trend setter.",
+      foundingText: "Kiran Italia Chemicals S.r.l è stata fondata nel 1979 con una singola piccola unità produttiva per la preparazione di silicato di sodio per i produttori di detersivi. È stata fondata da Mr. MS Jain che aveva una visione a lungo termine di espandere la sua azienda per ottenere riconoscimento globale come leader di mercato e trend setter.",
       growthText: "Nel corso degli anni, l'azienda ha costantemente ampliato la sua gamma di prodotti e oggi forniamo materie prime chimiche ad aziende di vari settori in tutto il mondo. La nostra operazione commerciale multi-prodotto su larga scala funziona con 32 unità produttive, contribuendo a oltre il 50% del fatturato del gruppo.",
-      companyTitle: "Kiran Global Chems Limited",
+      companyTitle: "Kiran Italia Chemicals S.r.l",
       companyText1: "Oggi siamo i più grandi produttori del paese di silicati di sodio e potassio e abbiamo superato il traguardo delle 300.000 tonnellate per anno di produzione. Abbiamo anche capacità installate di 15.000 tonnellate di LABSA e 25.000 tonnellate di Silicato di Potassio.",
       companyText2: "Con la visione di espansione globale attraverso l'import-export, i nostri impianti sono stati stabiliti prevalentemente nelle città costiere con facile accesso ai porti. I nostri impianti sono completamente attrezzati con moderne strutture di magazzinaggio, laboratori di garanzia della qualità e sono pienamente funzionali per soddisfare le richieste su larga scala in qualsiasi momento. La nostra perseveranza e insistenza sulla qualità del servizio ci ha guadagnato una valutazione \"Sigma 4\" per le efficienze operative.",
       sustainLabel: "Attenzione alla Sostenibilità",
@@ -1288,7 +1288,7 @@ export const translations: Record<string, TranslationData> = {
     awardPage: {
       heroTitle: "Premi e Riconoscimenti", heroSubtitle: "Riconoscendo i nostri traguardi nell'eccellenza tecnica e nei contributi industriali globali.",
       milestoneLabel: "Traguardo Progetto Principale", projectTitle: "PROGETTO METRO RAIL DI LUCKNOW",
-      projectHeadline: "KIRAN GLOBAL CHEM LIMITED HA INIZIATO LE FORNITURE DI SOLUZIONI DI INIEZIONE A BASE DI SILICATO DI SODIO KIRANSIL AL PROGETTO METRO RAIL DI LUCKNOW",
+      projectHeadline: "KIRAN ITALIA CHEMICALS S.r.l HA INIZIATO LE FORNITURE DI SOLUZIONI DI INIEZIONE A BASE DI SILICATO DI SODIO KIRANSIL AL PROGETTO METRO RAIL DI LUCKNOW",
       projectDesc: "Fornitura di soluzioni chimiche specializzate per lo sviluppo infrastrutturale dell'India. La nostra competenza tecnica nelle soluzioni di iniezione a base di silicato garantisce l'integrità strutturale e la sicurezza per i progetti di trasporto urbano ad alta posta in gioco.",
       techExcTitle: "Eccellenza Tecnica", techExcDesc: "Fornitura di soluzioni avanzate di SILICATO DI SODIO KIRANSIL.",
       standardsTitle: "I Nostri Standard di Riconoscimento",
@@ -1303,11 +1303,11 @@ export const translations: Record<string, TranslationData> = {
     },
     managementPage: {
       heroLabel: "CHI SIAMO", heroTitle: "Leadership Esecutiva",
-      heroDesc: "Il team visionario che guida Kiran Global Chems Ltd. verso l'eccellenza globale.",
+      heroDesc: "Il team visionario che guida Kiran Italia Chemicals S.r.l verso l'eccellenza globale.",
       leadershipLabel: "TEAM DI LEADERSHIP", managementTitle: "Management", executiveLabel: "LEADERSHIP ESECUTIVA",
       leaders: [
-        { name: "M S Jain", role: "Presidente", badge: "FONDATORE E PRESIDENTE", bio: "Fondatore e leader visionario di Kiran Global Chems Ltd. Con decenni di esperienza nel settore chimico, ha guidato l'azienda a diventare il produttore numero 1 di silicato di sodio in India con una forte presenza globale.", stat1Label: "Esperienza", stat1Value: "45+ Anni", stat2Label: "Posizione", stat2Value: "#1 India" },
-        { name: "Atul Jain", role: "Vice Presidente", badge: "VICE PRESIDENTE", bio: "Guidando iniziative di crescita strategica ed espansione aziendale per Kiran Global. La sua leadership guida la portata globale dell'azienda, la pipeline di innovazione e la visione a lungo termine per l'eccellenza industriale sostenibile.", stat1Label: "Focus", stat1Value: "Strategia", stat2Label: "Portata", stat2Value: "45+ Nazioni" },
+        { name: "M S Jain", role: "Presidente", badge: "FONDATORE E PRESIDENTE", bio: "Fondatore e leader visionario di Kiran Italia Chemicals S.r.l. Con decenni di esperienza nel settore chimico, ha guidato l'azienda a diventare il produttore numero 1 di silicato di sodio in India con una forte presenza globale.", stat1Label: "Esperienza", stat1Value: "45+ Anni", stat2Label: "Posizione", stat2Value: "#1 India" },
+        { name: "Atul Jain", role: "Vice Presidente", badge: "VICE PRESIDENTE", bio: "Guidando iniziative di crescita strategica ed espansione aziendale per Kiran Italia Chemicals. La sua leadership guida la portata globale dell'azienda, la pipeline di innovazione e la visione a lungo termine per l'eccellenza industriale sostenibile.", stat1Label: "Focus", stat1Value: "Strategia", stat2Label: "Portata", stat2Value: "45+ Nazioni" },
         { name: "N C Rufus", role: "Amministratore Delegato", badge: "AMMINISTRATORE DELEGATO", bio: "Supervisiona le operazioni quotidiane, il successo dei clienti e l'innovazione tecnologica in tutte le 32 strutture produttive. Impegnato nel mantenimento dei più alti standard di qualità ed efficienza operativa.", stat1Label: "Impianti", stat1Value: "32 Unità", stat2Label: "Capacità", stat2Value: "300K+ Tonn" },
       ],
       values: [
@@ -1317,11 +1317,11 @@ export const translations: Record<string, TranslationData> = {
       ],
     },
     careersPage: {
-      heroLabel: "Unisciti alla Nostra Missione", heroTitle1: "Costruisci il Tuo Futuro", heroTitle2: "Con Kiran Global",
+      heroLabel: "Unisciti alla Nostra Missione", heroTitle1: "Costruisci il Tuo Futuro", heroTitle2: "Con Kiran Italia Chemicals",
       heroDesc: "Le nostre persone sono la nostra forza più grande. Promuoviamo una cultura di innovazione, trasparenza, collaborazione e apprendimento continuo.",
       exploreBtn: "Esplora le Posizioni Aperte", satisfactionRate: "95%", satisfactionLabel: "Tasso di Soddisfazione dei Dipendenti",
       cultureTitle1: "Perché Lavorare", cultureTitle2: "Con Noi?",
-      cultureDesc: "In Kiran Global, crediamo nell'empowerment dei nostri dipendenti a prendere la titolarità e guidare con l'innovazione. Offriamo un ambiente collaborativo dove ogni voce viene ascoltata e ogni contributo conta verso il nostro obiettivo globale.",
+      cultureDesc: "In Kiran Italia Chemicals, crediamo nell'empowerment dei nostri dipendenti a prendere la titolarità e guidare con l'innovazione. Offriamo un ambiente collaborativo dove ogni voce viene ascoltata e ogni contributo conta verso il nostro obiettivo globale.",
       ctaTitle: "Pronto ad Unirti al Nostro Team?", ctaDesc: "Scopri la tua prossima mossa di carriera e aiutaci a plasmare il futuro dei silicati industriali in tutto il mondo.",
       ctaBtn: "Candidati Ora",
       benefits: [

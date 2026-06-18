@@ -162,7 +162,7 @@ const ChairmanMessagePage = () => {
                                     <p className="text-sm font-bold text-primary uppercase tracking-[0.2em]">{c.role}</p>
                                 </div>
                                 <div className="hidden sm:block">
-                                    <Image src="/logo.webp" alt="Kiran Global" width={80} height={80} className="opacity-40 grayscale hover:grayscale-0 transition-all cursor-crosshair" />
+                                    <Image src="/logo.webp" alt="Kiran Italia Chemicals" width={80} height={80} className="opacity-40 grayscale hover:grayscale-0 transition-all cursor-crosshair" />
                                 </div>
                             </div>
                         </motion.div>

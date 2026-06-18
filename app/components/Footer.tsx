@@ -92,7 +92,7 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="space-y-6">
                 <div className="text-xs">
-                  <span className="block font-bold text-white mb-2 tracking-tight text-sm uppercase">Kiran Italia Chemicals S.r.l.</span>
+                  <span className="block font-bold text-white mb-2 tracking-tight text-sm">Kiran Italia Chemicals S.r.l.</span>
                   <div className="flex items-start gap-1 text-gray-400 group">
                     <MapPin size={14} className="text-[#f9b115] mt-0.5 -ml-0.5 flex-shrink-0" />
                     <span className="leading-relaxed block text-[11px]">{t.footer.address}</span>

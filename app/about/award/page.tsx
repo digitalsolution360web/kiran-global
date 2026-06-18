@@ -21,7 +21,7 @@ const AwardPage = () => {
 
             {/* Hero Section */}
             <section className="relative h-[50vh] flex items-center justify-center overflow-hidden pt-20">
-                <Image src="/about-us-1.webp" alt="Kiran Global Awards & Achievements" fill className="object-cover" priority />
+                <Image src="/about-us-1.webp" alt="Kiran Italia Chemicals Awards & Achievements" fill className="object-cover" priority />
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/95 to-primary/60" />
                 <div className="relative z-10 max-w-[1700px] mx-auto px-6 lg:px-12 text-center w-full">
                     <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>

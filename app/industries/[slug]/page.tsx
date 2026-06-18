@@ -12,7 +12,7 @@ const industryData: Record<string, any> = {
   'soap-detergents': {
     title: "SOAP & DETERGENTS",
     heroHeading: "Chemical solutions for highest efficacy",
-    description: "At Kiran Global Chems Ltd. we produce a host of industrial chemicals that have diverse application in the soap and detergent manufacturing companies. Our chemical products have been developed after extensive research to deliver highest efficacy, complementing the finished good for greatest effectiveness and quality.",
+    description: "At Kiran Italia Chemicals S.r.l we produce a host of industrial chemicals that have diverse application in the soap and detergent manufacturing companies. Our chemical products have been developed after extensive research to deliver highest efficacy, complementing the finished good for greatest effectiveness and quality.",
     subHeading: "The chemical solutions for soap and detergent manufacturing industry are:",
     contextText: "Adding silicates to synthetic detergents is beneficial because it softens water and is easily rinsed away. Due to the great suspending and anti-re-deposition qualities, they do not leave deposits on the fibers. Their benefits include",
     benefits: [
@@ -36,7 +36,7 @@ const industryData: Record<string, any> = {
   'automotive-repair': {
     title: "AUTOMOTIVE REPAIR",
     heroHeading: "Powerful Sealing Solutions for Vehicles",
-    description: "Kiran Global Chem Ltd. supplies industrial chemicals to automotive industries for application for vehicles of all types and sizes. Sodium and potassium silicate are largely used for their powerful properties in repair work.",
+    description: "Kiran Italia Chemicals S.r.l supplies industrial chemicals to automotive industries for application for vehicles of all types and sizes. Sodium and potassium silicate are largely used for their powerful properties in repair work.",
     subHeading: "Applications in Automotive Maintenance:",
     contextText: "Considered a 'green' solution due to renewable sources, our silicates provide critical repair capabilities:",
     benefits: [
@@ -51,7 +51,7 @@ const industryData: Record<string, any> = {
   'food-industry': {
     title: "FOOD INDUSTRY",
     heroHeading: "Food-Safe Chemicals Following International Guidelines",
-    description: "At Kiran Global Chem Ltd. we offer chemicals that follow international guidelines for food safety. We have approval from CIR and are FDA approved as a food additive with the GRAS rating.",
+    description: "At Kiran Italia Chemicals S.r.l we offer chemicals that follow international guidelines for food safety. We have approval from CIR and are FDA approved as a food additive with the GRAS rating.",
     subHeading: "Applications of Sodium Metasilicate & Silica:",
     contextText: "Our chemicals ensure preservation and quality across various food categories:",
     benefits: [
@@ -66,7 +66,7 @@ const industryData: Record<string, any> = {
   'water-treatment': {
     title: "WATER TREATMENT",
     heroHeading: "Proven Efficacy for Potable & Industrial Water",
-    description: "At Kiran Global Chems Ltd., we manufacture Sodium Silicate and Potassium Silicate which are proven to have highest efficacy for treatng potable and industrial water.",
+    description: "At Kiran Italia Chemicals S.r.l, we manufacture Sodium Silicate and Potassium Silicate which are proven to have highest efficacy for treatng potable and industrial water.",
     subHeading: "Treatment Factors & Benefits:",
     contextText: "Our silicates are essential for purification and infrastructure protection:",
     benefits: [
@@ -82,7 +82,7 @@ const industryData: Record<string, any> = {
   'foundries': {
     title: "FOUNDRIES",
     heroHeading: "Advanced Chemical Agents for Metal Treatment",
-    description: "Kiran Global Chems Ltd. manufactures and supplies primary chemical agents for foundries globally. Our chemicals are used for a wide range of applications in metal treatment and moulding.",
+    description: "Kiran Italia Chemicals S.r.l manufactures and supplies primary chemical agents for foundries globally. Our chemicals are used for a wide range of applications in metal treatment and moulding.",
     subHeading: "Liquid and Lumps Applications:",
     contextText: "Specialized silicates for core binding and surface finishing:",
     benefits: [
@@ -97,7 +97,7 @@ const industryData: Record<string, any> = {
   'petroleum-oil-drilling': {
     title: "PETROLEUM & OIL DRILLING",
     heroHeading: "Environmentally Friendly Oil Field Applications",
-    description: "At Kiran Global Chem Ltd., we offer sodium silicate and potassium silicate for cost-efficient application in oil fields and drilling fluids, facilitating enhanced results in remediation and cementing.",
+    description: "At Kiran Italia Chemicals S.r.l, we offer sodium silicate and potassium silicate for cost-efficient application in oil fields and drilling fluids, facilitating enhanced results in remediation and cementing.",
     subHeading: "Drilling & Conformance Utilities:",
     contextText: "Our chemicals facilitate better control and results in harsh drilling environments:",
     benefits: [
@@ -112,7 +112,7 @@ const industryData: Record<string, any> = {
   'concrete-general': {
     title: "CONCRETE AND GENERAL",
     heroHeading: "Highly Effective Masonry & Concrete Treatment",
-    description: "Kiran Global Chem Ltd. offers highly effective and efficient chemical treatments for concrete and general masonry, used at various stages of manufacturing and application.",
+    description: "Kiran Italia Chemicals S.r.l offers highly effective and efficient chemical treatments for concrete and general masonry, used at various stages of manufacturing and application.",
     subHeading: "Curing, Hardening & Sealing:",
     contextText: "Comprehensive treatment for longevity and durability of masonry:",
     benefits: [
@@ -127,7 +127,7 @@ const industryData: Record<string, any> = {
   'chemical-injection': {
     title: "CHEMICAL INJECTION",
     heroHeading: "Precision Application for Soil & Structural Sealing",
-    description: "Kiran Global Chem Ltd. supplies chemical injections where direct application to a deep area is required with minimum to zero contact in other areas.",
+    description: "Kiran Italia Chemicals S.r.l supplies chemical injections where direct application to a deep area is required with minimum to zero contact in other areas.",
     subHeading: "Direct Solidification & Sealing:",
     contextText: "Our silicates are preferred for their rapid solidification properties in engineering:",
     benefits: [
@@ -156,7 +156,7 @@ const industryData: Record<string, any> = {
   'ceramics-refractory': {
     title: "CERAMICS & REFRACTORY",
     heroHeading: "Key Ingredients for Industrial & Decorative Ceramics",
-    description: "Kiran Global Chems Ltd. supplies sodium silicate and potassium silicate as a key ingredient for manufacturing ceramics, from refractory cements to decorative finishes.",
+    description: "Kiran Italia Chemicals S.r.l supplies sodium silicate and potassium silicate as a key ingredient for manufacturing ceramics, from refractory cements to decorative finishes.",
     subHeading: "Deflocculation & Binding:",
     contextText: "Essential agents for clay processing and heat-resistant coatings:",
     benefits: [
@@ -171,7 +171,7 @@ const industryData: Record<string, any> = {
   'mining-mineral-processing': {
     title: "MINING AND MINERAL PROCESSING",
     heroHeading: "Beneficiation Agents for High-Yield Mineral Recovery",
-    description: "At Kiran Global Chem Ltd., we offer Sodium Silicate and Potassium Silicate for the beneficiation of minerals and metals, performing dual primary functions.",
+    description: "At Kiran Italia Chemicals S.r.l, we offer Sodium Silicate and Potassium Silicate for the beneficiation of minerals and metals, performing dual primary functions.",
     subHeading: "Froth Flotation & Dispersion:",
     contextText: "Our chemicals facilitate high-purity extraction of copper, tin, and rare earth minerals:",
     benefits: [

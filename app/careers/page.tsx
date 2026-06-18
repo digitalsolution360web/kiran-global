@@ -22,7 +22,7 @@ export default function CareersPage() {
 
       {/* Hero Section */}
       <section className="relative min-h-[60vh] py-20 flex items-center overflow-hidden bg-dark">
-        <Image src="/new30.webp" alt="Careers at Kiran Global" fill className="object-cover opacity-60" priority />
+        <Image src="/new30.webp" alt="Careers at Kiran Italia Chemicals" fill className="object-cover opacity-60" priority />
         <div className="absolute inset-0 bg-gradient-to-r from-dark via-dark/40 to-transparent" />
 
         <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10 w-full">

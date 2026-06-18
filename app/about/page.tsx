@@ -49,7 +49,7 @@ const AboutPage = () => {
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden pt-20">
                 <Image
                     src="/about-us-1.webp"
-                    alt="Kiran Global Chem Laboratory"
+                    alt="Kiran Italia Chemicals Laboratory"
                     fill
                     className="object-cover"
                     priority

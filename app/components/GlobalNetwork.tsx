@@ -40,7 +40,7 @@ const GlobalNetwork = () => {
         <div className="relative w-full aspect-[21/9] md:aspect-[24/9] min-h-[400px] lg:min-h-[600px]">
           <Image
             src="/global.webp"
-            alt="Kiran Global Network Map"
+            alt="Kiran Italia Chemicals Network Map"
             fill
             className="object-cover lg:object-contain"
             priority

@@ -205,7 +205,7 @@ export default function BlogDetailPage() {
                       </ul>
 
                       <p className="pt-10">
-                        Kiran Global Chems Limited remains at the forefront of this industrial revolution. By combining our
+                        Kiran Italia Chemicals S.r.l remains at the forefront of this industrial revolution. By combining our
                         decades of experience with forward-thinking research, we are not just responding to the market—we are shaping its future.
                       </p>
                     </>

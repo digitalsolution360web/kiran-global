@@ -31,7 +31,7 @@ const AboutSection = () => {
               transition={{ duration: 1, ease: "easeOut" }}
               className="absolute top-0 right-0 w-3/4 h-[60%] rounded-[3rem] overflow-hidden shadow-2xl border-[8px] border-white z-10"
             >
-              <Image src="/home-ab2.webp" alt="Kiran Global Factory Facility" fill className="object-cover" />
+              <Image src="/home-ab2.webp" alt="Kiran Italia Chemicals Factory Facility" fill className="object-cover" />
               <div className="absolute inset-0 bg-blue-900/20 mix-blend-multiply" />
             </motion.div>
 
