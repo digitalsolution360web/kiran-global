@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, ArrowUpRight } from "lucide-react";
 
@@ -13,46 +14,55 @@ const IndustriesSection = () => {
       name: t.industries.items.soap.name,
       description: t.industries.items.soap.desc,
       image: "/Soap-Detergents.webp",
+      slug: "soap-detergents",
     },
     {
       name: t.industries.items.water.name,
       description: t.industries.items.water.desc,
       image: "/Water-Treatment.webp",
+      slug: "water-treatment",
     },
     {
       name: t.industries.items.construction.name,
       description: t.industries.items.construction.desc,
       image: "/APPLICATIONS.webp",
+      slug: "concrete-general",
     },
     {
       name: t.industries.items.agriculture.name,
       description: t.industries.items.agriculture.desc,
       image: "/Agriculture.webp",
+      slug: "agriculture",
     },
     {
       name: t.industries.items.ceramics.name,
       description: t.industries.items.ceramics.desc,
       image: "/Ceramics-Refractories.webp",
+      slug: "ceramics-refractory",
     },
     {
       name: t.industries.items.petroleum.name,
       description: t.industries.items.petroleum.desc,
       image: "/Petroleum-Oil-Drilling.webp",
+      slug: "petroleum-oil-drilling",
     },
     {
       name: t.industries.items.foundries.name,
       description: t.industries.items.foundries.desc,
       image: "/Foundries.webp",
+      slug: "foundries",
     },
     {
       name: t.industries.items.mining.name,
       description: t.industries.items.mining.desc,
       image: "/Mining-Mineral-Processing.webp",
+      slug: "mining-mineral-processing",
     },
     {
       name: t.industries.items.adhesives.name,
       description: t.industries.items.adhesives.desc,
       image: "/Adhesives-Coatings.webp",
+      slug: "adhesives",
     },
   ];
 
@@ -131,30 +141,34 @@ const IndustriesSection = () => {
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0, x: direction * -80 }}
                   transition={{ duration: 0.4, delay: idx * 0.07 }}
-                  className="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col h-full"
                 >
-                  {/* Image */}
-                  <div className="relative h-64 overflow-hidden">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover transition-transform duration-1000 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                      <span className="text-white font-medium text-sm">{t.industries.exploreSolutions} →</span>
+                  <Link
+                    href={`/industries/${item.slug}`}
+                    className="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-500 cursor-pointer flex flex-col h-full block"
+                  >
+                    {/* Image */}
+                    <div className="relative h-64 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover transition-transform duration-1000 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
+                        <span className="text-white font-medium text-sm">{t.industries.exploreSolutions} →</span>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Content */}
-                  <div className="p-8 flex flex-col flex-1 bg-white">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
-                      {item.name}
-                    </h3>
-                    <p className="text-gray-600 text-base leading-relaxed mb-4 flex-1">
-                      {item.description}
-                    </p>
-                  </div>
+                    {/* Content */}
+                    <div className="p-8 flex flex-col flex-1 bg-white">
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">
+                        {item.name}
+                      </h3>
+                      <p className="text-gray-600 text-base leading-relaxed mb-4 flex-1">
+                        {item.description}
+                      </p>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </AnimatePresence>

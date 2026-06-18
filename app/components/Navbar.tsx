@@ -309,6 +309,53 @@ const Navbar = () => {
                 <Phone size={16} />
                 <span className="hidden sm:inline">{t.navbar.callUs}</span>
               </a>
+              {/* Mobile Language Switcher */}
+              <div className="relative mr-1" ref={langDropdownRef}>
+                <button
+                  onClick={() => setLangDropdown(!langDropdown)}
+                  className={`flex items-center gap-1 p-1 rounded-full border transition-all duration-300 ${langDropdown
+                    ? "bg-white border-primary shadow-sm"
+                    : "bg-gray-50 border-gray-200"
+                    }`}
+                >
+                  <div className="w-8 h-8 flex items-center justify-center rounded-full overflow-hidden bg-primary text-white text-[10px] font-bold shadow-sm">
+                    {language === "en" ? "EN" : "IT"}
+                  </div>
+                  <ChevronDown size={12} className={`transition-transform duration-300 ${langDropdown ? "rotate-180 text-primary" : "text-gray-400"}`} />
+                </button>
+
+                <AnimatePresence>
+                  {langDropdown && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                      transition={{ duration: 0.2 }}
+                      className="absolute top-full right-0 mt-2 bg-white rounded-xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden min-w-[130px] z-[120]"
+                    >
+                      <div className="p-1.5 flex flex-col gap-1">
+                        <button
+                          onClick={() => { setLanguage("en"); setLangDropdown(false); }}
+                          className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold transition-all ${language === "en" ? "bg-primary text-white" : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                        >
+                          <span>English</span>
+                          {language === "en" && <div className="w-1 h-1 rounded-full bg-white" />}
+                        </button>
+                        <button
+                          onClick={() => { setLanguage("it"); setLangDropdown(false); }}
+                          className={`flex items-center justify-between px-3 py-2.5 rounded-lg text-xs font-bold transition-all ${language === "it" ? "bg-primary text-white" : "text-gray-600 hover:bg-gray-50"
+                            }`}
+                        >
+                          <span>Italiano</span>
+                          {language === "it" && <div className="w-1 h-1 rounded-full bg-white" />}
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 aria-label={isOpen ? "Close menu" : "Open menu"}

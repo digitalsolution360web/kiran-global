@@ -53,6 +53,8 @@ export interface TranslationData {
       ceramics: { name: string; desc: string }; petroleum: { name: string; desc: string };
       foundries: { name: string; desc: string }; mining: { name: string; desc: string };
       adhesives: { name: string; desc: string };
+      cosmetics: { name: string; desc: string };
+      timber: { name: string; desc: string };
     };
   };
   visionMission: {
@@ -332,14 +334,16 @@ export const translations: Record<string, TranslationData> = {
       contactExperts: "Contact Experts", exploreSolutions: "Explore Solutions",
       items: {
         soap: { name: "Soap & Detergents", desc: "High-performance sodium silicate used as a builder and filler in soaps, detergents, and cleaning formulations." },
+        cosmetics: { name: "Cosmetics", desc: "High-purity silicate stabilizers and functional additives for high-end skin, hair, and oral care products." },
+        agriculture: { name: "Agriculture", desc: "Silicon-based solutions that enhance crop strength, drought resistance, and nutrient uptake for improved agricultural yields." },
+        timber: { name: "Timber Treatment", desc: "Mineral-based preservation and fireproofing treatments that extend the life and safety of industrial timber products." },
+        adhesives: { name: "Adhesives & Coatings", desc: "High-performance silicate adhesives and functional coatings providing bonding, sealing, and protective properties." },
         water: { name: "Water Treatment", desc: "Advanced silicate compounds for corrosion inhibition and pH control in industrial and municipal water treatment plants." },
         construction: { name: "Construction & Concrete", desc: "Sodium silicate solutions used as concrete hardeners, waterproofing agents, and soil stabilizers in infrastructure projects." },
-        agriculture: { name: "Agriculture", desc: "Silicon-based solutions that enhance crop strength, drought resistance, and nutrient uptake for improved agricultural yields." },
         ceramics: { name: "Ceramics & Refractories", desc: "Silicate binders providing high-temperature resistance for ceramic tiles, refractory linings, and kiln furniture." },
         petroleum: { name: "Petroleum & Oil Drilling", desc: "Specialized silicate fluids used as shale inhibitors and wellbore stabilizers in oil & gas drilling operations." },
         foundries: { name: "Foundries", desc: "Sodium silicate-based binders providing superior mold strength and dimensional accuracy in metal casting operations." },
         mining: { name: "Mining & Mineral Processing", desc: "Chemical technologies supporting efficient mineral flotation, ore processing, and waste water management in mining." },
-        adhesives: { name: "Adhesives & Coatings", desc: "High-performance silicate adhesives and functional coatings providing bonding, sealing, and protective properties." },
       },
     },
     visionMission: {
@@ -892,14 +896,16 @@ export const translations: Record<string, TranslationData> = {
       contactExperts: "Contatta gli Esperti", exploreSolutions: "Esplora le Soluzioni",
       items: {
         soap: { name: "Sapone e Detergenti", desc: "Silicato di sodio ad alte prestazioni utilizzato come builder e filler in saponi, detergenti e formulazioni per la pulizia." },
+        cosmetics: { name: "Cosmetici", desc: "Stabilizzatori ai silicati ad elevata purezza e additivi funzionali per prodotti di fascia alta per la cura della pelle, dei capelli e dell'igiene orale." },
+        agriculture: { name: "Agricoltura", desc: "Soluzioni a base di silicio che migliorano la forza delle colture, la resistenza alla siccità e l'assorbimento dei nutrienti per una migliore resa agricola." },
+        timber: { name: "Trattamento del Legname", desc: "Trattamenti di conservazione e ignifugazione a base minerale che prolungano la vita e la sicurezza dei prodotti industriali in legno." },
+        adhesives: { name: "Adesivi e Rivestimenti", desc: "Adesivi ai silicati ad alte prestazioni e rivestimenti funzionali che forniscono proprietà di incollaggio, sigillatura e protezione." },
         water: { name: "Trattamento delle Acque", desc: "Composti di silicato avanzati per l'inibizione della corrosione e il controllo del pH negli impianti di trattamento delle acque industriali e municipali." },
         construction: { name: "Costruzione e Cemento", desc: "Soluzioni di silicato di sodio utilizzate come indurenti per calcestruzzo, agenti impermeabilizzanti e stabilizzatori del suolo in progetti infrastrutturali." },
-        agriculture: { name: "Agricoltura", desc: "Soluzioni a base di silicio che migliorano la forza delle colture, la resistenza alla siccità e l'assorbimento dei nutrienti per una migliore resa agricola." },
         ceramics: { name: "Ceramica e Refrattari", desc: "Leganti di silicato che forniscono resistenza alle alte temperature per piastrelle in ceramica, rivestimenti refrattari e arredamento per forni." },
         petroleum: { name: "Petrolio e Trivellazione", desc: "Fluidi di silicato specializzati utilizzati come inibitori di scisto e stabilizzatori di pozzi nelle operazioni di trivellazione di petrolio e gas." },
         foundries: { name: "Fonderie", desc: "Leganti a base di silicato di sodio che forniscono una resistenza superiore dello stampo e accuratezza dimensionale nelle operazioni di colata di metalli." },
         mining: { name: "Minerario e Lavorazione", desc: "Tecnologie chimiche che supportano la flottazione efficiente dei minerali, la lavorazione del minerale e la gestione delle acque reflue nell'attività mineraria." },
-        adhesives: { name: "Adesivi e Rivestimenti", desc: "Adesivi ai silicati ad alte prestazioni e rivestimenti funzionali che forniscono proprietà di incollaggio, sigillatura e protezione." },
       },
     },
     visionMission: {

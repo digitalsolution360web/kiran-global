@@ -6,9 +6,9 @@ import { Quote, Award, Target, Rocket, Users } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 
 const valueIcons = [
-  <Target size={32} />,
-  <Rocket size={32} />,
-  <Users size={32} />,
+    <Target size={32} />,
+    <Rocket size={32} />,
+    <Users size={32} />,
 ];
 
 const ChairmanMessagePage = () => {
@@ -17,9 +17,9 @@ const ChairmanMessagePage = () => {
     const cp = t.chairmanPage;
 
     const values = [
-      { title: cp.value1Title, desc: cp.value1Desc },
-      { title: cp.value2Title, desc: cp.value2Desc },
-      { title: cp.value3Title, desc: cp.value3Desc },
+        { title: cp.value1Title, desc: cp.value1Desc },
+        { title: cp.value2Title, desc: cp.value2Desc },
+        { title: cp.value3Title, desc: cp.value3Desc },
     ];
 
     return (
@@ -77,7 +77,7 @@ const ChairmanMessagePage = () => {
 
                                 <div className="relative aspect-[4/5] rounded-[1rem] overflow-hidden border-2 border-white shadow-2xl z-10">
                                     <Image
-                                        src="/chairman-pic.webp"
+                                        src="/chair.webp"
                                         alt="M S Jain - Chairman"
                                         fill
                                         className="object-cover group-hover:scale-105 transition-transform duration-1000"
