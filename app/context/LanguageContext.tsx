@@ -14,6 +14,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguageState] = useState<Language>("it");
+  const [mounted, setMounted] = useState(false);
 
   // Load language from localStorage on mount
   useEffect(() => {
@@ -21,6 +22,7 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     if (savedLang && (savedLang === "en" || savedLang === "it")) {
       setLanguageState(savedLang);
     }
+    setMounted(true);
   }, []);
 
   const setLanguage = (lang: Language) => {
@@ -32,7 +34,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   return (
     <LanguageContext.Provider value={{ language, setLanguage, t }}>
-      {children}
+      <div style={{ visibility: mounted ? "visible" : "hidden" }}>
+        {children}
+      </div>
     </LanguageContext.Provider>
   );
 };

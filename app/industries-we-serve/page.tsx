@@ -7,21 +7,21 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 export default function IndustriesPage() {
-  const { language } = useLanguage();
+  const { language, t } = useLanguage();
 
   const industries = [
-    { title: "Textile Industry", image: "/1.webp" },
-    { title: "Soap & Detergent", image: "/2.webp" },
-    { title: "Water Treatment", image: "/3.webp" },
-    { title: "Cosmetics", image: "/4.webp" },
-    { title: "Paper Manufacturing", image: "/5.webp" },
-    { title: "Timber Treatment", image: "/6.webp" },
-    { title: "Mineral Beneficiation", image: "/7.webp" },
-    { title: "Petroleum & Oil", image: "/8.webp" },
-    { title: "Foundries", image: "/9.webp" },
-    { title: "Food Industry", image: "/10.webp" },
-    { title: "Metals", image: "/11.webp" },
-    { title: "Agriculture", image: "/12.webp" },
+    { title: t.navbar.indDropdown.soap, image: "/2.webp" },
+    { title: t.industries.items.water.name, image: "/3.webp" },
+    { title: t.navbar.indDropdown.cosmetics, image: "/4.webp" },
+    { title: t.industries.items.agriculture.name, image: "/12.webp" },
+    { title: t.navbar.indDropdown.timber, image: "/6.webp" },
+    { title: t.navbar.indDropdown.adhesives, image: "/5.webp" },
+    { title: t.navbar.indDropdown.petroleum, image: "/8.webp" },
+    { title: t.navbar.indDropdown.foundries, image: "/9.webp" },
+    { title: t.navbar.indDropdown.food, image: "/10.webp" },
+    { title: t.navbar.indDropdown.metals, image: "/11.webp" },
+    { title: t.navbar.indDropdown.mining, image: "/7.webp" },
+    { title: t.industries.items.construction.name, image: "/1.webp" },
   ];
 
   const title = language === 'en' ? "INDUSTRIES WE SERVE" : "INDUSTRIE CHE SERVIAMO";

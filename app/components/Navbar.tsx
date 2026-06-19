@@ -14,6 +14,7 @@ const Navbar = () => {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [langDropdown, setLangDropdown] = useState(false);
   const langDropdownRef = useRef<HTMLDivElement>(null);
+  const mobileLangDropdownRef = useRef<HTMLDivElement>(null);
 
   // Scroll listener
   useEffect(() => {
@@ -27,7 +28,11 @@ const Navbar = () => {
   // Close lang dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (langDropdownRef.current && !langDropdownRef.current.contains(e.target as Node)) {
+      const target = e.target as Node;
+      if (
+        (langDropdownRef.current && !langDropdownRef.current.contains(target)) &&
+        (mobileLangDropdownRef.current && !mobileLangDropdownRef.current.contains(target))
+      ) {
         setLangDropdown(false);
       }
     };
@@ -310,7 +315,7 @@ const Navbar = () => {
                 <span className="hidden sm:inline">{t.navbar.callUs}</span>
               </a>
               {/* Mobile Language Switcher */}
-              <div className="relative mr-1" ref={langDropdownRef}>
+              <div className="relative mr-1" ref={mobileLangDropdownRef}>
                 <button
                   onClick={() => setLangDropdown(!langDropdown)}
                   className={`flex items-center gap-1 p-1 rounded-full border transition-all duration-300 ${langDropdown
@@ -488,7 +493,7 @@ const Navbar = () => {
             </p>
             <div className="flex gap-3">
               <button
-                onClick={() => setLanguage("en")}
+                onClick={() => { setLanguage("en"); setIsOpen(false); }}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 border-2 ${language === "en"
                   ? "bg-primary border-primary text-white shadow-[0_4px_15px_rgba(10,77,162,0.4)]"
                   : "border-white/10 text-white/50 hover:border-white/30 hover:text-white/80"
@@ -498,7 +503,7 @@ const Navbar = () => {
                 EN
               </button>
               <button
-                onClick={() => setLanguage("it")}
+                onClick={() => { setLanguage("it"); setIsOpen(false); }}
                 className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-xl text-xs font-bold uppercase tracking-[0.12em] transition-all duration-300 border-2 ${language === "it"
                   ? "bg-primary border-primary text-white shadow-[0_4px_15px_rgba(10,77,162,0.4)]"
                   : "border-white/10 text-white/50 hover:border-white/30 hover:text-white/80"

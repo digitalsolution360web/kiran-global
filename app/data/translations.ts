@@ -64,6 +64,12 @@ export interface TranslationData {
     strengthTitle: string; strengthText1: string; strengthText2: string;
   };
   globalNetwork: { label: string; title: string; description: string };
+  strategicHubs: { 
+    label: string; title: string; description: string;
+    egypt: string; india: string; southAfrica: string; uae: string;
+    northAfrica: string; southAsia: string; southernAfrica: string; middleEast: string;
+  };
+
   solidLiquid: {
     title: string; solidTitle: string; solidContent: string; liquidTitle: string; liquidContent: string;
   };
@@ -368,6 +374,14 @@ export const translations: Record<string, TranslationData> = {
       label: "Global Presence", title: "Our Global Network",
       description: "Serving clients across continents with our world-class chemical solutions. Our reach expands through a robust distribution and manufacturing network.",
     },
+    strategicHubs: {
+      label: "Global Reach",
+      title: "Our Primary Strategic Hubs",
+      description: "Connecting vital markets in Egypt, India, South Africa, and the UAE through our advanced chemical infrastructure and logistics network.",
+      egypt: "Egypt", india: "India", southAfrica: "South Africa", uae: "UAE",
+      northAfrica: "North Africa", southAsia: "South Asia", southernAfrica: "Southern Africa", middleEast: "Middle East"
+    },
+
     solidLiquid: {
       title: "SOLID STATE VS LIQUID STATE", solidTitle: "SOLID STATE (LUMPS)",
       solidContent: "Soluble glass in flakes (Cullet). Molar ratios from 1.6 to 3.5 according to the customer's requirements. Ideal for export and local dissolution. Packaging in big bags and bulk, both by ship and in containers.",
@@ -716,7 +730,7 @@ export const translations: Record<string, TranslationData> = {
       heroLabel: "Est. 1979", heroTitle: "M S Jain Group",
       heroQuote: "A legacy of visionary innovation and industrial excellence.",
       beginningLabel: "The Beginning", foundingTitle: "Our Founding Story",
-      foundingText: "Kiran Italia Chemicals S.r.l was started in the year 1979 with a single small scale manufacturing unit for preparing sodium silicate to detergent manufacturers. It was established by Mr. MS Jain who had a long standing vision of expanding his company to attain global acclaim as a market leader and trend setter.",
+      foundingText: "MS Jain Group was started in the year 1979 with a single small scale manufacturing unit for preparing sodium silicate to detergent manufacturers. It was established by Mr. MS Jain who had a long standing vision of expanding his company to attain global acclaim as a market leader and trend setter.",
       growthText: "Over the years, the company has steadily expanded its product range and today we supply chemical raw materials to companies across various industries, worldwide. Our multi-product, large scale commercial operation functions with 32 manufacturing units, contributing to over 50% of the group's turnover.",
       companyTitle: "Kiran Italia Chemicals S.r.l",
       companyText1: "Today we are the largest manufacturers in the country of Sodium and potassium silicate and have surpassed 300,000 tonnes per annum production mark. We also have installed capacities of 15,000 tonnes of LABSA and 25,000 tonnes of Potassium Silicate.",
@@ -776,7 +790,7 @@ export const translations: Record<string, TranslationData> = {
       heroLabel: "Get In Touch", heroTitle1: "How Can We", heroTitle2: "Help You?",
       heroDesc: "We're here to assist you with product inquiries, technical support, or partnership opportunities. Let's build something great together.",
       callTitle: "Call Us", emailTitle: "Email Us", officeTitle: "Head Office",
-      officeAddress: "No.104, Phlox Apartments, 1st Floor, F-2, Q-Block, 3rd Avenue, Anna Nagar, Chennai-600040, Tamilnadu, India.",
+      officeAddress: "SP12ii, 12, 95040 Motta Sant'Anastasia CT, Italy",
       availabilityLabel: "Availability", monFri: "Mon - Fri", saturday: "Saturday",
       formTitle1: "Send Us a", formTitle2: "Message", formRequired: "Required fields are marked with *",
       fieldName: "Full Name*", fieldEmail: "Email Address*", fieldPhone: "Phone Number",
@@ -784,7 +798,7 @@ export const translations: Record<string, TranslationData> = {
       inquiryOptions: ["General Inquiry", "Product Quote", "Technical Support", "Partnership"],
       submitBtn: "Submit Request", namePlaceholder: "John Doe", emailPlaceholder: "john@company.com",
       phonePlaceholder: "+39 000 000 0000", messagePlaceholder: "Tell us about your requirements...",
-      mapTitle1: "Visit Our", mapTitle2: "Office", mapDesc: "Located in Anna Nagar, Chennai, our Head Office is the heart of our global operations.",
+      mapTitle1: "Visit Our", mapTitle2: "Office", mapDesc: "Located in Motta Sant'Anastasia, Italy, our office is the heart of our European operations.",
       visitOfficeLabel: "Visit Our Office",
     },
     chairmanPage: {
@@ -930,6 +944,14 @@ export const translations: Record<string, TranslationData> = {
       label: "Presenza Globale", title: "La Nostra Rete Globale",
       description: "Serviamo clienti in tutti i continenti con le nostre soluzioni chimiche di livello mondiale. La nostra portata si espande attraverso una solida rete di distribuzione e produzione.",
     },
+    strategicHubs: {
+      label: "Portata Globale",
+      title: "I Nostri Principali Hub Strategici",
+      description: "Collegamento di mercati vitali in Egitto, India, Sud Africa ed Emirati Arabi Uniti attraverso la nostra infrastruttura chimica avanzata e la rete logistica.",
+      egypt: "Egitto", india: "India", southAfrica: "Sud Africa", uae: "EAU",
+      northAfrica: "Nord Africa", southAsia: "Asia Meridionale", southernAfrica: "Africa Meridionale", middleEast: "Medio Oriente"
+    },
+
     solidLiquid: {
       title: "STATO SOLIDO VS LIQUIDO", solidTitle: "STATO SOLIDO (LUMPS)",
       solidContent: "Vetro solubile in scaglie (Cullet). Rapporti molari da 1.6 a 3.5 secondo le richieste del cliente. Ideale per l'esportazione e la dissoluzione locale. Imballaggio in big bags e sfuso, sia in nave che in contenitori.",
@@ -1342,7 +1364,7 @@ export const translations: Record<string, TranslationData> = {
       heroLabel: "Mettiti in Contatto", heroTitle1: "Come Possiamo", heroTitle2: "Aiutarti?",
       heroDesc: "Siamo qui per assisterti con richieste di prodotti, supporto tecnico o opportunità di partnership. Costruiamo qualcosa di grande insieme.",
       callTitle: "Chiamaci", emailTitle: "Scrivici", officeTitle: "Sede Principale",
-      officeAddress: "No.104, Appartamenti Phlox, 1° Piano, F-2, Blocco Q, 3° Viale, Anna Nagar, Chennai-600040, Tamil Nadu, India.",
+      officeAddress: "SP12ii, 12, 95040 Motta Sant'Anastasia CT, Italy",
       availabilityLabel: "Disponibilità", monFri: "Lun - Ven", saturday: "Sabato",
       formTitle1: "Inviaci un", formTitle2: "Messaggio", formRequired: "I campi obbligatori sono contrassegnati con *",
       fieldName: "Nome Completo*", fieldEmail: "Indirizzo Email*", fieldPhone: "Numero di Telefono",
@@ -1350,7 +1372,7 @@ export const translations: Record<string, TranslationData> = {
       inquiryOptions: ["Richiesta Generale", "Preventivo Prodotto", "Supporto Tecnico", "Partnership"],
       submitBtn: "Invia Richiesta", namePlaceholder: "Mario Rossi", emailPlaceholder: "mario@azienda.it",
       phonePlaceholder: "+39 000 000 0000", messagePlaceholder: "Raccontaci le tue esigenze...",
-      mapTitle1: "Visita il Nostro", mapTitle2: "Ufficio", mapDesc: "Situato ad Anna Nagar, Chennai, la nostra Sede Principale è il cuore delle nostre operazioni globali.",
+      mapTitle1: "Visita il Nostro", mapTitle2: "Ufficio", mapDesc: "Situato a Motta Sant'Anastasia, Italia, il nostro ufficio è il cuore delle nostre operazioni europee.",
       visitOfficeLabel: "Visita il Nostro Ufficio",
     },
     chairmanPage: {

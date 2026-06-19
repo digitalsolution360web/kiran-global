@@ -31,7 +31,7 @@ export default function ContactPage() {
   const contactInfo = [
     { title: cp.callTitle, value: "+39 3391192817", link: "tel:+393391192817", icon: <Phone size={20} />, color: "bg-blue-50 text-blue-600" },
     { title: cp.emailTitle, value: "ettore@kiranitalia.it", link: "mailto:ettore@kiranitalia.it", icon: <Mail size={20} />, color: "bg-amber-50 text-amber-600" },
-    { title: cp.officeTitle, value: cp.officeAddress, link: "https://maps.google.com/?q=No.104,Phlox+Apartments,Anna+Nagar,Chennai", icon: <MapPin size={20} />, color: "bg-emerald-50 text-emerald-600" },
+    { title: cp.officeTitle, value: cp.officeAddress, link: "https://maps.google.com/?q=SP12ii,+12,+95040+Motta+Sant'Anastasia+CT,+Italy", icon: <MapPin size={20} />, color: "bg-emerald-50 text-emerald-600" },
   ];
 
   return (
@@ -180,7 +180,7 @@ export default function ContactPage() {
             className="h-[500px] rounded-[3rem] overflow-hidden bg-white p-4 border border-gray-100 shadow-2xl relative"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.2668!2d80.208!3d13.082!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a52640000000000%3A0x0!2sNo.104%2C+3rd+Avenue%2C+Anna+Nagar%2C+Chennai!5e0!3m2!1sen!2sin!4v1717512000000"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.1708496451233!2d14.9907794!3d37.5038884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13115835d1eb327b%3A0x7727c3433377200a!2sSP12ii%2C%2012%2C%2095040%20Motta%20Sant&#39;Anastasia%20CT%2C%20Italy!5e0!3m2!1sen!2sin!4v1781776188600!5m2!1sen!2sin"
               width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy" className="rounded-[2.5rem]"
             ></iframe>
           </motion.div>

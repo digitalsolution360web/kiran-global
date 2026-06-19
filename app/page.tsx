@@ -7,7 +7,9 @@ import SolidLiquidSection from "./components/SolidLiquidSection";
 import IndustriesSection from "./components/IndustriesSection";
 import AdvancedChemicalsSection from "./components/AdvancedChemicalsSection";
 // import InfrastructureGallery from "./components/InfrastructureGallery";
+
 import GlobalNetwork from "./components/GlobalNetwork";
+import LocationsGlobe from "./components/LocationsGlobe";
 import VisionMissionSection from "./components/VisionMissionSection";
 import LeadershipSection from "./components/LeadershipSection";
 import SustainabilitySection from "./components/SustainabilitySection";
@@ -27,7 +29,9 @@ export default function Home() {
       <IndustriesSection />
       <AdvancedChemicalsSection />
       {/* <InfrastructureGallery /> */}
+
       <GlobalNetwork />
+      <LocationsGlobe />
       <VisionMissionSection />
       <LeadershipSection />
       <SustainabilitySection />
