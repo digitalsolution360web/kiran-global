@@ -94,7 +94,7 @@ const LocationsGlobe = () => {
         labelDiv.style.color = 'white';
         labelDiv.style.fontFamily = 'Inter, sans-serif';
         labelDiv.style.fontSize = '14px';
-        labelDiv.style.fontWeight = '900'; // Make it extra bold for clarity
+        labelDiv.style.fontWeight = '800';
         labelDiv.style.padding = '8px 16px';
         labelDiv.style.background = 'rgba(2, 6, 23, 0.95)';
         labelDiv.style.backdropFilter = 'blur(12px)';
@@ -102,12 +102,13 @@ const LocationsGlobe = () => {
         labelDiv.style.border = `2px solid ${loc.color}`;
         labelDiv.style.boxShadow = `0 10px 40px -10px ${loc.color}`;
         labelDiv.style.whiteSpace = 'nowrap';
-        labelDiv.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        labelDiv.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
+        labelDiv.style.pointerEvents = 'none';
         labelDiv.textContent = loc.name;
 
         const label = new CSS2DObject(labelDiv);
         label.position.set(x, y, z);
-        label.position.multiplyScalar(1.1); 
+        label.position.multiplyScalar(1.03);
         markerGroup.add(label);
         labels.push(label);
 
@@ -124,7 +125,10 @@ const LocationsGlobe = () => {
       controls.dampingFactor = 0.05;
       controls.enableZoom = false;
       controls.autoRotate = true;
-      controls.autoRotateSpeed = 0.7;
+      controls.autoRotateSpeed = 0.8;
+      // Zoomed out slightly to prevent ANY clipping on any screen size
+      camera.position.set(120, 60, 220);
+      controls.update();
       controlsRef.current = controls;
 
       const animate = () => {
@@ -137,21 +141,20 @@ const LocationsGlobe = () => {
         labels.forEach((label) => {
           const labelPos = new THREE.Vector3();
           label.getWorldPosition(labelPos);
-          
+
           const dist = labelPos.distanceTo(cameraPos);
           const earthPos = new THREE.Vector3();
           earth.getWorldPosition(earthPos);
           const distToCenter = earthPos.distanceTo(cameraPos);
 
-          // Smooth distance-based opacity/scaling for professional feel
           if (dist > distToCenter + 15) {
             label.element.style.opacity = '0';
-            label.element.style.transform = 'translateY(10px) scale(0.7)';
             label.element.style.visibility = 'hidden';
+            label.element.style.transform = 'scale(0.7)';
           } else {
             label.element.style.opacity = '1';
-            label.element.style.transform = 'translateY(0) scale(1)';
             label.element.style.visibility = 'visible';
+            label.element.style.transform = 'scale(1)';
           }
         });
 
@@ -189,38 +192,38 @@ const LocationsGlobe = () => {
   }, [isHovered]);
 
   return (
-    <section className="py-24 bg-[#020617] relative overflow-hidden" id="strategic-locations">
+    <section className="py-12 bg-[#020617] relative overflow-hidden" id="strategic-locations">
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-5">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 font-bold text-xs mb-6 uppercase tracking-[0.2em] border border-blue-500/20"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 font-bold text-xs mb-4 uppercase tracking-[0.2em] border border-blue-500/20"
           >
             <Globe size={14} className="animate-spin-slow" />
             <span>{t.strategicHubs.label}</span>
           </motion.div>
           <motion.h2
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-4xl font-bold text-white tracking-tight mb-6"
+            className="text-2xl md:text-4xl font-bold text-white tracking-tight mb-4"
           >
             {t.strategicHubs.title}
           </motion.h2>
-          <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
+          <p className="text-slate-400 text-base max-w-2xl mx-auto font-light leading-relaxed">
             {t.strategicHubs.description}
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-16">
 
-          {/* Globe Container - Increased size */}
+          {/* Globe Container - Shifted upwards for centering */}
           <div
-            className="relative w-full aspect-square max-w-[600px] flex items-center justify-center"
+            className="relative w-full aspect-square max-w-[700px] flex items-center justify-center overflow-visible -mt-10 lg:mb-40"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
@@ -229,11 +232,11 @@ const LocationsGlobe = () => {
 
             {/* Ambient Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none z-[-1]" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] border border-white/5 rounded-full pointer-events-none z-[-1] animate-pulse" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%]  rounded-full pointer-events-none z-[-1] animate-pulse" />
           </div>
 
           {/* Cards side */}
-          <div className="grid grid-cols-2 lg:grid-cols-1 gap-4 w-full lg:w-[340px]">
+          <div className="grid grid-cols-2 ml-25 lg:grid-cols-1 gap-4 mr-20 w-full lg:w-[340px]">
             {locations.map((loc, idx) => (
               <motion.div
                 key={idx}
