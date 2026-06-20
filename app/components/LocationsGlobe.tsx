@@ -4,92 +4,114 @@ import { motion } from "framer-motion";
 import { MapPin, Globe } from "lucide-react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
+import { CSS2DRenderer, CSS2DObject } from "three/examples/jsm/renderers/CSS2DRenderer.js";
 import { useLanguage } from "../context/LanguageContext";
 
 const LocationsGlobe = () => {
   const { t, language } = useLanguage();
   const containerRef = useRef<HTMLDivElement>(null);
+  const labelContainerRef = useRef<HTMLDivElement>(null);
   const controlsRef = useRef<any>(null);
   const [isHovered, setIsHovered] = useState(false);
 
   const locations = [
-    { name: t.strategicHubs.egypt, lat: 26.8206, lon: 30.8025, color: "#3b82f6", region: t.strategicHubs.northAfrica },
-    { name: t.strategicHubs.india, lat: 20.5937, lon: 78.9629, color: "#f97316", region: t.strategicHubs.southAsia },
-    { name: t.strategicHubs.southAfrica, lat: -30.5595, lon: 22.9375, color: "#eab308", region: t.strategicHubs.southernAfrica },
-    { name: t.strategicHubs.uae, lat: 24.4539, lon: 54.3773, color: "#10b981", region: t.strategicHubs.middleEast },
+    { name: t.strategicHubs.egypt, lat: 26.0, lon: 30.0, color: "#3b82f6", region: t.strategicHubs.northAfrica },
+    { name: t.strategicHubs.uae, lat: 24.0, lon: 54.0, color: "#10b981", region: t.strategicHubs.middleEast },
+    { name: t.strategicHubs.india, lat: 21.0, lon: 78.0, color: "#f97316", region: t.strategicHubs.southAsia },
+    { name: t.strategicHubs.southAfrica, lat: -30.0, lon: 25.0, color: "#eab308", region: t.strategicHubs.southernAfrica },
   ];
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || !labelContainerRef.current) return;
 
-    // Use a small delay to ensure clientWidth/Height are accurate
     const timer = setTimeout(() => {
-      if (!containerRef.current) return;
+      if (!containerRef.current || !labelContainerRef.current) return;
 
       const width = containerRef.current.clientWidth;
       const height = containerRef.current.clientHeight;
 
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(40, width / height, 0.1, 1000);
-      // Increased distance to 200 to prevent ANY clipping from edges
       camera.position.z = 200;
 
       const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+      renderer.setPixelRatio(window.devicePixelRatio);
       renderer.setSize(width, height);
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
       renderer.setClearColor(0x000000, 0);
       containerRef.current.appendChild(renderer.domElement);
 
-      // Lights
-      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
-      scene.add(ambientLight);
+      const labelRenderer = new CSS2DRenderer();
+      labelRenderer.setSize(width, height);
+      labelRenderer.domElement.style.position = 'absolute';
+      labelRenderer.domElement.style.top = '0';
+      labelRenderer.domElement.style.pointerEvents = 'none';
+      labelContainerRef.current.appendChild(labelRenderer.domElement);
 
-      const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444, 1.0);
-      hemiLight.position.set(0, 20, 0);
-      scene.add(hemiLight);
+      const ambientLight = new THREE.AmbientLight(0xffffff, 1.8);
+      scene.add(ambientLight);
 
       const sunLight = new THREE.DirectionalLight(0xffffff, 1.5);
       sunLight.position.set(5, 3, 5);
       scene.add(sunLight);
 
-      // Texture Loading
       const loader = new THREE.TextureLoader();
-      // Use a high-quality equirectangular texture for proper 3D wrapping
       const earthTexture = loader.load("https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg");
       earthTexture.colorSpace = THREE.SRGBColorSpace;
 
-      // Reduced radius further for a perfect fit without clipping
-      const geometry = new THREE.SphereGeometry(38, 64, 64);
+      const globeRadius = 65;
+      const geometry = new THREE.SphereGeometry(globeRadius, 64, 64);
       const material = new THREE.MeshPhongMaterial({
         map: earthTexture,
         shininess: 10,
-        specular: new THREE.Color(0x333333),
       });
       const earth = new THREE.Mesh(geometry, material);
+      // Removed previous rotation to allow direct mapping (0,0 is at +Z)
       scene.add(earth);
 
-      // Markers
       const markerGroup = new THREE.Group();
       earth.add(markerGroup);
 
+      const labels: CSS2DObject[] = [];
+
       locations.forEach((loc) => {
+        // Standard Lat/Lon to XYZ for Three.js (0,0 is at +Z)
         const latRad = (loc.lat * Math.PI) / 180;
         const lonRad = (loc.lon * Math.PI) / 180;
-        const r = 38.5;
+        const r = globeRadius + 1.2;
 
         const x = r * Math.cos(latRad) * Math.sin(lonRad);
         const y = r * Math.sin(latRad);
         const z = r * Math.cos(latRad) * Math.cos(lonRad);
 
-        const dotGeo = new THREE.CircleGeometry(1.0, 32);
-        const dotMat = new THREE.MeshBasicMaterial({ color: loc.color, side: THREE.DoubleSide });
+        const dotGeo = new THREE.SphereGeometry(2.2, 16, 16);
+        const dotMat = new THREE.MeshBasicMaterial({ color: loc.color });
         const dot = new THREE.Mesh(dotGeo, dotMat);
         dot.position.set(x, y, z);
-        dot.lookAt(new THREE.Vector3(0, 0, 0));
-        dot.position.multiplyScalar(1.02);
         markerGroup.add(dot);
 
-        const ringGeo = new THREE.RingGeometry(1.2, 1.8, 32);
+        const labelDiv = document.createElement('div');
+        labelDiv.className = 'label-node';
+        labelDiv.style.color = 'white';
+        labelDiv.style.fontFamily = 'Inter, sans-serif';
+        labelDiv.style.fontSize = '14px';
+        labelDiv.style.fontWeight = '900'; // Make it extra bold for clarity
+        labelDiv.style.padding = '8px 16px';
+        labelDiv.style.background = 'rgba(2, 6, 23, 0.95)';
+        labelDiv.style.backdropFilter = 'blur(12px)';
+        labelDiv.style.borderRadius = '12px';
+        labelDiv.style.border = `2px solid ${loc.color}`;
+        labelDiv.style.boxShadow = `0 10px 40px -10px ${loc.color}`;
+        labelDiv.style.whiteSpace = 'nowrap';
+        labelDiv.style.transition = 'all 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+        labelDiv.textContent = loc.name;
+
+        const label = new CSS2DObject(labelDiv);
+        label.position.set(x, y, z);
+        label.position.multiplyScalar(1.1); 
+        markerGroup.add(label);
+        labels.push(label);
+
+        const ringGeo = new THREE.RingGeometry(3.5, 6, 32);
         const ringMat = new THREE.MeshBasicMaterial({ color: loc.color, transparent: true, opacity: 0.5, side: THREE.DoubleSide });
         const ring = new THREE.Mesh(ringGeo, ringMat);
         ring.position.copy(dot.position);
@@ -102,13 +124,39 @@ const LocationsGlobe = () => {
       controls.dampingFactor = 0.05;
       controls.enableZoom = false;
       controls.autoRotate = true;
-      controls.autoRotateSpeed = 1.0;
+      controls.autoRotateSpeed = 0.7;
       controlsRef.current = controls;
 
       const animate = () => {
         requestAnimationFrame(animate);
         controls.update();
+
+        const cameraPos = new THREE.Vector3();
+        camera.getWorldPosition(cameraPos);
+
+        labels.forEach((label) => {
+          const labelPos = new THREE.Vector3();
+          label.getWorldPosition(labelPos);
+          
+          const dist = labelPos.distanceTo(cameraPos);
+          const earthPos = new THREE.Vector3();
+          earth.getWorldPosition(earthPos);
+          const distToCenter = earthPos.distanceTo(cameraPos);
+
+          // Smooth distance-based opacity/scaling for professional feel
+          if (dist > distToCenter + 15) {
+            label.element.style.opacity = '0';
+            label.element.style.transform = 'translateY(10px) scale(0.7)';
+            label.element.style.visibility = 'hidden';
+          } else {
+            label.element.style.opacity = '1';
+            label.element.style.transform = 'translateY(0) scale(1)';
+            label.element.style.visibility = 'visible';
+          }
+        });
+
         renderer.render(scene, camera);
+        labelRenderer.render(scene, camera);
       };
       animate();
 
@@ -120,6 +168,7 @@ const LocationsGlobe = () => {
           camera.aspect = w / h;
           camera.updateProjectionMatrix();
           renderer.setSize(w, h);
+          labelRenderer.setSize(w, h);
         }
       };
       window.addEventListener("resize", handleResize);
@@ -128,9 +177,8 @@ const LocationsGlobe = () => {
 
     return () => {
       clearTimeout(timer);
-      if (containerRef.current) {
-        containerRef.current.innerHTML = "";
-      }
+      if (containerRef.current) containerRef.current.innerHTML = "";
+      if (labelContainerRef.current) labelContainerRef.current.innerHTML = "";
     };
   }, [language]);
 
@@ -141,43 +189,47 @@ const LocationsGlobe = () => {
   }, [isHovered]);
 
   return (
-    <section className="py-16 bg-[#020617] relative" id="strategic-locations">
+    <section className="py-24 bg-[#020617] relative overflow-hidden" id="strategic-locations">
       <div className="max-w-[1400px] mx-auto px-6 relative z-10">
 
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 font-bold text-[10px] mb-4 uppercase tracking-widest border border-blue-500/20"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 text-blue-400 font-bold text-xs mb-6 uppercase tracking-[0.2em] border border-blue-500/20"
           >
-            <Globe size={12} />
+            <Globe size={14} className="animate-spin-slow" />
             <span>{t.strategicHubs.label}</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-5xl font-bold text-white tracking-tight mb-4"
+            className="text-2xl md:text-4xl font-bold text-white tracking-tight mb-6"
           >
             {t.strategicHubs.title}
           </motion.h2>
-          <p className="text-slate-400 text-sm max-w-xl mx-auto font-light">
+          <p className="text-slate-400 text-lg max-w-2xl mx-auto font-light leading-relaxed">
             {t.strategicHubs.description}
           </p>
         </div>
 
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-10 lg:gap-20">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 lg:gap-24">
 
-          {/* Globe Container - Ensured zero clipping */}
+          {/* Globe Container - Increased size */}
           <div
-            className="relative w-full aspect-square max-w-[380px] flex items-center justify-center overflow-visible"
+            className="relative w-full aspect-square max-w-[600px] flex items-center justify-center"
             onMouseEnter={() => setIsHovered(true)}
             onMouseLeave={() => setIsHovered(false)}
           >
             <div ref={containerRef} className="w-full h-full cursor-grab active:cursor-grabbing transform-gpu" />
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] bg-blue-500/5 blur-[100px] rounded-full pointer-events-none -initial z-[-1]" />
+            <div ref={labelContainerRef} className="absolute inset-0 pointer-events-none" />
+
+            {/* Ambient Background Glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[130%] h-[130%] bg-blue-600/5 blur-[120px] rounded-full pointer-events-none z-[-1]" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] h-[90%] border border-white/5 rounded-full pointer-events-none z-[-1] animate-pulse" />
           </div>
 
           {/* Cards side */}

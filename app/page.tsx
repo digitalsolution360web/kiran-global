@@ -8,7 +8,7 @@ import IndustriesSection from "./components/IndustriesSection";
 import AdvancedChemicalsSection from "./components/AdvancedChemicalsSection";
 // import InfrastructureGallery from "./components/InfrastructureGallery";
 
-import GlobalNetwork from "./components/GlobalNetwork";
+// import GlobalNetwork from "./components/GlobalNetwork";
 import LocationsGlobe from "./components/LocationsGlobe";
 import VisionMissionSection from "./components/VisionMissionSection";
 import LeadershipSection from "./components/LeadershipSection";
@@ -30,7 +30,7 @@ export default function Home() {
       <AdvancedChemicalsSection />
       {/* <InfrastructureGallery /> */}
 
-      <GlobalNetwork />
+      {/* <GlobalNetwork /> */}
       <LocationsGlobe />
       <VisionMissionSection />
       <LeadershipSection />

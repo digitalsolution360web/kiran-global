@@ -3,6 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Send, Clock, ArrowRight } from "lucide-react";
 import Image from "next/image";
+import LocationsGlobe from "../components/LocationsGlobe";
 import { useLanguage } from "../context/LanguageContext";
 
 const FacebookIcon = () => (
@@ -44,11 +45,11 @@ export default function ContactPage() {
 
         <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10 w-full text-center lg:text-left">
           <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 text-primary font-bold text-[10px] uppercase tracking-widest mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-200 text-primary font-bold text-[10px] tracking-widest mb-6 shadow-sm">
               <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
               {cp.heroLabel}
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-dark leading-[1.1] mb-6 tracking-tighter uppercase">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-dark leading-[1.1] mb-6 tracking-tighter ">
               {cp.heroTitle1} <span className="text-primary">{cp.heroTitle2}</span>
             </h1>
             <p className="text-gray-500 text-base md:text-lg leading-relaxed max-w-2xl">{cp.heroDesc}</p>
@@ -77,7 +78,8 @@ export default function ContactPage() {
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="text-gray-400 font-bold uppercase tracking-widest text-[9px] mb-1">{info.title}</h4>
+                      <h4 className="text-gray-400 font-bold
+                       tracking-widest text-[9px] mb-1">{info.title}</h4>
                       <p className="text-base font-bold text-dark group-hover:text-primary transition-colors leading-tight">{info.value}</p>
                     </div>
                   </motion.a>
@@ -120,7 +122,7 @@ export default function ContactPage() {
                 className="bg-white rounded-[3rem] p-8 lg:p-14 border border-gray-100 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.08)] relative"
               >
                 <div className="mb-10">
-                  <h2 className="text-2xl md:text-3xl font-black text-dark mb-3 tracking-tighter uppercase leading-none">
+                  <h2 className="text-2xl md:text-3xl font-black text-dark mb-3 tracking-tighter leading-none">
                     {cp.formTitle1} <span className="text-primary">{cp.formTitle2}</span>
                   </h2>
                   <p className="text-gray-400 text-sm">{cp.formRequired}</p>
@@ -163,13 +165,18 @@ export default function ContactPage() {
             </div>
           </div>
         </div>
+
       </section>
+
+      <LocationsGlobe />
+
+
 
       {/* Map Section */}
       <section className="bg-slate-50 py-24">
         <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
           <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="text-2xl md:text-3xl font-black text-dark mb-4 tracking-tighter uppercase leading-none">
+            <h2 className="text-2xl md:text-3xl font-black text-dark mb-4 tracking-tighter leading-none">
               {cp.mapTitle1} <span className="text-primary">{cp.mapTitle2}</span>
             </h2>
             <p className="text-gray-500 text-sm max-w-lg">{cp.mapDesc}</p>
@@ -177,16 +184,16 @@ export default function ContactPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            className="h-[500px] rounded-[3rem] overflow-hidden bg-white p-4 border border-gray-100 shadow-2xl relative"
+            className="h-[500px] rounded-[1rem] overflow-hidden border-2 border-white  shadow-2xl relative"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3165.1708496451233!2d14.9907794!3d37.5038884!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13115835d1eb327b%3A0x7727c3433377200a!2sSP12ii%2C%2012%2C%2095040%20Motta%20Sant&#39;Anastasia%20CT%2C%20Italy!5e0!3m2!1sen!2sin!4v1781776188600!5m2!1sen!2sin"
-              width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy" className="rounded-[2.5rem]"
+              width="100%" height="100%" style={{ border: 0 }} allowFullScreen={true} loading="lazy" className="rounded-[1rem]"
             ></iframe>
           </motion.div>
         </div>
       </section>
 
-    </main>
+    </main >
   );
 }
