@@ -139,7 +139,7 @@ const ProductsSection = () => {
                     ))}
                   </div>
 
-                  <Link 
+                  <Link
                     href={`/products/${activeTab.id}`}
                     className="flex items-center gap-2 text-primary font-bold hover:text-secondary transition-colors group underline underline-offset-8"
                   >

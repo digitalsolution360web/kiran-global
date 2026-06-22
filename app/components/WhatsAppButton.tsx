@@ -1,11 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import { useLanguage } from "../context/LanguageContext";
 
 const WhatsAppButton = () => {
+  const { t } = useLanguage();
   const [isHovered, setIsHovered] = useState(false);
-  const phoneNumber = "919876543210"; // Replace with actual WhatsApp number
-  const message = "Hello! I am interested in your services.";
+  const phoneNumber = "393391192817"; // Italian number for Kiran Italia
+  const message = t.whatsapp.message;
 
   const handleClick = () => {
     const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
@@ -59,7 +61,7 @@ const WhatsAppButton = () => {
             pointerEvents: isHovered ? "auto" : "none",
           }}
         >
-          💬 Chat with us!
+          💬 {t.whatsapp.chatWithUs}
         </div>
 
         {/* WhatsApp Button */}

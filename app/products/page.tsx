@@ -24,11 +24,10 @@ export default function ProductsPage() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-2xl lg:text-5xl font-bold text-white mt-10 mb-5">
-              Our <span className="text-secondary">Products</span>
+              {t.products.title.split(" ").slice(0, -1).join(" ")} <span className="text-secondary">{t.products.title.split(" ").slice(-1)}</span>
             </h1>
             <p className="text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-              Discover our range of high-performance silicate products manufactured with
-              precision and global standards of quality.
+              {t.aboutPage.productRangeDesc}
             </p>
           </motion.div>
         </div>

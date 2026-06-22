@@ -12,7 +12,7 @@ const AboutSection = () => {
     <section className="py-16 bg-[#f8fafc] relative overflow-hidden" id="about">
       {/* Background Decorative Text */}
       <div className="absolute top-1/4 -right-10 text-[200px] font-black text-gray-50/80 select-none pointer-events-none uppercase leading-none hidden lg:block tracking-tighter rotate-90 origin-right">
-        GLOBAL
+        {t.about.globalLabel}
       </div>
 
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">

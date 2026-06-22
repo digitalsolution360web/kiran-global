@@ -24,7 +24,7 @@ export default function IndustriesPage() {
     { title: t.industries.items.construction.name, image: "/1.webp" },
   ];
 
-  const title = language === 'en' ? "INDUSTRIES WE SERVE" : "INDUSTRIE CHE SERVIAMO";
+  const title = t.common.industriesWeServe;
   const subtitle = language === 'en' ? "Our Products are using various industries" : "I nostri prodotti sono utilizzati in varie industrie";
 
   return (
@@ -32,9 +32,9 @@ export default function IndustriesPage() {
       <div className="max-w-[1200px] mx-auto px-6">
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-[10px] font-medium uppercase tracking-widest text-gray-400 mb-8">
-          <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+          <Link href="/" className="hover:text-primary transition-colors">{t.common.home}</Link>
           <span className="text-gray-300">/</span>
-          <span className="text-gray-500">Industries we serve</span>
+          <span className="text-gray-500">{t.common.industriesWeServe}</span>
         </nav>
 
         {/* Header */}

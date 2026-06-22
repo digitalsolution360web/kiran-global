@@ -114,7 +114,7 @@ const IndustriesSection = () => {
               {t.industries.label}
             </p>
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-              {t.industries.title.split(' Reach')[0]} <span className="italic text-blue-800">Reach</span>
+              {t.industries.title.split(t.industries.reachLabel)[0]} <span className="italic text-blue-800">{t.industries.reachLabel}</span>
             </h2>
           </motion.div>
 

@@ -76,8 +76,8 @@ const HistoryPage = () => {
                             >
                                 <Image src="/Founder-Visionary.webp" alt="Founder Mr. MS Jain" fill className="object-cover group-hover:scale-110 transition-transform duration-1000" />
                                 <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-black/80 p-10 text-white">
-                                    <h3 className="text-2xl font-bold">Mr. MS Jain</h3>
-                                    <p className="text-secondary font-bold tracking-widest text-sm ">Founder &amp; Visionary Leader</p>
+                                    <h3 className="text-2xl font-bold">{h.founderName}</h3>
+                                    <p className="text-secondary font-bold tracking-widest text-sm ">{h.founderRole}</p>
                                 </div>
                             </motion.div>
 

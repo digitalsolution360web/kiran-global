@@ -45,7 +45,7 @@ export default function ProductPage() {
     <main className="bg-white min-h-screen">
 
       {/* ── CLEAN HERO SECTION ── */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center overflow-hidden pt-20">
+      <section className="relative h-[70vh] min-h-[500px] flex items-center overflow-hidden pt-20">
         <Image
           src="/about-us-1.webp"
           alt="Product Banner"
@@ -55,7 +55,7 @@ export default function ProductPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-primary/80 to-transparent" />
 
-        <div className="max-w-[1700px] mx-auto px-6 lg:px-12 w-full relative z-10">
+        <div className="max-w-[1700px] mx-auto  px-6 lg:px-12 w-full relative z-10">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}

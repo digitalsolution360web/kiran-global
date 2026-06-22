@@ -19,11 +19,11 @@ export default function BlogDetailPage() {
       <div className="min-h-screen flex items-center justify-center bg-[#fcfcfd]">
         <div className="text-center px-6">
           <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="space-y-6">
-            <h1 className="text-4xl font-bold text-[#06101f] tracking-tight">Article Not Found</h1>
-            <p className="text-gray-500 max-w-md mx-auto">The insight you're looking for might have been moved or archived.</p>
+            <h1 className="text-4xl font-bold text-[#06101f] tracking-tight">{t.blogDetail.articleNotFound}</h1>
+            <p className="text-gray-500 max-w-md mx-auto">{t.blogDetail.moveOrArchived}</p>
             <Link href="/blog" className="inline-flex items-center gap-3 px-8 py-4 bg-primary text-white rounded-2xl font-black text-[10px] uppercase tracking-widest hover:bg-blue-700 transition-all shadow-xl shadow-primary/20">
               <ArrowLeft size={16} />
-              Return to Insights
+              {t.blogDetail.returnToInsights}
             </Link>
           </motion.div>
         </div>
@@ -43,9 +43,9 @@ export default function BlogDetailPage() {
             // className="space-y-4"
             >
               <nav className="flex  items-center gap-2 text-[10px] font-medium uppercase tracking-widest text-gray-400 mb-5">
-                <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                <Link href="/" className="hover:text-primary transition-colors">{t.common.home}</Link>
                 <span className="text-gray-300 ">/</span>
-                <Link href="/blog" className=" hover:text-primary transition-colors">Blog</Link>
+                <Link href="/blog" className=" hover:text-primary transition-colors">{t.navbar.blog}</Link>
                 <span className="text-gray-300">/</span>
                 <span className="text-gray-400 truncate max-w-[200px]">{blog.slug}</span>
               </nav>
@@ -175,7 +175,6 @@ export default function BlogDetailPage() {
                       </h2>
                       <p>
                         As we navigate the second decade of the 21st century, the silicate industry stands at a critical crossroads.
-                        Technological breakthroughs in atomic-level manufacturing have allowed us to achieve purity levels previously
                         thought impossible, opening new frontiers in electronics, healthcare, and infrastructure.
                       </p>
 
@@ -234,7 +233,7 @@ export default function BlogDetailPage() {
             <aside className="lg:col-span-4 space-y-12">
               <div className="bg-[#fcfcfd] p-8 rounded-2xl border border-gray-100 shadow-sm sticky top-32">
                 <div className="">
-                  <h4 className="text-xs font-bold text-[#06101f] uppercase tracking-widest mb-6">Related Insights</h4>
+                  <h4 className="text-xs font-bold text-[#06101f] uppercase tracking-widest mb-6">{t.blogDetail.relatedInsights}</h4>
                   <div className="space-y-6">
                     {t.blogs.items.slice(0, 4).map((item: any, idx: number) => (
                       item.slug !== slug && (

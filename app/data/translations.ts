@@ -24,9 +24,12 @@ export interface TranslationData {
   hero: { title: string; subtitle?: string; content: string; explore: string; contact: string };
   about: {
     label: string; titleStart: string; titleHighlight?: string; description: string;
-    quote: string; points: string[]; estYear: string;
+    quote: string; points: string[]; estYear: string; globalLabel: string;
   };
-  common: { exploreMore: string; viewDetails: string; learnMore: string; readMore: string; readFullArticle: string };
+  common: {
+    exploreMore: string; viewDetails: string; learnMore: string; readMore: string; readFullArticle: string;
+    home: string; industriesWeServe: string; products: string;
+  };
   products: {
     label: string; title: string;
     items: {
@@ -46,7 +49,7 @@ export interface TranslationData {
     isoLabel: string; yearsLabel: string; excellenceLabel: string;
   };
   industries: {
-    label: string; title: string; contactExperts: string; exploreSolutions: string;
+    label: string; title: string; reachLabel: string; contactExperts: string; exploreSolutions: string;
     items: {
       soap: { name: string; desc: string }; water: { name: string; desc: string };
       construction: { name: string; desc: string }; agriculture: { name: string; desc: string };
@@ -93,6 +96,9 @@ export interface TranslationData {
   };
   blogs: {
     label: string; title: string; knowledgeHub: string; updatedWeekly: string; readFullArticle: string;
+    latest: string; insights: string; industryNews: string; viewAll: string;
+    minRead: string; by: string; exploreArticle: string; continueReading: string;
+    leaveComment: string; upToDate: string; heroTitle: string; heroDesc: string;
     items: {
       title: string;
       date: string;
@@ -196,6 +202,7 @@ export interface TranslationData {
     companyTitle: string; companyText1: string; companyText2: string;
     sustainLabel: string; sustainTitle: string;
     stat1: string; stat2: string;
+    founderName: string; founderRole: string;
   };
   awardPage: {
     heroTitle: string; heroSubtitle: string;
@@ -236,6 +243,21 @@ export interface TranslationData {
     value2Title: string; value2Desc: string;
     value3Title: string; value3Desc: string;
     marketLeaderBadge: string; marketLeaderSub: string;
+  };
+  industryDetail: {
+    backToIndustries: string; comingSoon: string; browseIndustries: string;
+    items: Record<string, {
+      title: string; heroHeading: string; description: string; subHeading: string;
+      contextText: string; benefits: string[]; images: string[];
+    }>;
+  };
+  blogDetail: {
+    articleNotFound: string; moveOrArchived: string; returnToInsights: string;
+    relatedInsights: string; shareArticle: string;
+  };
+  whatsapp: {
+    chatWithUs: string;
+    message: string;
   };
 }
 
@@ -293,11 +315,12 @@ export const translations: Record<string, TranslationData> = {
       description: "For more than 40 years, Kiran Italia Chemicals has been a leading manufacturer of sodium silicate and potassium silicate solutions. The company has grown into a globally recognized chemical company serving customers on multiple continents.",
       quote: "Our commitment to quality, innovation, and sustainability enables us to deliver reliable chemical solutions for diverse industrial applications.",
       points: ["India’s leading silicate manufacturer ", "Among the Top 5 globally ", "32 manufacturing facilities ", "300K+ tons annual capacity", "Presence across 45+ countries"],
-      estYear: "Est. Year",
+      estYear: "Est. Year", globalLabel: "GLOBAL",
     },
     common: {
       exploreMore: "Explore More", viewDetails: "View Details", learnMore: "Learn More",
       readMore: "Read More", readFullArticle: "Read Full Article",
+      home: "Home", industriesWeServe: "Industries we serve", products: "Products",
     },
     products: {
       label: "Our Product Portfolio", title: "Our Products",
@@ -336,8 +359,7 @@ export const translations: Record<string, TranslationData> = {
       isoLabel: "ISO Certified", yearsLabel: "45+ Years", excellenceLabel: "of Industry Excellence",
     },
     industries: {
-      label: "Industries We Serve", title: "Our Industrial Reach",
-      contactExperts: "Contact Experts", exploreSolutions: "Explore Solutions",
+      label: "Global Industries", title: "Industrial Reach", reachLabel: "Reach", contactExperts: "Contact Our Experts", exploreSolutions: "Explore Solutions",
       items: {
         soap: { name: "Soap & Detergents", desc: "High-performance sodium silicate used as a builder and filler in soaps, detergents, and cleaning formulations." },
         cosmetics: { name: "Cosmetics", desc: "High-purity silicate stabilizers and functional additives for high-end skin, hair, and oral care products." },
@@ -421,6 +443,11 @@ export const translations: Record<string, TranslationData> = {
     blogs: {
       label: "Media Center", title: "Latest Insights & Industry Innovations",
       knowledgeHub: "Knowledge Hub", updatedWeekly: "Updated Weekly", readFullArticle: "Read Full Article",
+      latest: "Latest", insights: "Insights", industryNews: "Industry News", viewAll: "View All Posts",
+      minRead: "Min Read", by: "By", exploreArticle: "Explore Article", continueReading: "Continue Reading",
+      leaveComment: "Leave a Comment", upToDate: "You're up to date",
+      heroTitle: "Industry Insights & Strategic Updates",
+      heroDesc: "Exploring the evolution of global chemistry through technical excellence, market analysis, and sustainable innovation.",
       items: [
         {
           title: "Global Sodium Silicate Industry 2016 Market Research Report",
@@ -732,12 +759,15 @@ export const translations: Record<string, TranslationData> = {
       beginningLabel: "The Beginning", foundingTitle: "Our Founding Story",
       foundingText: "MS Jain Group was started in the year 1979 with a single small scale manufacturing unit for preparing sodium silicate to detergent manufacturers. It was established by Mr. MS Jain who had a long standing vision of expanding his company to attain global acclaim as a market leader and trend setter.",
       growthText: "Over the years, the company has steadily expanded its product range and today we supply chemical raw materials to companies across various industries, worldwide. Our multi-product, large scale commercial operation functions with 32 manufacturing units, contributing to over 50% of the group's turnover.",
-      companyTitle: "Kiran Italia Chemicals S.r.l",
-      companyText1: "Today we are the largest manufacturers in the country of Sodium and potassium silicate and have surpassed 300,000 tonnes per annum production mark. We also have installed capacities of 15,000 tonnes of LABSA and 25,000 tonnes of Potassium Silicate.",
-      companyText2: "With the vision of global expansion through import and export, our facilities were established largely in the coastal towns with easy access to ports. Our facilities are fully equipped with modern warehousing facilities, quality assurance laboratories and are fully functional to meet large scale demands at all times. Our persistence and insistence on service quality has earned us a \"Sigma 4\" rating for operational efficiencies.",
-      sustainLabel: "Sustainability Focus",
-      sustainTitle: "Continue to grow from strength to strength, innovating new methods for producing chemicals that are both economic and environment friendly without compromising on quality.",
-      stat1: "Mfg Units", stat2: "Tonnes / Year",
+      companyTitle: "MS Jain Group Today",
+      companyText1: "Today, MS Jain Group stands as a symbol of trust and innovation in the chemical industry.",
+      companyText2: "With Kiran Italia Chemicals, we continue our mission to provide sustainable, high-quality chemical solutions to the world.",
+      sustainLabel: "Sustainable Future",
+      sustainTitle: "Building a Greener Chemistry for the Next Generation",
+      stat1: "Manufacturing Units",
+      stat2: "Capacity (TPA/KL)",
+      founderName: "Mr. MS Jain",
+      founderRole: "Founder & Visionary Leader",
     },
     awardPage: {
       heroTitle: "Awards & Achievements", heroSubtitle: "Recognizing our milestones in technical excellence and global industrial contributions.",
@@ -808,6 +838,169 @@ export const translations: Record<string, TranslationData> = {
       value3Title: "People-Centric", value3Desc: "Nurturing fresh talent and personal growth.",
       marketLeaderBadge: "Market Leader", marketLeaderSub: "India #1 Spot",
     },
+    whatsapp: {
+      chatWithUs: "Chat with us!",
+      message: "Hi! I am interested in your services.",
+    },
+    blogDetail: {
+      articleNotFound: "Article Not Found",
+      moveOrArchived: "The insight you're looking for might have been moved or archived.",
+      returnToInsights: "Return to Insights",
+      relatedInsights: "Related Insights",
+      shareArticle: "Share Article",
+    },
+    industryDetail: {
+      backToIndustries: "Back to Industries",
+      comingSoon: "Industry details coming soon...",
+      browseIndustries: "Browse Industries",
+      items: {
+        'soap-detergents': {
+          title: "SOAP & DETERGENTS",
+          heroHeading: "Chemical solutions for highest efficacy",
+          description: "At Kiran Italia Chemicals S.r.l we produce a host of industrial chemicals that have diverse application in the soap and detergent manufacturing companies. Our chemical products have been developed after extensive research to deliver highest efficacy, complementing the finished good for greatest effectiveness and quality.",
+          subHeading: "The chemical solutions for soap and detergent manufacturing industry are:",
+          contextText: "Adding silicates to synthetic detergents is beneficial because it softens water and is easily rinsed away. Due to the great suspending and anti-re-deposition qualities, they do not leave deposits on the fibers. Their benefits include",
+          benefits: [
+            "It is a building agent used in household cleaning solutions cleaning",
+            "Improves washing property of the detergent",
+            "Prevents mineral deposits by removing water hardness",
+            "Helps maintain suspension of the small dirt or greasy particles in washing liquid",
+            "Acts as a surfactant that pulls dirt from the material for segregating the soils to come out of suspension; dispersion of deflocculating of soil",
+            "Helps control the viscosity in production of detergent powder of a desired density",
+            "An ingredient in the drying process in manufacture of detergent powder",
+            "Acts as a binder to give appropriate degree of \"hardness\" to the spherical particles of detergent",
+            "Its alkalinity enables them to neutralize acidic stains, promote emulsification of fats and oils and disperse or solubilize proteins",
+            "Stabilizes pH to the desired level",
+            "Used for Metal cleaning, textile processing, washing dishes, dairy equipment, bottles, floors, and locomotives",
+            "Prevents phosphate reversion in liquid detergents",
+            "Gives best result for liquid and paste soaps",
+            "Enhances detergency of soap type detergent"
+          ],
+          images: ["/13.webp", "/14.webp", "/15.webp"]
+        },
+        'automotive-repair': {
+          title: "AUTOMOTIVE REPAIR",
+          heroHeading: "Powerful Sealing Solutions for Vehicles",
+          description: "Kiran Italia Chemicals S.r.l supplies industrial chemicals to automotive industries for application for vehicles of all types and sizes. Sodium and potassium silicate are largely used for their powerful properties in repair work.",
+          subHeading: "Applications in Automotive Maintenance:",
+          contextText: "Considered a 'green' solution due to renewable sources, our silicates provide critical repair capabilities:",
+          benefits: [
+            "Seals leaks in head gaskets: Acts as a powerful sealant at 93°C (won't re-melt below 815°C)",
+            "Protects gaskets: Poured into radiators to circulate and utilize heat-resisting properties",
+            "Fast acting: Application stops steam from radiator water in exhaust within minutes",
+            "Engine disablement aid: Acts as a powerful substitute to engine oil in specific disablement processes",
+            "Environmentally conscious: Minimum environment cost compared to synthetic sealants"
+          ],
+          images: ["/28.jpg", "/29.jpg", "/30.jpg"]
+        },
+        'food-industry': {
+          title: "FOOD INDUSTRY",
+          heroHeading: "Food-Safe Chemicals Following International Guidelines",
+          description: "At Kiran Italia Chemicals S.r.l we offer chemicals that follow international guidelines for food safety. The main chemicals that we offer for the food industry is precipitated silica and sodium metasilicate. We have approval from CIR with concentration limits and FDA approved as a food additive with the GRAS (Generally Recognized as Safe) rating.",
+          subHeading: "Sodium metasilicate is used in following applications:",
+          contextText: "",
+          benefits: [
+            "It preserves eggs without electricity for up to 6 months by keeping out harmful bacteria",
+            "It is a primary ingredient in desiccant packaging of foods and other degradable items for protection against moisture",
+            "It protects certain foods from being permeable by absorbing the moisture in the air",
+            "It acts as a flocculent for certain wines and beers, making them smoother to drink through clarification",
+            "It is a precipitation aid for colloidal particles in beverages, facilitating easy removal of particles",
+            "**Precipitated silica is used in following applications:**",
+            "It is used as an anti-caking agent for edible salt, onion, garlic powder and other permissible food products in hoppers, conveyors, spray dryers, and other allied machinery",
+            "It increases processing efficiency through smoother blending of ingredients",
+            "It enhances product consistency and enables automated dosing of fruit and vegetable extracts, nutrients, spices and preservatives",
+            "It facilitates more shipping options with varied temperatures and environment conditions"
+          ],
+          images: ["/31.jpg", "/32.jpg", "/33.jpg"]
+        },
+        'water-treatment': {
+          title: "WATER TREATMENT",
+          heroHeading: "Proven Efficacy for Potable & Industrial Water",
+          description: "At Kiran Italia Chemicals S.r.l, we manufacture Sodium Silicate and Potassium Silicate which are proven to have highest efficacy for a host of factors in treating potable and industrial water. Prominent among these are:",
+          subHeading: "",
+          contextText: "",
+          benefits: [
+            "As a flocculent for raw and waste water treatment to increase the size and binding of heavier molecules",
+            "To form a film that prevents metal corrosion in water lines",
+            "To reduce and control toxicity of lead and copper in their treatment",
+            "To improve taste and stabilize presence of iron and magnesium in bore hole water prior to aeration",
+            "As a binder to reduce porosity and setting time in the solidification and stabilization",
+            "As an efficient coagulation aide when used with aluminium sulphate in normal purification process"
+          ],
+          images: ["/34.jpg", "/35.jpg", "/36.jpg"]
+        },
+        'foundries': {
+          title: "FOUNDRIES",
+          heroHeading: "Advanced Chemical Agents for Metal Treatment",
+          description: "Kiran Italia Chemicals S.r.l manufactures and supplies primary chemical agents for foundries globally. Our chemicals are used for a wide range of applications in metal treatment and moulding.",
+          subHeading: "Liquid and Lumps Applications:",
+          contextText: "Specialized silicates for core binding and surface finishing:",
+          benefits: [
+            "Cost-effective core sand binder for moulding steel and non-ferrous castings",
+            "Muffler repair: Used with magnesium silicate to reduce sound in internal combustion engines",
+            "Fitting Paste: Dissolves with magnesium silicate to form a thick, effective paste",
+            "Surface Finishing: Precipitated silica acts as a matting and thickening agent",
+            "Satin Sheen: Gives a professional finish and reduces gloss on metal furniture"
+          ],
+          images: ["/37.jpg", "/38.jpg", "/39.jpg"]
+        },
+        'petroleum-oil-drilling': {
+          title: "PETROLEUM & OIL DRILLING",
+          heroHeading: "Environmentally Friendly Oil Field Applications",
+          description: "At Kiran Italia Chemicals S.r.l, we offer sodium silicate and potassium silicate for cost efficient application for various applications on oil field and drilling fluids. We offer chemicals that are environment friendly and facilitate enhanced results in conformance, remediation and cementing. The application of sodium and potassium silicates is largely includes",
+          subHeading: "",
+          contextText: "",
+          benefits: [
+            "Control of colloids in geological formation",
+            "In drilling mud operations",
+            "As effective chemical agent to prevent corrosion",
+            "As breakdown emulsifier in drilling operations"
+          ],
+          images: ["/40.jpg", "/41.png", "/42.jpg"]
+        },
+        'concrete-general': {
+          title: "CONCRETE AND GENERAL",
+          heroHeading: "Highly Effective Masonry & Concrete Treatment",
+          description: "Kiran Italia Chemicals S.r.l offers highly effective and efficient chemical treatments for concrete and general masonry treatment. Our products are used extensively at various stage of manufacturing and application of concrete and in general masonry work",
+          subHeading: "The chemical products that we supply for concrete and general masonry treatment are:",
+          contextText: "",
+          benefits: [
+            "**Sodium Metasilicate**",
+            "Manufacturing speciality cement for drilling industry",
+            "For adding into dry cement admixtures to accelerate the set",
+            "**Sodium Silicate and Potassium Silicate**",
+            "As a curing agent, it is applied to the surface of fresh layer of concrete to extend its durability",
+            "To treat the concrete after it is completely dry or hardened for better water resistance and longevity",
+            "Chemical sealing of Concrete hardening against Grease and Dust Proofing",
+            "For Acid Resistance",
+            "Significantly reduces porosity in most masonry products making them far more wearable and water repellent",
+            "Used as an alkali activator in geopolymer cement and concrete",
+            "Apply a thin coat to unpainted plaster or concrete surface as a water repellent",
+            "To treat old concrete surfaces to provide a harder surface",
+            "Acts as a penetrate into concrete and reacts with residual free lime to reduce porosity"
+          ],
+          images: ["/43.jpg", "/44.jpg", "/45.jpg"]
+        },
+        'chemical-injection': {
+          title: "CHEMICAL INJECTION",
+          heroHeading: "Precision Application for Soil & Structural Sealing",
+          description: "Kiran Italia Chemicals S.r.l supplies chemical injections where direct application to a deep area is required with minimum to zero contact in other areas. We supply the chemicals in appropriate packages, in liquid or lump form, based on the application and composition.",
+          subHeading: "We mainly provide Sodium Silicate and Potassium Silicate for chemical injections, and they are popularly used by clients for following applications:",
+          contextText: "",
+          benefits: [
+            "For chemical injection or solidification of subsoil",
+            "For sealing of pores with low resistance",
+            "In the \"Joosten Process\" to form an insoluble gel",
+            "Where subsurface formations need to be strong enough to withstand the load, such as low walls or foundations",
+            "Where water-permeable subsurface pores allow the flooding of mines, wells and tunnels",
+            "To prevent water loss in dams",
+            "To seal pores in the concrete or brick work that can be found in drains or underground construction",
+            "To coat sewerage pipes to reduce deposition on the inner walls"
+          ],
+          images: ["/46.jpg", "/47.jpg", "/48.jpg"]
+        },
+      },
+    },
   },
 
   it: {
@@ -863,11 +1056,12 @@ export const translations: Record<string, TranslationData> = {
       description: "Da oltre 40 anni, Kiran Italia Chemicals è un produttore leader di soluzioni di silicato di sodio e silicato di potassio. L'azienda è cresciuta fino a diventare un'azienda chimica riconosciuta a livello globale che serve clienti in più continenti.",
       quote: "Il nostro impegno per la qualità, l'innovazione e la sostenibilità ci consente di fornire soluzioni chimiche affidabili per diverse applicazioni industriali.",
       points: ["Produttore leader di silicati in India ", "Tra i primi 5 a livello globale ", "32 impianti di produzione ", "Capacità annua di oltre 300.000 tonnellate", "Presenza in oltre 45 paesi"],
-      estYear: "Anno di fondazione",
+      estYear: "Anno di fondazione", globalLabel: "GLOBALE",
     },
     common: {
       exploreMore: "Esplora di più", viewDetails: "Visualizza dettagli", learnMore: "Saperne di più",
       readMore: "Leggi di più", readFullArticle: "Leggi l'articolo completo",
+      home: "Home", industriesWeServe: "Industrie che serviamo", products: "Prodotti",
     },
     products: {
       label: "Il Nostro Portfolio Prodotti", title: "I Nostri Prodotti",
@@ -906,8 +1100,7 @@ export const translations: Record<string, TranslationData> = {
       isoLabel: "Certificato ISO", yearsLabel: "45+ Anni", excellenceLabel: "di Eccellenza nel Settore",
     },
     industries: {
-      label: "Industrie che Serviamo", title: "La Nostra Portata Industriale",
-      contactExperts: "Contatta gli Esperti", exploreSolutions: "Esplora le Soluzioni",
+      label: "Settori Globali", title: "Portata Industriale", reachLabel: "Portata", contactExperts: "Contatta i nostri esperti", exploreSolutions: "Esplora le soluzioni",
       items: {
         soap: { name: "Sapone e Detergenti", desc: "Silicato di sodio ad alte prestazioni utilizzato come builder e filler in saponi, detergenti e formulazioni per la pulizia." },
         cosmetics: { name: "Cosmetici", desc: "Stabilizzatori ai silicati ad elevata purezza e additivi funzionali per prodotti di fascia alta per la cura della pelle, dei capelli e dell'igiene orale." },
@@ -991,6 +1184,11 @@ export const translations: Record<string, TranslationData> = {
     blogs: {
       label: "Centro Media", title: "Ultime Novità e Innovazioni del Settore",
       knowledgeHub: "Centro di Conoscenza", updatedWeekly: "Aggiornato Settimanalmente", readFullArticle: "Leggi l'articolo completo",
+      latest: "Ultime", insights: "Approfondimenti", industryNews: "Novità del Settore", viewAll: "Visualizza tutti i post",
+      minRead: "minuti di lettura", by: "Di", exploreArticle: "Esplora l'articolo", continueReading: "Continua a leggere",
+      leaveComment: "Lascia un commento", upToDate: "Sei aggiornato",
+      heroTitle: "Approfondimenti del Settore & Aggiornamenti Strategici",
+      heroDesc: "Esplorando l'evoluzione della chimica globale attraverso l'eccellenza tecnica, l'analisi di mercato e l'innovazione sostenibile.",
       items: [
         {
           title: "Rapporto di Ricerca di Mercato dell'Industria Globale del Silicato di Sodio 2016",
@@ -1306,12 +1504,15 @@ export const translations: Record<string, TranslationData> = {
       beginningLabel: "L'Inizio", foundingTitle: "La Nostra Storia Fondativa",
       foundingText: "Kiran Italia Chemicals S.r.l è stata fondata nel 1979 con una singola piccola unità produttiva per la preparazione di silicato di sodio per i produttori di detersivi. È stata fondata da Mr. MS Jain che aveva una visione a lungo termine di espandere la sua azienda per ottenere riconoscimento globale come leader di mercato e trend setter.",
       growthText: "Nel corso degli anni, l'azienda ha costantemente ampliato la sua gamma di prodotti e oggi forniamo materie prime chimiche ad aziende di vari settori in tutto il mondo. La nostra operazione commerciale multi-prodotto su larga scala funziona con 32 unità produttive, contribuendo a oltre il 50% del fatturato del gruppo.",
-      companyTitle: "Kiran Italia Chemicals S.r.l",
-      companyText1: "Oggi siamo i più grandi produttori del paese di silicati di sodio e potassio e abbiamo superato il traguardo delle 300.000 tonnellate per anno di produzione. Abbiamo anche capacità installate di 15.000 tonnellate di LABSA e 25.000 tonnellate di Silicato di Potassio.",
-      companyText2: "Con la visione di espansione globale attraverso l'import-export, i nostri impianti sono stati stabiliti prevalentemente nelle città costiere con facile accesso ai porti. I nostri impianti sono completamente attrezzati con moderne strutture di magazzinaggio, laboratori di garanzia della qualità e sono pienamente funzionali per soddisfare le richieste su larga scala in qualsiasi momento. La nostra perseveranza e insistenza sulla qualità del servizio ci ha guadagnato una valutazione \"Sigma 4\" per le efficienze operative.",
-      sustainLabel: "Attenzione alla Sostenibilità",
-      sustainTitle: "Continuare a crescere di forza in forza, innovando nuovi metodi per produrre prodotti chimici che siano sia economici che rispettosi dell'ambiente senza compromettere la qualità.",
-      stat1: "Unità Produttive", stat2: "Tonnellate / Anno",
+      companyTitle: "Il Gruppo MS Jain Oggi",
+      companyText1: "Oggi, il Gruppo MS Jain rappresenta un simbolo di fiducia e innovazione nell'industria chimica.",
+      companyText2: "Con Kiran Italia Chemicals, continuiamo la nostra missione di fornire soluzioni chimiche sostenibili e di alta qualità al mondo.",
+      sustainLabel: "Futuro Sostenibile",
+      sustainTitle: "Costruire una chimica più verde per la prossima generazione",
+      stat1: "Unità produttive",
+      stat2: "Capacità (TPA/KL)",
+      founderName: "Mr. MS Jain",
+      founderRole: "Fondatore e Leader Visionario",
     },
     awardPage: {
       heroTitle: "Premi e Riconoscimenti", heroSubtitle: "Riconoscendo i nostri traguardi nell'eccellenza tecnica e nei contributi industriali globali.",
@@ -1381,6 +1582,277 @@ export const translations: Record<string, TranslationData> = {
       value2Title: "Leader di Mercato", value2Desc: "Prima posizione in India.",
       value3Title: "Orientato alle Persone", value3Desc: "Coltivare nuovi talenti e crescita personale.",
       marketLeaderBadge: "Leader di Mercato", marketLeaderSub: "Posizione #1 in India",
+    },
+    whatsapp: {
+      chatWithUs: "Chatta con noi!",
+      message: "Ciao! Sono interessato ai vostri servizi.",
+    },
+    blogDetail: {
+      articleNotFound: "Articolo non trovato",
+      moveOrArchived: "L'approfondimento che stai cercando potrebbe essere stato spostato o archiviato.",
+      returnToInsights: "Torna agli Approfondimenti",
+      relatedInsights: "Approfondimenti Correlati",
+      shareArticle: "Condividi l'Articolo",
+    },
+    industryDetail: {
+      backToIndustries: "Torna ai Settori",
+      comingSoon: "Dettagli del settore in arrivo...",
+      browseIndustries: "Sfoglia i Settori",
+      items: {
+        'soap-detergents': {
+          title: "SAPONI E DETERGENTI",
+          heroHeading: "Soluzioni chimiche per la massima efficacia",
+          description: "Presso Kiran Italia Chemicals S.r.l produciamo una vasta gamma di prodotti chimici industriali che hanno diverse applicazioni nelle aziende produttrici di saponi e detergenti. I nostri prodotti chimici sono stati sviluppati dopo un'ampia ricerca per offrire la massima efficacia, completando il prodotto finito per la massima efficacia e qualità.",
+          subHeading: "Le soluzioni chimiche per l'industria manifatturiera di saponi e detergenti sono:",
+          contextText: "L'aggiunta di silicati ai detergenti sintetici è vantaggiosa perché addolcisce l'acqua e si risciacqua facilmente. Grazie alle grandi qualità di sospensione e anti-rideposizione, non lasciano depositi sulle fibre. I loro vantaggi includono",
+          benefits: [
+            "È un agente builder utilizzato nelle soluzioni di pulizia domestica",
+            "Migliora le proprietà di lavaggio del detergente",
+            "Previene i depositi minerali rimuovendo la durezza dell'acqua",
+            "Aiuta a mantenere la sospensione delle piccole particelle di sporco o grasso nel liquido di lavaggio",
+            "Agisce come un tensioattivo che estrae lo sporco dal materiale per segregare le impurità affinché escano dalla sospensione; dispersione della deflocculazione dello sporco",
+            "Aiuta a controllare la viscosità nella produzione di polvere detergente della densità desiderata",
+            "Un ingrediente nel processo di essiccazione nella produzione di polvere detergente",
+            "Agisce come legante per dare il grado appropriato di \"durezza\" alle particelle sferiche di detergente",
+            "La sua alcalinità consente loro di neutralizzare le macchie acide, favorire l'emulsionamento di grassi e oli e disperdere o solubilizzare le proteine",
+            "Stabilizza il pH al livello desiderato",
+            "Utilizzato per la pulizia dei metalli, la lavorazione dei tessuti, il lavaggio di piatti, attrezzature casearie, bottiglie, pavimenti e locomotive",
+            "Previene la reversione dei fosfati nei detergenti liquidi",
+            "Dà il miglior risultato per saponi liquidi e in pasta",
+            "Migliora la detergenza del detergente di tipo sapone"
+          ],
+          images: ["/13.webp", "/14.webp", "/15.webp"]
+        },
+        'automotive-repair': {
+          title: "RIPARAZIONE AUTOMOTIVE",
+          heroHeading: "Potenti soluzioni di sigillatura per veicoli",
+          description: "Kiran Italia Chemicals S.r.l fornisce prodotti chimici industriali alle industrie automobilistiche per l'applicazione su veicoli di ogni tipo e dimensione. Il silicato di sodio e potassio sono ampiamente utilizzati per le loro potenti proprietà nei lavori di riparazione.",
+          subHeading: "Applicazioni nella manutenzione automobilistica:",
+          contextText: "Considerata una soluzione 'verde' grazie alle fonti rinnovabili, i nostri silicati forniscono capacità di riparazione critiche:",
+          benefits: [
+            "Sigilla le perdite nelle guarnizioni della testata: agisce come un potente sigillante a 93°C (non si scioglie sotto gli 815°C)",
+            "Protegge le guarnizioni: versato nei radiatori per circolare e utilizzare le proprietà di resistenza al calore",
+            "Azione rapida: l'applicazione arresta il vapore dall'acqua del radiatore nello scarico in pochi minuti",
+            "Aiuto per la disattivazione del motore: agisce come un potente sostituto dell'olio motore in specifici processi di disattivazione",
+            "Rispettoso dell'ambiente: costo ambientale minimo rispetto ai sigillanti sintetici"
+          ],
+          images: ["/28.jpg", "/29.jpg", "/30.jpg"]
+        },
+        'food-industry': {
+          title: "INDUSTRIA ALIMENTARE",
+          heroHeading: "Prodotti chimici per uso alimentare secondo le linee guida internazionali",
+          description: "Presso Kiran Italia Chemicals S.r.l offriamo prodotti chimici che seguono le linee guida internazionali per la sicurezza alimentare. I principali prodotti chimici che offriamo per l'industria alimentare sono la silice precipitata e il metasilicato di sodio. Abbiamo l'approvazione del CIR con limiti di concentrazione e l'approvazione della FDA come additivo alimentare con classificazione GRAS (Generally Recognized as Safe).",
+          subHeading: "Il metasilicato di sodio viene utilizzato nelle seguenti applicazioni:",
+          contextText: "",
+          benefits: [
+            "Conserva le uova senza elettricità fino a 6 mesi tenendo fuori i batteri nocivi",
+            "È un ingrediente primario nel confezionamento essiccante di alimenti e altri articoli degradabili per la protezione dall'umidità",
+            "Protegge certi alimenti dall'essere permeabili assorbendo l'umidità dell'aria",
+            "Agisce come flocculante per certi vini e birre, rendendoli più piacevoli da bere attraverso la chiarificazione",
+            "È un ausilio alla precipitazione per particelle colloidali nelle bevande, facilitando la rimozione delle particelle",
+            "**La silice precipitata viene utilizzata nelle seguenti applicazioni:**",
+            "Viene utilizzata come agente anti-agglomerante per sale commestibile, cipolla, aglio in polvere e altri prodotti alimentari consentiti in tramogge, trasportatori, essiccatori a spruzzo e altri macchinari affini",
+            "Aumenta l'efficienza di lavorazione attraverso una miscelazione più fluida degli ingredienti",
+            "Migliora la consistenza del prodotto e consente il dosaggio automatizzato di estratti di frutta e verdura, nutrienti, spezie e conservanti",
+            "Facilita più opzioni di spedizione con varie temperature e condizioni ambientali"
+          ],
+          images: ["/31.jpg", "/32.jpg", "/33.jpg"]
+        },
+        'water-treatment': {
+          title: "TRATTAMENTO ACQUE",
+          heroHeading: "Efficacia provata per acque potabili e industriali",
+          description: "Presso Kiran Italia Chemicals S.r.l protuciamo Silicato di Sodio e Silicato di Potassio che hanno dimostrato la massima efficacia per una serie di fattori nel trattamento delle acque potabili e industriali. Tra questi figurano:",
+          subHeading: "",
+          contextText: "",
+          benefits: [
+            "Come flocculante per il trattamento delle acque grezze e reflue per aumentare le dimensioni e il legame delle molecole più pesanti",
+            "Per formare un film che previene la corrosione dei metalli nelle condutture idriche",
+            "Per ridurre e controllare la tossicità di piombo e rame nel loro trattamento",
+            "Per migliorare il gusto e stabilizzare la presenza di ferro e magnesio nell'acqua di pozzo prima dell'aerazione",
+            "Come legante per ridurre la porosità e il tempo di presa nella solidificazione e stabilizzazione",
+            "Come efficiente ausilio alla coagulazione se usato con solfato di alluminio nel normale processo di purificazione"
+          ],
+          images: ["/34.jpg", "/35.jpg", "/36.jpg"]
+        },
+        'foundries': {
+          title: "FONDERIE",
+          heroHeading: "Agenti chimici avanzati per il trattamento dei metalli",
+          description: "Kiran Italia Chemicals S.r.l produce e fornisce agenti chimici primari per le fonderie a livello globale. I nostri prodotti chimici sono utilizzati per una vasta gamma di applicazioni nel trattamento dei metalli e nello stampaggio.",
+          subHeading: "Applicazioni di liquidi e grumi:",
+          contextText: "Silicati specializzati per il legame dell'anima e la finitura superficiale:",
+          benefits: [
+            "Legante di sabbia per anime economico per lo stampaggio di fusioni in acciaio e non ferrose",
+            "Riparazione marmitte: utilizzato con silicato di magnesio per ridurre il suono nei motori a combustione interna",
+            "Pasta per raccordi: si dissolve con silicato di magnesio per formare una pasta densa ed efficace",
+            "Finitura superficiale: la silice precipitata agisce come agente opacizzante e addensante",
+            "Satinatura: dona una finitura professionale e riduce la lucentezza sui mobili in metallo"
+          ],
+          images: ["/37.jpg", "/38.jpg", "/39.jpg"]
+        },
+        'petroleum-oil-drilling': {
+          title: "PETROLIO E PERFORAZIONI",
+          heroHeading: "Applicazioni nei campi petroliferi rispettose dell'ambiente",
+          description: "Presso Kiran Italia Chemicals S.r.l offriamo silicato di sodio e silicato di potassio per applicazioni convenienti in vari campi petroliferi e fluidi di perforazione. Offriamo prodotti chimici ecologici che facilitano migliori risultati in termini di conformità, bonifica e cementazione. L'applicazione di silicati di sodio e potassio include ampiamente:",
+          subHeading: "",
+          contextText: "",
+          benefits: [
+            "Controllo dei colloidi nella formazione geologica",
+            "Nelle operazioni di fango di perforazione",
+            "Come efficace agente chimico per prevenire la corrosione",
+            "Come emulsionante di abbattimento nelle operazioni di perforazione"
+          ],
+          images: ["/40.jpg", "/41.png", "/42.jpg"]
+        },
+        'concrete-general': {
+          title: "CEMENTO E GENERALE",
+          heroHeading: "Trattamento altamente efficace per muratura e cemento",
+          description: "Kiran Italia Chemicals S.r.l offre trattamenti chimici altamente efficaci ed efficienti per il cemento e il trattamento generale della muratura. I nostri prodotti sono utilizzati ampiamente in varie fasi della produzione e applicazione del cemento e nei lavori di muratura generale.",
+          subHeading: "I prodotti chimici che forniamo per il trattamento del cemento e della muratura generale sono:",
+          contextText: "",
+          benefits: [
+            "**Metasilicato di Sodio**",
+            "Produzione di cementi speciali per l'industria della perforazione",
+            "Per l'aggiunta in miscele di cemento a secco per accelerare la presa",
+            "**Silicato di Sodio e Silicato di Potassio**",
+            "Come agente stagionante, viene applicato sulla superficie di uno strato fresco di cemento per estenderne la durata",
+            "Per trattare il cemento dopo che è completamente asciutto o indurito per una migliore resistenza all'acqua e longevità",
+            "Sigillatura chimica dell'indurimento del cemento contro grasso e polvere",
+            "Per la resistenza agli acidi",
+            "Riduce significativamente la porosità nella maggior parte dei prodotti in muratura rendendoli molto più resistenti all'usura e idrorepellenti",
+            "Utilizzato come attivatore alcalino nel cemento e nel calcestruzzo geopolimerico",
+            "Applicare un sottile strato sulla superficie dell'intonaco non verniciato o del cemento come idrorepellente",
+            "Per trattare vecchie superfici in cemento per fornire una superficie più dura",
+            "Agisce come penetrante nel cemento e reagisce con la calce libera residua per ridurre la porosità"
+          ],
+          images: ["/43.jpg", "/44.jpg", "/45.jpg"]
+        },
+        'chemical-injection': {
+          title: "INIEZIONE CHIMICA",
+          heroHeading: "Applicazione di precisione per la sigillatura del suolo e strutturale",
+          description: "Kiran Italia Chemicals S.r.l fornisce iniezioni chimiche dove è richiesta l'applicazione diretta in un'area profonda con un contatto minimo o nullo in altre aree. Forniamo i prodotti chimici in confezioni appropriate, in forma liquida o in grumi, in base all'applicazione e alla composizione.",
+          subHeading: "Forniamo principalmente Silicato di Sodio e Silicato di Potassio per iniezioni chimiche, e sono popolarmente utilizzati dai clienti per le seguenti applicazioni:",
+          contextText: "",
+          benefits: [
+            "Per iniezione chimica o solidificazione del sottosuolo",
+            "Per la sigillatura di pori con bassa resistenza",
+            "Nel \"Processo Joosten\" per formare un gel insolubile",
+            "Dove le formazioni sotterranee devono essere abbastanza forti da sopportare il carico, come muretti o fondamenta",
+            "Dove i pori sotterranei permeabili all'acqua consentono l'allagamento di miniere, pozzi e tunnel",
+            "Per prevenire la perdita d'acqua nelle dighe",
+            "Per sigillare i pori nel lavoro di cemento o mattoni che si trovano in fogne o costruzioni sotterranee",
+            "Per rivestire i tubi di fognatura per ridurre il deposito sulle pareti interne"
+          ],
+          images: ["/46.jpg", "/47.jpg", "/48.jpg"]
+        },
+        'metals': {
+          title: "METALLI",
+          heroHeading: "Composti di silicato per riparazione e finitura dei metalli",
+          description: "Il silicato di sodio viene utilizzato, insieme al silicato di magnesio, nella riparazione delle marmitte e nella pasta per raccordi. Quando sciolti in acqua, sia il silicato di sodio che il silicato di magnesio formano una pasta densa e facile da applicare.",
+          subHeading: "",
+          contextText: "I composti di silicato che rimangono hanno proprietà simili al vetro, rendendo una riparazione temporanea e fragile.",
+          benefits: [],
+          images: ["/49.jpg", "/50.jpg"]
+        },
+        'ceramics-refractory': {
+          title: "CERAMICA E REFRATTARI",
+          heroHeading: "Ingredienti chiave per ceramiche industriali e decorative",
+          description: "Kiran Italia Chemicals S.r.l fornisce silicato di sodio e silicato di potassio come ingredienti chiave per la produzione di ceramiche, sia per scopi industriali che per uso decorativo. La sabbia di alta qualità da noi utilizzata per la produzione dei silicati e la miscelazione con prodotti chimici di alta qualità ci consente di fornire qualità garantita ai nostri clienti.",
+          subHeading: "Il silicato di sodio e il silicato di potassio prodotti dalla nostra azienda sono utilizzati dai clienti nel seguente modo:",
+          contextText: "",
+          benefits: [
+            "Come agente legante nei cementi plastici refrattari per rivestimenti duri",
+            "Come deflocculante nella fusione ceramica",
+            "Come deflocculante per rendere la pasta più fluida e per la riduzione dell'acqua",
+            "Come deflocculante nell'argilla raffinata per migliorare la fluidità",
+            "Come agente legante economico nei cementi resistenti agli acidi",
+            "Formazione di uno strato protettivo ignifugo nei colaggi in barbottina",
+            "Come strato isolante termico",
+            "Fornitura di un rivestimento protettivo per l'antico e per la finitura antica",
+            "Come deflocculante per barbottina d'argilla in piccoli dosaggi per ridurre il ritiro",
+            "La vermiculite e la perlite sono completamente ininfiammabili se legate con i silicati"
+          ],
+          images: ["/51.jpg", "/52.jpg", "/53.jpg"]
+        },
+        'mining-mineral-processing': {
+          title: "MINIERE E LAVORAZIONE MINERALI",
+          heroHeading: "Agenti di arricchimento per il recupero di minerali ad alto rendimento",
+          description: "Presso Kiran Italia Chemicals S.r.l offriamo Silicato di Sodio e Silicato di Potassio per l'arricchimento di minerali e metalli. I silicati svolgono due funzioni primarie nel processo di arricchimento dei minerali:",
+          subHeading: "",
+          contextText: "",
+          benefits: [
+            "Viene utilizzato nella flottazione per schiuma per disperdere le fanghiglie.",
+            "Agisce come depressore per i minerali della ganga silicea e nei processi di arricchimento non metallici tra cui rame, stagno, tungsteno, fluorite e fosfato",
+            "Come agente di lavaggio schiarente nella produzione di biossido di titanio",
+            "**Il loro vantaggio nell'arricchimento dei minerali è:**",
+            "Viene utilizzato per la flottazione per schiuma per disperdere le fanghiglie",
+            "Agisce come depressore per i minerali della ganga silicea e nei processi di arricchimento non metallici per rame, stagno, tungsteno, fluorite e fosfato",
+            "Viene utilizzato come agente di lavaggio schiarente nel processo di produzione del biossido di titanio"
+          ],
+          images: ["/54.jpg", "/55.jpg", "/56.jpg"]
+        },
+        'cosmetics': {
+          title: "COSMETICI",
+          heroHeading: "Agenti chimici per cosmetici",
+          description: "Kiran Italia Chemicals S.r.l fornisce prodotti chimici industriali per le aziende produttrici di cosmetici. I nostri prodotti chimici sono miscelati con cura per garantire che i cosmetici utilizzati in aree sensibili non causino danni o complicazioni avverse.",
+          subHeading: "Silicato di Sodio e Silicato di Potassio",
+          contextText: "Le applicazioni includono:",
+          benefits: [
+            "Formule per la cura della pelle e la colorazione dei capelli, creme da barba, trucco per gli occhi e prodotti per l'igiene orale",
+            "**Silice precipitata**",
+            "Dentifricio e polvere dentifricia"
+          ],
+          images: ["/16.jpg", "/17.jpg", "/18.jpg"]
+        },
+        'agriculture': {
+          title: "AGRICOLTURA",
+          heroHeading: "Fertilizzanti chimici e nutrienti",
+          description: "Per l'industria agricola, forniamo fertilizzanti chimici di alta qualità che hanno un effetto misurato sui prodotti agricoli, in modo che assorbano le proprietà rinforzanti senza effetti avversi sui nutrienti.",
+          subHeading: "I prodotti chimici che forniamo per la produzione di fertilizzanti sono:",
+          contextText: "Silicato di Sodio, Silicato di Potassio e Silice precipitata",
+          benefits: [
+            "**I prodotti chimici sono utilizzati per:**",
+            "Come veicolo durante l'irrorazione di biopesticidi",
+            "Arricchimento di potassio nel suolo",
+            "Componente per l'alimentazione animale",
+            "Diluenti per prodotti chimici agricoli",
+            "*I nostri prodotti chimici si integrano con i fertilizzanti e diffondono i nutrienti in tutta la pianta, senza influire negativamente sulla qualità del suolo o compromettere il grado del prodotto agricolo.*"
+          ],
+          images: ["/19.jpg", "/20.jpg", "/21.jpg"]
+        },
+        'timber-treatment': {
+          title: "TRATTAMENTO LEGNAME",
+          heroHeading: "Silicato di Sodio per il trattamento del legname",
+          description: "Kiran Italia Chemicals S.r.l fornisce silicato di sodio per il trattamento del legname per clienti in vari settori. La nostra soluzione chimica è offerta in forma liquida e in grumi a seconda del grado di intensità chimica richiesto e delle esigenze di confezionamento dei nostri clienti.",
+          subHeading: "I nostri clienti utilizzano generalmente il silicato di sodio nel trattamento del legname per:",
+          contextText: "",
+          benefits: [
+            "Proteggere il legno dagli insetti",
+            "Nella stagionatura del legname per conferire proprietà ritardanti di fiamma",
+            "Per trattamenti non tossici in quanto il prodotto chimico deriva da fonti rinnovabili"
+          ],
+          images: ["/22.jpg", "/23.jpg", "/24.jpg"]
+        },
+        'adhesives': {
+          title: "ADESIVI",
+          heroHeading: "Adesivi ad alta propensione al legame",
+          description: "Gli adesivi prodotti utilizzando agenti chimici prodotti da noi sono noti per la loro alta propensione al legame. I prodotti chimici che produciamo e forniamo per la produzione di adesivi sono:",
+          subHeading: "Silicato di sodio e potassio",
+          contextText: "Applicazioni industriali e vantaggi:",
+          benefits: [
+            "Nell'industria delle munizioni, viene utilizzato per sigillare la carta nitrata combustibile per formare una cartuccia di carta conica per contenere polvere nera. Viene utilizzato per sigillare la palla di piombo o il proiettile conico con l'estremità aperta della cartuccia di carta",
+            "È l'unico adesivo inorganico che offre alta resistenza a un prezzo economico e fa presa rapidamente",
+            "Viene utilizzato nella produzione di tubi di carta, pannelli multistrato e fusti in fibra",
+            "Viene utilizzato come sigillante per giunti e crepe del sistema di scarico per la riparazione di marmitte, tubi di scappamento e risuonatori",
+            "Viene utilizzato come adesivo per alte temperature in giunti critici",
+            "**Silice precipitata**",
+            "Viene utilizzata per migliorare la forza del legame e come agente addensante",
+            "Le sue particelle di silice dispersa induriscono velocemente all'interno degli adesivi liquidi a contatto con una superficie solida",
+            "Previene la resistenza al calore dei metalli caldi",
+            "Migliora l'adesione della gomma nei composti per tessuti e rivestimenti per fili, facilitando una lavorazione facile e rapida"
+          ],
+          images: ["/25.jpg", "/26.jpg", "/27.jpg"]
+        }
+      },
     },
   },
 };

@@ -269,15 +269,15 @@ const industryData: Record<string, any> = {
 
 export default function IndustryDetailPage() {
   const { slug } = useParams();
-  const { language } = useLanguage();
+  const { t } = useLanguage();
   
-  const data = industryData[slug as string];
+  const data = t.industryDetail.items[slug as string];
 
   if (!data) {
     return (
       <div className="pt-40 pb-24 text-center">
-        <h1 className="text-2xl font-bold">Industry details coming soon...</h1>
-        <Link href="/industries-we-serve" className="text-primary hover:underline mt-4 inline-block">Back to Industries</Link>
+        <h1 className="text-2xl font-bold">{t.industryDetail.comingSoon}</h1>
+        <Link href="/industries-we-serve" className="text-primary hover:underline mt-4 inline-block">{t.industryDetail.backToIndustries}</Link>
       </div>
     );
   }
@@ -298,9 +298,9 @@ export default function IndustryDetailPage() {
 
         {/* Breadcrumbs */}
         <nav className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-widest text-gray-400 mb-10">
-          <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+          <Link href="/" className="hover:text-primary transition-colors">{t.common.home}</Link>
           <span className="text-gray-300">»</span>
-          <Link href="/industries-we-serve" className="hover:text-primary transition-colors">Industries</Link>
+          <Link href="/industries-we-serve" className="hover:text-primary transition-colors">{t.navbar.industries}</Link>
           <span className="text-gray-300">»</span>
           <span className="text-gray-500">{data.title}</span>
         </nav>
