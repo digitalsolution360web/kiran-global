@@ -6,8 +6,8 @@ import Link from 'next/link';
 
 export default function DashboardHome() {
   const [stats, setStats] = useState({
-  categories: 0,
-  products: 0,
+  // categories: 0,
+  // products: 0,
   enquiries: 0
 });
   const [loading, setLoading] = useState(true);
