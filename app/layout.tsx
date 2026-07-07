@@ -1,9 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import WhatsAppButton from "./components/WhatsAppButton";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -20,7 +18,7 @@ export const metadata: Metadata = {
   description: "Leading manufacturer of sodium and potassium silicate solutions for industrial applications.",
 };
 
-import { LanguageProvider } from "./context/LanguageContext";
+
 
 export default function RootLayout({
   children,
@@ -33,14 +31,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
-        <LanguageProvider>
-          <Navbar />
-          <div className="flex-grow">
-            {children}
-          </div>
-          <Footer />
-          <WhatsAppButton />
-        </LanguageProvider>
+        {children}
       </body>
     </html>
   );

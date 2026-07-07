@@ -1,0 +1,218 @@
+import { NextRequest, NextResponse } from 'next/server';
+import pool from '@/lib/db';
+import nodemailer from 'nodemailer';
+
+export async function GET(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+
+    const page = Number(searchParams.get('page') || 1);
+    const limit = 10;
+    const offset = (page - 1) * limit;
+
+    // Get enquiries
+    const [rows]: any = await pool.query(
+      `
+      SELECT *
+      FROM enquiries
+      ORDER BY id DESC
+      LIMIT ? OFFSET ?
+      `,
+      [limit, offset]
+    );
+
+    // Get total count
+    const [countRows]: any = await pool.query(
+      `SELECT COUNT(*) as total FROM enquiries`
+    );
+
+    const total = countRows[0].total;
+    const totalPages = Math.ceil(total / limit);
+
+    return NextResponse.json({
+      success: true,
+      data: rows,
+      total: total,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalRecords: total,
+        limit,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'Failed to fetch enquiries',
+      },
+      { status: 500 }
+    );
+  }
+}
+
+export async function POST(req: NextRequest) {
+  try {
+    const body = await req.json();
+
+    const {
+      name,
+      company,
+      phone,
+      email,
+      product_type,
+      qty,
+      message,
+    } = body;
+
+    // Validation
+    if (!name?.trim()) {
+      return NextResponse.json(
+        { success: false, message: 'Name is required' },
+        { status: 400 }
+      );
+    }
+
+    if (!phone?.trim()) {
+      return NextResponse.json(
+        { success: false, message: 'Phone number is required' },
+        { status: 400 }
+      );
+    }
+
+    if (!/^[6-9]\d{9}$/.test(phone)) {
+      return NextResponse.json(
+        { success: false, message: 'Invalid phone number' },
+        { status: 400 }
+      );
+    }
+
+    let insertId = null;
+    try {
+      const [result]: any = await pool.query(
+        `
+        INSERT INTO enquiries (
+          name,
+          company,
+          phone,
+          email,
+          product_type,
+          qty,
+          message,
+          created_at
+        )
+        VALUES (?, ?, ?, ?, ?, ?, ?, NOW())
+        `,
+        [
+          name,
+          company || null,
+          phone,
+          email || null,
+          product_type || null,
+          qty || null,
+          message || null,
+        ]
+      );
+      insertId = result.insertId;
+    } catch (dbError) {
+      console.error('Database Insertion Error (Lead will still be emailed):', dbError);
+      // We continue to email logic even if DB fails
+    }
+
+    // Email Notification Logic
+    try {
+      const transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'digitalsolution3600@gmail.com',
+          pass: 'fikbdzqnvfgxzmdk',
+        },
+      });
+
+      const mailOptions = {
+        from: '"Lead Notification" <digitalsolution3600@gmail.com>',
+        to: 'midfloraherbal@gmail.com, info@midfloraherbal.com, digitalsolution3600@gmail.com',
+        subject: `New Lead: ${product_type || 'General Inquiry'} - ${name}`,
+        html: `
+          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto; padding: 20px; border: 1px solid #eee; border-radius: 10px;">
+            <h2 style="color: #333; text-align: center;">New Lead Received</h2>
+            <hr style="border: 0; border-top: 1px solid #eee;">
+            <table style="width: 100%; border-collapse: collapse;">
+              <tr><td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Name:</td><td style="padding: 10px; border-bottom: 1px solid #eee;">${name}</td></tr>
+              <tr><td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Phone:</td><td style="padding: 10px; border-bottom: 1px solid #eee;">${phone}</td></tr>
+              <tr><td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Email:</td><td style="padding: 10px; border-bottom: 1px solid #eee;">${email || 'N/A'}</td></tr>
+              <tr><td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Company:</td><td style="padding: 10px; border-bottom: 1px solid #eee;">${company || 'N/A'}</td></tr>
+              <tr><td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Product:</td><td style="padding: 10px; border-bottom: 1px solid #eee;">${product_type || 'N/A'}</td></tr>
+              <tr><td style="padding: 10px; font-weight: bold; border-bottom: 1px solid #eee;">Quantity:</td><td style="padding: 10px; border-bottom: 1px solid #eee;">${qty || 'N/A'}</td></tr>
+              <tr><td style="padding: 10px; font-weight: bold;">Message:</td><td style="padding: 10px;">${message || 'N/A'}</td></tr>
+            </table>
+            <div style="margin-top: 20px; text-align: center; color: #888; font-size: 12px;">
+              Generated by Website CRM System
+            </div>
+          </div>
+        `,
+      };
+
+      await transporter.sendMail(mailOptions);
+      console.log('Lead notification email sent successfully');
+    } catch (mailError) {
+      console.error('Error sending lead mail:', mailError);
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: 'Inquiry submitted successfully',
+      id: insertId,
+    });
+  } catch (error) {
+    console.error('Contact Form Error:', error);
+
+    return NextResponse.json(
+      {
+        success: false,
+        message: 'Internal Server Error',
+      },
+      { status: 500 }
+    );
+  }
+}
+export async function DELETE(req: NextRequest) {
+  try {
+    const { searchParams } = new URL(req.url);
+
+    const id = searchParams.get('id');
+
+    if (!id) {
+      return NextResponse.json(
+        { success: false, message: 'ID is required' },
+        { status: 400 }
+      );
+    }
+
+    const [result]: any = await pool.query(
+      'DELETE FROM enquiries WHERE id = ?',
+      [id]
+    );
+
+    if (result.affectedRows === 0) {
+      return NextResponse.json(
+        { success: false, message: 'Enquiry not found' },
+        { status: 404 }
+      );
+    }
+
+    return NextResponse.json({
+      success: true,
+      message: 'Enquiry deleted successfully',
+    });
+  } catch (error) {
+    console.error(error);
+
+    return NextResponse.json(
+      { success: false, message: 'Failed to delete enquiry' },
+      { status: 500 }
+    );
+  }
+}
