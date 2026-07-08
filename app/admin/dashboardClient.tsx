@@ -7,7 +7,7 @@ import Link from 'next/link';
 export default function DashboardHome() {
   const [stats, setStats] = useState({
   // categories: 0,
-  // products: 0,
+  blogs: 0,
   enquiries: 0
 });
   const [loading, setLoading] = useState(true);
@@ -21,20 +21,20 @@ export default function DashboardHome() {
   const fetchStats = async () => {
     try {
       setLoading(true);
-          const [enquiriesRes] = await Promise.all([
+          const [blogsRes, enquiriesRes] = await Promise.all([
       // fetch('/api/categories?limit=1'),
-      // fetch('/api/products?limit=1'),
+      fetch('/api/blogs?limit=1'),
       fetch('/api/enquiries?limit=1')
     ]);
 
       
       //  const categories = await categoriesRes.json();
-      //  const products = await productsRes.json();
+       const blogs = await blogsRes.json();
        const enquiries = await enquiriesRes.json();
 
     setStats({
       // categories: categories.total || 0,
-      // products: products.total || 0,
+      blogs: blogs.total || 0,
       enquiries: enquiries.total || 0
     });
 
@@ -50,7 +50,7 @@ export default function DashboardHome() {
   const statCards = [
   {
     title: 'Total Blogs',
-    value: 0,
+    value: stats.blogs,
     color: 'var(--accent-primary)',
     bg: 'rgba(99,102,241,0.1)',
     icon: (
@@ -185,8 +185,8 @@ export default function DashboardHome() {
         <path d="M3 12l9 4 9-4" />
       </svg>
               </div>
-              <h3 className="text-base md:text-lg font-semibold text-[var(--text-primary)] mb-1">Manage Categories</h3>
-              <p className="text-[var(--text-secondary)] text-xs md:text-sm">Create, edit, activate or deactivate product categories.</p>
+              <h3 className="text-base md:text-lg font-semibold text-[var(--text-primary)] mb-1">Manage Blogs</h3>
+              <p className="text-[var(--text-secondary)] text-xs md:text-sm">Create, edit, activate or deactivate blog posts.</p>
             </div>
           </Link>
          

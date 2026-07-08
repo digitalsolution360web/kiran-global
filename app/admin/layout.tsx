@@ -19,18 +19,17 @@ const navItems = [
     ),
   },
 
-  // CATEGORY
-  // {
-  //   href: '/admin/categories',
-  //   label: 'Categories',
-  //   icon: (
-  //     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-  //       <path d="M3 7l9-4 9 4-9 4-9-4z" />
-  //       <path d="M3 17l9 4 9-4" />
-  //       <path d="M3 12l9 4 9-4" />
-  //     </svg>
-  //   ),
-  // },
+  {
+    href: '/admin/blogs',
+    label: 'Blogs',
+    icon: (
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M3 7l9-4 9 4-9 4-9-4z" />
+        <path d="M3 17l9 4 9-4" />
+        <path d="M3 12l9 4 9-4" />
+      </svg>
+    ),
+  },
 
   
   {

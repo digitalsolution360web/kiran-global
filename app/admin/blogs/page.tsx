@@ -9,52 +9,35 @@ const ReactQuill = dynamic(
   { ssr: false }
 );
 
-interface Category {
+interface Blog {
   id: number;
-  name: string;
-}
-
-interface Product {
-  id: number;
-  category_id: number;
-  category_name: string;
-  name: string;
-  h1_title: string;
+  h1: string;
   slug: string;
   image: string;
-  moq: number;
-  packaging_size: string;
-  packaging_type: string;
-  customized_formulations: number;
-  private_labeling: number;
-  turnkey_solutions: number;
-  benefits: string;
+  excerpt: string;
   description: string;
-  ingredients: string;
   meta_title: string;
   meta_description: string;
   status: string;
   created_at: string;
   updated_at: string;
 }
-interface FAQ {
-  id: number;
-  product_id: number;
-  question: string;
-  answer: string;
-  serial_no: number;
-  created_at: string;
-  updated_at: string;
-}
-export default function ProductsPage() {
-  const [products, setProducts] = useState<Product[]>([]);
-  const [categories, setCategories] = useState<Category[]>([]);
-  const [ingredients, setIngredients] = useState<Array<{slug: string, name: string}>>([]);
+// interface FAQ {
+//   id: number;
+//   product_id: number;
+//   question: string;
+//   answer: string;
+//   serial_no: number;
+//   created_at: string;
+//   updated_at: string;
+// }
+export default function BlogsPage() {
+  const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   const [showHtmlEditor, setShowHtmlEditor] = useState(false);
-const [htmlContent, setHtmlContent] = useState('');
+  const [htmlContent, setHtmlContent] = useState('');
 
   const [page, setPage] = useState(1);
   const [total, setTotal] = useState(0);
@@ -63,56 +46,43 @@ const [htmlContent, setHtmlContent] = useState('');
 
   const [showModal, setShowModal] = useState(false);
 
-  const [editingProduct, setEditingProduct] = useState<Product | null>(null);
-  const [showFAQModal, setShowFAQModal] = useState(false);
-  const [editingFAQ, setEditingFAQ] = useState<FAQ | null>(null);
-  const [faqs, setFaqs] = useState<FAQ[]>([]);
-  const [loadingFAQs, setLoadingFAQs] = useState(false);
+  const [editingBlog, setEditingBlog] = useState<Blog | null>(null);
+  // const [showFAQModal, setShowFAQModal] = useState(false);
+  // const [editingFAQ, setEditingFAQ] = useState<FAQ | null>(null);
+  // const [faqs, setFaqs] = useState<FAQ[]>([]);
+  // const [loadingFAQs, setLoadingFAQs] = useState(false);
 
   const [formData, setFormData] = useState({
-    category_id: '',
-    name: '',
+    h1: '',
     slug: '',
     image: '',
-    moq: '',
-    packaging_size: '',
-    packaging_type: '',
-    customized_formulations: 0,
-    private_labeling: 0,
-    turnkey_solutions: 0,
-    benefits: '',
+    excerpt: '',
     description: '',
     meta_title: '',
     meta_description: '',
-    status: 'active',
-    h1_title: '',
-    ingredients: [] as string[],
+    status: '1',
   });
-  const [faqFormData, setFaqFormData] = useState({
-    product_id: '',
-    question: '',
-    answer: '',
-    serial_no: 0,
-  });
+  // const [faqFormData, setFaqFormData] = useState({
+  //   product_id: '',
+  //   question: '',
+  //   answer: '',
+  //   serial_no: 0,
+  // });
 
   const limit = 10;
 
   const totalPages = Math.ceil(total / limit);
 
-  const staticIngredients = [
-  { slug: 'aloe-vera', name: 'Aloe Vera' },
-  { slug: 'tea-tree-oil', name: 'Tea Tree Oil' },
-  { slug: 'peppermint', name: 'Peppermint' },
-  { slug: 'chamomile', name: 'Chamomile' },
-];
+//   const staticIngredients = [
+//   { slug: 'aloe-vera', name: 'Aloe Vera' },
+//   { slug: 'tea-tree-oil', name: 'Tea Tree Oil' },
+//   { slug: 'peppermint', name: 'Peppermint' },
+//   { slug: 'chamomile', name: 'Chamomile' },
+// ];
 
   useEffect(() => {
-    fetchProducts();
+    fetchBlogs();
   }, [page, search]);
-
-  useEffect(() => {
-    fetchCategories();
-  }, []);
 
   const [modules, setModules] = useState<any>({
   toolbar: [
@@ -125,17 +95,17 @@ const [htmlContent, setHtmlContent] = useState('');
   ]
 });
 
-  const fetchProducts = async () => {
+  const fetchBlogs = async () => {
     setLoading(true);
 
     try {
       const res = await fetch(
-        `/api/products?page=${page}&limit=${limit}&search=${search}`
+        `/api/blogs?page=${page}&limit=${limit}&search=${search}`
       );
 
       const data = await res.json();
 
-      setProducts(data.data || []);
+      setBlogs(data.data || []);
       setTotal(data.total || 0);
 
       setError(false);
@@ -147,74 +117,44 @@ const [htmlContent, setHtmlContent] = useState('');
     }
   };
 
-  const fetchCategories = async () => {
-    try {
-      const res = await fetch('/api/categories?page=1&limit=1000');
+  //  const fetchFAQs = async (productId: number) => {
+  //   setLoadingFAQs(true);
+  //   try {
+  //     const res = await fetch(`/api/product-faqs?productId=${productId}`);
+  //     const data = await res.json();
+  //     setFaqs(data.data || []);
+  //   } catch (err) {
+  //     console.error('Error fetching FAQs:', err);
+  //   } finally {
+  //     setLoadingFAQs(false);
+  //   }
+  // };
 
-      const data = await res.json();
-
-      setCategories(data.data || []);
-    } catch (err) {
-      console.error(err);
-    }
-  };
-   const fetchFAQs = async (productId: number) => {
-    setLoadingFAQs(true);
-    try {
-      const res = await fetch(`/api/product-faqs?productId=${productId}`);
-      const data = await res.json();
-      setFaqs(data.data || []);
-    } catch (err) {
-      console.error('Error fetching FAQs:', err);
-    } finally {
-      setLoadingFAQs(false);
-    }
-  };
-
-  const openModal = (product?: Product) => {
-    if (product) {
-      setEditingProduct(product);
-      const ingredientArray = product.ingredients ? product.ingredients.split(',') : [];
+  const openModal = (blog?: Blog) => {
+    if (blog) {
+      setEditingBlog(blog);
       setFormData({
-        category_id: String(product.category_id),
-        name: product.name || '',
-        slug: product.slug || '',
-        image: product.image || '',
-        moq: String(product.moq || ''),
-        packaging_size: product.packaging_size || '',
-        packaging_type: product.packaging_type || '',
-        customized_formulations: product.customized_formulations,
-        private_labeling: product.private_labeling,
-        turnkey_solutions: product.turnkey_solutions,
-        benefits: product.benefits || '',
-        description: product.description || '',
-        meta_title: product.meta_title || '',
-        meta_description: product.meta_description || '',
-        status: product.status,
-        h1_title: product.h1_title || '',
-        ingredients: ingredientArray,
+        h1: String(blog.h1),
+        slug: blog.slug || '',
+        image: blog.image || '',
+        excerpt: blog.excerpt || '',
+        description: blog.description || '',
+        meta_title: blog.meta_title || '',
+        meta_description: blog.meta_description || '',
+        status: String(blog.status),
       });
     } else {
-      setEditingProduct(null);
+      setEditingBlog(null);
 
       setFormData({
-        category_id: '',
-        name: '',
+        h1: '',
         slug: '',
         image: '',
-        moq: '',
-        packaging_size: '',
-        packaging_type: '',
-        customized_formulations: 0,
-        private_labeling: 0,
-        h1_title: '',
-        turnkey_solutions: 0,
-        benefits: '',
+        excerpt: '',
         description: '',
         meta_title: '',
         meta_description: '',
-        status: 'active',
-        ingredients: [],
+        status: '1',
       });
     }
 
@@ -223,60 +163,59 @@ const [htmlContent, setHtmlContent] = useState('');
 
   const closeModal = () => {
   setShowModal(false);
-  setEditingProduct(null);
-  setFaqs([]);
+  setEditingBlog(null);
+  // setFaqs([]);
   setShowHtmlEditor(false); // Add this
   setHtmlContent(''); // Add this
 };
 
-  const openFAQModal = (product: Product) => {
-    setEditingProduct(product);
-    fetchFAQs(product.id);
-    setFaqFormData({
-    ...faqFormData,
-    product_id: String(product.id),
-  });
-    setShowFAQModal(true);
-  };
+  // const openFAQModal = (product: Product) => {
+  //   setEditingProduct(product);
+  //   fetchFAQs(product.id);
+  //   setFaqFormData({
+  //   ...faqFormData,
+  //   product_id: String(product.id),
+  // });
+  //   setShowFAQModal(true);
+  // };
 
-  const closeFAQModal = () => {
-    setShowFAQModal(false);
-    setEditingFAQ(null);
-    setFaqs([]);
-    setFaqFormData({
-      product_id: '',
-      question: '',
-      answer: '',
-      serial_no: 0,
-    });
-  };
+  // const closeFAQModal = () => {
+  //   setShowFAQModal(false);
+  //   setEditingFAQ(null);
+  //   setFaqs([]);
+  //   setFaqFormData({
+  //     product_id: '',
+  //     question: '',
+  //     answer: '',
+  //     serial_no: 0,
+  //   });
+  // };
 
-  const openEditFAQ = (faq: FAQ) => {
-    setEditingFAQ(faq);
-    setFaqFormData({
-      product_id: String(faq.product_id),
-      question: faq.question,
-      answer: faq.answer,
-      serial_no: faq.serial_no,
-    });
-  };
+  // const openEditFAQ = (faq: FAQ) => {
+  //   setEditingFAQ(faq);
+  //   setFaqFormData({
+  //     product_id: String(faq.product_id),
+  //     question: faq.question,
+  //     answer: faq.answer,
+  //     serial_no: faq.serial_no,
+  //   });
+  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const method = editingProduct ? 'PUT' : 'POST';
+    const method = editingBlog ? 'PUT' : 'POST';
      const submitData = {
     ...formData,
-    ingredients: formData.ingredients.join(','), // Convert array to string
   };
-    const body = editingProduct
+    const body = editingBlog
       ? {
           ...submitData,
-          id: editingProduct.id,
+          id: editingBlog.id,
         }
       : submitData;
 
-    const res = await fetch('/api/products', {
+    const res = await fetch('/api/blogs', {
       method,
       headers: {
         'Content-Type': 'application/json',
@@ -285,65 +224,65 @@ const [htmlContent, setHtmlContent] = useState('');
     });
 
     if (res.ok) {
-      fetchProducts();
+      fetchBlogs();
       closeModal();
     }
   };
-  const handleFAQSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  // const handleFAQSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
 
-    const method = editingFAQ ? 'PUT' : 'POST';
-    const body = editingFAQ
-      ? {
-          ...faqFormData,
-          id: editingFAQ.id,
-        }
-      : faqFormData;
+  //   const method = editingFAQ ? 'PUT' : 'POST';
+  //   const body = editingFAQ
+  //     ? {
+  //         ...faqFormData,
+  //         id: editingFAQ.id,
+  //       }
+  //     : faqFormData;
 
-    const res = await fetch('/api/product-faqs', {
-      method,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    });
+  //   const res = await fetch('/api/product-faqs', {
+  //     method,
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //     },
+  //     body: JSON.stringify(body),
+  //   });
 
-    if (res.ok) {
-      if (editingProduct) {
-        fetchFAQs(editingProduct.id);
-      }
-      setEditingFAQ(null);
-      setFaqFormData({
-        product_id: faqFormData.product_id,
-        question: '',
-        answer: '',
-        serial_no: 0,
-      });
-    }
-  };
+  //   if (res.ok) {
+  //     if (editingProduct) {
+  //       fetchFAQs(editingProduct.id);
+  //     }
+  //     setEditingFAQ(null);
+  //     setFaqFormData({
+  //       product_id: faqFormData.product_id,
+  //       question: '',
+  //       answer: '',
+  //       serial_no: 0,
+  //     });
+  //   }
+  // };
 
-  const handleDeleteFAQ = async (id: number) => {
-    if (!confirm('Delete this FAQ?')) return;
+  // const handleDeleteFAQ = async (id: number) => {
+  //   if (!confirm('Delete this FAQ?')) return;
 
-    const res = await fetch(`/api/product-faqs?id=${id}`, {
-      method: 'DELETE',
-    });
+  //   const res = await fetch(`/api/product-faqs?id=${id}`, {
+  //     method: 'DELETE',
+  //   });
 
-    if (res.ok && editingProduct) {
-      fetchFAQs(editingProduct.id);
-    }
-  };
+  //   if (res.ok && editingProduct) {
+  //     fetchFAQs(editingProduct.id);
+  //   }
+  // };
 
 
   const handleDelete = async (id: number) => {
-    if (!confirm('Delete this product?')) return;
+    if (!confirm('Delete this blog?')) return;
 
-    const res = await fetch(`/api/products?id=${id}`, {
+    const res = await fetch(`/api/blogs?id=${id}`, {
       method: 'DELETE',
     });
 
     if (res.ok) {
-      fetchProducts();
+      fetchBlogs();
     }
   };
 
@@ -355,11 +294,11 @@ const [htmlContent, setHtmlContent] = useState('');
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6">
           <div>
             <h1 className="text-2xl md:text-3xl font-bold text-[var(--text-primary)] tracking-tight">
-              Products
+              Blogs
             </h1>
 
             <p className="text-[var(--text-secondary)] text-sm mt-1">
-              Manage all product inventory and catalog items.
+              Manage all blogs.
             </p>
           </div>
 
@@ -379,14 +318,14 @@ const [htmlContent, setHtmlContent] = useState('');
               <line x1="5" y1="12" x2="19" y2="12" />
             </svg>
 
-            Add Product
+            Add Blog
           </button>
         </div>
 
         {/* ERROR */}
         {error && (
           <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-xl text-red-400 text-xs">
-            Failed to fetch products.
+            Failed to fetch blogs.
           </div>
         )}
 
@@ -394,7 +333,7 @@ const [htmlContent, setHtmlContent] = useState('');
         <div className="mb-6 relative">
           <input
             type="text"
-            placeholder="Search products..."
+            placeholder="Search blogs..."
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
@@ -427,11 +366,7 @@ const [htmlContent, setHtmlContent] = useState('');
                 <tr className="bg-[var(--bg-primary)] text-left text-xs font-bold text-[var(--text-muted)] uppercase tracking-wider">
                   <th className="px-5 py-4">ID</th>
                   <th className="px-5 py-4">Image</th>
-                  <th className="px-5 py-4">Product</th>
-                  <th className="px-5 py-4">Category</th>
-                  <th className="px-5 py-4">MOQ</th>
-                  <th className="px-5 py-4">Packaging</th>
-                  <th className="px-5 py-4">Services</th>
+                  <th className="px-5 py-4">Title</th>
                   <th className="px-5 py-4">Status</th>
                   <th className="px-5 py-4 text-right">Actions</th>
                 </tr>
@@ -457,109 +392,52 @@ const [htmlContent, setHtmlContent] = useState('');
                       <td className="px-5 py-4">
                         <div className="h-4 w-20 skeleton" />
                       </td>
-                      <td className="px-5 py-4">
-                        <div className="h-4 w-24 skeleton" />
-                      </td>
-                      <td className="px-5 py-4">
-                        <div className="h-6 w-16 skeleton" />
-                      </td>
-                      <td className="px-5 py-4">
-                        <div className="h-8 w-20 skeleton ml-auto" />
-                      </td>
                     </tr>
                   ))
-                ) : products.length === 0 ? (
+                ) : blogs.length === 0 ? (
                   <tr>
                     <td
                       colSpan={8}
                       className="px-6 py-16 text-center text-[var(--text-secondary)]"
                     >
-                      No products found.
+                      No blogs found.
                     </td>
                   </tr>
                 ) : (
-                  products.map((product) => (
+                  blogs.map((blog) => (
                     <tr
-                      key={product.id}
+                      key={blog.id}
                       className="hover:bg-white/[0.02] transition-colors"
                     >
                       <td className="px-5 py-4 text-xs text-[var(--text-muted)]">
-                        #{product.id}
+                        #{blog.id}
                       </td>
                       <td className="px-5 py-4">
                         <img
-                          src={product.image || '/placeholder.png'}
-                          alt={product.name}
+                          src={blog.image || '/placeholder.png'}
                           className="w-12 h-12 rounded-lg object-cover border border-[var(--border-color)]"
                         />
                       </td>
 
-                      <td className="px-5 py-4">
-                        <div className="font-semibold text-[var(--text-primary)] text-sm">
-                          {product.name}
-                        </div>
-                        <div className="text-xs text-[var(--text-muted)] mt-1">
-                          {product.slug || 'No slug'}
-                        </div>
-                      </td>
 
                       <td className="px-5 py-4 text-sm text-[var(--text-secondary)]">
-                        {product.category_name}
+                         {blog.h1}
                       </td>
-
-                      <td className="px-5 py-4 text-sm text-[var(--text-secondary)]">
-                        {product.moq || 'N/A'}
-                      </td>
-
-                      <td className="px-5 py-4">
-                        <div className="text-xs text-[var(--text-secondary)]">
-                          <div>{product.packaging_size || 'N/A'}</div>
-                          <div className="text-[10px] text-[var(--text-muted)]">
-                            {product.packaging_type || 'No type'}
-                          </div>
-                        </div>
-                      </td>
-
-                      <td className="px-5 py-4">
-                        <div className="flex flex-wrap gap-1">
-                          {product.customized_formulations == 1 && (
-                            <span className="px-1.5 py-0.5 bg-purple-500/10 text-purple-400 rounded text-[9px] font-medium">
-                              Custom
-                            </span>
-                          )}
-                          {product.private_labeling == 1 && (
-                            <span className="px-1.5 py-0.5 bg-blue-500/10 text-blue-400 rounded text-[9px] font-medium">
-                              Private Label
-                            </span>
-                          )}
-                          {product.turnkey_solutions == 1 && (
-                            <span className="px-1.5 py-0.5 bg-emerald-500/10 text-emerald-400 rounded text-[9px] font-medium">
-                              Turnkey
-                            </span>
-                          )}
-                          {product.customized_formulations == 0 && 
-                           product.private_labeling == 0 && 
-                           product.turnkey_solutions == 0 && (
-                            <span className="text-[10px] text-[var(--text-muted)]">None</span>
-                          )}
-                        </div>
-                      </td>
-
                       <td className="px-5 py-4">
                         <span
                           className={`px-2 py-1 rounded-full text-[10px] font-bold uppercase tracking-wide ${
-                            product.status == "active"
+                            blog.status == '1'
                               ? 'bg-emerald-500/10 text-emerald-400'
                               : 'bg-red-500/10 text-red-400'
                           }`}
                         >
-                          {product.status == "active" ? 'Active' : 'Inactive'}
+                          {blog.status == '1' ? 'Active' : 'Inactive'}
                         </span>
                       </td>
 
                       <td className="px-5 py-4">
                         <div className="flex justify-end gap-2">
-                            <button
+                            {/* <button
                             onClick={() => openFAQModal(product)}
                             className="p-2 text-emerald-400 hover:bg-emerald-500/10 rounded-lg"
                             title="Manage FAQs"
@@ -576,9 +454,9 @@ const [htmlContent, setHtmlContent] = useState('');
                               <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
                               <line x1="12" y1="17" x2="12.01" y2="17" />
                             </svg>
-                          </button>
+                          </button> */}
                           <button
-                            onClick={() => openModal(product)}
+                            onClick={() => openModal(blog)}
                             className="p-2 text-sky-400 hover:bg-sky-500/10 rounded-lg"
                           >
                             <svg
@@ -595,7 +473,7 @@ const [htmlContent, setHtmlContent] = useState('');
                           </button>
 
                           <button
-                            onClick={() => handleDelete(product.id)}
+                            onClick={() => handleDelete(blog.id)}
                             className="p-2 text-red-400 hover:bg-red-500/10 rounded-lg"
                           >
                             <svg
@@ -657,7 +535,7 @@ const [htmlContent, setHtmlContent] = useState('');
             {/* HEADER */}
             <div className="flex items-center justify-between p-5 border-b border-[var(--border-color)]">
               <h2 className="text-xl font-bold text-[var(--text-primary)]">
-                {editingProduct ? 'Update Product' : 'Create Product'}
+                {editingBlog ? 'Update Blog' : 'Create Blog'}
               </h2>
               <button
                 onClick={closeModal}
@@ -673,46 +551,22 @@ const [htmlContent, setHtmlContent] = useState('');
                 {/* Two Column Layout */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   
-                  {/* CATEGORY */}
+                  {/* TITLE */}
                   <div>
                     <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                      Category <span className="text-red-400">*</span>
-                    </label>
-                    <select
-                      required
-                      value={formData.category_id}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          category_id: e.target.value,
-                        })
-                      }
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                    >
-                      <option value="">Select Category</option>
-                      {categories.map((category) => (
-                        <option key={category.id} value={category.id}>
-                          {category.name}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  {/* NAME */}
-                  <div>
-                    <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                      Product Name <span className="text-red-400">*</span>
+                      Title / H1 <span className="text-red-400">*</span>
                     </label>
                     <input
                       type="text"
                       required
-                      value={formData.name}
+                      value={formData.h1}
                       onChange={(e) =>
                         setFormData({
                           ...formData,
-                          name: e.target.value,
+                          h1: e.target.value,
                         })
                       }
+                      placeholder="Blog Title / H1"
                       className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
                     />
                   </div>
@@ -732,7 +586,7 @@ const [htmlContent, setHtmlContent] = useState('');
                         })
                       }
                       className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      placeholder="auto-generated from name"
+                      placeholder="auto-generated from title"
                     />
                   </div>
 
@@ -755,214 +609,26 @@ const [htmlContent, setHtmlContent] = useState('');
                     />
                   </div>
 
-                  {/* h1 title */}
+                  {/* excerpt */}
                   <div>
                     <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                      H1 Title
+                      Excerpt
                     </label>
                     <input
                       type="text"
-                      value={formData.h1_title}
+                      value={formData.excerpt}
                       onChange={(e) =>
                         setFormData({
                           ...formData,
-                          h1_title: e.target.value,
+                          excerpt: e.target.value,
                         })
                       }
                       className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      placeholder="H1 Title"
+                      placeholder="Excerpt"
                     />
                   </div>
-                  {/* MOQ */}
-                  <div>
-                    <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                      Minimum Order Quantity (MOQ)
-                    </label>
-                    <input
-                      type="number"
-                      value={formData.moq}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          moq: e.target.value,
-                        })
-                      }
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      placeholder="0"
-                    />
-                  </div>
-
-                  {/* PACKAGING SIZE */}
-                  <div>
-                    <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                      Packaging Size
-                    </label>
-                    <input
-                      type="text"
-                      value={formData.packaging_size}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          packaging_size: e.target.value,
-                        })
-                      }
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      placeholder="e.g., 250ml, 500g, 1kg"
-                    />
-                  </div>
-
-                  {/* PACKAGING TYPE */}
-                  <div>
-                    <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                      Packaging Type
-                    </label>
-                    
-                    <input
-                      type="text"
-                      value={formData.packaging_type}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          packaging_type: e.target.value,
-                        })
-                      }
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      placeholder="e.g., Bottle, Pouch, Box"
-                    />
-                  </div>
-
-                </div>
-
-                {/* Services Section */}
-                <div className="border-t border-[var(--border-color)] pt-4">
-                  <label className="block text-xs font-bold mb-3 text-[var(--text-secondary)] uppercase">
-                    Available Services
-                  </label>
-                  <div className="flex flex-wrap gap-4">
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={formData.customized_formulations == 1}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            customized_formulations: e.target.checked ? 1 : 0,
-                          })
-                        }
-                        className="w-4 h-4 rounded border-[var(--border-color)]"
-                      />
-                      <span className="text-sm text-[var(--text-primary)]">Customized Formulations</span>
-                    </label>
-                    
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={formData.private_labeling == 1}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            private_labeling: e.target.checked ? 1 : 0,
-                          })
-                        }
-                        className="w-4 h-4 rounded border-[var(--border-color)]"
-                      />
-                      <span className="text-sm text-[var(--text-primary)]">Private Labeling</span>
-                    </label>
-                    
-                    <label className="flex items-center gap-2">
-                      <input
-                        type="checkbox"
-                        checked={formData.turnkey_solutions == 1}
-                        onChange={(e) =>
-                          setFormData({
-                            ...formData,
-                            turnkey_solutions: e.target.checked ? 1 : 0,
-                          })
-                        }
-                        className="w-4 h-4 rounded border-[var(--border-color)]"
-                      />
-                      <span className="text-sm text-[var(--text-primary)]">Turnkey Solutions</span>
-                    </label>
-                  </div>
-                </div>
-
-                {/* BENEFITS */}
-                <div>
-                  <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                    Benefits
-                  </label>
-                  <textarea
-                    rows={3}
-                    value={formData.benefits}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        benefits: e.target.value,
-                      })
-                    }
-                    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                    placeholder="List product benefits (one per line)"
-                  />
-                </div>
-                      {/* INGREDIENTS - Multi-select */}
-<div className="md:col-span-2 hidden">
-  <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-    Ingredients
-  </label>
-  <select
-    multiple
-    value={formData.ingredients}
-    onChange={(e) => {
-      const selectedOptions = Array.from(e.target.selectedOptions, option => option.value);
-      setFormData({
-        ...formData,
-        ingredients: selectedOptions,
-      });
-    }}
-    className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm max-h-[120px] overflow-y-auto"
-  >
-    {staticIngredients.map((ingredient) => (
-      <option 
-        key={ingredient.slug} 
-        value={ingredient.slug}
-        className="py-2 px-3 hover:bg-[var(--bg-primary)]"
-      >
-        {ingredient.name}
-      </option>
-    ))}
-  </select>
-  <p className="text-xs text-[var(--text-muted)] mt-1">
-    Hold Ctrl/Cmd to select multiple ingredients
-  </p>
-  
-  {/* Selected Ingredients Tags */}
-  {formData.ingredients.length > 0 && (
-    <div className="flex flex-wrap gap-1 mt-2">
-      {formData.ingredients.map((slug) => {
-        const ingredient = staticIngredients.find(i => i.slug === slug);
-        return ingredient ? (
-          <span key={slug} className="px-2 py-1 bg-blue-500/10 text-blue-400 rounded text-xs flex items-center gap-1">
-            {ingredient.name}
-            <button
-              type="button"
-              onClick={() => {
-                setFormData({
-                  ...formData,
-                  ingredients: formData.ingredients.filter(s => s !== slug),
-                });
-              }}
-              className="hover:text-red-400 ml-1"
-            >
-              ×
-            </button>
-          </span>
-        ) : null;
-      })}
-    </div>
-  )}
-</div>
 {/* DESCRIPTION */}
-<div>
+<div className="md:col-span-2">
   <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
     Full Description
   </label>
@@ -1063,7 +729,7 @@ const [htmlContent, setHtmlContent] = useState('');
 </div>
 
                 {/* SEO Section */}
-                <div className="border-t border-[var(--border-color)] pt-4">
+                <div className="border-t border-[var(--border-color)] pt-4 md:col-span-2">
                   <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-3">SEO Settings</h3>
                   
                   {/* META TITLE */}
@@ -1081,8 +747,7 @@ const [htmlContent, setHtmlContent] = useState('');
                         })
                       }
                       className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      maxLength={60}
-                      placeholder="SEO title (60 chars max)"
+                      placeholder="SEO title"
                     />
                   </div>
 
@@ -1101,8 +766,7 @@ const [htmlContent, setHtmlContent] = useState('');
                         })
                       }
                       className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      maxLength={160}
-                      placeholder="SEO description (160 chars max)"
+                      placeholder="SEO description"
                     />
                   </div>
                   {/* STATUS */}
@@ -1120,14 +784,14 @@ const [htmlContent, setHtmlContent] = useState('');
                       }
                       className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
                     >
-                      <option value="active">Active</option>
-                      <option value="inactive">Inactive</option>
+                      <option value="1">Active</option>
+                      <option value="0">Inactive</option>
                     </select>
                   </div>
                 </div>
 
               </div>
-
+               </div>
               {/* FOOTER */}
               <div className="p-5 border-t border-[var(--border-color)] flex gap-3">
                 <button
@@ -1141,19 +805,20 @@ const [htmlContent, setHtmlContent] = useState('');
                   type="submit"
                   className="flex-1 py-3 rounded-xl btn-primary text-white font-semibold"
                 >
-                  {editingProduct ? 'Update Product' : 'Save Product'}
+                  {editingBlog ? 'Update Blog' : 'Save Blog'}
                 </button>
               </div>
+              
             </form>
           </div>
         </div>
       )}
-      {/* FAQ MODAL */}
-      {showFAQModal && editingProduct && (
+       {/* FAQ MODAL */}
+      {/* {showFAQModal && editingProduct && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-md flex items-center justify-center z-[9999] p-4">
           <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-3xl w-full max-w-4xl max-h-[90vh] overflow-hidden">
 
-            {/* HEADER */}
+            
             <div className="flex items-center justify-between p-5 border-b border-[var(--border-color)]">
               <div>
                 <h2 className="text-xl font-bold text-[var(--text-primary)]">
@@ -1172,8 +837,7 @@ const [htmlContent, setHtmlContent] = useState('');
             </div>
 
             <div className="p-6 max-h-[calc(80vh-120px)] overflow-y-auto">
-              
-              {/* FAQ Form */}
+             
               <form onSubmit={handleFAQSubmit} className="mb-8 p-4 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)]">
                 <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-4">
                   {editingFAQ ? 'Edit FAQ' : 'Add New FAQ'}
@@ -1265,7 +929,7 @@ const [htmlContent, setHtmlContent] = useState('');
                 </div>
               </form>
 
-              {/* FAQ List */}
+          
               <div>
                 <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-4">
                   Existing FAQs ({faqs.length})
@@ -1343,7 +1007,7 @@ const [htmlContent, setHtmlContent] = useState('');
 
             </div>
 
-            {/* FOOTER */}
+         
             <div className="p-5 border-t border-[var(--border-color)] flex justify-end">
               <button
                 onClick={closeFAQModal}
@@ -1354,7 +1018,8 @@ const [htmlContent, setHtmlContent] = useState('');
             </div>
           </div>
         </div>
-      )}
+      )} */}
+     
     </>
   );
 }

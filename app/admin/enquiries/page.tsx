@@ -6,10 +6,8 @@ interface Enquiry {
   id: number;
   name: string;
   phone: string;
-  company: string | null;
   email: string | null;
-  product_type: string | null;
-  qty: string | null;
+  inquiry_type: string | null;
   message: string | null;
   created_at: string;
 }
@@ -103,10 +101,8 @@ export default function EnquiriesPage() {
                   <th className="px-5 py-4">ID</th>
                   <th className="px-5 py-4">Name</th>
                   <th className="px-5 py-4">Phone</th>
-                  <th className="px-5 py-4">Company</th>
                   <th className="px-5 py-4">Email</th>
-                  <th className="px-5 py-4">Product Type</th>
-                  <th className="px-5 py-4">Qty</th>
+                  <th className="px-5 py-4">Inquiry Type</th>
                   <th className="px-5 py-4">Message</th>
                   <th className="px-5 py-4">Date</th>
                   <th className="px-5 py-4 text-right">Actions</th>
@@ -147,17 +143,11 @@ export default function EnquiriesPage() {
                       <td className="px-5 py-4 text-sm text-[var(--text-secondary)]">
                         {enquiry.phone}
                       </td>
-<td className="px-5 py-4 text-sm text-[var(--text-secondary)]">
-                        {enquiry.company}
-                      </td>
                       <td className="px-5 py-4 text-sm text-[var(--text-secondary)]">
                         {enquiry.email}
                       </td>
                       <td className="px-5 py-4 text-sm text-[var(--text-secondary)]">
-                        {enquiry.product_type}
-                      </td>
-                      <td className="px-5 py-4 text-sm text-[var(--text-secondary)]">
-                        {enquiry.qty}
+                        {enquiry.inquiry_type}
                       </td>
                       <td className="px-5 py-4 max-w-xs break-words text-sm text-[var(--text-secondary)]">
                     {enquiry.message}
