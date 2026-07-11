@@ -117,7 +117,7 @@ const Navbar = () => {
             <div className="flex items-center gap-8">
               <div className="flex items-center gap-2 text-xs font-semibold text-white/80 tracking-widest">
                 <Clock size={14} className="text-secondary" />
-                <span>{t.navbar.workingHours}</span>
+                <span>Lun-ven (08:00-17:00)</span>
               </div>
               <div className="w-[1px] h-4 bg-white/20" />
               <div className="flex items-center gap-6">
@@ -417,7 +417,7 @@ const Navbar = () => {
         <div className="px-6 py-3 bg-primary/20 border-b border-white/5 flex items-center gap-4 flex-shrink-0">
           <div className="flex items-center gap-2 text-white/70 text-xs">
             <Clock size={12} className="text-secondary" />
-            <span>{t.navbar.workingHours}</span>
+            <span>Lun-ven (08:00-17:00)</span>
           </div>
           <div className="w-px h-4 bg-white/20" />
           <a href="tel:+393391192817" className="flex items-center gap-2 text-white/70 text-xs hover:text-secondary transition-colors">
