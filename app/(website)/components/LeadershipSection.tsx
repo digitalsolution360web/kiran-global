@@ -7,7 +7,7 @@ import { useLanguage } from "../context/LanguageContext";
 
 const LeadershipSection = () => {
   const { t } = useLanguage();
-  const leadersImages = ["/chairman-pic.webp", "/atul.webp", "/rufus.webp"];
+  const leadersImages = ["/chair.webp", "/atul.webp", "/rufus.webp"];
   return (
     <section className="py-14 bg-white relative overflow-hidden" id="leadership">
       <div className="max-w-[1700px] mx-auto px-6 lg:px-12 relative z-10">
@@ -30,7 +30,7 @@ const LeadershipSection = () => {
               transition={{ delay: idx * 0.2, duration: 0.8 }}
               className="group"
             >
-              <div className="relative h-[450px] w-full rounded-[2rem] overflow-hidden mb-6 shadow-lg">
+              <div className="relative h-[650px] w-full rounded-[2rem] overflow-hidden mb-6 shadow-lg">
                 {/* Using some nice abstract chemical/glass imagery for leaders if portraits not available */}
                 <Image src={leadersImages[idx]} alt={leader.name} fill className="object-cover transition-transform duration-700 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent opacity-80" />
