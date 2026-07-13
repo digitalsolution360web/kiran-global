@@ -30,9 +30,9 @@ export default function ContactPage() {
   const cp = t.contactPage;
 
   const contactInfo = [
-    { title: cp.callTitle, value: "+39 3391192817", link: "tel:+393391192817", icon: <Phone size={20} />, color: "bg-blue-50 text-blue-600" },
-    { title: cp.emailTitle, value: "ettore@kiranitalia.it", link: "mailto:ettore@kiranitalia.it", icon: <Mail size={20} />, color: "bg-amber-50 text-amber-600" },
-    { title: cp.officeTitle, value: cp.officeAddress, link: "https://maps.google.com/?q=SP12ii,+12,+95040+Motta+Sant'Anastasia+CT,+Italy", icon: <MapPin size={20} />, color: "bg-emerald-50 text-emerald-600" },
+    { title: cp.callTitle, value: "+39 3391192817", link: "tel:+393391192817", icon: <Phone size={20} />, color: "bg-blue-50 text-blue-600", extra: null },
+    { title: cp.emailTitle, value: "ettore@kiranitalia.it", link: "mailto:ettore@kiranitalia.it", icon: <Mail size={20} />, color: "bg-amber-50 text-amber-600", extra: { value: "info@kiranitalia.it", link: "mailto:info@kiranitalia.it" } },
+    { title: cp.officeTitle, value: cp.officeAddress, link: "https://maps.google.com/?q=SP12ii,+12,+95040+Motta+Sant'Anastasia+CT,+Italy", icon: <MapPin size={20} />, color: "bg-emerald-50 text-emerald-600", extra: null },
   ];
 
   return (
@@ -66,9 +66,8 @@ export default function ContactPage() {
             <div className="lg:w-2/5 space-y-12">
               <div className="space-y-6">
                 {contactInfo.map((info, idx) => (
-                  <motion.a
+                  <motion.div
                     key={idx}
-                    href={info.link}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: idx * 0.1 }}
@@ -78,11 +77,17 @@ export default function ContactPage() {
                       {info.icon}
                     </div>
                     <div>
-                      <h4 className="text-gray-400 font-bold
-                       tracking-widest text-[9px] mb-1">{info.title}</h4>
-                      <p className="text-base font-bold text-dark group-hover:text-primary transition-colors leading-tight">{info.value}</p>
+                      <h4 className="text-gray-400 font-bold tracking-widest text-[9px] mb-1">{info.title}</h4>
+                      <a href={info.link} className="text-base font-bold text-dark hover:text-primary transition-colors leading-tight block">
+                        {info.value}
+                      </a>
+                      {info.extra && (
+                        <a href={info.extra.link} className="text-base font-bold text-dark hover:text-primary transition-colors leading-tight block mt-1">
+                          {info.extra.value}
+                        </a>
+                      )}
                     </div>
-                  </motion.a>
+                  </motion.div>
                 ))}
               </div>
 

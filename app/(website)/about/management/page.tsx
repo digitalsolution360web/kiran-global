@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { Users, Award, Target } from "lucide-react";
 import { useLanguage } from "../../context/LanguageContext";
 
-const leaderImages = ["/chairman-pic.webp", "/atul.webp", "/rufus.webp"];
+const leaderImages = ["/chair.webp", "/atul.webp", "/rufus.webp"];
 const valueIcons = [Target, Users, Award];
 
 export default function ManagementPage() {
@@ -68,7 +68,7 @@ export default function ManagementPage() {
               >
                 {/* Photo Card */}
                 <div className="relative overflow-hidden rounded-2xl shadow-xl border border-gray-100 mb-6 aspect-[3/4] bg-gray-50">
-                  <Image src={leaderImages[i]} alt={leader.name} fill className="object-cover object-top grayscale group-hover:grayscale-0 transition-all duration-700 group-hover:scale-105" />
+                  <Image src={leaderImages[i]} alt={leader.name} fill className="object-cover object-top" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   {/* Badge on hover */}
                   <div className="absolute top-4 left-4 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0">

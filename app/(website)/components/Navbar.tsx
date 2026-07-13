@@ -135,6 +135,13 @@ const Navbar = () => {
                   <Mail size={14} className="text-secondary" />
                   ettore@kiranitalia.it
                 </a>
+                <a
+                  href="mailto:info@kiranitalia.it"
+                  className="text-xs font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-wider"
+                >
+                  <Mail size={14} className="text-secondary" />
+                  info@kiranitalia.it
+                </a>
               </div>
             </div>
             <div className="flex items-center gap-6">
@@ -540,6 +547,9 @@ const Navbar = () => {
               <p className="text-white/30 text-[9px] font-black uppercase tracking-widest mb-1.5">{t.navbar.email}</p>
               <a href="mailto:ettore@kiranitalia.it" className="text-white font-bold text-[11px] hover:text-secondary transition-colors break-all text-xs">
                 ettore@kiranitalia.it
+              </a>
+              <a href="mailto:info@kiranitalia.it" className="text-white font-bold text-[11px] hover:text-secondary transition-colors break-all text-xs mt-1 block">
+                info@kiranitalia.it
               </a>
             </div>
           </div>

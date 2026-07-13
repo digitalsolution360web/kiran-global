@@ -126,9 +126,12 @@ const Footer = () => {
                 </div>
               </div>
 
-              <div className="pt-2">
-                <a href="https://www.kiranitalia.it" target="_blank" rel="noopener noreferrer" className="text-[#0a4da2] hover:text-[#f9b115] text-xs font-bold underline transition-colors">
+              <div className="pt-2 space-y-2">
+                <a href="https://www.kiranitalia.it" target="_blank" rel="noopener noreferrer" className="text-[#0a4da2] hover:text-[#f9b115] text-xs font-bold underline transition-colors block">
                   www.kiranitalia.it
+                </a>
+                <a href="mailto:info@kiranitalia.it" className="text-gray-400 hover:text-[#f9b115] transition-colors flex items-center gap-2 text-[11px]">
+                  <Mail size={12} className="text-[#f9b115]" /> info@kiranitalia.it
                 </a>
               </div>
             </div>
