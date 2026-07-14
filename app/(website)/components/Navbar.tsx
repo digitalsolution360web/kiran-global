@@ -128,13 +128,7 @@ const Navbar = () => {
                   <Phone size={14} className="text-secondary" />
                   +39 3391192817
                 </a>
-                <a
-                  href="mailto:ettore@kiranitalia.it"
-                  className="text-xs font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-wider"
-                >
-                  <Mail size={14} className="text-secondary" />
-                  ettore@kiranitalia.it
-                </a>
+
                 <a
                   href="mailto:info@kiranitalia.it"
                   className="text-xs font-bold text-white hover:text-secondary transition-all flex items-center gap-2 tracking-wider"

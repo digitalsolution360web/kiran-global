@@ -29,9 +29,18 @@ export default function ContactPage() {
   const { t } = useLanguage();
   const cp = t.contactPage;
 
-  const contactInfo = [
+  interface ContactInfoItem {
+    title: string;
+    value: string;
+    link: string;
+    icon: React.ReactNode;
+    color: string;
+    extra: { value: string; link: string } | null;
+  }
+
+  const contactInfo: ContactInfoItem[] = [
     { title: cp.callTitle, value: "+39 3391192817", link: "tel:+393391192817", icon: <Phone size={20} />, color: "bg-blue-50 text-blue-600", extra: null },
-    { title: cp.emailTitle, value: "ettore@kiranitalia.it", link: "mailto:ettore@kiranitalia.it", icon: <Mail size={20} />, color: "bg-amber-50 text-amber-600", extra: { value: "info@kiranitalia.it", link: "mailto:info@kiranitalia.it" } },
+    { title: cp.emailTitle, value: "info@kiranitalia.it", link: "mailto:info@kiranitalia.it", icon: <Mail size={20} />, color: "bg-amber-50 text-amber-600", extra: null },
     { title: cp.officeTitle, value: cp.officeAddress, link: "https://maps.google.com/?q=SP12ii,+12,+95040+Motta+Sant'Anastasia+CT,+Italy", icon: <MapPin size={20} />, color: "bg-emerald-50 text-emerald-600", extra: null },
   ];
 
