@@ -664,6 +664,7 @@ export default function BlogsPage() {
             description: value,
           })
         }
+        className="custom-quill"
         modules={modules}
         placeholder="Detailed product description"
       />

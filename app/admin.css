@@ -315,7 +315,7 @@ body {
 /* HTML Editor custom styles */
 .ql-html-textArea.ql-container {
   min-height: 200px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #0d948826;
   border-radius: 12px;
   background: #ffffff;
   font-size: 14px;
@@ -354,4 +354,28 @@ body {
   .ql-html-textArea .ql-editor.ql-blank::before {
     color: #6b7280;
   }
+}
+/* Toolbar icons */
+.custom-quill .ql-toolbar .ql-stroke {
+  stroke: #fff !important;
+}
+
+.custom-quill .ql-toolbar .ql-fill {
+  fill: #fff !important;
+}
+
+.custom-quill .ql-toolbar .ql-picker {
+  color: #fff !important;
+}
+
+.custom-quill .ql-toolbar .ql-picker-label {
+  color: #fff !important;
+}
+.custom-quill .ql-container {
+  border: 1px solid #444;
+  min-height: 120px;
+}
+.custom-quill .ql-editor.ql-blank::before {
+  color: rgba(255, 255, 255, 0.6) !important;
+  font-style: normal;
 }
