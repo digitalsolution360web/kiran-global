@@ -1,7 +1,8 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useState,  useCallback } from 'react';
 import dynamic from 'next/dynamic';
+import { useDropzone } from 'react-dropzone';
 import 'react-quill-new/dist/quill.snow.css';
 
 const ReactQuill = dynamic(
@@ -35,6 +36,7 @@ export default function BlogsPage() {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
+  const [uploading, setUploading] = useState(false);
 
   const [showHtmlEditor, setShowHtmlEditor] = useState(false);
   const [htmlContent, setHtmlContent] = useState('');
@@ -116,6 +118,50 @@ export default function BlogsPage() {
       setLoading(false);
     }
   };
+    // Image upload handler
+  const onDrop = useCallback(async (acceptedFiles: File[]) => {
+    const file = acceptedFiles[0];
+    if (!file) return;
+
+    setUploading(true);
+
+    try {
+      const formData = new FormData();
+      formData.append('file', file);
+
+      const res = await fetch('/api/blogs/upload', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        // Update the image field with the Cloudflare URL
+        setFormData(prev => ({
+          ...prev,
+          image: data.url
+        }));
+        alert('Image uploaded successfully!');
+      } else {
+        alert('Failed to upload image: ' + data.error);
+      }
+    } catch (error) {
+      console.error('Upload error:', error);
+      alert('Failed to upload image');
+    } finally {
+      setUploading(false);
+    }
+  }, []);
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({
+    onDrop,
+    accept: {
+      'image/*': ['.jpeg', '.jpg', '.png', '.gif', '.webp', '.svg']
+    },
+    maxSize: 5 * 1024 * 1024, // 5MB
+    multiple: false,
+  });
 
   //  const fetchFAQs = async (productId: number) => {
   //   setLoadingFAQs(true);
@@ -590,24 +636,92 @@ export default function BlogsPage() {
                     />
                   </div>
 
-                  {/* IMAGE URL */}
-                  <div>
+                   {/* IMAGE UPLOAD */}
+                  <div className="md:col-span-2">
                     <label className="block text-xs font-bold mb-2 text-[var(--text-secondary)] uppercase">
-                      Image URL
+                      Blog Image
                     </label>
-                    <input
-                      type="text"
-                      value={formData.image}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          image: e.target.value,
-                        })
-                      }
-                      className="w-full bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-3 px-4 text-sm"
-                      placeholder="https://example.com/image.jpg"
-                    />
+                    
+                    {/* Drag & Drop Zone */}
+                    <div
+                      {...getRootProps()}
+                      className={`border-2 border-dashed rounded-xl p-6 text-center cursor-pointer transition-all ${
+                        isDragActive 
+                          ? 'border-teal-500 bg-teal-500/10' 
+                          : 'border-[var(--border-color)] hover:border-teal-500'
+                      } ${uploading ? 'opacity-50 pointer-events-none' : ''}`}
+                    >
+                      <input {...getInputProps()} />
+                      
+                      {uploading ? (
+                        <div className="flex flex-col items-center gap-2">
+                          <svg className="animate-spin h-8 w-8 text-teal-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                          </svg>
+                          <span className="text-sm text-[var(--text-secondary)]">Uploading...</span>
+                        </div>
+                      ) : (
+                        <>
+                          <svg className="mx-auto h-12 w-12 text-[var(--text-muted)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+                          </svg>
+                          <p className="text-sm text-[var(--text-secondary)] mt-2">
+                            {isDragActive ? 'Drop the image here...' : 'Drag & drop an image here, or click to select'}
+                          </p>
+                          <p className="text-xs text-[var(--text-muted)] mt-1">
+                            Supports: JPG, PNG, GIF, WEBP, SVG (Max 5MB)
+                          </p>
+                        </>
+                      )}
+                    </div>
+
+                    {/* Image Preview */}
+                    {formData.image && (
+                      <div className="mt-3 flex items-center gap-3 p-3 bg-[var(--bg-secondary)] rounded-xl border border-[var(--border-color)]">
+                        <img
+                          src={formData.image}
+                          alt="Preview"
+                          className="w-16 h-16 rounded-lg object-cover border border-[var(--border-color)]"
+                        />
+                        <div className="flex-1 min-w-0">
+                          <p className="text-sm font-medium text-[var(--text-primary)] truncate">
+                            {formData.image.split('/').pop() || 'Image uploaded'}
+                          </p>
+                          <p className="text-xs text-[var(--text-muted)] truncate">
+                            {formData.image}
+                          </p>
+                        </div>
+                        <button
+                          type="button"
+                          onClick={() => setFormData({ ...formData, image: '' })}
+                          className="p-1 text-red-400 hover:text-red-500 transition-colors"
+                        >
+                          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <line x1="18" y1="6" x2="6" y2="18" />
+                            <line x1="6" y1="6" x2="18" y2="18" />
+                          </svg>
+                        </button>
+                      </div>
+                    )}
+  {/* OR - Manual URL input */}
+                    <div className="mt-3 flex items-center gap-3">
+                      <span className="text-xs text-[var(--text-muted)]">OR</span>
+                      <input
+                        type="text"
+                        value={formData.image}
+                        onChange={(e) =>
+                          setFormData({
+                            ...formData,
+                            image: e.target.value,
+                          })
+                        }
+                        className="flex-1 bg-[var(--bg-secondary)] border border-[var(--border-color)] rounded-xl py-2 px-4 text-sm"
+                        placeholder="Enter image URL manually"
+                      />
+                    </div>
                   </div>
+
 
                   {/* excerpt */}
                   <div>
