@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Phone, Mail, MapPin, Send, Clock, ArrowRight } from "lucide-react";
 import Image from "next/image";
@@ -44,6 +44,61 @@ export default function ContactPage() {
     { title: cp.officeTitle, value: cp.officeAddress, link: "https://maps.google.com/?q=SP12ii,+12,+95040+Motta+Sant'Anastasia+CT,+Italy", icon: <MapPin size={20} />, color: "bg-emerald-50 text-emerald-600", extra: null },
   ];
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    inquiry_type: cp.inquiryOptions?.[0] || "General Inquiry",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState("");
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement
+    >
+  ) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (
+    e: React.FormEvent<HTMLFormElement>
+  ) => {
+    e.preventDefault();
+
+    try {
+      setLoading(true);
+      setSuccess("");
+      const response = await fetch("/api/enquiries", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+       
+      if (!response.ok) {
+         setSuccess("Something went wrong.");
+      }
+      setSuccess("Your message has been sent successfully.");
+      setFormData({
+        name: "",
+        phone: "",
+        email: "",
+        inquiry_type: cp.inquiryOptions?.[0] || "General Inquiry",
+        message: "",
+      });
+    } catch (error) {
+      console.error(error);
+      // alert("Failed to submit form");
+    } finally {
+      setLoading(false);
+    }
+  };
   return (
     <main className="min-h-screen bg-white selection:bg-primary/10">
 
@@ -142,38 +197,67 @@ export default function ContactPage() {
                   <p className="text-gray-400 text-sm">{cp.formRequired}</p>
                 </div>
 
-                <form className="space-y-8">
+                <form className="space-y-8" onSubmit={handleSubmit}>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">{cp.fieldName}</label>
-                      <input type="text" required className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border" placeholder={cp.namePlaceholder} />
+                      <input type="text"   
+                        name="name"                      
+                        value={formData.name}
+                        onChange={handleChange}
+                        required className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border" placeholder={cp.namePlaceholder} />
                     </div>
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">{cp.fieldEmail}</label>
-                      <input type="email" required className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border" placeholder={cp.emailPlaceholder} />
+                      <input type="email" 
+                        name="email"                        
+                        value={formData.email}
+                        onChange={handleChange}
+                        required className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border" placeholder={cp.emailPlaceholder} />
                     </div>
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">{cp.fieldPhone}</label>
-                      <input type="tel" className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border" placeholder={cp.phonePlaceholder} />
+                      <input type="tel"   
+                        name="phone"                      
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border" placeholder={cp.phonePlaceholder} />
                     </div>
                     <div className="space-y-2">
                       <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">{cp.fieldInquiry}</label>
-                      <select className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-bold text-gray-700 border appearance-none">
+                      <select className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-bold text-gray-700 border appearance-none" name="inquiry_type" value={formData.inquiry_type}
+                        onChange={handleChange}>
                         {cp.inquiryOptions.map((opt, i) => <option key={i}>{opt}</option>)}
                       </select>
                     </div>
                   </div>
                   <div className="space-y-2">
                     <label className="text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">{cp.fieldMessage}</label>
-                    <textarea rows={5} required className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border resize-none" placeholder={cp.messagePlaceholder}></textarea>
+                    <textarea rows={5} 
+                        name="message"                        
+                        value={formData.message}
+                        onChange={handleChange}
+                        required className="w-full px-6 py-4 bg-slate-50 border-transparent focus:border-primary focus:bg-white rounded-2xl outline-none transition-all font-semibold text-gray-700 border resize-none" placeholder={cp.messagePlaceholder}/>
                   </div>
-                  <button className="w-full py-5 bg-primary text-white rounded-2xl font-black uppercase tracking-widest hover:bg-dark transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 group text-xs overflow-hidden relative">
+                  <button className="w-full py-5 bg-primary text-white rounded-2xl font-black uppercase tracking-widest hover:bg-dark transition-all shadow-xl shadow-primary/20 flex items-center justify-center gap-3 group text-xs overflow-hidden relative" type="submit" disabled={loading}>
                     <motion.div className="absolute inset-0 bg-secondary translate-x-[-100%]" whileHover={{ x: 0 }} transition={{ duration: 0.4 }} />
                     <span className="relative z-10 flex items-center gap-2">
-                      {cp.submitBtn}
+                      
+                      {loading ? "Submitting..." : cp.submitBtn}
+                    
                       <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                     </span>
                   </button>
+                  {success && (
+                      <div className={`mt-4 p-4 rounded-2xl flex items-center gap-3 ${
+                        success.startsWith("✅") 
+                          ? "bg-green-50 border border-green-200 text-green-700" 
+                          : "bg-red-50 border border-red-200 text-red-700"
+                      }`}>
+                        <span className="text-xl">{success.startsWith("✅") ? "✅" : "❌"}</span>
+                        <p className="text-sm font-medium">{success}</p>
+                      </div>
+                    )}
                 </form>
               </motion.div>
             </div>
