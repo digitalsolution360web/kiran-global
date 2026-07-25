@@ -150,7 +150,7 @@ export default function BlogDetailPage() {
       {/* ── ARTICLE BODY ── */}
       <section className="py-12 bg-white relative">
         <div className="max-w-[1700px] mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-12 gap-20">
+          <div className="lg:grid lg:grid-cols-12 gap-20">
 
             {/* Primary Content Column */}
             <div className="lg:col-span-8">
