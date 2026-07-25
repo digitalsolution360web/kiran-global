@@ -16,6 +16,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Kiran Italia Chemicals | Global Excellence in Silicates",
   description: "Leading manufacturer of sodium and potassium silicate solutions for industrial applications.",
+  icons: {
+    icon: "/fevicon.png",
+    shortcut: "/fevicon.png",
+    apple: "/fevicon.png",
+  },
 };
 
 

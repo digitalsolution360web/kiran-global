@@ -25,9 +25,10 @@ const BlogsSection = () => {
       try {
         const res = await fetch("/api/frontend/blogs/home");
         const data = await res.json();
-        setBlogs(data.data);
+        setBlogs(Array.isArray(data.data) ? data.data : []);
       } catch (error) {
         console.error("Error fetching blogs:", error);
+        setBlogs([]);
       } finally {
         setLoading(false);
       }
