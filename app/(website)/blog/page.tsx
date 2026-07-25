@@ -141,7 +141,7 @@ const BlogPage = () => {
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.6 }}
                 >
-                  <Link href={`/blog/${blog.slug}`} className="group flex flex-col h-full bg-white rounded-[2rem] border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition-all duration-500 overflow-hidden">
+                  <Link href={`/${blog.slug}`} className="group flex flex-col h-full bg-white rounded-[2rem] border border-gray-100 shadow-[0_10px_40px_rgba(0,0,0,0.02)] hover:shadow-[0_20px_60px_rgba(0,0,0,0.06)] transition-all duration-500 overflow-hidden">
                     {/* Image Container */}
                     <div className="relative h-72 lg:h-80 overflow-hidden">
                       <img

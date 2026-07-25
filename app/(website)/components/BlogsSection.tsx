@@ -102,7 +102,7 @@ const BlogsSection = () => {
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1, duration: 0.6 }}
               >
-                <Link href={`/blog/${blog.slug}`} className="group flex flex-col h-full bg-white rounded-[1rem] border border-gray-100 shadow-[0_15px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.06)] transition-all duration-700 overflow-hidden">
+                <Link href={`/${blog.slug}`} className="group flex flex-col h-full bg-white rounded-[1rem] border border-gray-100 shadow-[0_15px_50px_rgba(0,0,0,0.02)] hover:shadow-[0_30px_70px_rgba(0,0,0,0.06)] transition-all duration-700 overflow-hidden">
                   {/* Image Section */}
                   <div className="relative h-72 overflow-hidden">
                     <img
