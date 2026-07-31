@@ -3,7 +3,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { ChevronRight, X, ChevronLeft, ChevronRight as ChevronRightIcon } from "lucide-react";
-import { useLanguage } from "../../context/LanguageContext";
 import { motion } from "framer-motion";
 
 
