@@ -13,7 +13,7 @@ export async function POST(req: Request) {
   try {
     const formData = await req.formData();
     const file = formData.get("file") as File;
-
+    const folder = formData.get("folder") as string;
     if (!file) {
       return Response.json(
         { success: false, error: "No file uploaded" },
@@ -26,7 +26,7 @@ export async function POST(req: Request) {
 
     // Generate unique filename
     const extension = file.name.split(".").pop();
-    const filename = `blogs/${Date.now()}-${Math.random()
+    const filename = `${folder}/${Date.now()}-${Math.random()
       .toString(36)
       .substring(2)}.${extension}`;
 

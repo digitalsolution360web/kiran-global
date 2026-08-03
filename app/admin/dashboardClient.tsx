@@ -8,7 +8,8 @@ export default function DashboardHome() {
   const [stats, setStats] = useState({
   // categories: 0,
   blogs: 0,
-  enquiries: 0
+  enquiries: 0,
+  galleries: 0
 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
@@ -21,21 +22,24 @@ export default function DashboardHome() {
   const fetchStats = async () => {
     try {
       setLoading(true);
-          const [blogsRes, enquiriesRes] = await Promise.all([
+          const [blogsRes, enquiriesRes, galleriesRes] = await Promise.all([
       // fetch('/api/categories?limit=1'),
       fetch('/api/blogs?limit=1'),
-      fetch('/api/enquiries?limit=1')
+      fetch('/api/enquiries?limit=1'),
+      fetch('/api/gallery?limit=1')
     ]);
 
       
       //  const categories = await categoriesRes.json();
        const blogs = await blogsRes.json();
        const enquiries = await enquiriesRes.json();
+       const galleries = await galleriesRes.json();
 
     setStats({
       // categories: categories.total || 0,
       blogs: blogs.total || 0,
-      enquiries: enquiries.total || 0
+      enquiries: enquiries.total || 0,
+      galleries: galleries.total || 0
     });
 
     setError(false);
@@ -80,6 +84,29 @@ export default function DashboardHome() {
       <path d="M8 9h8" />
       <path d="M8 13h5" />
     </svg>
+    )
+  },
+  {
+    title: 'Total Gallery Images',
+    value: stats.galleries,
+    color: 'var(--accent-emerald)',
+    bg: 'rgba(16,185,129,0.1)',
+    icon: (
+            <svg
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+>
+  <rect x="9" y="9" width="13" height="13" rx="2" />
+  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+  <circle cx="16" cy="15" r="1.5" />
+  <path d="M22 20l-3.5-3.5L13 22" />
+</svg>
     )
   },
 ];
@@ -189,7 +216,39 @@ export default function DashboardHome() {
               <p className="text-[var(--text-secondary)] text-xs md:text-sm">Create, edit, activate or deactivate blog posts.</p>
             </div>
           </Link>
-         
+         <Link
+            href="/admin/gallery"
+            className="group relative overflow-hidden bg-[var(--bg-secondary)] border border-[var(--border-color)] p-5 md:p-6 rounded-xl hover:border-[var(--accent-primary)] transition-all duration-300"
+          >
+            <div className="absolute top-0 right-0 p-4 opacity-5 group-hover:opacity-10 transition-opacity hidden md:block">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+        <path d="M3 7l9-4 9 4-9 4-9-4z" />
+        <path d="M3 17l9 4 9-4" />
+        <path d="M3 12l9 4 9-4" />
+      </svg>
+            </div>
+            <div className="relative z-10">
+              <div className="w-10 h-10 bg-[rgba(99,102,241,0.1)] text-[var(--accent-primary)] rounded-lg flex items-center justify-center mb-4">
+                       <svg
+  width="18"
+  height="18"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+>
+  <rect x="9" y="9" width="13" height="13" rx="2" />
+  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+  <circle cx="16" cy="15" r="1.5" />
+  <path d="M22 20l-3.5-3.5L13 22" />
+</svg>
+              </div>
+              <h3 className="text-base md:text-lg font-semibold text-[var(--text-primary)] mb-1">Manage Gallery Images</h3>
+              <p className="text-[var(--text-secondary)] text-xs md:text-sm">Create or edit gallery images.</p>
+            </div>
+          </Link>
         </div>
       </div>
     </div>
