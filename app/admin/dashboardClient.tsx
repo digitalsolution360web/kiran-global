@@ -4,6 +4,63 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
+
+
+
+import {
+  ResponsiveContainer,
+  BarChart,
+  Bar,
+  LineChart,
+  Line,
+  AreaChart,
+  Area,
+  PieChart,
+  Pie,
+  Cell,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  LabelList,
+} from "recharts";
+
+const blogChart = [
+  { month: "Jan", blogs: 2 },
+  { month: "Feb", blogs: 5 },
+  { month: "Mar", blogs: 8 },
+  { month: "Apr", blogs: 12 },
+  { month: "May", blogs: 15 },
+  { month: "Jun", blogs: 18 },
+];
+
+const enquiryChart = [
+  { month: "Jan", enquiries: 10 },
+  { month: "Feb", enquiries: 18 },
+  { month: "Mar", enquiries: 25 },
+  { month: "Apr", enquiries: 30 },
+  { month: "May", enquiries: 42 },
+  { month: "Jun", enquiries: 55 },
+];
+
+const galleryChart = [
+  { month: "Jan", images: 12 },
+  { month: "Feb", images: 18 },
+  { month: "Mar", images: 25 },
+  { month: "Apr", images: 20 },
+  { month: "May", images: 35 },
+  { month: "Jun", images: 42 },
+  { month: "Jul", images: 30 },
+  { month: "Aug", images: 48 },
+];
+
+const statusData = [
+  { name: "Active", value: 18 },
+  { name: "Inactive", value: 5 },
+];
+
+
+
 export default function DashboardHome() {
   const [stats, setStats] = useState({
   // categories: 0,
@@ -11,6 +68,7 @@ export default function DashboardHome() {
   enquiries: 0,
   galleries: 0
 });
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
   const router = useRouter();
@@ -167,10 +225,9 @@ export default function DashboardHome() {
                   <p className="text-2xl md:text-4xl font-bold text-[var(--text-primary)] mt-1">{stat.value.toLocaleString()}</p>
                 )}
               </div>
-              <div 
-                className="rounded-xl w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white shrink-0"
-                style={{ backgroundColor: stat.bg, color: stat.color }}
-              >
+            <div className="rounded-xl w-12 h-12 md:w-14 md:h-14 flex items-center justify-center text-white shrink-0 bg-gradient-to-br from-emerald-400 via-emerald-600 to-black shadow-lg">
+
+ 
                 {stat.icon}
               </div>
             </div>
@@ -187,7 +244,87 @@ export default function DashboardHome() {
         ))}
       </div>
 
-      <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6 md:p-8 shadow-lg">
+      
+      {/* ================= Dashboard Analytics ================= */}
+<div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mt-4 mb-8">
+
+  {/* Blog Growth */}
+  <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6 shadow-lg">
+    <div className="flex items-center justify-between mb-5">
+      <div>
+        <h3 className="text-lg font-bold text-[var(--text-primary)]">
+          Blog Growth
+        </h3>
+        <p className="text-sm text-[var(--text-secondary)]">
+          Monthly published blogs
+        </p>
+      </div>
+    </div>
+
+    <ResponsiveContainer width="100%" height={300}>
+      <LineChart data={blogChart}>
+        <CartesianGrid strokeDasharray="3 3" stroke="#2d3748" />
+        <XAxis dataKey="month" stroke="#94a3b8" />
+        <YAxis stroke="#94a3b8" />
+        <Tooltip />
+        <Line
+          type="monotone"
+          dataKey="blogs"
+          stroke="#4F8EF7"
+          strokeWidth={4}
+          dot={{ r: 5 }}
+        />
+      </LineChart>
+    </ResponsiveContainer>
+  </div>
+
+  {/* Enquiries */}
+  <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6 shadow-lg">
+    <div className="flex items-center justify-between mb-5">
+      <div>
+        <h3 className="text-lg font-bold text-[var(--text-primary)]">
+          Monthly Enquiries
+        </h3>
+        <p className="text-sm text-[var(--text-secondary)]">
+          Customer enquiries received
+        </p>
+      </div>
+    </div>
+
+    <ResponsiveContainer width="100%" height={300}>
+      <AreaChart data={enquiryChart}>
+        <defs>
+         <linearGradient id="colorEnquiry">
+  <stop offset="5%" stopColor="#7d1554" stopOpacity={0.9}/>
+  <stop offset="95%" stopColor="#6f1c59" stopOpacity={0}/>
+</linearGradient>
+        </defs>
+
+        <CartesianGrid strokeDasharray="3 3" stroke="#2d3748" />
+        <XAxis dataKey="month" stroke="#94a3b8" />
+        <YAxis stroke="#94a3b8" />
+        <Tooltip />
+
+        <Area
+          type="monotone"
+          dataKey="enquiries"
+          stroke="#8b5cf6"
+          strokeWidth={4}
+          fill="url(#colorEnquiry)"
+        />
+      </AreaChart>
+    </ResponsiveContainer>
+  </div>
+
+
+  <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+
+ 
+</div>
+
+</div>
+
+<div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6 md:p-8 shadow-lg">
         <div className="mb-6">
           <h2 className="text-lg md:text-xl font-bold text-[var(--text-primary)]">Quick Actions</h2>
           <p className="text-[var(--text-secondary)] text-xs md:text-sm mt-1">Frequently used management tools</p>
@@ -251,6 +388,131 @@ export default function DashboardHome() {
           </Link>
         </div>
       </div>
+{/* ================= Full Width Gallery Upload Analytics ================= */}
+<div className="w-full bg-[var(--bg-card)] border border-[var(--border-color)] rounded-3xl shadow-xl p-4 sm:p-6 lg:p-8 mb-8">
+
+  {/* Header */}
+  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-8">
+
+    <div>
+      <h2 className="text-xl sm:text-2xl font-bold text-[var(--text-primary)] flex items-center gap-2">
+        📸 Gallery Upload Analytics
+      </h2>
+
+      <p className="text-sm text-[var(--text-secondary)] mt-1">
+        Monthly gallery image uploads overview
+      </p>
     </div>
+
+    <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 via-red-500 to-red-700 flex items-center justify-center shadow-lg">
+      <span className="text-2xl">📷</span>
+    </div>
+
+  </div>
+
+  {/* Chart */}
+  <div className="w-full h-[320px] sm:h-[420px] lg:h-[500px]">
+
+    <ResponsiveContainer width="100%" height="100%">
+
+      <BarChart
+        data={galleryChart}
+        layout="vertical"
+        margin={{
+          top: 10,
+          right: 30,
+          left: 10,
+          bottom: 10,
+        }}
+      >
+
+        {/* Gradient */}
+        <defs>
+
+          <linearGradient id="galleryGradient" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stopColor="#fb923c" />
+            <stop offset="50%" stopColor="#ef4444" />
+            <stop offset="100%" stopColor="#991b1b" />
+          </linearGradient>
+
+        </defs>
+
+        {/* Grid */}
+        <CartesianGrid
+          strokeDasharray="4 4"
+          stroke="#374151"
+          horizontal={false}
+        />
+
+        {/* X Axis */}
+        <XAxis
+          type="number"
+          stroke="#94a3b8"
+          tick={{
+            fill: "#94a3b8",
+            fontSize: 13,
+          }}
+        />
+
+        {/* Y Axis */}
+        <YAxis
+          type="category"
+          dataKey="month"
+          width={80}
+          stroke="#94a3b8"
+          tick={{
+            fill: "#94a3b8",
+            fontSize: 13,
+            fontWeight: 600,
+          }}
+        />
+
+        {/* Tooltip */}
+        <Tooltip
+          cursor={{
+            fill: "rgba(239,68,68,0.08)",
+          }}
+          contentStyle={{
+            borderRadius: "14px",
+            border: "1px solid #ef4444",
+            backgroundColor: "#111827",
+            color: "#fff",
+            boxShadow: "0 10px 25px rgba(0,0,0,.25)",
+          }}
+        />
+
+        {/* Bars */}
+        <Bar
+          dataKey="images"
+          fill="url(#galleryGradient)"
+          radius={[0, 14, 14, 0]}
+          barSize={28}
+        >
+
+          {/* Values on Bar */}
+          <LabelList
+            dataKey="images"
+            position="right"
+            style={{
+              fill: "#ffffff",
+              fontSize: 12,
+              fontWeight: 600,
+            }}
+          />
+
+        </Bar>
+
+      </BarChart>
+
+    </ResponsiveContainer>
+
+  </div>
+
+</div>
+</div>
+
+   
+
+    
   );
 }
